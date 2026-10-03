@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://dlou7t2078ecx"]
+
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="1_mtdud"]
+
+[resource]
+script = ExtResource("1_mtdud")
+absolute_scoring = Dictionary[int, int]({
+0: 2,
+1: 0,
+2: 0
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"

@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://t05wdcm7wbwt"]
+
+[ext_resource type="Script" uid="uid://igyu1wajboa7" path="res://Card/CardObject.gd" id="1_gasdx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ma3f"]
+bg_color = Color(0.66, 0.264, 0.264, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u7pk"]
+bg_color = Color(0.264, 0.66, 0.28379998, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkgq3"]
+bg_color = Color(0.264, 0.31679994, 0.66, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gasdx"]
+
+[node name="Card" type="PanelContainer"]
+custom_minimum_size = Vector2(120, 180)
+script = ExtResource("1_gasdx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Name
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Red" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ma3f")
+
+[node name="RedValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Red"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+
+[node name="Green" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_5u7pk")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Green"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+
+[node name="Blue" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_kkgq3")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Blue"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Grey-1" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey-1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+
+[node name="Grey0" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+
+[node name="Grey1" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
