@@ -9,6 +9,27 @@ var discard:Array[CardData]
 var active_cards:Array[CardDisplay]
 var x_spacing = 25
 
+var card_plays:int = 2:
+	set(v):
+		card_plays = v
+		%"Play Button".text = "Play %s Cards" % card_plays
+	get:
+		return card_plays
+
+#var draw_pile:Pile
+#var discard_pile:Pile
+@onready var draw_pile: Pile = %"Draw Pile"
+@onready var discard_pile: Pile = %"Discard Pile"
+
+func _ready() -> void:
+	draw_pile.array = deck
+	discard_pile.array = discard
+	_update_pile_counts()
+
+func _update_pile_counts():
+	draw_pile.update()
+	discard_pile.update()
+
 func draw_card():
 	var res = deck.pop_front()
 	discard.push_back(res)
@@ -23,11 +44,28 @@ func draw_card():
 	
 	#reshuffle
 	if deck.size() == 0:
-		deck = discard.duplicate()
+		#deck = discard.duplicate()
+		for c in discard: 
+			deck.append(c)
 		deck.shuffle()
 		discard.clear()
+	
+	_update_pile_counts()
 
 
 func _on_button_pressed() -> void:
-	draw_card()
+	play()
 	pass # Replace with function body.
+
+func play():
+	var play_tween = create_tween()
+	for i in range(0,card_plays):
+		play_tween.tween_callback(draw_card).set_delay(0.3)
+	
+	play_tween.tween_interval(2)
+	await play_tween.finished
+	var discard_tween = create_tween().set_parallel(true)
+	for c in active_cards:
+		discard_tween.tween_property(c,"position",discard_pile.position,0.3)
+		discard_tween.chain().tween_callback(c.queue_free)
+	

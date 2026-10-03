@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj2bhoovxyyvx"]
+
+[ext_resource type="Script" uid="uid://58p0rsgl7ftv" path="res://Level/UI/pile_icon.gd" id="1_gtld2"]
+
+[node name="Pile" type="Node2D" node_paths=PackedStringArray("count")]
+script = ExtResource("1_gtld2")
+count = NodePath("Count")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+polygon = PackedVector2Array(0, 0, 0, 180, 140, 180, 140, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(11, 13)
+color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+polygon = PackedVector2Array(0, 0, 0, 180, 140, 180, 140, 0)
+
+[node name="Count" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
