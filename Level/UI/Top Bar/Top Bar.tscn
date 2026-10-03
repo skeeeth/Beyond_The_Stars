@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://7v06mp8tklo5"]
+
+[ext_resource type="PackedScene" uid="uid://coobmrgaiqaa0" path="res://Level/UI/Resource Display.tscn" id="1_qer4y"]
+
+[node name="TopBar" type="PanelContainer"]
+custom_minimum_size = Vector2(1920, 64)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Control" parent="HBoxContainer" instance=ExtResource("1_qer4y")]
+layout_mode = 2
+
+[node name="Control2" parent="HBoxContainer" instance=ExtResource("1_qer4y")]
+layout_mode = 2
+type = 1
+
+[node name="Control3" parent="HBoxContainer" instance=ExtResource("1_qer4y")]
+layout_mode = 2
+type = 2

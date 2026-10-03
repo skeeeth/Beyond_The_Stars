@@ -14,7 +14,7 @@ bg_color = Color(0.264, 0.31679994, 0.66, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gasdx"]
 
 [node name="Card" type="PanelContainer"]
-custom_minimum_size = Vector2(120, 180)
+custom_minimum_size = Vector2(140, 180)
 script = ExtResource("1_gasdx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -22,7 +22,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Name
+text = "Card Name
 "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -52,7 +52,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_5u7pk")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Green"]
+[node name="GreenValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Green"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
@@ -66,7 +66,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_kkgq3")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Blue"]
+[node name="BlueValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Blue"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -80,7 +81,8 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey-1"]
+[node name="Grey-1Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey-1"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -91,7 +93,8 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey0"]
+[node name="Grey0Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey0"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -102,7 +105,8 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey1"]
+[node name="Grey+1Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey1"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0

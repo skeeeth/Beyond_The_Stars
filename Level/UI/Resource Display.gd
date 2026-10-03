@@ -5,6 +5,7 @@ extends Control
 
 func _ready() -> void:
 	RM.value_changed.connect(on_update)
+	label.text = RM.names[type] + str(RM.current[type])
 
 func on_update(t,_v):
 	if t != type: return #dont do anything for other types

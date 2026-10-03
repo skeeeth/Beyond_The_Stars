@@ -1,3 +1,35 @@
-[gd_scene format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=3 format=3 uid="uid://bidnk55kuy1i4"]
+
+[ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
+[ext_resource type="PackedScene" uid="uid://7v06mp8tklo5" path="res://Level/UI/Top Bar/Top Bar.tscn" id="2_e0a3j"]
 
 [node name="World" type="Node2D"]
+
+[node name="Lanes" type="Node2D" parent="."]
+position = Vector2(-2, 92)
+
+[node name="Lane" parent="Lanes" instance=ExtResource("1_hleuw")]
+position = Vector2(153, 31)
+
+[node name="Polygon2D" parent="Lanes/Lane" index="1"]
+color = Color(0.66, 0.264, 0.264, 1)
+
+[node name="Lane2" parent="Lanes" instance=ExtResource("1_hleuw")]
+position = Vector2(156, 331)
+type = 1
+
+[node name="Polygon2D" parent="Lanes/Lane2" index="1"]
+color = Color(0.264, 0.66, 0.28379998, 1)
+
+[node name="Lane3" parent="Lanes" instance=ExtResource("1_hleuw")]
+position = Vector2(162, 625)
+type = 2
+
+[node name="Polygon2D" parent="Lanes/Lane3" index="1"]
+color = Color(0.264, 0.31679994, 0.66, 1)
+
+[node name="TopBar" parent="." instance=ExtResource("2_e0a3j")]
+
+[editable path="Lanes/Lane"]
+[editable path="Lanes/Lane2"]
+[editable path="Lanes/Lane3"]

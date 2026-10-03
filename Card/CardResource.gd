@@ -1,5 +1,5 @@
 extends Resource
-class_name CardResource
+class_name CardData
 
 @export var absolute_scoring:Dictionary[RM.types,int]  = {
 	RM.types.RED: 0,
