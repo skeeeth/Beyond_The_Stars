@@ -16,14 +16,25 @@ static func create_from_data(res:CardData) -> CardDisplay:
 	return new_card
 
 func display():
-	%RedValue.text = str(data.absolute_scoring[RM.types.RED])
-	%GreenValue.text = str(data.absolute_scoring[RM.types.GREEN])
-	%BlueValue.text = str(data.absolute_scoring[RM.types.BLUE])
+	# Set red, blue and green values
+	_set_color_value(%RedValue, str(data.absolute_scoring[RM.types.RED]))
+	_set_color_value(%GreenValue, str(data.absolute_scoring[RM.types.GREEN]))
+	_set_color_value(%BlueValue, str(data.absolute_scoring[RM.types.BLUE]))
 	
-	%"Grey-1Value".text = str(data.relative_scoring[-1])
-	%Grey0Value.text = str(data.relative_scoring[0])
-	%"Grey+1Value".text = str(data.relative_scoring[1])
+	# Set lane specific (grey) values
+	_set_color_value(%"Grey-1Value", str(data.relative_scoring[-1]))
+	_set_color_value(%"Grey0Value", str(data.relative_scoring[0]))
+	_set_color_value(%"Grey+1Value", str(data.relative_scoring[1]))
 
+# hide color box if value is 0, otherwise display value
+func _set_color_value(label: Label, value: String):
+	var int_value = int(value)
+	if int_value == 0:
+		var panel = label.get_parent()
+		panel.self_modulate = Color.TRANSPARENT
+		label.text = ""
+	else:
+		label.text = value
 
 func score(in_lane:RM.types):
 	
@@ -37,7 +48,6 @@ func score(in_lane:RM.types):
 		
 		var adjusted_type = posmod((in_lane + t), (RM.types.size()))
 		RM.add_resource(adjusted_type,value)
-
 
 #does it ever feel like your cursor is pregnant with information
 func _get_drag_data(_at_position: Vector2) -> Variant:
