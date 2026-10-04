@@ -4,7 +4,8 @@ extends Control
 @onready var label: Label = $Label
 
 func _ready() -> void:
-	RM.value_changed.connect(on_update)
+	RM.resource_added.connect(on_update)
+	RM.resource_spend.connect(on_update)
 	label.text = RM.names[type] + str(RM.current[type])
 
 func on_update(t,_v):

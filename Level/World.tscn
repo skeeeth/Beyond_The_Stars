@@ -6,7 +6,7 @@
 [node name="World" type="Node2D"]
 
 [node name="Lanes" type="Node2D" parent="."]
-position = Vector2(-2, 92)
+position = Vector2(66, 97)
 
 [node name="Lane" parent="Lanes" instance=ExtResource("1_hleuw")]
 position = Vector2(153, 31)

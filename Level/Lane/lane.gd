@@ -24,6 +24,7 @@ var card_plays:int = 2:
 func _ready() -> void:
 	draw_pile.array = deck
 	discard_pile.array = discard
+	card_plays = card_plays #runs setter function
 	_update_pile_counts()
 
 func _update_pile_counts():
@@ -64,8 +65,14 @@ func play():
 	
 	play_tween.tween_interval(2)
 	await play_tween.finished
-	var discard_tween = create_tween().set_parallel(true)
+	var discard_tween = create_tween()
+	discard_tween.set_parallel(true)
 	for c in active_cards:
 		discard_tween.tween_property(c,"position",discard_pile.position,0.3)
+	for c in active_cards:
 		discard_tween.chain().tween_callback(c.queue_free)
+	active_cards.clear()
 	
+
+func gain_upgrade():
+	card_plays += 1
