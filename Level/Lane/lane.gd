@@ -83,6 +83,12 @@ func _can_drop_data(_position, data):
 
 ##called on mouse release when dragging suitable data, in this case meaning a card was dragged from hand
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	var card_data:CardData = data["RES"]
+	
+	if !RM.try_spend_all(card_data.resource_costs):
+		return
+	
 	deck.append(data["RES"])
+	deck.shuffle()
 	data["source"].queue_free()
 	_update_pile_counts()

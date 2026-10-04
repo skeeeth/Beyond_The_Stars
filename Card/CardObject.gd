@@ -48,6 +48,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		"RES" = data,
 		"source" = self
 	}
+	
 	var preview = CardDisplay.create_from_data(data)
 	set_drag_preview(preview)
 	

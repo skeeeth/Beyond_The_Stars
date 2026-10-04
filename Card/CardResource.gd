@@ -1,6 +1,8 @@
 extends Resource
 class_name CardData
 
+
+
 @export var absolute_scoring:Dictionary[RM.types,int]  = {
 	RM.types.RED: 0,
 	RM.types.GREEN: 0,
@@ -12,4 +14,11 @@ class_name CardData
 	-1: 0,
 	0: 0,
 	1: 0,
+}
+
+
+@export var resource_costs:Dictionary[RM.types,int] = {
+	RM.types.RED: 0,
+	RM.types.GREEN: 1,
+	RM.types.BLUE: 0,
 }

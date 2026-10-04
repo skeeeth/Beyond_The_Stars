@@ -38,3 +38,16 @@ func try_spend(type:types,amount:int)->bool:
 		resource_spend.emit(type,amount)
 		return true
 	return false
+
+
+func try_spend_all(dict:Dictionary[types,int]) -> bool:
+	#var all_success = true
+	for t in types.values():
+		if current[t] < dict[t]: 
+			return false #if we dont have enough of any resource abort the whole thing
+	
+	#we're calling try spend here but previous block confirms all will succeed
+	for t in types.values():
+		try_spend(t,dict[t])
+	return true
+	
