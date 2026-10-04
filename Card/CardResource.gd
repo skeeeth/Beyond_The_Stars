@@ -7,7 +7,6 @@ class_name CardData
 	RM.types.BLUE: 0,
 }
 
-
 @export var relative_scoring:Dictionary[int,int] = {
 	-1: 0,
 	0: 0,
