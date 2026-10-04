@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name Lane
 
 @export var type:RM.types
@@ -76,3 +76,13 @@ func play():
 
 func gain_upgrade():
 	card_plays += 1
+
+##used to validate click and drag data, for now thats only cards so this could honestly just return literal true
+func _can_drop_data(_position, data):
+	return typeof(data) == TYPE_DICTIONARY and data.has("RES")
+
+##called on mouse release when dragging suitable data, in this case meaning a card was dragged from hand
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	deck.append(data["RES"])
+	data["source"].queue_free()
+	_update_pile_counts()

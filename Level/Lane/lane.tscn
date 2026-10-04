@@ -7,12 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://bj2bhoovxyyvx" path="res://Level/UI/Pile Icon.tscn" id="5_3y20t"]
 [ext_resource type="Script" uid="uid://bs2fhv4y2xtsn" path="res://Level/Lane/lane_upgrade.gd" id="6_iae0s"]
 
-[node name="Lane" type="Node2D"]
+[node name="Lane" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_rr5i5")
 deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_3y20t"), ExtResource("3_36dom")])
 
 [node name="Play Button" type="Button" parent="."]
 unique_name_in_owner = true
+z_index = 2
+layout_mode = 0
 offset_left = -105.0
 offset_top = 4.0
 offset_right = -16.0
@@ -29,7 +33,9 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(1028, 0)
 
-[node name="Upgrade" type="Button" parent="." node_paths=PackedStringArray("lane")]
+[node name="Upgrade" type="Button" parent="."]
+z_index = 2
+layout_mode = 0
 offset_left = -189.0
 offset_top = 77.0
 offset_right = -6.0
@@ -37,8 +43,16 @@ offset_bottom = 157.0
 text = "Upgrade play number (X Money)"
 autowrap_mode = 2
 script = ExtResource("6_iae0s")
-lane = NodePath("..")
 cost_progression = Array[int]([3, 5, 8, 12])
+
+[node name="Drag Hitbox" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 4.0
+offset_right = 1221.0
+offset_bottom = 192.0
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
 
 [connection signal="pressed" from="Play Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Upgrade" to="Upgrade" method="_on_pressed"]

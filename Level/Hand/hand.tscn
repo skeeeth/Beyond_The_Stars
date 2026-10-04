@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8beh1a7tqv1g"]
+
+[ext_resource type="Script" uid="uid://cic8cdftkmyng" path="res://Level/Hand/hand.gd" id="1_3h6oy"]
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_gr2ax"]
+[ext_resource type="Resource" uid="uid://cm3tipkol2liw" path="res://Card/Instances/GreySpread.tres" id="2_vpkyq"]
+
+[node name="Hand" type="Node2D" node_paths=PackedStringArray("container")]
+script = ExtResource("1_3h6oy")
+card_pool = Array[ExtResource("2_gr2ax")]([ExtResource("2_vpkyq")])
+container = NodePath("Container")
+
+[node name="Container" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0

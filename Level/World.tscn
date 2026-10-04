@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=6 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="PackedScene" uid="uid://7v06mp8tklo5" path="res://Level/UI/Top Bar/Top Bar.tscn" id="2_e0a3j"]
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_ww18a"]
+[ext_resource type="Resource" uid="uid://cm3tipkol2liw" path="res://Card/Instances/GreySpread.tres" id="3_0obbo"]
+[ext_resource type="PackedScene" uid="uid://c8beh1a7tqv1g" path="res://Level/Hand/hand.tscn" id="5_0obbo"]
 
 [node name="World" type="Node2D"]
 
@@ -9,26 +12,39 @@
 position = Vector2(66, 97)
 
 [node name="Lane" parent="Lanes" instance=ExtResource("1_hleuw")]
-position = Vector2(153, 31)
+offset_left = 153.0
+offset_top = 31.0
+offset_right = 153.0
+offset_bottom = 31.0
 
 [node name="Polygon2D" parent="Lanes/Lane" index="1"]
 color = Color(0.66, 0.264, 0.264, 1)
 
 [node name="Lane2" parent="Lanes" instance=ExtResource("1_hleuw")]
-position = Vector2(156, 331)
+offset_left = 154.0
+offset_top = 289.0
+offset_right = 154.0
+offset_bottom = 289.0
 type = 1
 
 [node name="Polygon2D" parent="Lanes/Lane2" index="1"]
 color = Color(0.264, 0.66, 0.28379998, 1)
 
 [node name="Lane3" parent="Lanes" instance=ExtResource("1_hleuw")]
-position = Vector2(162, 625)
+offset_left = 160.0
+offset_top = 548.0
+offset_right = 160.0
+offset_bottom = 548.0
 type = 2
+deck = Array[ExtResource("2_ww18a")]([ExtResource("3_0obbo"), ExtResource("3_0obbo"), ExtResource("3_0obbo")])
 
 [node name="Polygon2D" parent="Lanes/Lane3" index="1"]
 color = Color(0.264, 0.31679994, 0.66, 1)
 
 [node name="TopBar" parent="." instance=ExtResource("2_e0a3j")]
+
+[node name="Hand" parent="." instance=ExtResource("5_0obbo")]
+position = Vector2(705, 870)
 
 [editable path="Lanes/Lane"]
 [editable path="Lanes/Lane2"]

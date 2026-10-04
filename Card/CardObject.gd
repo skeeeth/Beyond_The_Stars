@@ -7,6 +7,8 @@ const SELF_SCENE = preload("uid://t05wdcm7wbwt")
 
 static var card_size:Vector2 = Vector2(140,180) #not synced with custom_minimum_size! Change both manually
 
+var draggable:bool = false
+
 static func create_from_data(res:CardData) -> CardDisplay:
 	var new_card:CardDisplay = SELF_SCENE.instantiate()
 	new_card.data = res
@@ -35,3 +37,18 @@ func score(in_lane:RM.types):
 		
 		var adjusted_type = posmod((in_lane + t), (RM.types.size()))
 		RM.add_resource(adjusted_type,value)
+
+
+#does it ever feel like your cursor is pregnant with information
+func _get_drag_data(_at_position: Vector2) -> Variant:
+	if !draggable:
+		return
+	
+	var drag_data:Dictionary = {
+		"RES" = data,
+		"source" = self
+	}
+	var preview = CardDisplay.create_from_data(data)
+	set_drag_preview(preview)
+	
+	return drag_data
