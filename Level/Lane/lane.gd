@@ -64,18 +64,24 @@ func _on_button_pressed() -> void:
 	pass # Replace with function body.
 
 func play():
+	lane_scored.emit(self)
+	
+	#play out cards from hand
 	var play_tween = create_tween()
 	for i in range(0,card_plays):
 		play_tween.tween_callback(draw_card).set_delay(0.3)
 	
-	play_tween.tween_interval(2)
+	play_tween.tween_interval(2) #leave cards visible for a delay
 	await play_tween.finished
+	
+	#send all cards to discard at once
 	var discard_tween = create_tween()
 	discard_tween.set_parallel(true)
 	for c in active_cards:
 		discard_tween.tween_property(c,"position",discard_pile.position,0.3)
 	for c in active_cards:
 		discard_tween.chain().tween_callback(c.queue_free)
+	
 	active_cards.clear()
 	
 
@@ -93,7 +99,13 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	if !RM.try_spend_all(card_data.resource_costs):
 		return
 	
-	deck.append(data["RES"])
+	
+	RM.try_spend(RM.types.BLUE, 1)
+	
+	card_added.emit(card_data)
+	
+	
+	deck.append(card_data)
 	deck.shuffle()
 	data["source"].queue_free()
 	_update_pile_counts()

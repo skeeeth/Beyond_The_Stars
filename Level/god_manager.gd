@@ -2,8 +2,10 @@ extends Node
 
 @export var gods:Array[God]
 @export var lanes:Array[Lane]
+@export var action_manager:ActionManager
 
 func _ready() -> void:
+	action_manager.cycle_ending.connect(cycle)
 	cycle()
 
 func cycle():

@@ -1,4 +1,6 @@
 extends Node2D
+class_name Hand
+
 
 @export var card_pool:Array[CardData]
 @export var container:Container

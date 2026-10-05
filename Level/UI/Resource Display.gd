@@ -11,4 +11,4 @@ func _ready() -> void:
 func on_update(t,_v):
 	if t != type: return #dont do anything for other types
 	
-	label.text = RM.names[type] + str(RM.current[type])
+	label.text = RM.names[type] + ": %s (%s)" % [RM.current[type], RM.cumulative[type]]

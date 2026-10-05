@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="PackedScene" uid="uid://7v06mp8tklo5" path="res://Level/UI/Top Bar/Top Bar.tscn" id="2_e0a3j"]
 [ext_resource type="PackedScene" uid="uid://c8beh1a7tqv1g" path="res://Level/Hand/hand.tscn" id="5_0obbo"]
-[ext_resource type="Script" uid="uid://csr4416oud3hj" path="res://Level/canvas_layer.gd" id="6_svajd"]
+[ext_resource type="Script" path="res://Level/canvas_layer.gd" id="6_svajd"]
 [ext_resource type="PackedScene" uid="uid://djvyr8av4rgyw" path="res://Level/god_manager.tscn" id="7_u7eci"]
 [ext_resource type="Script" uid="uid://cp8eljtgcmec8" path="res://Level/action_manager.gd" id="8_g0h0v"]
 
@@ -81,8 +81,15 @@ color = Color(0.264, 0.31679994, 0.66, 1)
 
 [node name="TopBar" parent="." instance=ExtResource("2_e0a3j")]
 
+[node name="Action Manager" type="Label" parent="TopBar/HBoxContainer" index="3" node_paths=PackedStringArray("lanes", "hand")]
+layout_mode = 2
+text = "Actions Left: 5"
+script = ExtResource("8_g0h0v")
+lanes = [NodePath("../../../Lanes/Lane"), NodePath("../../../Lanes/Lane2"), NodePath("../../../Lanes/Lane3")]
+hand = NodePath("../../../Hand")
+
 [node name="Hand" parent="." instance=ExtResource("5_0obbo")]
-position = Vector2(705, 870)
+position = Vector2(406, 891)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -104,14 +111,11 @@ layout_mode = 2
 layout_mode = 2
 text = "Test"
 
-[node name="God Manager" parent="." node_paths=PackedStringArray("lanes") instance=ExtResource("7_u7eci")]
+[node name="God Manager" parent="." node_paths=PackedStringArray("lanes", "action_manager") instance=ExtResource("7_u7eci")]
 lanes = [NodePath("../Lanes/Lane"), NodePath("../Lanes/Lane2"), NodePath("../Lanes/Lane3")]
-
-[node name="Action Manager" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-script = ExtResource("8_g0h0v")
+action_manager = NodePath("../TopBar/HBoxContainer/Action Manager")
 
 [editable path="Lanes/Lane"]
 [editable path="Lanes/Lane2"]
 [editable path="Lanes/Lane3"]
+[editable path="TopBar"]

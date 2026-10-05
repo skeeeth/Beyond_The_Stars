@@ -26,10 +26,17 @@ const names:Dictionary[types,String] = {
 	types.BLUE: "Cultists"
 }
 
+var cumulative:Dictionary[types,int] = {
+	types.RED: 0,
+	types.GREEN: 0,
+	types.BLUE: 0,
+}
+
 ##add an amount of resource to current and fire a coprresponding signal
 ##NOTE: do not add negative values to spend, instead use try_spend()
 func add_resource(type:types,amount:int):
 	current[type] += amount
+	cumulative[type] += amount
 	resource_added.emit(type, amount)
 	
 
