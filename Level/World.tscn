@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=8 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="PackedScene" uid="uid://7v06mp8tklo5" path="res://Level/UI/Top Bar/Top Bar.tscn" id="2_e0a3j"]
-[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_ww18a"]
-[ext_resource type="Resource" uid="uid://cm3tipkol2liw" path="res://Card/Instances/GreySpread.tres" id="3_0obbo"]
 [ext_resource type="PackedScene" uid="uid://c8beh1a7tqv1g" path="res://Level/Hand/hand.tscn" id="5_0obbo"]
-[ext_resource type="Script" path="res://Level/canvas_layer.gd" id="6_svajd"]
+[ext_resource type="Script" uid="uid://csr4416oud3hj" path="res://Level/canvas_layer.gd" id="6_svajd"]
 [ext_resource type="PackedScene" uid="uid://djvyr8av4rgyw" path="res://Level/god_manager.tscn" id="7_u7eci"]
+[ext_resource type="Script" uid="uid://cp8eljtgcmec8" path="res://Level/action_manager.gd" id="8_g0h0v"]
 
 [sub_resource type="GDScript" id="GDScript_0obbo"]
 script/source = "extends Node2D
@@ -76,7 +75,6 @@ offset_top = 548.0
 offset_right = 160.0
 offset_bottom = 548.0
 type = 2
-deck = Array[ExtResource("2_ww18a")]([ExtResource("3_0obbo"), ExtResource("3_0obbo"), ExtResource("3_0obbo")])
 
 [node name="Polygon2D" parent="Lanes/Lane3" index="1"]
 color = Color(0.264, 0.31679994, 0.66, 1)
@@ -108,6 +106,11 @@ text = "Test"
 
 [node name="God Manager" parent="." node_paths=PackedStringArray("lanes") instance=ExtResource("7_u7eci")]
 lanes = [NodePath("../Lanes/Lane"), NodePath("../Lanes/Lane2"), NodePath("../Lanes/Lane3")]
+
+[node name="Action Manager" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("8_g0h0v")
 
 [editable path="Lanes/Lane"]
 [editable path="Lanes/Lane2"]

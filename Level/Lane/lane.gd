@@ -1,6 +1,9 @@
 extends Control
 class_name Lane
 
+signal card_added(card:CardData)
+signal lane_scored(who:Lane)
+
 @export var type:RM.types
 
 @export var deck:Array[CardData]

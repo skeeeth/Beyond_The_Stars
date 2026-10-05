@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://52gvomajgeaf"]
+
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="1_fa0ux"]
+
+[resource]
+script = ExtResource("1_fa0ux")
+card_name = "Fasting Fanatic"
+absolute_scoring = Dictionary[int, int]({
+0: 0,
+1: 1,
+2: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+favor = 40
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"

@@ -16,6 +16,9 @@ static func create_from_data(res:CardData) -> CardDisplay:
 	return new_card
 
 func display():
+	#show the cards name
+	%"Card Name".text = data.card_name
+	
 	# Set red, blue and green values
 	_set_color_value(%RedValue, str(data.absolute_scoring[RM.types.RED]))
 	_set_color_value(%GreenValue, str(data.absolute_scoring[RM.types.GREEN]))

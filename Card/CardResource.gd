@@ -3,6 +3,8 @@ class_name CardData
 
 
 
+@export var card_name:String = "Card Name"
+
 @export var absolute_scoring:Dictionary[RM.types,int]  = {
 	RM.types.RED: 0,
 	RM.types.GREEN: 0,

@@ -4,10 +4,16 @@
 
 [resource]
 script = ExtResource("1_3r5ke")
+card_name = "Grunt Worker"
 relative_scoring = Dictionary[int, int]({
 -1: 0,
 0: 1,
 1: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
 })
 favor = 10
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"

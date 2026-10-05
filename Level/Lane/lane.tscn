@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dpj87j1ut8bw3" path="res://Level/Lane/lane.gd" id="1_rr5i5"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_brsyp"]
-[ext_resource type="Resource" uid="uid://dpcd6nill7hwx" path="res://Card/Instances/GreyOne.tres" id="3_36dom"]
-[ext_resource type="Resource" uid="uid://dlou7t2078ecx" path="res://Card/Instances/RedTwo.tres" id="4_3y20t"]
+[ext_resource type="Resource" uid="uid://dpcd6nill7hwx" path="res://Card/Instances/Starter Cards/GreyOne.tres" id="3_36dom"]
+[ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="4_iae0s"]
 [ext_resource type="PackedScene" uid="uid://bj2bhoovxyyvx" path="res://Level/UI/Pile Icon.tscn" id="5_3y20t"]
 [ext_resource type="Script" uid="uid://bs2fhv4y2xtsn" path="res://Level/Lane/lane_upgrade.gd" id="6_iae0s"]
 
@@ -11,7 +11,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rr5i5")
-deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_3y20t"), ExtResource("3_36dom")])
+deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_iae0s")])
 
 [node name="Play Button" type="Button" parent="."]
 unique_name_in_owner = true

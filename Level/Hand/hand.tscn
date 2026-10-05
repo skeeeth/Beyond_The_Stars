@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8beh1a7tqv1g"]
+[gd_scene load_steps=9 format=3 uid="uid://c8beh1a7tqv1g"]
 
 [ext_resource type="Script" uid="uid://cic8cdftkmyng" path="res://Level/Hand/hand.gd" id="1_3h6oy"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_gr2ax"]
-[ext_resource type="Resource" uid="uid://dlou7t2078ecx" path="res://Card/Instances/RedTwo.tres" id="2_mmr7b"]
-[ext_resource type="Resource" uid="uid://cm3tipkol2liw" path="res://Card/Instances/GreySpread.tres" id="2_vpkyq"]
+[ext_resource type="Resource" uid="uid://b2ax6f33kwc4h" path="res://Card/Instances/Starting set/Fat Cat.tres" id="3_u32pl"]
+[ext_resource type="Resource" uid="uid://b0kr0gtit0bfj" path="res://Card/Instances/Starting set/Clueless Contractor.tres" id="4_12a2t"]
+[ext_resource type="Resource" uid="uid://52gvomajgeaf" path="res://Card/Instances/Starting set/Fasting Fanatic.tres" id="5_n4dmy"]
+[ext_resource type="Resource" uid="uid://qxojvrxkgnpl" path="res://Card/Instances/Starting set/Evangelist.tres" id="6_vgng6"]
+[ext_resource type="Resource" uid="uid://cipv4ypbnion5" path="res://Card/Instances/Starting set/Remote Worker.tres" id="7_cfgea"]
+[ext_resource type="Resource" uid="uid://qvrqlbmqb4mf" path="res://Card/Instances/Starting set/Socialite.tres" id="8_0rafd"]
 
 [node name="Hand" type="Node2D" node_paths=PackedStringArray("container")]
 script = ExtResource("1_3h6oy")
-card_pool = Array[ExtResource("2_gr2ax")]([ExtResource("2_vpkyq"), ExtResource("2_mmr7b")])
+card_pool = Array[ExtResource("2_gr2ax")]([ExtResource("3_u32pl"), ExtResource("4_12a2t"), ExtResource("5_n4dmy"), ExtResource("6_vgng6"), ExtResource("7_cfgea"), ExtResource("8_0rafd")])
 container = NodePath("Container")
 
 [node name="Container" type="HBoxContainer" parent="."]

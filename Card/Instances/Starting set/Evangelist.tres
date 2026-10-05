@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://qxojvrxkgnpl"]
+
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="1_lbs2v"]
+
+[resource]
+script = ExtResource("1_lbs2v")
+card_name = "Evangelist"
+absolute_scoring = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 1
+})
+favor = 20
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
