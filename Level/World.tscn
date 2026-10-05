@@ -1,12 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=8 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="PackedScene" uid="uid://7v06mp8tklo5" path="res://Level/UI/Top Bar/Top Bar.tscn" id="2_e0a3j"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_ww18a"]
 [ext_resource type="Resource" uid="uid://cm3tipkol2liw" path="res://Card/Instances/GreySpread.tres" id="3_0obbo"]
 [ext_resource type="PackedScene" uid="uid://c8beh1a7tqv1g" path="res://Level/Hand/hand.tscn" id="5_0obbo"]
+[ext_resource type="Script" uid="uid://csr4416oud3hj" path="res://Level/canvas_layer.gd" id="6_svajd"]
+
+[sub_resource type="GDScript" id="GDScript_0obbo"]
+script/source = "extends Node2D
+
+# Simple layer for connecting signals across the scene tree
+
+@onready var lanes = $Lanes
+@onready var card_display = $CanvasLayer/CenterContainer/HBoxContainer
+
+func _ready():
+	var lane_list = []
+	lane_list.push_front(lanes.get_node(\"Lane\"))
+	lane_list.push_front(lanes.get_node(\"Lane2\"))
+	lane_list.push_front(lanes.get_node(\"Lane3\"))
+	
+	for lane in lane_list:
+		var draw_pile = lane.get_node(\"Draw Pile\")
+		var discard_pile = lane.get_node(\"Discard Pile\")
+		
+		draw_pile.deck_clicked.connect(splay)
+		discard_pile.deck_clicked.connect(splay)
+
+# Display contents of a pile of cards at center of screen
+# Ignore if there are 0 cards in pile
+func splay(cards: Array):
+	# clear current cards in card display
+	for child in card_display.get_children():
+		child.queue_free()
+	
+	# add new cards to card display
+	for card in cards:
+		card = CardDisplay.create_from_data(card)
+		
+		card_display.add_child(card)
+	
+	$CanvasLayer/CenterContainer.show()
+"
 
 [node name="World" type="Node2D"]
+script = SubResource("GDScript_0obbo")
 
 [node name="Lanes" type="Node2D" parent="."]
 position = Vector2(66, 97)
@@ -45,6 +84,26 @@ color = Color(0.264, 0.31679994, 0.66, 1)
 
 [node name="Hand" parent="." instance=ExtResource("5_0obbo")]
 position = Vector2(705, 870)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_svajd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Test"
 
 [editable path="Lanes/Lane"]
 [editable path="Lanes/Lane2"]
