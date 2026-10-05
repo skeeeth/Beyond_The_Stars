@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=6 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="PackedScene" uid="uid://7v06mp8tklo5" path="res://Level/UI/Top Bar/Top Bar.tscn" id="2_e0a3j"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_ww18a"]
 [ext_resource type="Resource" uid="uid://cm3tipkol2liw" path="res://Card/Instances/GreySpread.tres" id="3_0obbo"]
 [ext_resource type="PackedScene" uid="uid://c8beh1a7tqv1g" path="res://Level/Hand/hand.tscn" id="5_0obbo"]
-[ext_resource type="Script" uid="uid://bjmii7tqwywfq" path="res://Level/god_manager.gd" id="6_svajd"]
-[ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="7_u7eci"]
 
 [node name="World" type="Node2D"]
 
@@ -47,17 +45,6 @@ color = Color(0.264, 0.31679994, 0.66, 1)
 
 [node name="Hand" parent="." instance=ExtResource("5_0obbo")]
 position = Vector2(705, 870)
-
-[node name="God Manager" type="Node2D" parent="." node_paths=PackedStringArray("gods", "lanes")]
-script = ExtResource("6_svajd")
-gods = [NodePath("A"), NodePath("B"), NodePath("C")]
-lanes = [NodePath("../Lanes/Lane"), NodePath("../Lanes/Lane2"), NodePath("../Lanes/Lane3")]
-
-[node name="A" parent="God Manager" instance=ExtResource("7_u7eci")]
-
-[node name="B" parent="God Manager" instance=ExtResource("7_u7eci")]
-
-[node name="C" parent="God Manager" instance=ExtResource("7_u7eci")]
 
 [editable path="Lanes/Lane"]
 [editable path="Lanes/Lane2"]

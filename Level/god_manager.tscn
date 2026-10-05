@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://djvyr8av4rgyw"]
+
+[ext_resource type="Script" uid="uid://bjmii7tqwywfq" path="res://Level/god_manager.gd" id="1_pqgjq"]
+[ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="2_dqsry"]
+
+[node name="God Manager" type="Node2D" node_paths=PackedStringArray("gods", "lanes")]
+script = ExtResource("1_pqgjq")
+gods = [NodePath("A"), NodePath("B"), NodePath("C")]
+lanes = [NodePath(""), NodePath(""), NodePath("")]
+
+[node name="A" parent="." instance=ExtResource("2_dqsry")]
+
+[node name="B" parent="." instance=ExtResource("2_dqsry")]
+
+[node name="C" parent="." instance=ExtResource("2_dqsry")]
