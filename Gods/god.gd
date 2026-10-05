@@ -17,7 +17,7 @@ func _ready() -> void:
 func set_to_lane(lane:Lane):
 	current_lane = lane
 	var fly_tween = create_tween()
-	fly_tween.tween_property(self,"global_position",lane.god_position.global_position,1.0)
+	fly_tween.tween_property(self,"global_position",lane.god_position.global_position,0.4)
 
 
 func on_favor_scored(type:RM.types, amount:int):

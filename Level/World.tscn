@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=9 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="PackedScene" uid="uid://7v06mp8tklo5" path="res://Level/UI/Top Bar/Top Bar.tscn" id="2_e0a3j"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_ww18a"]
 [ext_resource type="Resource" uid="uid://cm3tipkol2liw" path="res://Card/Instances/GreySpread.tres" id="3_0obbo"]
 [ext_resource type="PackedScene" uid="uid://c8beh1a7tqv1g" path="res://Level/Hand/hand.tscn" id="5_0obbo"]
-[ext_resource type="Script" uid="uid://csr4416oud3hj" path="res://Level/canvas_layer.gd" id="6_svajd"]
+[ext_resource type="Script" path="res://Level/canvas_layer.gd" id="6_svajd"]
+[ext_resource type="PackedScene" uid="uid://djvyr8av4rgyw" path="res://Level/god_manager.tscn" id="7_u7eci"]
 
 [sub_resource type="GDScript" id="GDScript_0obbo"]
 script/source = "extends Node2D
@@ -104,6 +105,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="CanvasLayer/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "Test"
+
+[node name="God Manager" parent="." node_paths=PackedStringArray("lanes") instance=ExtResource("7_u7eci")]
+lanes = [NodePath("../Lanes/Lane"), NodePath("../Lanes/Lane2"), NodePath("../Lanes/Lane3")]
 
 [editable path="Lanes/Lane"]
 [editable path="Lanes/Lane2"]
