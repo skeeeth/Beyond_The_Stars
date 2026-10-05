@@ -17,10 +17,10 @@ deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_3y2
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 0
-offset_left = -105.0
-offset_top = 4.0
-offset_right = -16.0
-offset_bottom = 67.0
+offset_left = 24.0
+offset_top = 215.0
+offset_right = 113.0
+offset_bottom = 278.0
 text = "Play Cards"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -36,10 +36,10 @@ position = Vector2(1028, 0)
 [node name="Upgrade" type="Button" parent="." node_paths=PackedStringArray("lane")]
 z_index = 2
 layout_mode = 0
-offset_left = -189.0
-offset_top = 77.0
-offset_right = -6.0
-offset_bottom = 157.0
+offset_left = 155.0
+offset_top = 213.0
+offset_right = 338.0
+offset_bottom = 293.0
 text = "Upgrade play number (X Money)"
 autowrap_mode = 2
 script = ExtResource("6_iae0s")
@@ -54,6 +54,9 @@ offset_right = 1221.0
 offset_bottom = 192.0
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
+
+[node name="GodPosition" type="Node2D" parent="."]
+position = Vector2(-172, -7)
 
 [connection signal="pressed" from="Play Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Upgrade" to="Upgrade" method="_on_pressed"]

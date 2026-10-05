@@ -15,9 +15,10 @@ class_name CardData
 	1: 0,
 }
 
-
 @export var resource_costs:Dictionary[RM.types,int] = {
 	RM.types.RED: 0,
 	RM.types.GREEN: 1,
 	RM.types.BLUE: 0,
 }
+
+@export var favor:int

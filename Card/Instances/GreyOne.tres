@@ -9,4 +9,5 @@ relative_scoring = Dictionary[int, int]({
 0: 1,
 1: 0
 })
+favor = 10
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"

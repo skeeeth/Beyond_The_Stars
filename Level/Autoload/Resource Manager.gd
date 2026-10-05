@@ -7,14 +7,16 @@ extends Node
 signal resource_added(type:RM.types, amount:int)
 signal resource_spend(type:RM.types, amount:int)
 
+signal favor_scored_in_lane(type:RM.types, amount:int)
+
 #hard set names, so that actual interpretation of each slot can be changed later
 enum types{RED,GREEN,BLUE}
 
 
 ## The Current values of each resource
 var current:Dictionary[types,int] = {
-	types.RED: 0,
-	types.GREEN: 0,
+	types.RED: 3,
+	types.GREEN: 3,
 	types.BLUE: 0,
 }
 
@@ -51,3 +53,6 @@ func try_spend_all(dict:Dictionary[types,int]) -> bool:
 		try_spend(t,dict[t])
 	return true
 	
+	
+func score_favor(lane:types, amount:int):
+	favor_scored_in_lane.emit(lane, amount)

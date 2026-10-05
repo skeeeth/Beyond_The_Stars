@@ -25,7 +25,15 @@ func display():
 	_set_color_value(%"Grey-1Value", str(data.relative_scoring[-1]))
 	_set_color_value(%"Grey0Value", str(data.relative_scoring[0]))
 	_set_color_value(%"Grey+1Value", str(data.relative_scoring[1]))
-
+	
+	
+	#sets a label for the GREEN cost of a card, there's technology for cards to have other kinds of
+	# costs but like having more symbols on the already cluttered card is dubious
+	_set_color_value(%GreenCost, str(data.resource_costs[RM.types.GREEN]))
+	
+	#sets bottom label to favor diff with +- sign
+	%"Favor Label".text = "%+d " % data.favor
+	
 # hide color box if value is 0, otherwise display value
 func _set_color_value(label: Label, value: String):
 	var int_value = int(value)
@@ -48,6 +56,8 @@ func score(in_lane:RM.types):
 		
 		var adjusted_type = posmod((in_lane + t), (RM.types.size()))
 		RM.add_resource(adjusted_type,value)
+		
+	RM.score_favor(in_lane, data.favor)
 
 #does it ever feel like your cursor is pregnant with information
 func _get_drag_data(_at_position: Vector2) -> Variant:

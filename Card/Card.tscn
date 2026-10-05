@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://igyu1wajboa7" path="res://Card/CardObject.gd" id="1_gasdx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ma3f"]
-bg_color = Color(0.66, 0.264, 0.264, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u7pk"]
 bg_color = Color(0.264, 0.66, 0.28379998, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ma3f"]
+bg_color = Color(0.66, 0.264, 0.264, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkgq3"]
 bg_color = Color(0.264, 0.31679994, 0.66, 1)
@@ -21,10 +21,28 @@ script = ExtResource("1_gasdx")
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Card Name" type="Label" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Card Name" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Card Name
 "
+
+[node name="Green" type="Panel" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_5u7pk")
+
+[node name="GreenCost" type="Label" parent="VBoxContainer/HBoxContainer2/Green"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -113,3 +131,19 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "1"
+
+[node name="Panel" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.4509804, 0.07058824, 0.5019608, 1)
+
+[node name="Favor Label" type="Label" parent="VBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+20"
+horizontal_alignment = 1

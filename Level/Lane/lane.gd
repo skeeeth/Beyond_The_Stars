@@ -20,6 +20,8 @@ var card_plays:int = 2:
 #var discard_pile:Pile
 @onready var draw_pile: Pile = %"Draw Pile"
 @onready var discard_pile: Pile = %"Discard Pile"
+@onready var god_position: Node2D = $GodPosition
+
 
 func _ready() -> void:
 	draw_pile.array = deck
