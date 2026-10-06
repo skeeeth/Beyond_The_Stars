@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://rtgon2sxj7yu"]
+
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="1_3a5us"]
+
+[resource]
+script = ExtResource("1_3a5us")
+card_name = "Ravenous Worm"
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 8,
+1: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 5,
+2: 0
+})
+favor = 25
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"

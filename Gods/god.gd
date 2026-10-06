@@ -11,7 +11,7 @@ enum GODS{A,B,C,D}
 		favor = v
 		%"Favor Bar".value = favor
 		%"Favor Label".text = "%s/%s" % [favor,max_favor]
-		if favor > favor_tiers[0]:
+		if favor > favor_tiers[current_tier]:
 			queue_tier_up()
 	get:
 		return favor
@@ -22,7 +22,7 @@ enum GODS{A,B,C,D}
 @onready var texture_rect: TextureRect = $VBoxContainer/TextureRect
 
 
-static var favor_tiers:Array[int] = [50, 125, 200, 500]
+static var favor_tiers:Array[int] = [0, 50, 125, 200, 500]
 var current_tier:int = 0
 var tier_up_queued:bool = false
 #@export var boon_pool:Array[Boon]
@@ -32,6 +32,7 @@ func _ready() -> void:
 	
 	favor = favor #trigger setter function
 	texture_rect.texture = lane_sprite
+	tier_up()
 
 func set_to_lane(lane:Lane):
 	current_lane = lane
@@ -52,5 +53,8 @@ func tier_up():
 	current_tier = min(current_tier + 1, favor_tiers.size()-1)
 	tier_up_queued = false
 	max_favor = favor_tiers[current_tier]
+	%"Favor Bar".max_value = max_favor
+	%"Favor Bar".min_value = favor_tiers[current_tier-1]
+
 	favor = favor #calls setter to potentially queue an adittonal tier up
 	

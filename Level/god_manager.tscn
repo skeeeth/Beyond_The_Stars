@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://djvyr8av4rgyw"]
+[gd_scene load_steps=9 format=3 uid="uid://djvyr8av4rgyw"]
 
 [ext_resource type="Script" uid="uid://bjmii7tqwywfq" path="res://Level/god_manager.gd" id="1_pqgjq"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="2_dqsry"]
@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://demf8fipc5g5p" path="res://Assets/Placeholder/SkullWIP_atlas.tres" id="3_nv7fa"]
 [ext_resource type="Texture2D" uid="uid://b8fx50yeydigm" path="res://Assets/Placeholder/PlantWipAtlas.tres" id="4_a58x4"]
 [ext_resource type="Texture2D" uid="uid://dmds4riot6no3" path="res://Assets/Placeholder/WormWIP_atlas.tres" id="5_na2wg"]
+[ext_resource type="Texture2D" uid="uid://wc37ox281hkk" path="res://Assets/Placeholder/KnightWIP_atlas.tres" id="6_na2wg"]
+[ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="8_wi2ff"]
 
-[node name="God Manager" type="Node2D" node_paths=PackedStringArray("gods", "lanes")]
+[node name="God Manager" type="Node2D" node_paths=PackedStringArray("gods")]
 script = ExtResource("1_pqgjq")
-gods = [NodePath("A"), NodePath("B"), NodePath("C")]
-lanes = [null, null, null]
+gods = [NodePath("A"), NodePath("B"), NodePath("C"), NodePath("D")]
 
 [node name="A" parent="." instance=ExtResource("2_dqsry")]
 lane_sprite = ExtResource("3_nv7fa")
@@ -26,4 +27,20 @@ identity = 2
 lane_sprite = ExtResource("5_na2wg")
 true_sprite = ExtResource("5_na2wg")
 
+[node name="D" parent="." instance=ExtResource("2_dqsry")]
+lane_sprite = ExtResource("6_na2wg")
+true_sprite = ExtResource("6_na2wg")
+
 [node name="BoonPool" parent="." instance=ExtResource("3_dqsry")]
+
+[node name="Dummy Lane" parent="." instance=ExtResource("8_wi2ff")]
+visible = false
+z_index = -1
+offset_left = 855.0
+offset_top = 449.0
+offset_right = 855.0
+offset_bottom = 449.0
+mouse_filter = 2
+
+[node name="Away Point" type="Node2D" parent="."]
+position = Vector2(2123, 532)

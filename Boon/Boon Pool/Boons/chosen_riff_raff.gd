@@ -7,3 +7,4 @@ func apply():
 		for i in e.relative_scoring:
 			e.relative_scoring[i] *= 5
 			finished.emit()
+	
