@@ -1,15 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://djvyr8av4rgyw"]
+[gd_scene load_steps=4 format=3 uid="uid://djvyr8av4rgyw"]
 
 [ext_resource type="Script" uid="uid://bjmii7tqwywfq" path="res://Level/god_manager.gd" id="1_pqgjq"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="2_dqsry"]
+[ext_resource type="PackedScene" uid="uid://dg8sjc86dqcao" path="res://Boon/Boon Pool/Boon_Pool.tscn" id="3_dqsry"]
 
 [node name="God Manager" type="Node2D" node_paths=PackedStringArray("gods", "lanes")]
 script = ExtResource("1_pqgjq")
 gods = [NodePath("A"), NodePath("B"), NodePath("C")]
-lanes = [NodePath(""), NodePath(""), NodePath("")]
+lanes = [null, null, null]
 
-[node name="A" parent="." instance=ExtResource("2_dqsry")]
+[node name="A" parent="." node_paths=PackedStringArray("boon_pool") instance=ExtResource("2_dqsry")]
+boon_pool = [NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff")]
 
-[node name="B" parent="." instance=ExtResource("2_dqsry")]
+[node name="B" parent="." node_paths=PackedStringArray("boon_pool") instance=ExtResource("2_dqsry")]
+boon_pool = [NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff")]
 
-[node name="C" parent="." instance=ExtResource("2_dqsry")]
+[node name="C" parent="." node_paths=PackedStringArray("boon_pool") instance=ExtResource("2_dqsry")]
+boon_pool = [NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff")]
+
+[node name="BoonPool" parent="." instance=ExtResource("3_dqsry")]
+
+[editable path="BoonPool"]

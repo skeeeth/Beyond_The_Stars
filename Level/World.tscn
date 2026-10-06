@@ -82,6 +82,7 @@ color = Color(0.264, 0.31679994, 0.66, 1)
 [node name="TopBar" parent="." instance=ExtResource("2_e0a3j")]
 
 [node name="Action Manager" type="Label" parent="TopBar/HBoxContainer" index="3" node_paths=PackedStringArray("lanes", "hand")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Actions Left: 5"
 script = ExtResource("8_g0h0v")

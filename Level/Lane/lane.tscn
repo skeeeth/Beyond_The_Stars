@@ -58,5 +58,6 @@ color = Color(1, 1, 1, 0)
 [node name="GodPosition" type="Node2D" parent="."]
 position = Vector2(1236, -11)
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="Play Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Upgrade" to="Upgrade" method="_on_pressed"]

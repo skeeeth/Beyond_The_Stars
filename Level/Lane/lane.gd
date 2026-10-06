@@ -1,6 +1,8 @@
 extends Control
 class_name Lane
 
+
+signal clicked
 signal card_added(card:CardData)
 signal lane_scored(who:Lane)
 
@@ -109,3 +111,9 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	deck.shuffle()
 	data["source"].queue_free()
 	_update_pile_counts()
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("LMB"):
+		clicked.emit()
+	pass # Replace with function body.
