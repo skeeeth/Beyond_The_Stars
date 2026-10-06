@@ -2,7 +2,8 @@ extends Node2D
 class_name Hand
 
 
-@export var card_pool:Array[CardData]
+static var card_pool:Array[CardData]
+@export var starting_pool:Array[CardData]
 @export var container:Container
 @export var starting_cards:int = 3
 

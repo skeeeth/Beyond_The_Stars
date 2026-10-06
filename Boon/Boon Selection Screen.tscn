@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh7xqfv4uw8ii"]
+[gd_scene load_steps=5 format=3 uid="uid://bh7xqfv4uw8ii"]
 
 [ext_resource type="Script" uid="uid://cry1ifbl0v5sc" path="res://Boon/boon_selection.gd" id="1_hyphn"]
 [ext_resource type="Theme" uid="uid://d0qvm744k8k3i" path="res://Assets/BoonUI.tres" id="2_ebtbx"]
+[ext_resource type="Texture2D" uid="uid://dmds4riot6no3" path="res://Assets/Placeholder/WormWIP_atlas.tres" id="2_q4iqp"]
 [ext_resource type="PackedScene" uid="uid://b1ad0kb4a8ppu" path="res://Boon/Boon_Display.tscn" id="3_q4iqp"]
 
 [node name="Boon Display" type="Node2D" node_paths=PackedStringArray("boon_options")]
@@ -10,6 +11,9 @@ script = ExtResource("1_hyphn")
 boon_options = [NodePath("VBoxContainer/PanelContainer"), NodePath("VBoxContainer/PanelContainer2"), NodePath("VBoxContainer/PanelContainer3")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(411, 527)
+scale = Vector2(0.735, 0.735)
+texture = ExtResource("2_q4iqp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 1177.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvsbqpcyvpbjs"]
 
 [ext_resource type="Script" uid="uid://defwwvykdu5oq" path="res://Gods/god.gd" id="1_6270s"]
-[ext_resource type="Texture2D" uid="uid://cddm3n0esqpdq" path="res://icon.svg" id="1_p56gl"]
+[ext_resource type="Texture2D" uid="uid://b8fx50yeydigm" path="res://Assets/Placeholder/PlantWipAtlas.tres" id="2_6270s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6270s"]
 bg_color = Color(0, 0, 0, 1)
@@ -18,7 +18,8 @@ offset_bottom = 162.0
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_p56gl")
+texture = ExtResource("2_6270s")
+expand_mode = 4
 
 [node name="Favor Bar" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true

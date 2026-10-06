@@ -16,7 +16,7 @@ func cycle():
 		if g.tier_up_queued:
 			g.tier_up()
 			var pool = _get_valid_boons(g.identity,g.current_tier)
-			var new_boon_selection:BoonSelection = BoonSelection.create(pool)
+			var new_boon_selection:BoonSelection = BoonSelection.create(pool,g.true_sprite)
 			add_child(new_boon_selection)
 			await new_boon_selection.finished
 	

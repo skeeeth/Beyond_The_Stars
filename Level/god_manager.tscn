@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://djvyr8av4rgyw"]
+[gd_scene load_steps=7 format=3 uid="uid://djvyr8av4rgyw"]
 
 [ext_resource type="Script" uid="uid://bjmii7tqwywfq" path="res://Level/god_manager.gd" id="1_pqgjq"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="2_dqsry"]
 [ext_resource type="PackedScene" uid="uid://dg8sjc86dqcao" path="res://Boon/Boon Pool/Boon_Pool.tscn" id="3_dqsry"]
+[ext_resource type="Texture2D" uid="uid://demf8fipc5g5p" path="res://Assets/Placeholder/SkullWIP_atlas.tres" id="3_nv7fa"]
+[ext_resource type="Texture2D" uid="uid://b8fx50yeydigm" path="res://Assets/Placeholder/PlantWipAtlas.tres" id="4_a58x4"]
+[ext_resource type="Texture2D" uid="uid://dmds4riot6no3" path="res://Assets/Placeholder/WormWIP_atlas.tres" id="5_na2wg"]
 
 [node name="God Manager" type="Node2D" node_paths=PackedStringArray("gods", "lanes")]
 script = ExtResource("1_pqgjq")
@@ -10,11 +13,17 @@ gods = [NodePath("A"), NodePath("B"), NodePath("C")]
 lanes = [null, null, null]
 
 [node name="A" parent="." instance=ExtResource("2_dqsry")]
+lane_sprite = ExtResource("3_nv7fa")
+true_sprite = ExtResource("3_nv7fa")
 
 [node name="B" parent="." instance=ExtResource("2_dqsry")]
 identity = 1
+lane_sprite = ExtResource("4_a58x4")
+true_sprite = ExtResource("4_a58x4")
 
 [node name="C" parent="." instance=ExtResource("2_dqsry")]
 identity = 2
+lane_sprite = ExtResource("5_na2wg")
+true_sprite = ExtResource("5_na2wg")
 
 [node name="BoonPool" parent="." instance=ExtResource("3_dqsry")]

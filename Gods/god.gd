@@ -17,9 +17,12 @@ enum GODS{A,B,C,D}
 		return favor
 
 @export var max_favor:int = 1000
+@export var lane_sprite:Texture2D
+@export var true_sprite:Texture2D
+@onready var texture_rect: TextureRect = $VBoxContainer/TextureRect
 
 
-static var favor_tiers:Array[int] = [00, 125, 200, 500]
+static var favor_tiers:Array[int] = [50, 125, 200, 500]
 var current_tier:int = 0
 var tier_up_queued:bool = false
 #@export var boon_pool:Array[Boon]
@@ -28,6 +31,7 @@ func _ready() -> void:
 	RM.favor_scored_in_lane.connect(on_favor_scored)
 	
 	favor = favor #trigger setter function
+	texture_rect.texture = lane_sprite
 
 func set_to_lane(lane:Lane):
 	current_lane = lane

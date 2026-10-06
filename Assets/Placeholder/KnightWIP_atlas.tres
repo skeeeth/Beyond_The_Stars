@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://wc37ox281hkk"]
+
+[ext_resource type="Texture2D" uid="uid://c2r6mygomgl6q" path="res://Assets/Placeholder/Wip/Gods WIP.png" id="1_da52i"]
+
+[resource]
+atlas = ExtResource("1_da52i")
+region = Rect2(834, 1210, 834, 1210)

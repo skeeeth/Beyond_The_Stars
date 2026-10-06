@@ -1,11 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=15 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="PackedScene" uid="uid://7v06mp8tklo5" path="res://Level/UI/Top Bar/Top Bar.tscn" id="2_e0a3j"]
 [ext_resource type="PackedScene" uid="uid://c8beh1a7tqv1g" path="res://Level/Hand/hand.tscn" id="5_0obbo"]
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="5_qj8ib"]
 [ext_resource type="Script" path="res://Level/canvas_layer.gd" id="6_svajd"]
+[ext_resource type="Resource" uid="uid://b2ax6f33kwc4h" path="res://Card/Instances/Starting set/Fat Cat.tres" id="6_xju0t"]
 [ext_resource type="PackedScene" uid="uid://djvyr8av4rgyw" path="res://Level/god_manager.tscn" id="7_u7eci"]
+[ext_resource type="Resource" uid="uid://b0kr0gtit0bfj" path="res://Card/Instances/Starting set/Clueless Contractor.tres" id="7_vjs1q"]
 [ext_resource type="Script" uid="uid://cp8eljtgcmec8" path="res://Level/action_manager.gd" id="8_g0h0v"]
+[ext_resource type="Resource" uid="uid://52gvomajgeaf" path="res://Card/Instances/Starting set/Fasting Fanatic.tres" id="8_ns2ak"]
+[ext_resource type="Resource" uid="uid://qxojvrxkgnpl" path="res://Card/Instances/Starting set/Evangelist.tres" id="9_ccyba"]
+[ext_resource type="Resource" uid="uid://cipv4ypbnion5" path="res://Card/Instances/Starting set/Remote Worker.tres" id="10_lcjul"]
+[ext_resource type="Resource" uid="uid://qvrqlbmqb4mf" path="res://Card/Instances/Starting set/Socialite.tres" id="11_abuqb"]
 
 [sub_resource type="GDScript" id="GDScript_0obbo"]
 script/source = "extends Node2D
@@ -91,6 +98,7 @@ hand = NodePath("../../../Hand")
 
 [node name="Hand" parent="." instance=ExtResource("5_0obbo")]
 position = Vector2(406, 891)
+starting_pool = Array[ExtResource("5_qj8ib")]([ExtResource("6_xju0t"), ExtResource("7_vjs1q"), ExtResource("8_ns2ak"), ExtResource("9_ccyba"), ExtResource("10_lcjul"), ExtResource("11_abuqb")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
