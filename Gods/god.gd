@@ -3,6 +3,9 @@ class_name God
 
 var current_lane:Lane
 
+enum GODS{A,B,C,D}
+@export var identity:GODS
+
 @export var favor:int = 25:
 	set(v):
 		favor = v
@@ -16,10 +19,10 @@ var current_lane:Lane
 @export var max_favor:int = 1000
 
 
-static var favor_tiers:Array[int] = [50, 125, 200, 500]
+static var favor_tiers:Array[int] = [00, 125, 200, 500]
 var current_tier:int = 0
 var tier_up_queued:bool = false
-@export var boon_pool:Array[Boon]
+#@export var boon_pool:Array[Boon]
 
 func _ready() -> void:
 	RM.favor_scored_in_lane.connect(on_favor_scored)

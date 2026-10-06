@@ -1,13 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg8sjc86dqcao"]
+[gd_scene load_steps=7 format=3 uid="uid://dg8sjc86dqcao"]
 
 [ext_resource type="Script" uid="uid://lao3lsrvbud1" path="res://Boon/Boon Pool/Boons/chosen_riff_raff.gd" id="1_pbi8e"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_b1cel"]
 [ext_resource type="Resource" uid="uid://dpcd6nill7hwx" path="res://Card/Instances/Starter Cards/GreyOne.tres" id="3_yxug4"]
 [ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="4_5y4ju"]
+[ext_resource type="Script" uid="uid://buyohlpoohjaf" path="res://Boon/Boon Pool/Unnatural Stamina.gd" id="5_yxug4"]
+[ext_resource type="Script" uid="uid://bq5xmnhkt0cig" path="res://Boon/Boon Pool/generic_aura.gd" id="6_5y4ju"]
 
 [node name="BoonPool" type="Node"]
 
 [node name="Chosen Riff Raff" type="Node" parent="."]
 script = ExtResource("1_pbi8e")
 effected_cards = Array[ExtResource("2_b1cel")]([ExtResource("3_yxug4"), ExtResource("4_5y4ju")])
-description = "[Center] Grunt Cards gain 5x yield"
+description = "Grunt Cards gain 5x yield"
+tier = 1
+
+[node name="Unnatural Stamina" type="Node" parent="."]
+script = ExtResource("5_yxug4")
+description = "Gain one adittional action per cycle"
+tier = 1
+
+[node name="Generic Aura" type="Node" parent="."]
+script = ExtResource("6_5y4ju")
+description = "Placeholder"
+tier = 1
+mask = Dictionary[int, bool]({
+0: true,
+1: true,
+2: true,
+3: true
+})

@@ -6,7 +6,8 @@ signal cycle_ending
 @export var lanes:Array[Lane]
 @export var hand:Hand
 
-var actions_left:int = 5
+static var actions_per_cycle:int = 5
+var actions_left:int = actions_per_cycle
 var cycle:int = 0
 
 func _ready() -> void:
@@ -24,7 +25,7 @@ func on_action_taken():
 		
 func round_end():
 	cycle_ending.emit()
-	actions_left = 5
+	actions_left = actions_per_cycle
 	cycle += 1
 	_set_text()
 

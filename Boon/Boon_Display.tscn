@@ -3,15 +3,17 @@
 [ext_resource type="Theme" uid="uid://d0qvm744k8k3i" path="res://Assets/BoonUI.tres" id="1_2veik"]
 [ext_resource type="Script" uid="uid://cm8esxgtyua60" path="res://Boon/boon_display.gd" id="1_slq2i"]
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("text_box")]
 offset_right = 274.0
 offset_bottom = 159.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_2veik")
 script = ExtResource("1_slq2i")
+text_box = NodePath("RichTextLabel")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 bbcode_enabled = true

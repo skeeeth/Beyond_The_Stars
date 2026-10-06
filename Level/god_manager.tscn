@@ -9,15 +9,12 @@ script = ExtResource("1_pqgjq")
 gods = [NodePath("A"), NodePath("B"), NodePath("C")]
 lanes = [null, null, null]
 
-[node name="A" parent="." node_paths=PackedStringArray("boon_pool") instance=ExtResource("2_dqsry")]
-boon_pool = [NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff")]
+[node name="A" parent="." instance=ExtResource("2_dqsry")]
 
-[node name="B" parent="." node_paths=PackedStringArray("boon_pool") instance=ExtResource("2_dqsry")]
-boon_pool = [NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff")]
+[node name="B" parent="." instance=ExtResource("2_dqsry")]
+identity = 1
 
-[node name="C" parent="." node_paths=PackedStringArray("boon_pool") instance=ExtResource("2_dqsry")]
-boon_pool = [NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff"), NodePath("../BoonPool/Chosen Riff Raff")]
+[node name="C" parent="." instance=ExtResource("2_dqsry")]
+identity = 2
 
 [node name="BoonPool" parent="." instance=ExtResource("3_dqsry")]
-
-[editable path="BoonPool"]

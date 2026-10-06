@@ -6,14 +6,14 @@ signal finished
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @export var boon_options:Array[BoonDisplay]
 
-static var self_scene = preload("res://Boon/Boon Selection.tscn")
+static var self_scene = preload("res://Boon/Boon Selection Screen.tscn")
 
-static func create(boon_pool:Array[Boon]) -> BoonSelection:
+static func create(boon_pool:Array[Node]) -> BoonSelection:
 	var new_bs:BoonSelection = self_scene.instantiate()
 	boon_pool.shuffle()
 	for i in range(0,3):
 		new_bs.boon_options[i].set_boon(boon_pool[i])
-	return new_bs
+	return new_bs #...always some new bs
 
 func _ready() -> void:
 	scale = Vector2.ZERO
