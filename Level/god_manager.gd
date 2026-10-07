@@ -12,6 +12,7 @@ signal boon_selection_finished
 @onready var dummy_lane: Lane = $"Dummy Lane"
 
 var unused_god:God
+var cravings_per_cycle:Array[int] = [1,1,2,2,2,3,3]
 
 func _ready() -> void:
 	action_manager.cycle_ending.connect(cycle)
@@ -28,6 +29,7 @@ func cycle():
 	
 	boon_selection_finished.emit()
 	_shuffle_lanes()
+	_assign_cravings()
 
 func _get_valid_boons(god:God.GODS, tier:int) -> Array[Node]:
 	var all_boons:Array[Node] = boon_pool.get_children()
@@ -47,10 +49,20 @@ func _shuffle_lanes():
 	
 	for i in range(0,lanes.size()):
 		gods[i].set_to_lane(lanes[i])
-		
+	  
+	
 	unused_god = gods.back()
 	unused_god.set_to_lane(dummy_lane)
 	RM.favor_scored_in_lane.disconnect(unused_god.on_favor_scored) #Disable favor scoring in dummy lane
+
+func _assign_cravings():
+	var indexes:Array = [0,1,2]
+	var num_cravings = cravings_per_cycle[action_manager.cycle]
+	indexes.shuffle()
+	indexes = indexes.slice(0,num_cravings)
+	for i in indexes:
+		gods[i].set_craving()
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_f"):

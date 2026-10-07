@@ -11,7 +11,7 @@
 
 [node name="Hand" type="Node2D" node_paths=PackedStringArray("container")]
 script = ExtResource("1_3h6oy")
-card_pool = Array[ExtResource("2_gr2ax")]([ExtResource("3_u32pl"), ExtResource("4_12a2t"), ExtResource("5_n4dmy"), ExtResource("6_vgng6"), ExtResource("7_cfgea"), ExtResource("8_0rafd")])
+starting_pool = Array[ExtResource("2_gr2ax")]([ExtResource("4_12a2t"), ExtResource("6_vgng6"), ExtResource("5_n4dmy"), ExtResource("3_u32pl"), ExtResource("7_cfgea"), ExtResource("8_0rafd")])
 container = NodePath("Container")
 
 [node name="Container" type="HBoxContainer" parent="."]

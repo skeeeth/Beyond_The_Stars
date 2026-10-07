@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw1qxcr4id8q2"]
+
+[ext_resource type="Theme" uid="uid://d0qvm744k8k3i" path="res://Assets/BoonUI.tres" id="1_f41q7"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 509.0
+offset_bottom = 226.0
+theme = ExtResource("1_f41q7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Gain [table={2}] [cell bg=RED] r [/cell] [cell] -1 [/cell] [cell bg=#00ff00] g [/cell] [cell] 0 [/cell]  [cell bg=000099 ] b [/cell]  [cell] 0 [/cell] [/table]"

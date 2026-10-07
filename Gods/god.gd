@@ -20,10 +20,10 @@ enum GODS{A,B,C,D}
 @export var lane_sprite:Texture2D
 @export var true_sprite:Texture2D
 @onready var texture_rect: TextureRect = $VBoxContainer/TextureRect
-
+@export var craving:Craving
 
 static var favor_tiers:Array[int] = [0, 50, 125, 200, 500]
-var current_tier:int = 0
+var current_tier:int = 0 #why the fuck did i call it this instead of just 'tier'???
 var tier_up_queued:bool = false
 #@export var boon_pool:Array[Boon]
 @export var aura_strategies:Array[BaseCardStrategy]
@@ -45,6 +45,10 @@ func set_to_lane(lane:Lane):
 	
 	var fly_tween = create_tween()
 	fly_tween.tween_property(self,"global_position",lane.god_position.global_position,0.4)
+
+func set_craving():
+	if !craving.active:
+		craving.set_craving(current_tier)
 
 
 func on_favor_scored(type:RM.types, amount:int):

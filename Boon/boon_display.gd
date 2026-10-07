@@ -16,6 +16,9 @@ func set_boon(b:Boon):
 	text_box.text = (boon.description)
 	title_box.text = boon.name
 
+func format_text(_text:String):
+	pass
+
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):

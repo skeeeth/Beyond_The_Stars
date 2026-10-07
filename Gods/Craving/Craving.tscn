@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgd1v7y7gr4sc"]
+
+[ext_resource type="Script" uid="uid://e11lb33a4pe8" path="res://Gods/Craving/Craving.gd" id="1_ufsqf"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 264.0
+offset_bottom = 76.0
+script = ExtResource("1_ufsqf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+mouse_filter = 1
+text = "Some long text"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
