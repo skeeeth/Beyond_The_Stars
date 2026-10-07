@@ -20,14 +20,16 @@ func display():
 	%"Card Name".text = data.card_name
 	
 	# Set red, blue and green values
-	_set_color_value(%RedValue, str(data.absolute_scoring[RM.types.RED]))
-	_set_color_value(%GreenValue, str(data.absolute_scoring[RM.types.GREEN]))
-	_set_color_value(%BlueValue, str(data.absolute_scoring[RM.types.BLUE]))
+	var adj_abs_values = data.get_adjusted_abs_values()
+	_set_color_value(%RedValue, str(adj_abs_values[RM.types.RED]))
+	_set_color_value(%GreenValue, str(adj_abs_values[RM.types.GREEN]))
+	_set_color_value(%BlueValue, str(adj_abs_values[RM.types.BLUE]))
 	
 	# Set lane specific (grey) values
-	_set_color_value(%"Grey-1Value", str(data.relative_scoring[-1]))
-	_set_color_value(%"Grey0Value", str(data.relative_scoring[0]))
-	_set_color_value(%"Grey+1Value", str(data.relative_scoring[1]))
+	var adj_rel_values = data.get_adjusted_rel_values()
+	_set_color_value(%"Grey-1Value", str(adj_rel_values[-1]))
+	_set_color_value(%"Grey0Value", str(adj_rel_values[0]))
+	_set_color_value(%"Grey+1Value", str(adj_rel_values[1]))
 	
 	
 	#sets a label for the GREEN cost of a card, there's technology for cards to have other kinds of
@@ -45,22 +47,26 @@ func _set_color_value(label: Label, value: String):
 		panel.self_modulate = Color.TRANSPARENT
 		label.text = ""
 	else:
+		var panel = label.get_parent()
+		panel.self_modulate = Color.WHITE
 		label.text = value
 
 func score(in_lane:RM.types):
 	
 	for t in data.absolute_scoring:
-		var value = data.absolute_scoring[t]
+		var value = data.get_adjusted_abs_values()[t]
+		#value += data.temp_color_mod[t]
 		#if value > 0: #I THINK ITS ACTUALLY BETTER TO CHECK THIS IN RM.add_resource()
 		RM.add_resource(t,value)
 	
 	for t in data.relative_scoring:
-		var value = data.relative_scoring[t]
-		
+		var value = data.get_adjusted_rel_values()[t]
+		value += data.temp_grey_mod[t]
 		var adjusted_type = posmod((in_lane + t), (RM.types.size()))
 		RM.add_resource(adjusted_type,value)
 		
 	RM.score_favor(in_lane, data.favor)
+	data.reset_temp_values()
 
 #does it ever feel like your cursor is pregnant with information
 func _get_drag_data(_at_position: Vector2) -> Variant:

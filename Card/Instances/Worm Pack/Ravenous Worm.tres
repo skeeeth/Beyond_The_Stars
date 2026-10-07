@@ -1,10 +1,27 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://rtgon2sxj7yu"]
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://rtgon2sxj7yu"]
 
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="1_3a5us"]
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="1_jjvko"]
+[ext_resource type="Script" uid="uid://wy5mxf6n00h8" path="res://Card/Strategy/Scripts/GrowOnPlay.gd" id="2_4bp2q"]
+
+[sub_resource type="Resource" id="Resource_jjvko"]
+script = ExtResource("1_3a5us")
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 1,
+1: 0
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_85vrt"]
+script = ExtResource("2_4bp2q")
+growth_pattern = SubResource("Resource_jjvko")
+metadata/_custom_type_script = "uid://wy5mxf6n00h8"
 
 [resource]
 script = ExtResource("1_3a5us")
 card_name = "Ravenous Worm"
+description = "Gain  g0/1/0 every time I score"
 relative_scoring = Dictionary[int, int]({
 -1: 0,
 0: 8,
@@ -16,4 +33,5 @@ resource_costs = Dictionary[int, int]({
 2: 0
 })
 favor = 25
+play_strategies = Array[ExtResource("1_jjvko")]([SubResource("Resource_85vrt")])
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"

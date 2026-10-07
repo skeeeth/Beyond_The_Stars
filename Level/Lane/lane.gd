@@ -27,6 +27,11 @@ var card_plays:int = 2:
 @onready var discard_pile: Pile = %"Discard Pile"
 @onready var god_position: Node2D = $GodPosition
 
+@export var lane_strategies:Array[BaseCardStrategy]
+
+var god_strategies:Array[BaseCardStrategy]
+
+static var strategy_pause:float = 0.15
 
 func _ready() -> void:
 	draw_pile.array = deck
@@ -48,7 +53,7 @@ func draw_card():
 	var draw_slide = create_tween()
 	var destination = Vector2(active_cards.size() * (CardDisplay.card_size.x + x_spacing),0)
 	draw_slide.tween_property(new_card,"position",destination,0.2).set_ease(Tween.EASE_OUT)
-	new_card.score(type)
+	#new_card.score(type)
 	
 	#reshuffle
 	if deck.size() == 0:
@@ -71,11 +76,34 @@ func play():
 	#play out cards from hand
 	var play_tween = create_tween()
 	for i in range(0,card_plays):
-		play_tween.tween_callback(draw_card).set_delay(0.3)
+		play_tween.tween_callback(draw_card)
+		play_tween.tween_interval(0.35)
 	
-	play_tween.tween_interval(2) #leave cards visible for a delay
+	#play_tween.tween_interval(2) #leave cards visible for a delay
 	await play_tween.finished
 	
+	var strategy_tween = create_tween()
+	for c in active_cards:
+		
+		var apply_strategy_stack = func(strategies:Array[BaseCardStrategy]):
+			for s in strategies:
+				strategy_tween.tween_callback(s.apply.bind(c.data,self,active_cards))
+				strategy_tween.tween_callback(c.display)
+				strategy_tween.tween_interval(strategy_pause)
+		
+		apply_strategy_stack.call(lane_strategies)
+		apply_strategy_stack.call(c.data.play_strategies)
+		apply_strategy_stack.call(god_strategies)
+	
+	#quick pause between strategies finished and scoring
+	strategy_tween.tween_interval(0.4)
+	#score after all strategies
+	for c in active_cards:
+		strategy_tween.tween_callback(c.score.bind(type))
+		strategy_tween.tween_interval(0.1)
+	
+	strategy_tween.tween_interval(0.4)
+	await strategy_tween.finished
 	#send all cards to discard at once
 	var discard_tween = create_tween()
 	discard_tween.set_parallel(true)

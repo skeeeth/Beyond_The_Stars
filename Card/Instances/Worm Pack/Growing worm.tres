@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://cq1wvwhwhegmw"]
+
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="1_53fg2"]
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_f85te"]
+[ext_resource type="Script" uid="uid://wy5mxf6n00h8" path="res://Card/Strategy/Scripts/GrowOnPlay.gd" id="3_qbigr"]
+
+[sub_resource type="Resource" id="Resource_0kg6v"]
+script = ExtResource("2_f85te")
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_uf6bv"]
+script = ExtResource("3_qbigr")
+growth_pattern = SubResource("Resource_0kg6v")
+metadata/_custom_type_script = "uid://wy5mxf6n00h8"
+
+[resource]
+script = ExtResource("2_f85te")
+card_name = "Growing Worm"
+play_strategies = Array[ExtResource("1_53fg2")]([SubResource("Resource_uf6bv")])
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
