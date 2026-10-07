@@ -1,6 +1,8 @@
 extends PanelContainer
 class_name CardDisplay
 
+signal clicked(who:CardDisplay)
+
 @export var data:CardData
 
 const SELF_SCENE = preload("uid://t05wdcm7wbwt")
@@ -82,3 +84,8 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	set_drag_preview(preview)
 	
 	return drag_data
+
+
+func _gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("LMB"):
+		clicked.emit(self)

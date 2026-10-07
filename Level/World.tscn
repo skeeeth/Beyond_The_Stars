@@ -1,68 +1,15 @@
 [gd_scene load_steps=20 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
+[ext_resource type="Script" uid="uid://bwap3b66q8u8y" path="res://Level/WorldCardDisplay.gd" id="1_kwlfk"]
 [ext_resource type="PackedScene" uid="uid://7v06mp8tklo5" path="res://Level/UI/Top Bar/Top Bar.tscn" id="2_e0a3j"]
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="3_vjs1q"]
 [ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="4_ns2ak"]
 [ext_resource type="PackedScene" uid="uid://c8beh1a7tqv1g" path="res://Level/Hand/hand.tscn" id="5_0obbo"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="5_qj8ib"]
-[ext_resource type="Script" path="res://Level/canvas_layer.gd" id="6_svajd"]
+[ext_resource type="Script" uid="uid://csr4416oud3hj" path="res://Level/canvas_layer.gd" id="6_svajd"]
 [ext_resource type="PackedScene" uid="uid://djvyr8av4rgyw" path="res://Level/god_manager.tscn" id="7_u7eci"]
 [ext_resource type="Script" uid="uid://cp8eljtgcmec8" path="res://Level/action_manager.gd" id="8_g0h0v"]
-
-[sub_resource type="GDScript" id="GDScript_0obbo"]
-script/source = "extends Node2D
-
-# Simple layer for connecting signals across the scene tree
-
-@onready var lanes = $Lanes
-@onready var card_display = $CanvasLayer/CenterContainer/HBoxContainer
-
-func _ready():
-	var lane_list = []
-	lane_list.push_front(lanes.get_node(\"Lane\"))
-	lane_list.push_front(lanes.get_node(\"Lane2\"))
-	lane_list.push_front(lanes.get_node(\"Lane3\"))
-	
-	for lane in lane_list:
-		var draw_pile = lane.get_node(\"Draw Pile\")
-		var discard_pile = lane.get_node(\"Discard Pile\")
-		
-		draw_pile.deck_clicked.connect(splay)
-		discard_pile.deck_clicked.connect(splay)
-
-# Display contents of a pile of cards at center of screen
-# Ignore if there are 0 cards in pile
-func splay(cards: Array):
-	# clear current cards in card display
-	for child in card_display.get_children():
-		child.queue_free()
-	
-	# add new cards to card display
-	for card in cards:
-		card = CardDisplay.create_from_data(card)
-		
-		card_display.add_child(card)
-	
-	$CanvasLayer/CenterContainer.show()
-"
-
-[sub_resource type="Resource" id="Resource_75354"]
-resource_local_to_scene = true
-script = ExtResource("5_qj8ib")
-card_name = "Grunt Worker"
-relative_scoring = Dictionary[int, int]({
--1: 0,
-0: 1,
-1: 0
-})
-resource_costs = Dictionary[int, int]({
-0: 0,
-1: 0,
-2: 0
-})
-favor = 10
-metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [sub_resource type="Resource" id="Resource_kwlfk"]
 resource_local_to_scene = true
@@ -101,6 +48,23 @@ metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 [sub_resource type="Resource" id="Resource_o6fwa"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
+card_name = "Grunt Worker"
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 1,
+1: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+favor = 10
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_qj8ib"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
 card_name = "Fat Cat"
 absolute_scoring = Dictionary[int, int]({
 0: 3,
@@ -115,7 +79,7 @@ resource_costs = Dictionary[int, int]({
 favor = -10
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_qj8ib"]
+[sub_resource type="Resource" id="Resource_xju0t"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Clueless Contractor"
@@ -127,7 +91,7 @@ relative_scoring = Dictionary[int, int]({
 favor = -25
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_xju0t"]
+[sub_resource type="Resource" id="Resource_vjs1q"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Fasting Fanatic"
@@ -144,7 +108,7 @@ resource_costs = Dictionary[int, int]({
 favor = 40
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_vjs1q"]
+[sub_resource type="Resource" id="Resource_ns2ak"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Evangelist"
@@ -156,7 +120,7 @@ absolute_scoring = Dictionary[int, int]({
 favor = 20
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_ns2ak"]
+[sub_resource type="Resource" id="Resource_ccyba"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Remote Worker"
@@ -167,7 +131,7 @@ relative_scoring = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_ccyba"]
+[sub_resource type="Resource" id="Resource_lcjul"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Socialite"
@@ -179,7 +143,7 @@ absolute_scoring = Dictionary[int, int]({
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [node name="World" type="Node2D"]
-script = SubResource("GDScript_0obbo")
+script = ExtResource("1_kwlfk")
 
 [node name="Lanes" type="Node2D" parent="."]
 position = Vector2(66, 97)
@@ -189,7 +153,7 @@ offset_left = 153.0
 offset_top = 31.0
 offset_right = 153.0
 offset_bottom = 31.0
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_75354"), ExtResource("4_ns2ak")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_kwlfk"), ExtResource("4_ns2ak")])
 
 [node name="Polygon2D" parent="Lanes/Lane" index="1"]
 color = Color(0.66, 0.264, 0.264, 1)
@@ -200,7 +164,7 @@ offset_top = 289.0
 offset_right = 154.0
 offset_bottom = 289.0
 type = 1
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_kwlfk"), ExtResource("4_ns2ak")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_s4lld"), ExtResource("4_ns2ak")])
 
 [node name="Polygon2D" parent="Lanes/Lane2" index="1"]
 color = Color(0.264, 0.66, 0.28379998, 1)
@@ -211,7 +175,7 @@ offset_top = 548.0
 offset_right = 160.0
 offset_bottom = 548.0
 type = 2
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_s4lld"), ExtResource("4_ns2ak")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_o6fwa"), ExtResource("4_ns2ak")])
 
 [node name="Polygon2D" parent="Lanes/Lane3" index="1"]
 color = Color(0.264, 0.31679994, 0.66, 1)
@@ -229,7 +193,7 @@ gm = NodePath("../../../God Manager")
 
 [node name="Hand" parent="." instance=ExtResource("5_0obbo")]
 position = Vector2(406, 891)
-starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_o6fwa"), SubResource("Resource_qj8ib"), SubResource("Resource_xju0t"), SubResource("Resource_vjs1q"), SubResource("Resource_ns2ak"), SubResource("Resource_ccyba")])
+starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_qj8ib"), SubResource("Resource_xju0t"), SubResource("Resource_vjs1q"), SubResource("Resource_ns2ak"), SubResource("Resource_ccyba"), SubResource("Resource_lcjul")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -241,6 +205,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("6_svajd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer"]

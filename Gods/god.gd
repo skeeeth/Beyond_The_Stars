@@ -57,6 +57,9 @@ func on_favor_scored(type:RM.types, amount:int):
 	
 	favor += amount
 
+func on_craving_fail():
+	favor -= 100
+
 func queue_tier_up():
 	tier_up_queued = true
 

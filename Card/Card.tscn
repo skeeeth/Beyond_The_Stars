@@ -57,6 +57,7 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_6ma3f")
 
 [node name="RedValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Red"]
@@ -71,6 +72,7 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_5u7pk")
 
 [node name="GreenValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Green"]
@@ -85,6 +87,7 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_kkgq3")
 
 [node name="BlueValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Blue"]
@@ -100,6 +103,7 @@ layout_mode = 2
 [node name="Grey-1" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
 [node name="Grey-1Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey-1"]
@@ -107,11 +111,13 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+mouse_filter = 1
 text = "1"
 
 [node name="Grey0" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
 [node name="Grey0Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey0"]
@@ -119,11 +125,13 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+mouse_filter = 1
 text = "1"
 
 [node name="Grey1" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
 [node name="Grey+1Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey1"]
@@ -131,11 +139,13 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+mouse_filter = 1
 text = "1"
 
 [node name="Panel" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 color = Color(0.4509804, 0.07058824, 0.5019608, 1)
 
 [node name="Favor Label" type="Label" parent="VBoxContainer/Panel"]

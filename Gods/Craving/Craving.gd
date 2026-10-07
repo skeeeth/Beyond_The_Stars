@@ -1,8 +1,10 @@
 extends PanelContainer
 class_name Craving
 
-@onready var rich_text_label: RichTextLabel = $RichTextLabel
+enum craving_types{RES, LANE, HAND}
+var type:craving_types
 
+@onready var rich_text_label: RichTextLabel = $RichTextLabel
 
 var resource_matrix:Dictionary[RM.types,int] = {
 	RM.types.RED: 0,
@@ -12,6 +14,7 @@ var resource_matrix:Dictionary[RM.types,int] = {
 
 
 var active:bool = false
+var time_limit:int = 2
 
 func set_craving(tier:int):
 	active = true
@@ -21,6 +24,8 @@ func set_craving(tier:int):
 			set_resource_craving(tier)
 
 func set_resource_craving(tier:int):
+	set_card_craving()
+	return
 	match tier:
 		1, 2:
 			var key = resource_matrix.keys().pick_random()
@@ -34,6 +39,10 @@ func set_resource_craving(tier:int):
 		
 	display_card_craving()
 
+func set_card_craving():
+	type = craving_types.LANE
+	rich_text_label.text = "Hungry for card"
+
 func display_card_craving():
 	var string:String = ""
 	for i in resource_matrix:
@@ -46,15 +55,28 @@ func display_card_craving():
 	rich_text_label.text = string
 
 func try_pay():
-	if RM.try_spend_all(resource_matrix):
-		on_satisfy()
+	if type == craving_types.LANE:
+		World.instance.request_lane_card_selection()
+		World.instance.splayed_card_clicked.connect(on_card_selected,4)
+		
+	else:
+		if RM.try_spend_all(resource_matrix):
+			on_satisfy()
 
 func on_satisfy():
 	active = false
 	visible = false
 
+func on_card_selected(card_display:CardDisplay):
+	World.instance.current_list.erase(card_display.data)
+	on_satisfy()
+
+func on_unsated_cycle():
+	time_limit -= 1
+	if time_limit == 0:
+		pass
 
 func _on_gui_input(event: InputEvent) -> void:
-	if event.is_action("LMB"):
+	if event.is_action_pressed("LMB"):
 		try_pay()
 		pass

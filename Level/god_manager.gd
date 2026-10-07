@@ -20,6 +20,9 @@ func _ready() -> void:
 
 func cycle():
 	for g in gods:
+		if g.craving.active:
+			g.craving.on_unsated_cycle()
+		
 		if g.tier_up_queued:
 			g.tier_up()
 			var pool = _get_valid_boons(g.identity,g.current_tier)
