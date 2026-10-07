@@ -71,7 +71,6 @@ func _on_button_pressed() -> void:
 	pass # Replace with function body.
 
 func play():
-	lane_scored.emit(self)
 	
 	#play out cards from hand
 	var play_tween = create_tween()
@@ -112,8 +111,10 @@ func play():
 	for c in active_cards:
 		discard_tween.chain().tween_callback(c.queue_free)
 	
+	discard_tween.tween_interval(0.1)
+	discard_tween.tween_callback(lane_scored.emit.bind(self))
 	active_cards.clear()
-	
+
 
 func gain_upgrade():
 	card_plays += 1

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="1_itp23"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_6tmul")
 card_name = "Clueless Contractor"
 relative_scoring = Dictionary[int, int]({

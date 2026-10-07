@@ -7,10 +7,12 @@ signal finished
 @export var boon_options:Array[BoonDisplay]
 var texture:Texture
 static var self_scene = preload("res://Boon/Boon Selection Screen.tscn")
+var god:God
 
-static func create(boon_pool:Array[Node],sprite:Texture) -> BoonSelection:
+static func create(_god:God, boon_pool:Array[Node],sprite:Texture) -> BoonSelection:
 	var new_bs:BoonSelection = self_scene.instantiate()
 	new_bs.texture = sprite
+	new_bs.god = _god
 	boon_pool.shuffle()
 	for i in range(0,3):
 		new_bs.boon_options[i].set_boon(boon_pool[i])
@@ -21,6 +23,7 @@ func _ready() -> void:
 	scale = Vector2.ZERO
 	for display in boon_options:
 		display.finished.connect(ending)
+		display.god = god
 	
 	sprite_2d.texture = texture
 	

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://qxojvrxkgnpl"]
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://qxojvrxkgnpl"]
 
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="1_lbs2v"]
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="1_snlge"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_lbs2v")
 card_name = "Evangelist"
 absolute_scoring = Dictionary[int, int]({

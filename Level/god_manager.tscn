@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djvyr8av4rgyw"]
+[gd_scene load_steps=13 format=3 uid="uid://djvyr8av4rgyw"]
 
 [ext_resource type="Script" uid="uid://bjmii7tqwywfq" path="res://Level/god_manager.gd" id="1_pqgjq"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="2_dqsry"]
@@ -8,6 +8,25 @@
 [ext_resource type="Texture2D" uid="uid://dmds4riot6no3" path="res://Assets/Placeholder/WormWIP_atlas.tres" id="5_na2wg"]
 [ext_resource type="Texture2D" uid="uid://wc37ox281hkk" path="res://Assets/Placeholder/KnightWIP_atlas.tres" id="6_na2wg"]
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="8_wi2ff"]
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="9_cm3bx"]
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="10_hit43"]
+[ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="11_msp0b"]
+
+[sub_resource type="Resource" id="Resource_hit43"]
+resource_local_to_scene = true
+script = ExtResource("9_cm3bx")
+card_name = "Grunt Worker"
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 1,
+1: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [node name="God Manager" type="Node2D" node_paths=PackedStringArray("gods")]
 script = ExtResource("1_pqgjq")
@@ -36,11 +55,12 @@ true_sprite = ExtResource("6_na2wg")
 [node name="Dummy Lane" parent="." instance=ExtResource("8_wi2ff")]
 visible = false
 z_index = -1
-offset_left = 855.0
-offset_top = 449.0
-offset_right = 855.0
-offset_bottom = 449.0
+offset_left = 899.0
+offset_top = 461.0
+offset_right = 899.0
+offset_bottom = 461.0
 mouse_filter = 2
+deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_hit43"), ExtResource("11_msp0b")])
 
 [node name="Away Point" type="Node2D" parent="."]
 position = Vector2(2123, 532)

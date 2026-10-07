@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://cipv4ypbnion5"]
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cipv4ypbnion5"]
 
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="1_4an6w"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="1_ubqdf"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_ubqdf")
 card_name = "Remote Worker"
 relative_scoring = Dictionary[int, int]({

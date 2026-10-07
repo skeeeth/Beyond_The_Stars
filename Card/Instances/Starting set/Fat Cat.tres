@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://b2ax6f33kwc4h"]
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://b2ax6f33kwc4h"]
 
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="1_k7i3f"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="1_ml6a8"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_ml6a8")
 card_name = "Fat Cat"
 absolute_scoring = Dictionary[int, int]({

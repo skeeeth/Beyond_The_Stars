@@ -11,7 +11,7 @@ enum GODS{A,B,C,D}
 		favor = v
 		%"Favor Bar".value = favor
 		%"Favor Label".text = "%s/%s" % [favor,max_favor]
-		if favor > favor_tiers[current_tier]:
+		if favor >= favor_tiers[current_tier]:
 			queue_tier_up()
 	get:
 		return favor
@@ -26,6 +26,7 @@ static var favor_tiers:Array[int] = [0, 50, 125, 200, 500]
 var current_tier:int = 0
 var tier_up_queued:bool = false
 #@export var boon_pool:Array[Boon]
+@export var aura_strategies:Array[BaseCardStrategy]
 
 func _ready() -> void:
 	RM.favor_scored_in_lane.connect(on_favor_scored)
@@ -35,7 +36,13 @@ func _ready() -> void:
 	tier_up()
 
 func set_to_lane(lane:Lane):
+	#if current_lane:
+		#current_lane.god_strategies.clear()
+	
 	current_lane = lane
+	for s in aura_strategies:
+		lane.god_strategies.append(s)
+	
 	var fly_tween = create_tween()
 	fly_tween.tween_property(self,"global_position",lane.god_position.global_position,0.4)
 
