@@ -49,8 +49,8 @@ cost_progression = Array[int]([3, 5, 8, 12])
 [node name="Drag Hitbox" type="ColorRect" parent="."]
 z_index = -1
 layout_mode = 0
-offset_left = 4.0
-offset_right = 1221.0
+offset_left = 143.0
+offset_right = 1012.0
 offset_bottom = 192.0
 mouse_filter = 1
 color = Color(1, 1, 1, 0)

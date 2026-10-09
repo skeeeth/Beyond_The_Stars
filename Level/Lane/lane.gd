@@ -115,9 +115,16 @@ func play():
 	discard_tween.tween_callback(lane_scored.emit.bind(self))
 	active_cards.clear()
 
-
 func gain_upgrade():
 	card_plays += 1
+
+func request_card_selection():
+	draw_pile.set_highlight_mode(Pile.highlight_modes.PULSING)
+	discard_pile.set_highlight_mode(Pile.highlight_modes.PULSING)
+	
+func pile_highlight_reset():
+	draw_pile.set_highlight_mode(Pile.highlight_modes.OFF)
+	discard_pile.set_highlight_mode(Pile.highlight_modes.OFF)
 
 ##used to validate click and drag data, for now thats only cards so this could honestly just return literal true
 func _can_drop_data(_position, data):

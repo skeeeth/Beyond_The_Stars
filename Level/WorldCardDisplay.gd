@@ -10,6 +10,7 @@ signal splayed_card_clicked(card:CardDisplay)
 static var instance:World #im going to essentially treat World class as a singleton
 var lane_list:Array[Lane] = []
 var current_list:Array
+@export var viewport_effects:ViewportEffects
 
 func _ready():
 	instance = self
@@ -54,5 +55,13 @@ func on_card_clicked(card:CardDisplay):
 	splay.call_deferred(current_list)
 	#splay(current_list) #redisplay list
 
-func request_lane_card_selection():
-	pass
+func request_lane_card_selection(ve_type:ViewportEffects.types):
+	
+	viewport_effects.apply_type(ve_type)
+	for l in lane_list:
+		l.request_card_selection()
+
+func cancel_selection(ve_type:ViewportEffects.types):
+	viewport_effects.cancel(ve_type)
+	for l in lane_list:
+		l.pile_highlight_reset()

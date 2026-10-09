@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://igyu1wajboa7" path="res://Card/CardDisplay.gd" id="1_gasdx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u7pk"]
-bg_color = Color(0.264, 0.66, 0.28379998, 1)
+bg_color = Color(0.2627451, 0.65882355, 0.28235295, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ma3f"]
-bg_color = Color(0.66, 0.264, 0.264, 1)
+bg_color = Color(0.65882355, 0.2627451, 0.2627451, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkgq3"]
-bg_color = Color(0.264, 0.31679994, 0.66, 1)
+bg_color = Color(0.2627451, 0.31764707, 0.65882355, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gasdx"]
 

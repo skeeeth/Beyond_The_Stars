@@ -1,21 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj2bhoovxyyvx"]
+[gd_scene load_steps=5 format=3 uid="uid://bj2bhoovxyyvx"]
 
 [ext_resource type="Script" uid="uid://58p0rsgl7ftv" path="res://Level/UI/pile_icon.gd" id="1_gtld2"]
+[ext_resource type="Material" uid="uid://cnpftegsf3pw0" path="res://Assets/Shaders/Highlightable.tres" id="2_upfhc"]
+[ext_resource type="Script" uid="uid://dnsitrioyh1hj" path="res://Level/UI/Util/Highlighter.gd" id="3_upfhc"]
 
-[node name="Pile" type="Node2D" node_paths=PackedStringArray("count")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upfhc"]
+size = Vector2(169, 207)
+
+[node name="Pile" type="Node2D" node_paths=PackedStringArray("count", "highlighter")]
 script = ExtResource("1_gtld2")
 count = NodePath("Count")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.13682577, 0.13682574, 0.13682571, 1)
-polygon = PackedVector2Array(0, 0, 0, 180, 140, 180, 140, 0)
-
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-position = Vector2(11, 13)
-color = Color(0.13682577, 0.13682574, 0.13682571, 1)
-polygon = PackedVector2Array(0, 0, 0, 180, 140, 180, 140, 0)
+highlighter = NodePath("Highlighter")
 
 [node name="Count" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "0"
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = ExtResource("2_upfhc")
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasGroup"]
+color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+polygon = PackedVector2Array(0, 0, 0, 180, 140, 180, 140, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasGroup"]
+position = Vector2(11, 13)
+color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+polygon = PackedVector2Array(0, 0, 0, 180, 140, 180, 140, 0)
+
+[node name="Highlighter" type="Node" parent="." node_paths=PackedStringArray("canvas_group")]
+script = ExtResource("3_upfhc")
+canvas_group = NodePath("../CanvasGroup")
+highlight_color = Color(1, 1, 1, 1)
+
+[node name="Hitbox" type="Area2D" parent="."]
+z_index = 9
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(74.5, 93.5)
+shape = SubResource("RectangleShape2D_upfhc")
+
+[connection signal="input_event" from="Hitbox" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Hitbox" to="." method="_on_area_2d_mouse_exited"]

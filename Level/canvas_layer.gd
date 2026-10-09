@@ -20,4 +20,6 @@ func display():
 func disappear():
 	visible = false
 	set_deferred("mouse_filter", Control.MOUSE_FILTER_IGNORE)
+	for l in World.instance.lane_list:
+		l.pile_highlight_reset()
 	#mouse_filter = Control.MOUSE_FILTER_IGNORE
