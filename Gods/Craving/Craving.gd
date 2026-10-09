@@ -72,6 +72,7 @@ func on_satisfy():
 
 func on_card_selected(card_display:CardDisplay):
 	World.instance.current_list.erase(card_display.data)
+	World.instance.cancel_selection(ViewportEffects.types.SACRIFICE)
 	on_satisfy()
 
 func on_unsated_cycle():

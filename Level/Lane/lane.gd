@@ -5,6 +5,7 @@ class_name Lane
 signal clicked
 signal card_added(card:CardData)
 signal lane_scored(who:Lane)
+signal scoring_started
 
 @export var type:RM.types
 
@@ -26,12 +27,13 @@ var card_plays:int = 2:
 @onready var draw_pile: Pile = %"Draw Pile"
 @onready var discard_pile: Pile = %"Discard Pile"
 @onready var god_position: Node2D = $GodPosition
-
+@onready var buttons:Array[Button] = [%"Play Button", $Upgrade]
 @export var lane_strategies:Array[BaseCardStrategy]
 
 var god_strategies:Array[BaseCardStrategy]
 
-static var strategy_pause:float = 0.15
+static var strategy_pause:float = 0.5
+var button_supressions:int = 0
 
 func _ready() -> void:
 	draw_pile.array = deck
@@ -71,7 +73,8 @@ func _on_button_pressed() -> void:
 	pass # Replace with function body.
 
 func play():
-	
+	scoring_started.emit()
+	disable_buttons()
 	#play out cards from hand
 	var play_tween = create_tween()
 	for i in range(0,card_plays):
@@ -83,7 +86,8 @@ func play():
 	
 	var strategy_tween = create_tween()
 	for c in active_cards:
-		
+		var starting_y = c.position.y
+		strategy_tween.tween_property(c,"position:y", starting_y - 20, 0.05)
 		var apply_strategy_stack = func(strategies:Array[BaseCardStrategy]):
 			for s in strategies:
 				strategy_tween.tween_callback(s.apply.bind(c.data,self,active_cards))
@@ -93,6 +97,8 @@ func play():
 		apply_strategy_stack.call(lane_strategies)
 		apply_strategy_stack.call(c.data.play_strategies)
 		apply_strategy_stack.call(god_strategies)
+		strategy_tween.tween_property(c,"position:y", starting_y, 0.05)
+		strategy_tween.tween_interval(0.1)
 	
 	#quick pause between strategies finished and scoring
 	strategy_tween.tween_interval(0.4)
@@ -113,18 +119,34 @@ func play():
 	
 	discard_tween.tween_interval(0.1)
 	discard_tween.tween_callback(lane_scored.emit.bind(self))
+	
 	active_cards.clear()
+	enable_buttons()
 
 func gain_upgrade():
 	card_plays += 1
 
+func disable_buttons():
+	button_supressions += 1
+	if button_supressions > 0:
+		for b in buttons:
+			b.disabled = true
+
+func enable_buttons():
+	button_supressions -= 1
+	if button_supressions == 0:
+		for b in buttons:
+			b.disabled = false
+
 func request_card_selection():
+	disable_buttons()
 	draw_pile.set_highlight_mode(Pile.highlight_modes.PULSING)
 	discard_pile.set_highlight_mode(Pile.highlight_modes.PULSING)
 	
 func pile_highlight_reset():
 	draw_pile.set_highlight_mode(Pile.highlight_modes.OFF)
 	discard_pile.set_highlight_mode(Pile.highlight_modes.OFF)
+	enable_buttons()
 
 ##used to validate click and drag data, for now thats only cards so this could honestly just return literal true
 func _can_drop_data(_position, data):

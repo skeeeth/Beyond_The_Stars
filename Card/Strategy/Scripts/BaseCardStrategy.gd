@@ -4,4 +4,7 @@
 class_name BaseCardStrategy
 
 
+@warning_ignore("unused_signal")
+signal applied
+
 @abstract func apply(card:CardData,lane:Lane,active_cards:Array[CardDisplay])

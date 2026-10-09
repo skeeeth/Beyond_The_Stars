@@ -10,10 +10,14 @@ const SELF_SCENE = preload("uid://t05wdcm7wbwt")
 static var card_size:Vector2 = Vector2(140,180) #not synced with custom_minimum_size! Change both manually
 
 var draggable:bool = false
+var last_color_stat_snapshot:Dictionary
+var last_grey_stat_snapshot:Dictionary
 
 static func create_from_data(res:CardData) -> CardDisplay:
 	var new_card:CardDisplay = SELF_SCENE.instantiate()
 	new_card.data = res
+	new_card.last_color_stat_snapshot = res.get_adjusted_abs_values()
+	new_card.last_grey_stat_snapshot = res.get_adjusted_rel_values()
 	new_card.display()
 	return new_card
 
@@ -23,16 +27,21 @@ func display():
 	
 	# Set red, blue and green values
 	var adj_abs_values = data.get_adjusted_abs_values()
-	_set_color_value(%RedValue, str(adj_abs_values[RM.types.RED]))
-	_set_color_value(%GreenValue, str(adj_abs_values[RM.types.GREEN]))
-	_set_color_value(%BlueValue, str(adj_abs_values[RM.types.BLUE]))
+	var abs_changes = _get_stat_differences(last_color_stat_snapshot,adj_abs_values)
+	_set_color_value(%RedValue, str(adj_abs_values[RM.types.RED]), abs_changes[0])
+	_set_color_value(%GreenValue, str(adj_abs_values[RM.types.GREEN]), abs_changes[0])
+	_set_color_value(%BlueValue, str(adj_abs_values[RM.types.BLUE]), abs_changes[0])
+	
+	last_color_stat_snapshot = adj_abs_values
 	
 	# Set lane specific (grey) values
 	var adj_rel_values = data.get_adjusted_rel_values()
-	_set_color_value(%"Grey-1Value", str(adj_rel_values[-1]))
-	_set_color_value(%"Grey0Value", str(adj_rel_values[0]))
-	_set_color_value(%"Grey+1Value", str(adj_rel_values[1]))
+	var rel_changes = _get_stat_differences(last_grey_stat_snapshot,adj_rel_values)
+	_set_color_value(%"Grey-1Value", str(adj_rel_values[-1]), rel_changes[0])
+	_set_color_value(%"Grey0Value", str(adj_rel_values[0]), rel_changes[1])
+	_set_color_value(%"Grey+1Value", str(adj_rel_values[1]), rel_changes[2])
 	
+	last_grey_stat_snapshot = adj_rel_values
 	
 	#sets a label for the GREEN cost of a card, there's technology for cards to have other kinds of
 	# costs but like having more symbols on the already cluttered card is dubious
@@ -42,16 +51,31 @@ func display():
 	%"Favor Label".text = "%+d " % data.favor
 	
 # hide color box if value is 0, otherwise display value
-func _set_color_value(label: Label, value: String):
+func _set_color_value(label: Label, value: String, changed:bool = false):
 	var int_value = int(value)
+	var panel = label.get_parent()
 	if int_value == 0:
-		var panel = label.get_parent()
 		panel.self_modulate = Color.TRANSPARENT
 		label.text = ""
 	else:
-		var panel = label.get_parent()
 		panel.self_modulate = Color.WHITE
 		label.text = value
+	
+	if changed:
+		var grow = self.create_tween()
+		var starting_size:int = label.label_settings.outline_size
+		grow.tween_property(label.label_settings,"outline_size",starting_size + 3, 0)
+		grow.tween_interval(Lane.strategy_pause)
+		grow.tween_property(label.label_settings,"outline_size",starting_size, 0)
+
+
+##maps which indexes are different, not the actual difference
+func _get_stat_differences(prev:Dictionary,current:Dictionary) -> Array[bool]:
+	assert(prev.size() == current.size())
+	var diff: Array[bool]
+	for key in current:
+		diff.append(prev[key] == current[key])
+	return diff
 
 func score(in_lane:RM.types):
 	

@@ -5,5 +5,7 @@ extends Boon
 
 
 func apply(_god:God):
-	_god.aura_strategies.append(strategy)
+	var attached_strategy = strategy.duplicate()
+	_god.aura_strategies.append(attached_strategy)
+	attached_strategy.applied.connect(_god.highlighter.blink.bind(Lane.strategy_pause))
 	finished.emit()

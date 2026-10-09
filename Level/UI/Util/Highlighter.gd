@@ -38,3 +38,9 @@ func set_thickness(width:float):
 
 func disable():
 	mat.set_shader_parameter("line_color", Color(Color.WHITE,0))
+	
+func blink(duration:float = 0.08):
+	var blink_tween = create_tween().bind_node(self)
+	enable()
+	blink_tween.tween_interval(duration)
+	blink_tween.tween_callback(disable)

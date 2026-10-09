@@ -19,7 +19,7 @@ enum GODS{A,B,C,D}
 @export var max_favor:int = 1000
 @export var lane_sprite:Texture2D
 @export var true_sprite:Texture2D
-@onready var texture_rect: TextureRect = $VBoxContainer/TextureRect
+@onready var texture_rect: TextureRect = $CanvasGroup/VBoxContainer/TextureRect
 @export var craving:Craving
 
 static var favor_tiers:Array[int] = [0, 50, 125, 200, 500]
@@ -27,6 +27,9 @@ var current_tier:int = 0 #why the fuck did i call it this instead of just 'tier'
 var tier_up_queued:bool = false
 #@export var boon_pool:Array[Boon]
 @export var aura_strategies:Array[BaseCardStrategy]
+@export var highlighter:Highlighter
+
+var boon_history:Array[Boon]
 
 func _ready() -> void:
 	RM.favor_scored_in_lane.connect(on_favor_scored)
@@ -38,7 +41,7 @@ func _ready() -> void:
 func set_to_lane(lane:Lane):
 	#if current_lane:
 		#current_lane.god_strategies.clear()
-	
+	#lane.god = self
 	current_lane = lane
 	for s in aura_strategies:
 		lane.god_strategies.append(s)

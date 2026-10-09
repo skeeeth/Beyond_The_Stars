@@ -12,15 +12,15 @@ signal finished
 
 var god:God
 
-func _ready() -> void:
-	set_boon(boon)
-
+#func _ready() -> void:
+	#if boon:
+		#set_boon(boon)
 
 func set_boon(b:Boon):
 	boon = b
-	boon.finished.connect(finished.emit)
-	#text_box.text = (boon.description)
-	format_text(boon.description)
+	boon.finished.connect(finished.emit,4)
+	text_box.text = (boon.description)
+	#format_text(boon.description)
 	title_box.text = boon.name
 
 func format_text(_text:String):

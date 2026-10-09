@@ -10,7 +10,7 @@ class_name LinearGrowStrategy
 func apply(card:CardData,lane:Lane,active_cards:Array[CardDisplay]):
 	#triggers += 1
 	#for i in range(0,triggers):
-	
+	applied.emit()
 	var color_dict = growth_pattern.absolute_scoring
 	for c in color_dict:
 		card.static_color_mod[c] += color_dict[c]

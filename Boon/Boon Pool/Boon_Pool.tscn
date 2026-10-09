@@ -37,6 +37,7 @@ absolute_scoring = Dictionary[int, int]({
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [sub_resource type="Resource" id="Resource_58sd3"]
+resource_local_to_scene = true
 script = ExtResource("7_lridx")
 growth_pattern = SubResource("Resource_4qffb")
 metadata/_custom_type_script = "uid://wy5mxf6n00h8"
@@ -51,6 +52,7 @@ absolute_scoring = Dictionary[int, int]({
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [sub_resource type="Resource" id="Resource_5p5qj"]
+resource_local_to_scene = true
 script = ExtResource("10_4qffb")
 color_filter = Dictionary[int, int]({
 0: 1,
@@ -82,22 +84,16 @@ script = ExtResource("6_5y4ju")
 strategy = SubResource("Resource_58sd3")
 description = "Cards gain 0/1/0 when played in attached lane"
 mask = Dictionary[int, bool]({
-0: false,
+0: true,
 1: true,
 2: true,
-3: false
+3: true
 })
 
 [node name="Aura of Greed" type="Node" parent="."]
 script = ExtResource("6_5y4ju")
 strategy = SubResource("Resource_5p5qj")
 description = "Cards with a red pip gain 1/0/0 when played in this lane"
-mask = Dictionary[int, bool]({
-0: true,
-1: false,
-2: false,
-3: true
-})
 
 [node name="Worm Pack" type="Node" parent="."]
 script = ExtResource("7_scm78")

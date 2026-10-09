@@ -27,6 +27,8 @@ func apply(card:CardData,lane:Lane,active_cards:Array[CardDisplay]):
 		if grey_filter[i] > card.get_adjusted_rel_values()[i]:
 			return
 	
+	#only register applied applied if passed filters
+	applied.emit()
 	var color_array = card.temp_color_mod if temp else card.static_color_mod
 	var rel_array = card.temp_grey_mod if temp else card.static_grey_mod
 	

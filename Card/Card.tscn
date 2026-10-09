@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://t05wdcm7wbwt"]
+[gd_scene load_steps=8 format=3 uid="uid://t05wdcm7wbwt"]
 
+[ext_resource type="Theme" uid="uid://b0e6ktoqxgsr4" path="res://Assets/CardTheme.tres" id="1_6ma3f"]
 [ext_resource type="Script" uid="uid://igyu1wajboa7" path="res://Card/CardDisplay.gd" id="1_gasdx"]
+[ext_resource type="LabelSettings" uid="uid://c3wm0x6w7nv1l" path="res://Assets/CardStatLabelSettings.tres" id="3_5u7pk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u7pk"]
 bg_color = Color(0.2627451, 0.65882355, 0.28235295, 1)
@@ -16,6 +18,7 @@ bg_color = Color(0.2627451, 0.31764707, 0.65882355, 1)
 [node name="Card" type="PanelContainer"]
 custom_minimum_size = Vector2(140, 180)
 mouse_filter = 2
+theme = ExtResource("1_6ma3f")
 script = ExtResource("1_gasdx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -29,6 +32,8 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Card Name
 "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Green" type="Panel" parent="VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(32, 32)
@@ -39,11 +44,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5u7pk")
 
 [node name="GreenCost" type="Label" parent="VBoxContainer/HBoxContainer2/Green"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "1"
+label_settings = ExtResource("3_5u7pk")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -62,10 +72,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6ma3f")
 
 [node name="RedValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Red"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "1"
+label_settings = ExtResource("3_5u7pk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Green" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
@@ -77,10 +93,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5u7pk")
 
 [node name="GreenValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Green"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "1"
+label_settings = ExtResource("3_5u7pk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Blue" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
@@ -92,10 +114,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_kkgq3")
 
 [node name="BlueValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Blue"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "1"
+label_settings = ExtResource("3_5u7pk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -108,11 +136,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
 [node name="Grey-1Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey-1"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 text = "1"
+label_settings = ExtResource("3_5u7pk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Grey0" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
@@ -122,11 +156,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
 [node name="Grey0Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey0"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 text = "1"
+label_settings = ExtResource("3_5u7pk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Grey1" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
@@ -136,11 +176,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
 [node name="Grey+1Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey1"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 text = "1"
+label_settings = ExtResource("3_5u7pk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Panel" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
