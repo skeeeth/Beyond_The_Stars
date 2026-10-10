@@ -20,13 +20,28 @@ func set_boon(b:Boon):
 	boon = b
 	if !boon.finished.is_connected(finished.emit):
 		boon.finished.connect(finished.emit,4)
-	text_box.text = (boon.description)
-	#format_text(boon.description)
+	text_box.text = ""#(boon.description)
+	format_text(boon.description)
 	title_box.text = boon.name
 
-func format_text(_text:String):
+func format_text(text:String):
+	var start = text.find("[[")
+	#var end = text.find("]]")
+	if start == -1:
+		text_box.append_text(text)
+		return
+	text_box.append_text(text.left(start))
+	var stat_block = text.substr(start+2, 11)
+	print(stat_block)
 	var extracted_stats:Array[int]
-	extracted_stats = [1,0,0,0,0,1]
+	
+	for i in range(0,12,2):
+		var char = stat_block.substr(i,1)#wait this breaks with 2 digit numbers lol
+		var num = int(char)
+		extracted_stats.append(num)
+	 
+
+	#extracted_stats = [1,0,0,0,0,1]
 	
 	text_box.push_table(2,INLINE_ALIGNMENT_CENTER)
 	
@@ -39,6 +54,10 @@ func format_text(_text:String):
 		text_box.append_text(str(extracted_stats[i]))
 		text_box.pop()
 		text_box.pop()
+	text_box.pop()
+	
+	var remaining_text = text.substr(start+13)
+	text_box.append_text(remaining_text)
 
 func hide_body():
 	%RichTextLabel.hide()

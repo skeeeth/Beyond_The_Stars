@@ -82,7 +82,7 @@ mask = Dictionary[int, bool]({
 [node name="Aura of Growth" type="Node" parent="."]
 script = ExtResource("6_5y4ju")
 strategy = SubResource("Resource_58sd3")
-description = "Cards gain 0/1/0 when played in attached lane"
+description = "Cards gain [[0/1/0g0/0/0 when played in attached lane"
 mask = Dictionary[int, bool]({
 0: true,
 1: true,
@@ -93,7 +93,13 @@ mask = Dictionary[int, bool]({
 [node name="Aura of Greed" type="Node" parent="."]
 script = ExtResource("6_5y4ju")
 strategy = SubResource("Resource_5p5qj")
-description = "Cards with a red pip gain 1/0/0 when played in this lane"
+description = "Cards with a red pip gain [[1/0/0g0/0/0 when played in this lane"
+mask = Dictionary[int, bool]({
+0: true,
+1: true,
+2: true,
+3: true
+})
 
 [node name="Worm Pack" type="Node" parent="."]
 script = ExtResource("7_scm78")
