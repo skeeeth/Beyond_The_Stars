@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvsbqpcyvpbjs"]
+[gd_scene load_steps=8 format=3 uid="uid://dvsbqpcyvpbjs"]
 
 [ext_resource type="Script" uid="uid://defwwvykdu5oq" path="res://Gods/god.gd" id="1_6270s"]
 [ext_resource type="Texture2D" uid="uid://b8fx50yeydigm" path="res://Assets/Placeholder/PlantWipAtlas.tres" id="2_6270s"]
 [ext_resource type="PackedScene" uid="uid://cgd1v7y7gr4sc" path="res://Gods/Craving/Craving.tscn" id="3_m5r1x"]
 [ext_resource type="Script" uid="uid://dnsitrioyh1hj" path="res://Level/UI/Util/Highlighter.gd" id="4_s3vwt"]
+[ext_resource type="PackedScene" uid="uid://bqy5sbmqjwct7" path="res://Boon/BoonHistoryDisplay.tscn" id="5_66s73"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6270s"]
 bg_color = Color(0, 0, 0, 1)
@@ -31,6 +32,7 @@ expand_mode = 4
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_6270s")
 theme_override_styles/fill = SubResource("StyleBoxFlat_m5r1x")
 value = 60.8
@@ -60,3 +62,14 @@ script = ExtResource("4_s3vwt")
 canvas_group = NodePath("../CanvasGroup")
 highlight_color = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://dnsitrioyh1hj"
+
+[node name="Boon Display" parent="." instance=ExtResource("5_66s73")]
+visible = false
+offset_left = 158.0
+offset_top = -3.0
+offset_right = 575.0
+offset_bottom = 233.0
+mouse_filter = 2
+
+[connection signal="mouse_entered" from="CanvasGroup/VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasGroup/VBoxContainer" to="." method="_on_v_box_container_mouse_exited"]

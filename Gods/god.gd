@@ -28,6 +28,8 @@ var tier_up_queued:bool = false
 #@export var boon_pool:Array[Boon]
 @export var aura_strategies:Array[BaseCardStrategy]
 @export var highlighter:Highlighter
+@onready var boon_display: BoonHistoryDisplay = $"Boon Display"
+
 
 var boon_history:Array[Boon]
 
@@ -74,4 +76,18 @@ func tier_up():
 	%"Favor Bar".min_value = favor_tiers[current_tier-1]
 
 	favor = favor #calls setter to potentially queue an adittonal tier up
-	
+
+func recieve_boon(boon:Boon):
+	boon_history.append(boon)
+	boon_display.display_boons(boon_history)
+
+
+func _on_v_box_container_mouse_entered() -> void:
+	boon_display.visible = true
+
+
+
+
+
+func _on_v_box_container_mouse_exited() -> void:
+	boon_display.visible = false

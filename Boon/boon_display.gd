@@ -18,7 +18,8 @@ var god:God
 
 func set_boon(b:Boon):
 	boon = b
-	boon.finished.connect(finished.emit,4)
+	if !boon.finished.is_connected(finished.emit):
+		boon.finished.connect(finished.emit,4)
 	text_box.text = (boon.description)
 	#format_text(boon.description)
 	title_box.text = boon.name
@@ -39,9 +40,12 @@ func format_text(_text:String):
 		text_box.pop()
 		text_box.pop()
 
+func hide_body():
+	%RichTextLabel.hide()
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
 		boon.apply(god)
+		god.recieve_boon(boon)
 		selected.emit()
 		

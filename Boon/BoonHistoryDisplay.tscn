@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqy5sbmqjwct7"]
+[gd_scene load_steps=4 format=3 uid="uid://bqy5sbmqjwct7"]
 
 [ext_resource type="Script" uid="uid://dohke6esj2lcr" path="res://Boon/boon_history_display.gd" id="1_hn5vc"]
 [ext_resource type="PackedScene" uid="uid://b1ad0kb4a8ppu" path="res://Boon/Boon_Display.tscn" id="2_wfwhk"]
+[ext_resource type="Script" uid="uid://dyql5npvndprg" path="res://Boon/Boon Pool/Boons/Locked.gd" id="3_modu4"]
 
-[node name="PanelContainer" type="PanelContainer"]
-offset_right = 417.0
-offset_bottom = 615.0
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("locked_boon")]
+offset_right = 313.0
+offset_bottom = 236.0
+size_flags_vertical = 4
+mouse_filter = 1
 script = ExtResource("1_hn5vc")
+locked_boon = NodePath("Locked")
 
 [node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -14,16 +18,38 @@ layout_mode = 2
 [node name="PanelContainer" parent="Container" instance=ExtResource("2_wfwhk")]
 layout_mode = 2
 
+[node name="RichTextLabel" parent="Container/PanelContainer/VBoxContainer" index="2"]
+visible = false
+
 [node name="PanelContainer2" parent="Container" instance=ExtResource("2_wfwhk")]
 layout_mode = 2
+
+[node name="RichTextLabel" parent="Container/PanelContainer2/VBoxContainer" index="2"]
+visible = false
 
 [node name="PanelContainer3" parent="Container" instance=ExtResource("2_wfwhk")]
 layout_mode = 2
 
+[node name="RichTextLabel" parent="Container/PanelContainer3/VBoxContainer" index="2"]
+visible = false
+
 [node name="PanelContainer4" parent="Container" instance=ExtResource("2_wfwhk")]
 layout_mode = 2
+
+[node name="RichTextLabel" parent="Container/PanelContainer4/VBoxContainer" index="2"]
+visible = false
 
 [node name="PanelContainer5" parent="Container" instance=ExtResource("2_wfwhk")]
 layout_mode = 2
 
+[node name="RichTextLabel" parent="Container/PanelContainer5/VBoxContainer" index="2"]
+visible = false
+
+[node name="Locked" type="Node" parent="."]
+script = ExtResource("3_modu4")
+
+[editable path="Container/PanelContainer"]
 [editable path="Container/PanelContainer2"]
+[editable path="Container/PanelContainer3"]
+[editable path="Container/PanelContainer4"]
+[editable path="Container/PanelContainer5"]

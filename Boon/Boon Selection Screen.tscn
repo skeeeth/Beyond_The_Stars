@@ -24,12 +24,15 @@ theme = ExtResource("2_ebtbx")
 
 [node name="PanelContainer" parent="VBoxContainer" instance=ExtResource("3_q4iqp")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="PanelContainer2" parent="VBoxContainer" instance=ExtResource("3_q4iqp")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="PanelContainer3" parent="VBoxContainer" instance=ExtResource("3_q4iqp")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 z_index = -1
