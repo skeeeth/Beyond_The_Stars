@@ -24,7 +24,8 @@ offset_bottom = 53.0
 text = "Play Cards (1 Action)"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(0, -20, 1000, -20, 1000, 200, 0, 200)
+scale = Vector2(1, 1.1)
+polygon = PackedVector2Array(0, -20, 1000, -20, 1000, 200, 501.2735, 200, 0, 200)
 
 [node name="Draw Pile" parent="." instance=ExtResource("5_3y20t")]
 unique_name_in_owner = true

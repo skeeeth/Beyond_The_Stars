@@ -7,7 +7,7 @@ signal clicked(who:CardDisplay)
 
 const SELF_SCENE = preload("uid://t05wdcm7wbwt")
 
-static var card_size:Vector2 = Vector2(140,180) #not synced with custom_minimum_size! Change both manually
+static var card_size:Vector2 = Vector2(188,200) #not synced with custom_minimum_size! Change both manually
 
 var draggable:bool = false
 var last_color_stat_snapshot:Dictionary

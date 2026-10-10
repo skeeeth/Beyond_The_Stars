@@ -2,3 +2,7 @@
 
 [resource]
 resource_local_to_scene = true
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0.49080005, 0.43200004, 0.6, 1)
+shadow_size = 0

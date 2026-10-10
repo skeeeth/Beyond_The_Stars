@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cye8u3qvxc24j"]
+
+[ext_resource type="Shader" uid="uid://rax2od8h27ok" path="res://Card/Paper.gdshader" id="1_2h3ag"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hcyk8"]
+noise_type = 0
+seed = 6
+frequency = 0.004
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x8cmv"]
+noise = SubResource("FastNoiseLite_hcyk8")
+
+[resource]
+shader = ExtResource("1_2h3ag")
+shader_parameter/noise = SubResource("NoiseTexture2D_x8cmv")
+shader_parameter/base_color = Vector4(0.8, 0.8, 0.8, 1)
+shader_parameter/noise_strength = 0.10000000149012

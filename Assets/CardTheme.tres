@@ -1,3 +1,23 @@
-[gd_resource type="Theme" format=3 uid="uid://b0e6ktoqxgsr4"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b0e6ktoqxgsr4"]
+
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="1_e73gm"]
+[ext_resource type="Texture2D" uid="uid://xadsintofx5r" path="res://Assets/grey_box_black4_border.png" id="2_wpxes"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nknms"]
+content_margin_bottom = 3.0
+texture = ExtResource("2_wpxes")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="SystemFont" id="SystemFont_wpxes"]
 
 [resource]
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_e73gm")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_nknms")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/normal_font_size = 13
+RichTextLabel/fonts/bold_font = SubResource("SystemFont_wpxes")
+RichTextLabel/fonts/normal_font = SubResource("SystemFont_wpxes")
