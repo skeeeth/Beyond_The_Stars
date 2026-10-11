@@ -1,6 +1,11 @@
 @abstract extends Node
 class_name Boon
 
+@warning_ignore("unused_signal")
+signal finished
+
+signal request_card_selections(count:int)
+
 @export var description:String
 @export var tier:int = 1
 
@@ -12,6 +17,3 @@ class_name Boon
 }
 
 @abstract func apply(god:God)
-
-@warning_ignore("unused_signal")
-signal finished

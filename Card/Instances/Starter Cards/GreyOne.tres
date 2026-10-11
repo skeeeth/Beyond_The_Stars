@@ -18,4 +18,5 @@ resource_costs = Dictionary[int, int]({
 1: 0,
 2: 0
 })
+favor = 10
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"

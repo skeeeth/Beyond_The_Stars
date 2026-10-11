@@ -4,6 +4,8 @@ class_name BoonDisplay
 signal selected
 signal finished
 
+signal card_selection_requested(count:int)
+
 @export var boon:Boon
 @export var text_box: RichTextLabel
 @export var title_box:Label
@@ -20,6 +22,10 @@ func set_boon(b:Boon):
 	boon = b
 	if !boon.finished.is_connected(finished.emit):
 		boon.finished.connect(finished.emit,4)
+	
+	if !boon.request_card_selections.is_connected(card_selection_requested.emit):
+		boon.request_card_selections.connect(card_selection_requested.emit, 4)
+	
 	text_box.text = ""#(boon.description)
 	format_text(boon.description)
 	title_box.text = boon.name
@@ -71,7 +77,8 @@ func _on_gui_input(event: InputEvent) -> void:
 		var boon_select_sound = FmodServer.create_event_instance("event:/UI Confirm (Big)")
 		boon_select_sound.start()
 		boon_select_sound.release()
-		
+
+
 func _play_boon_hover() -> void:
 	var boon_hover_sound = FmodServer.create_event_instance("event:/UI Hover")
 	boon_hover_sound.start()

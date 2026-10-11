@@ -10,7 +10,7 @@ z_index = 9
 script = ExtResource("1_hyphn")
 boon_options = [NodePath("VBoxContainer/PanelContainer"), NodePath("VBoxContainer/PanelContainer2"), NodePath("VBoxContainer/PanelContainer3")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="God" type="Sprite2D" parent="."]
 position = Vector2(411, 527)
 scale = Vector2(0.735, 0.735)
 texture = ExtResource("2_q4iqp")
@@ -34,7 +34,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Background" type="Polygon2D" parent="."]
 z_index = -1
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(2, 2, -4, 1085, 1935, 1078, 1923, -4)

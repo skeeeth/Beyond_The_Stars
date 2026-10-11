@@ -6,7 +6,7 @@ signal splayed_card_clicked(card:CardDisplay)
 # Simple layer for connecting signals across the scene tree
 
 @onready var lanes = $Lanes
-@onready var card_display = $CanvasLayer/CenterContainer/HBoxContainer
+@onready var card_display: = $CanvasLayer/CenterContainer/HBoxContainer
 static var instance:World #im going to essentially treat World class as a singleton
 var lane_list:Array[Lane] = []
 var current_list:Array
@@ -44,7 +44,10 @@ func splay(cards: Array):
 		card_draw_sound.start()
 		card_draw_sound.release()
 	
-	$CanvasLayer/CenterContainer.display()
+	if current_list.size() > 0:
+		$CanvasLayer/CenterContainer.display()
+	else:
+		$CanvasLayer/CenterContainer.disappear()
 
 
 
@@ -66,5 +69,6 @@ func request_lane_card_selection(ve_type:ViewportEffects.types):
 
 func cancel_selection(ve_type:ViewportEffects.types):
 	viewport_effects.cancel(ve_type)
+	splay([])
 	for l in lane_list:
 		l.pile_highlight_reset()
