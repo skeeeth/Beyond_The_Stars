@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Keyword" load_steps=4 format=3 uid="uid://bfjbywhuhnccv"]
+
+[ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="1_m1g0l"]
+[ext_resource type="Script" uid="uid://b10n0lx7nychn" path="res://Card/Keywords/WarriorStrategy.gd" id="2_4g05c"]
+
+[sub_resource type="Resource" id="Resource_6fotk"]
+resource_local_to_scene = true
+script = ExtResource("2_4g05c")
+metadata/_custom_type_script = "uid://b10n0lx7nychn"
+
+[resource]
+resource_name = "Warrior"
+script = ExtResource("1_m1g0l")
+word = "Warrior"
+strategy = SubResource("Resource_6fotk")
+metadata/_custom_type_script = "uid://hymadn3vxqo"

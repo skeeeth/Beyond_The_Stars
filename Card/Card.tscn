@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://cye8u3qvxc24j" path="res://Assets/CardMaterial.tres" id="1_hcyk8"]
 [ext_resource type="LabelSettings" uid="uid://c3wm0x6w7nv1l" path="res://Assets/CardStatLabelSettings.tres" id="3_5u7pk"]
 [ext_resource type="Texture2D" uid="uid://cddm3n0esqpdq" path="res://icon.svg" id="4_kkgq3"]
+[ext_resource type="StyleBox" uid="uid://cm2738lmkufw5" path="res://Card/BaseTextStyleBox.tres" id="6_x8cmv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hcyk8"]
 line_spacing = -5.0
@@ -14,11 +15,9 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u7pk"]
 bg_color = Color(0.2627451, 0.65882355, 0.28235295, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcyk8"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_1xywt"]
 line_spacing = -2.0
-paragraph_spacing = -0.14
+paragraph_spacing = -6.0
 font_size = 24
 font_color = Color(0, 0, 0, 1)
 outline_size = 4
@@ -102,12 +101,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="TextBack" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_hcyk8")
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("6_x8cmv")
 
-[node name="Description" type="Label" parent="VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="Description" type="Label" parent="VBoxContainer/HBoxContainer/TextBack"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -270,3 +270,5 @@ text = "+20"
 label_settings = SubResource("LabelSettings_x8cmv")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

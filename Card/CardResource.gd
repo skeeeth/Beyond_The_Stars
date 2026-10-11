@@ -5,7 +5,8 @@ signal temp_values_cleared
 
 @export var card_name:String = "Card Name"
 
-@export var description:String = ""
+#@export var description:String = ""
+@export var keywords:Array[Keyword]
 
 @export var absolute_scoring:Dictionary[RM.types,int]  = {
 	RM.types.RED: 0,
@@ -26,6 +27,8 @@ signal temp_values_cleared
 }
 
 @export var favor:int
+var temp_favor_mod:int
+var static_favor_mod:int
 
 @export var play_strategies:Array[BaseCardStrategy]
 
@@ -53,6 +56,7 @@ var static_grey_mod:Dictionary[int,int] = {
 	1: 0,
 }
 
+
 func get_adjusted_abs_values() -> Dictionary[RM.types,int]:
 	var return_value: Dictionary[RM.types,int]
 	return_value = absolute_scoring.duplicate()
@@ -66,7 +70,7 @@ func get_adjusted_rel_values() -> Dictionary[int,int]:
 	return_value = relative_scoring.duplicate()
 	for key in return_value:
 		return_value[key] += temp_grey_mod[key]
-		return_value[key] += temp_grey_mod[key]
+		return_value[key] += static_grey_mod[key]
 	return return_value
 
 func reset_temp_values():
@@ -77,3 +81,12 @@ func reset_temp_values():
 		temp_grey_mod[i] = 0
 	
 	temp_values_cleared.emit()
+
+func get_keyword_strategies() -> Array[BaseCardStrategy]:
+	var return_value:Array[BaseCardStrategy]
+	for k in keywords:
+		return_value.append(k.strategy)
+	return return_value
+	
+func get_adjusted_favor() -> int:
+	return favor + temp_favor_mod + static_favor_mod

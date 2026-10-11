@@ -29,12 +29,4 @@ func apply(card:CardData,lane:Lane,active_cards:Array[CardDisplay]):
 	
 	#only register applied applied if passed filters
 	applied.emit()
-	var color_array = card.temp_color_mod if temp else card.static_color_mod
-	var rel_array = card.temp_grey_mod if temp else card.static_grey_mod
-	
-	for c in buff.absolute_scoring:
-		color_array[c] += buff.absolute_scoring[c]
-	
-	for i in buff.relative_scoring:
-		rel_array[i] += buff.relative_scoring[i]
-	
+	add_stats(card,buff.absolute_scoring,buff.relative_scoring,temp)

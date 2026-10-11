@@ -2,6 +2,7 @@ extends PanelContainer
 class_name CardDisplay
 
 signal clicked(who:CardDisplay)
+signal removal_requested(who:CardDisplay)
 
 @export var data:CardData
 
@@ -47,6 +48,12 @@ func display():
 	# costs but like having more symbols on the already cluttered card is dubious
 	_set_color_value(%GreenCost, str(data.resource_costs[RM.types.GREEN]))
 	
+	#write keywords
+	var text:String = ""
+	for keyword in data.keywords:
+		text += keyword.word + "\n"
+	%Description.text = text
+	
 	#sets bottom label to favor diff with +- sign
 	%"Favor Label".text = "%+d " % data.favor
 	
@@ -64,7 +71,7 @@ func _set_color_value(label: Label, value: String, changed:bool = false):
 	if changed:
 		var grow = self.create_tween()
 		var starting_size:int = label.label_settings.outline_size
-		grow.tween_property(label.label_settings,"outline_size",starting_size + 3, 0)
+		grow.tween_property(label.label_settings,"outline_size",starting_size + 8, 0)
 		grow.tween_interval(Lane.strategy_pause)
 		grow.tween_property(label.label_settings,"outline_size",starting_size, 0)
 
@@ -74,7 +81,7 @@ func _get_stat_differences(prev:Dictionary,current:Dictionary) -> Array[bool]:
 	assert(prev.size() == current.size())
 	var diff: Array[bool]
 	for key in current:
-		diff.append(prev[key] == current[key])
+		diff.append(prev[key] != current[key])
 	return diff
 
 func score(in_lane:RM.types):
@@ -91,8 +98,32 @@ func score(in_lane:RM.types):
 		var adjusted_type = posmod((in_lane + t), (RM.types.size()))
 		RM.add_resource(adjusted_type,value)
 		
-	RM.score_favor(in_lane, data.favor)
+	RM.score_favor(in_lane, data.get_adjusted_favor())
 	data.reset_temp_values()
+
+func request_removal():
+	removal_requested.emit(self)
+	#print(removal_requested.get_connections())
+	#print(" ")
+
+func be_eaten():
+	var eat = self.create_tween()
+	var eat_duration:float = 0.2
+	eat.tween_property(self,"scale:y",0,eat_duration)
+	eat.parallel().tween_property(self,"position:y",position.y + (size.y/2.0),eat_duration)
+	eat.tween_callback(queue_free)
+
+const BASE_TEXT_STYLE_BOX = preload("uid://cm2738lmkufw5")
+const HIGHLIGHT_STYLE_BOX = preload("uid://fujdbjtsa2ew")
+
+func blink_textbox():
+	var box:PanelContainer = %Description.get_parent()
+	var tween = create_tween().bind_node(self)
+	tween.tween_callback(box.add_theme_stylebox_override.bind("Panel", HIGHLIGHT_STYLE_BOX))
+	tween.tween_interval(Lane.strategy_pause)
+	tween.tween_callback(box.add_theme_stylebox_override.bind("Panel", BASE_TEXT_STYLE_BOX))
+	
+
 
 #does it ever feel like your cursor is pregnant with information
 func _get_drag_data(_at_position: Vector2) -> Variant:
@@ -113,3 +144,8 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
 		clicked.emit(self)
+
+
+func _on_mouse_entered() -> void:
+	print("entered")
+	pass # Replace with function body.

@@ -13,6 +13,7 @@ signal scoring_started
 var discard:Array[CardData]
 
 var active_cards:Array[CardDisplay]
+var cards_queued_for_removal:Array[CardDisplay]
 var x_spacing = 25
 
 var card_plays:int = 2:
@@ -52,6 +53,8 @@ func draw_card():
 	var new_card = CardDisplay.create_from_data(res)
 	add_child(new_card)
 	active_cards.append(new_card)
+	new_card.removal_requested.connect(cards_queued_for_removal.append)
+	
 	var draw_slide = create_tween()
 	var destination = Vector2(active_cards.size() * (CardDisplay.card_size.x + x_spacing),0)
 	draw_slide.tween_property(new_card,"position",destination,0.2).set_ease(Tween.EASE_OUT)
@@ -84,6 +87,7 @@ func play():
 	#play_tween.tween_interval(2) #leave cards visible for a delay
 	await play_tween.finished
 	
+#region During Play
 	var strategy_tween = create_tween()
 	for c in active_cards:
 		var starting_y = c.position.y
@@ -95,8 +99,9 @@ func play():
 				strategy_tween.tween_interval(strategy_pause)
 		
 		apply_strategy_stack.call(lane_strategies)
-		apply_strategy_stack.call(c.data.play_strategies)
 		apply_strategy_stack.call(god_strategies)
+		apply_strategy_stack.call(c.data.get_keyword_strategies())
+
 		strategy_tween.tween_property(c,"position:y", starting_y, 0.05)
 		strategy_tween.tween_interval(0.1)
 	
@@ -105,15 +110,27 @@ func play():
 	#score after all strategies
 	for c in active_cards:
 		strategy_tween.tween_callback(c.score.bind(type))
+		strategy_tween.tween_callback(c.display)
 		strategy_tween.tween_interval(0.1)
 	
 	strategy_tween.tween_interval(0.4)
 	await strategy_tween.finished
+#endregion
+	
 	#send all cards to discard at once
 	var discard_tween = create_tween()
 	discard_tween.set_parallel(true)
+	for card in cards_queued_for_removal:
+		active_cards.erase(card)
+		discard.erase(card.data)
+		deck.erase(card.data)
+		discard_tween.tween_interval(0.5)
+		card.be_eaten()
+	
+	cards_queued_for_removal.clear()
+	
 	for c in active_cards:
-		discard_tween.tween_property(c,"position",discard_pile.position,0.3)
+		discard_tween.tween_property(c,"position",discard_pile.position,0.2)
 	for c in active_cards:
 		discard_tween.chain().tween_callback(c.queue_free)
 	

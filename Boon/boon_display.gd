@@ -36,8 +36,8 @@ func format_text(text:String):
 	var extracted_stats:Array[int]
 	
 	for i in range(0,12,2):
-		var char = stat_block.substr(i,1)#wait this breaks with 2 digit numbers lol
-		var num = int(char)
+		var char_ = stat_block.substr(i,1)#wait this breaks with 2 digit numbers lol
+		var num = int(char_)
 		extracted_stats.append(num)
 	 
 
