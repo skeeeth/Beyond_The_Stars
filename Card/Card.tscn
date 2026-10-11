@@ -264,5 +264,8 @@ label_settings = SubResource("LabelSettings_x8cmv")
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="Tooltip Position" type="Node2D" parent="."]
+position = Vector2(236, 3)
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

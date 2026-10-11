@@ -13,6 +13,9 @@ static var card_size:Vector2 = Vector2(188,200) #not synced with custom_minimum_
 var draggable:bool = false
 var last_color_stat_snapshot:Dictionary
 var last_grey_stat_snapshot:Dictionary
+var tooltips:Array[Tooltip]
+@onready var tooltip_position: Node2D = $"Tooltip Position"
+
 
 static func create_from_data(res:CardData) -> CardDisplay:
 	var new_card:CardDisplay = SELF_SCENE.instantiate()
@@ -147,14 +150,19 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _on_mouse_entered() -> void:
-	print("entered")
-	pass # Replace with function body.
-
+	for k in data.keywords:
+		var new_tt:Tooltip = Tooltip.create(k)
+		new_tt.position.y = tooltips.size() * 80
+		tooltip_position.add_child(new_tt)
+		tooltips.append(new_tt)
+		
 
 func _on_mouse_exited() -> void:
-	print("exited")
+	for tt in tooltips:
+		tt.queue_free()
+	tooltips.clear()
 	pass # Replace with function body.
-		
+
 func _card_hover_sound() -> void:
 	var _card_hover = FmodServer.create_event_instance("event:/Card Deal")
 	_card_hover.start()
