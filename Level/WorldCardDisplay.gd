@@ -40,6 +40,9 @@ func splay(cards: Array):
 		card.mouse_filter = Control.MOUSE_FILTER_STOP
 		card.clicked.connect(on_card_clicked)
 		card_display.add_child(card)
+		var card_draw_sound = FmodServer.create_event_instance("event:/Card Deal")
+		card_draw_sound.start()
+		card_draw_sound.release()
 	
 	$CanvasLayer/CenterContainer.display()
 

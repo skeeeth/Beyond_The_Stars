@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dvt5xlsdd7fo4"
+path="res://.godot/imported/Card Waterfall 4.wav-df0cfde9a751c855734b469b71118ef8.sample"
+
+[deps]
+
+source_file="res://Beyond the Stars FMOD/Assets/Card Waterfall 4.wav"
+dest_files=["res://.godot/imported/Card Waterfall 4.wav-df0cfde9a751c855734b469b71118ef8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

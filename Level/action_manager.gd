@@ -9,6 +9,7 @@ signal cycle_ending
 static var actions_per_cycle:int = 5
 var actions_left:int = actions_per_cycle
 var cycle:int = 0
+@onready var bgm_node: FmodEventEmitter2D = $"../../../BGM Node"
 
 func _ready() -> void:
 	#we dont care what card or lane is actually being played here, just that it happened
@@ -33,6 +34,7 @@ func round_end():
 func start_cycle():
 	actions_left = actions_per_cycle
 	cycle += 1
+	bgm_node.set_parameter("Cycle", cycle)
 	_set_text()
 
 func _set_text():

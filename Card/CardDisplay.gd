@@ -154,3 +154,8 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	print("exited")
 	pass # Replace with function body.
+		
+func _card_hover_sound() -> void:
+	var _card_hover = FmodServer.create_event_instance("event:/Card Deal")
+	_card_hover.start()
+	_card_hover.release()

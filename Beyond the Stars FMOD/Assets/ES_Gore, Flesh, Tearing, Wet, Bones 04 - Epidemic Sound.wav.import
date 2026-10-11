@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ignasd3f28dj"
+path="res://.godot/imported/ES_Gore, Flesh, Tearing, Wet, Bones 04 - Epidemic Sound.wav-5c3c16610fa4725f82d80e36d81230fe.sample"
+
+[deps]
+
+source_file="res://Beyond the Stars FMOD/Assets/ES_Gore, Flesh, Tearing, Wet, Bones 04 - Epidemic Sound.wav"
+dest_files=["res://.godot/imported/ES_Gore, Flesh, Tearing, Wet, Bones 04 - Epidemic Sound.wav-5c3c16610fa4725f82d80e36d81230fe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

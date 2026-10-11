@@ -38,3 +38,7 @@ size_flags_vertical = 3
 z_index = -1
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(2, 2, -4, 1085, 1935, 1078, 1923, -4)
+
+[connection signal="mouse_entered" from="VBoxContainer/PanelContainer" to="VBoxContainer/PanelContainer" method="_play_boon_hover"]
+[connection signal="mouse_entered" from="VBoxContainer/PanelContainer2" to="VBoxContainer/PanelContainer2" method="_play_boon_hover"]
+[connection signal="mouse_entered" from="VBoxContainer/PanelContainer3" to="VBoxContainer/PanelContainer3" method="_play_boon_hover"]

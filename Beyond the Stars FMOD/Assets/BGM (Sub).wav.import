@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwsgpg58uxk71"
+path="res://.godot/imported/BGM (Sub).wav-cf1a02dca85a1aac3d8fb693d842d1fb.sample"
+
+[deps]
+
+source_file="res://Beyond the Stars FMOD/Assets/BGM (Sub).wav"
+dest_files=["res://.godot/imported/BGM (Sub).wav-cf1a02dca85a1aac3d8fb693d842d1fb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
