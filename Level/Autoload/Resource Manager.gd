@@ -38,6 +38,11 @@ func add_resource(type:types,amount:int):
 	current[type] += amount
 	cumulative[type] += amount
 	resource_added.emit(type, amount)
+	#play resource add sound
+	if amount > 0:
+		var resource_add_sound = FmodServer.create_event_instance("event:/Add " + names[type])
+		resource_add_sound.start()
+		resource_add_sound.release()
 	
 
 ##attempts to spend an amount of a resource and returns the result

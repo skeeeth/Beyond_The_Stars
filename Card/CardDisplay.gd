@@ -113,3 +113,8 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
 		clicked.emit(self)
+		
+func _card_hover_sound() -> void:
+	var _card_hover = FmodServer.create_event_instance("event:/Card Deal")
+	_card_hover.start()
+	_card_hover.release()

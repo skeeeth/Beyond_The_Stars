@@ -270,3 +270,5 @@ text = "+20"
 label_settings = SubResource("LabelSettings_x8cmv")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[connection signal="mouse_entered" from="." to="." method="_card_hover_sound"]

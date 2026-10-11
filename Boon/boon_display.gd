@@ -67,4 +67,12 @@ func _on_gui_input(event: InputEvent) -> void:
 		boon.apply(god)
 		god.recieve_boon(boon)
 		selected.emit()
+		#play boon selection sound
+		var boon_select_sound = FmodServer.create_event_instance("event:/UI Confirm (Big)")
+		boon_select_sound.start()
+		boon_select_sound.release()
 		
+func _play_boon_hover() -> void:
+	var boon_hover_sound = FmodServer.create_event_instance("event:/UI Hover")
+	boon_hover_sound.start()
+	boon_hover_sound.release()
