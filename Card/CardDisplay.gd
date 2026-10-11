@@ -149,3 +149,8 @@ func _gui_input(event: InputEvent) -> void:
 func _on_mouse_entered() -> void:
 	print("entered")
 	pass # Replace with function body.
+
+
+func _on_mouse_exited() -> void:
+	print("exited")
+	pass # Replace with function body.

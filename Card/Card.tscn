@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://c3wm0x6w7nv1l" path="res://Assets/CardStatLabelSettings.tres" id="3_5u7pk"]
 [ext_resource type="Texture2D" uid="uid://cddm3n0esqpdq" path="res://icon.svg" id="4_kkgq3"]
 [ext_resource type="StyleBox" uid="uid://cm2738lmkufw5" path="res://Card/BaseTextStyleBox.tres" id="6_x8cmv"]
+[ext_resource type="LabelSettings" uid="uid://h510q05jbwo7" path="res://Card/CardBodyLabeLSettings.tres" id="7_1xywt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hcyk8"]
 line_spacing = -5.0
@@ -14,14 +15,6 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u7pk"]
 bg_color = Color(0.2627451, 0.65882355, 0.28235295, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_1xywt"]
-line_spacing = -2.0
-paragraph_spacing = -6.0
-font_size = 24
-font_color = Color(0, 0, 0, 1)
-outline_size = 4
-outline_color = Color(0.35654166, 0.3225, 0.43, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ma3f"]
 bg_color = Color(0.65882355, 0.2627451, 0.2627451, 1)
@@ -112,7 +105,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Vanilla"
-label_settings = SubResource("LabelSettings_1xywt")
+label_settings = ExtResource("7_1xywt")
 horizontal_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
@@ -272,3 +265,4 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

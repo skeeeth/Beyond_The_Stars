@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://db0cemcv4bb5n"]
+
+[ext_resource type="Theme" uid="uid://b0e6ktoqxgsr4" path="res://Assets/CardTheme.tres" id="1_70vfq"]
+[ext_resource type="Script" uid="uid://g7x8v4f4t4ur" path="res://Card/Tooltip/tooltip.gd" id="1_w8n74"]
+[ext_resource type="Resource" uid="uid://bfjbywhuhnccv" path="res://Card/Keywords/Warrior.tres" id="3_vt3p8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v3b37"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vt3p8"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[node name="Tooltip" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_70vfq")
+script = ExtResource("1_w8n74")
+keyword = ExtResource("3_vt3p8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Word" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Word"
+label_settings = SubResource("LabelSettings_v3b37")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Gain 1/1/0, 10 favor for each warrior scored simultaneously"
+label_settings = SubResource("LabelSettings_vt3p8")
