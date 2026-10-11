@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{344222c6-ffaf-4751-a9bf-40f82cc1cad8}">
+		<property name="assetPath">
+			<value>ES_Weapons, Blunt, Small Hammer, Attack, Hit Flesh, Impact - Epidemic Sound.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>19.669541666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d71180e1-799a-49e7-b24c-5fc313beca71}</destination>
+		</relationship>
+	</object>
+</objects>

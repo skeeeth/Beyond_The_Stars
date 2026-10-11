@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{b38af0e5-4802-42b6-8fa2-e48acc765bd1}">
+		<property name="assetPath">
+			<value>Card Waterfall 5.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.90031249999999996</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d71180e1-799a-49e7-b24c-5fc313beca71}</destination>
+		</relationship>
+	</object>
+</objects>

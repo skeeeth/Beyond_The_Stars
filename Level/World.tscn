@@ -234,6 +234,19 @@ text = "Test"
 lanes = [NodePath("../Lanes/Lane"), NodePath("../Lanes/Lane2"), NodePath("../Lanes/Lane3")]
 action_manager = NodePath("../TopBar/HBoxContainer/Action Manager")
 
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Beyond the Stars FMOD/Build/Desktop/Master.strings.bank", "res://Beyond the Stars FMOD/Build/Desktop/Master.bank"]
+
+[node name="BGM Node" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/BGM"
+event_guid = "{cbd3847a-4db0-44c5-914a-c004cf93cc0b}"
+attached = false
+autoplay = true
+auto_release = true
+fmod_parameters/Cycle/id = -1888767007511780636
+fmod_parameters/Cycle = 1
+fmod_parameters/Cycle/variant_type = 2
+
 [editable path="Lanes/Lane"]
 [editable path="Lanes/Lane2"]
 [editable path="Lanes/Lane3"]

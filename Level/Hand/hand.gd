@@ -16,6 +16,11 @@ func _ready() -> void:
 		draw_one()
 
 func draw_one():
+	#Play card draw audio
+	var card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
+	card_deal_sound.start()
+	card_deal_sound.release()
+	
 	var new_card:CardDisplay = CardDisplay.create_from_data(card_pool.pick_random().duplicate())
 	new_card.draggable = true
 	container.add_child(new_card)

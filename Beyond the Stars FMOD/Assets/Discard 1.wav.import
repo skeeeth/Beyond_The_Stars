@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brujub8uo1b0m"
+path="res://.godot/imported/Discard 1.wav-41e200a483f585bf688845a69d2c7d10.sample"
+
+[deps]
+
+source_file="res://Beyond the Stars FMOD/Assets/Discard 1.wav"
+dest_files=["res://.godot/imported/Discard 1.wav-41e200a483f585bf688845a69d2c7d10.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

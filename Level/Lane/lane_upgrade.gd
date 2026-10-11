@@ -14,6 +14,9 @@ func _on_pressed() -> void:
 	if !RM.try_spend(cost_type,cost_progression[current_stage]): 
 		return #do nothing on fail (or later to some kind of error feedback but nothing for now)
 	
+	var UI_confirm_sound = FmodServer.create_event_instance("event:/UI Confirm")
+	UI_confirm_sound.start()
+	UI_confirm_sound.release()
 	current_stage +=1 
 	lane.gain_upgrade()
 	if current_stage >= cost_progression.size():

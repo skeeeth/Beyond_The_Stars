@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{32e095d6-0d05-445d-a2ec-f5b5563eb13e}">
+		<property name="assetPath">
+			<value>Card Shuffle 1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d71180e1-799a-49e7-b24c-5fc313beca71}</destination>
+		</relationship>
+	</object>
+</objects>

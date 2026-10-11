@@ -49,6 +49,11 @@ func draw_card():
 	var res = deck.pop_front()
 	discard.push_back(res)
 	
+	#Play card deal audio
+	var card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
+	card_deal_sound.start()
+	card_deal_sound.release()
+	
 	var new_card = CardDisplay.create_from_data(res)
 	add_child(new_card)
 	active_cards.append(new_card)
@@ -70,6 +75,9 @@ func draw_card():
 
 func _on_button_pressed() -> void:
 	play()
+	var UI_confirm_sound = FmodServer.create_event_instance("event:/UI Confirm")
+	UI_confirm_sound.start()
+	UI_confirm_sound.release()
 	pass # Replace with function body.
 
 func play():

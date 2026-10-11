@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://40aolrtg7aov"
+path="res://.godot/imported/ES_Gore, Stab, Knife, Slice, Slash Skin, Fleshy, Gore 02 - Epidemic Sound.wav-f81c0c9c4cc33a200b031d6584fa1499.sample"
+
+[deps]
+
+source_file="res://Beyond the Stars FMOD/Assets/ES_Gore, Stab, Knife, Slice, Slash Skin, Fleshy, Gore 02 - Epidemic Sound.wav"
+dest_files=["res://.godot/imported/ES_Gore, Stab, Knife, Slice, Slash Skin, Fleshy, Gore 02 - Epidemic Sound.wav-f81c0c9c4cc33a200b031d6584fa1499.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rqklx7db6oq8"
+path="res://.godot/imported/BGM (Drum Loop).wav-96863cc24a4ab357f69f54e7ea650f91.sample"
+
+[deps]
+
+source_file="res://Beyond the Stars FMOD/Assets/BGM (Drum Loop).wav"
+dest_files=["res://.godot/imported/BGM (Drum Loop).wav-96863cc24a4ab357f69f54e7ea650f91.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
