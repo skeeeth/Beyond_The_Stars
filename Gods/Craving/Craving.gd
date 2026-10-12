@@ -1,6 +1,8 @@
 extends PanelContainer
 class_name Craving
 
+signal craving_failed
+
 enum craving_types{RES, LANE, HAND}
 var type:craving_types
 
@@ -20,7 +22,7 @@ var time_limit:int = 2
 func set_craving(tier:int):
 	active = true
 	visible = true
-	var card_odds:float = 0.0
+	var card_odds:float = card_odds_per_tier[tier]
 	
 	
 	if randf() < card_odds:
@@ -72,7 +74,7 @@ func on_satisfy():
 	#play sacrifice audio
 	var sacrifice_sound = FmodServer.create_event_instance("event:/Card Discard")
 	sacrifice_sound.start()
-	sacrifice_sound.release()			
+	sacrifice_sound.release()
 
 func on_card_selected(card_display:CardDisplay):
 	World.instance.current_list.erase(card_display.data)
@@ -82,7 +84,7 @@ func on_card_selected(card_display:CardDisplay):
 func on_unsated_cycle():
 	time_limit -= 1
 	if time_limit == 0:
-		pass
+		craving_failed.emit()
 
 func on_click():
 	if type == craving_types.RES:

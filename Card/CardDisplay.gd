@@ -131,9 +131,12 @@ const HIGHLIGHT_STYLE_BOX = preload("uid://fujdbjtsa2ew")
 func blink_textbox():
 	var box:PanelContainer = %Description.get_parent()
 	var tween = create_tween().bind_node(self)
-	tween.tween_callback(box.add_theme_stylebox_override.bind("Panel", HIGHLIGHT_STYLE_BOX))
+	tween.tween_callback(box.add_theme_stylebox_override.bind("panel", HIGHLIGHT_STYLE_BOX))
+	#box.remove_theme_stylebox_override("panel")
+	#box.add_theme_stylebox_override("panel", HIGHLIGHT_STYLE_BOX)
+
 	tween.tween_interval(Lane.strategy_pause)
-	tween.tween_callback(box.add_theme_stylebox_override.bind("Panel", BASE_TEXT_STYLE_BOX))
+	tween.tween_callback(box.add_theme_stylebox_override.bind("panel", BASE_TEXT_STYLE_BOX))
 	
 
 

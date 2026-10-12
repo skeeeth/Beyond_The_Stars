@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=23 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="Script" uid="uid://bwap3b66q8u8y" path="res://Level/WorldCardDisplay.gd" id="1_kwlfk"]
@@ -16,7 +16,10 @@
 [ext_resource type="Script" uid="uid://c8cj01kh15eso" path="res://Level/button_sound.gd" id="8_qj8ib"]
 [ext_resource type="Texture2D" uid="uid://dshudyqgv164x" path="res://Assets/Kenny Lightmasks/shape_a_inverted.png" id="11_s4lld"]
 
-[sub_resource type="Resource" id="Resource_ccyba"]
+[sub_resource type="LabelSettings" id="LabelSettings_abuqb"]
+font_size = 24
+
+[sub_resource type="Resource" id="Resource_vjs1q"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Clueless Contractor"
@@ -28,7 +31,7 @@ relative_scoring = Dictionary[int, int]({
 favor = -25
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_lcjul"]
+[sub_resource type="Resource" id="Resource_ns2ak"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Evangelist"
@@ -40,7 +43,7 @@ absolute_scoring = Dictionary[int, int]({
 favor = 20
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_abuqb"]
+[sub_resource type="Resource" id="Resource_ccyba"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Fasting Fanatic"
@@ -57,7 +60,7 @@ resource_costs = Dictionary[int, int]({
 favor = 40
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_02j7v"]
+[sub_resource type="Resource" id="Resource_lcjul"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Fat Cat"
@@ -74,7 +77,7 @@ resource_costs = Dictionary[int, int]({
 favor = -10
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_g2nqd"]
+[sub_resource type="Resource" id="Resource_abuqb"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Remote Worker"
@@ -85,7 +88,7 @@ relative_scoring = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_utnpk"]
+[sub_resource type="Resource" id="Resource_02j7v"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Socialite"
@@ -155,6 +158,7 @@ color = Color(0.264, 0.31679994, 0.66, 1)
 unique_name_in_owner = true
 layout_mode = 2
 text = "Actions Left: 5"
+label_settings = SubResource("LabelSettings_abuqb")
 script = ExtResource("8_g0h0v")
 lanes = [NodePath("../../../Lanes/Lane"), NodePath("../../../Lanes/Lane2"), NodePath("../../../Lanes/Lane3")]
 hand = NodePath("../../../Hand")
@@ -162,7 +166,7 @@ gm = NodePath("../../../God Manager")
 
 [node name="Hand" parent="." instance=ExtResource("5_0obbo")]
 position = Vector2(406, 891)
-starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_ccyba"), SubResource("Resource_lcjul"), SubResource("Resource_abuqb"), SubResource("Resource_02j7v"), SubResource("Resource_g2nqd"), SubResource("Resource_utnpk")])
+starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_vjs1q"), SubResource("Resource_ns2ak"), SubResource("Resource_ccyba"), SubResource("Resource_lcjul"), SubResource("Resource_abuqb"), SubResource("Resource_02j7v")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

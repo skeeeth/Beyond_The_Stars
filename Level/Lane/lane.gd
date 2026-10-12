@@ -205,3 +205,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
 		clicked.emit()
 	pass # Replace with function body.
+
+
+func _on_mouse_exited() -> void:
+	click_hitbox.modulate = Color(Color.WHITE,0)
