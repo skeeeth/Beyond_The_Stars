@@ -18,3 +18,12 @@ container = NodePath("Container")
 unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = -195.0
+offset_top = 13.0
+offset_right = -23.0
+offset_bottom = 86.0
+text = "Draw Card (x cultists)"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -7,8 +7,16 @@ static var card_pool:Array[CardData]
 @export var container:Container
 @export var starting_cards:int = 3
 
+var draw_cost:int = 0:
+	set(v):
+		draw_cost = v
+		button.text = "Draw card (%s cultist(s))" % draw_cost
+	get:
+		return draw_cost
+@onready var button: Button = $Button
+
 func _ready() -> void:
-	RM.resource_added.connect(on_resource_gain)
+	#RM.resource_added.connect(on_resource_gain)
 	for s in starting_pool:
 		Hand.card_pool.append(s)
 	
@@ -31,4 +39,9 @@ func on_resource_gain(type:RM.types, amount:int):
 		return
 	
 	for i in range(0,amount):
+		draw_one()
+
+
+func _on_button_pressed() -> void:
+	if RM.try_spend(RM.types.BLUE,draw_cost):
 		draw_one()

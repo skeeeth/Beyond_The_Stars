@@ -34,6 +34,7 @@ func round_end():
 func start_cycle():
 	actions_left = actions_per_cycle
 	cycle += 1
+	hand.draw_cost += 1
 	bgm_node.set_parameter("Cycle", cycle)
 	_set_text()
 
