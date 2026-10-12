@@ -22,6 +22,8 @@ static func create_from_data(res:CardData) -> CardDisplay:
 	new_card.data = res
 	new_card.last_color_stat_snapshot = res.get_adjusted_abs_values()
 	new_card.last_grey_stat_snapshot = res.get_adjusted_rel_values()
+	for k in res.keywords:
+		k.strategy.applied.connect(new_card.blink_textbox)
 	new_card.display()
 	return new_card
 
@@ -50,6 +52,13 @@ func display():
 	#sets a label for the GREEN cost of a card, there's technology for cards to have other kinds of
 	# costs but like having more symbols on the already cluttered card is dubious
 	_set_color_value(%GreenCost, str(data.resource_costs[RM.types.GREEN]))
+	
+	#play a sound if stats have changed
+	abs_changes.append_array(rel_changes) #combined changes
+	if abs_changes.has(true):
+		#call stat change sound...
+		pass
+	
 	
 	#write keywords
 	var text:String = ""
@@ -138,15 +147,23 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		"source" = self
 	}
 	
+	visible = false
 	var preview = CardDisplay.create_from_data(data)
-	set_drag_preview(preview)
-	
+	var drag_center = Control.new()
+	drag_center.add_child(preview)
+	set_drag_preview(drag_center)
+	preview.position -= get_local_mouse_position()
 	return drag_data
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("LMB"):
+		visible = true
 
 
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
 		clicked.emit(self)
+
 
 
 func _on_mouse_entered() -> void:

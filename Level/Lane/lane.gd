@@ -28,6 +28,8 @@ var card_plays:int = 2:
 @onready var draw_pile: Pile = %"Draw Pile"
 @onready var discard_pile: Pile = %"Discard Pile"
 @onready var god_position: Node2D = $GodPosition
+@onready var click_hitbox: Panel = $"Click Hitbox"
+
 @onready var buttons:Array[Button] = [%"Play Button", $Upgrade]
 @export var lane_strategies:Array[BaseCardStrategy]
 
@@ -175,7 +177,9 @@ func pile_highlight_reset():
 
 ##used to validate click and drag data, for now thats only cards so this could honestly just return literal true
 func _can_drop_data(_position, data):
-	return typeof(data) == TYPE_DICTIONARY and data.has("RES")
+	var result = typeof(data) == TYPE_DICTIONARY and data.has("RES")
+	if result: click_hitbox.modulate = Color.WHITE
+	return result
 
 ##called on mouse release when dragging suitable data, in this case meaning a card was dragged from hand
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
@@ -184,6 +188,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	if !RM.try_spend_all(card_data.resource_costs):
 		return
 	
+	click_hitbox.modulate = Color(Color.WHITE,0)
 	
 	RM.try_spend(RM.types.BLUE, 1)
 	

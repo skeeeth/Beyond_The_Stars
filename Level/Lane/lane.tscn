@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djelkq3gxvrft"]
+[gd_scene load_steps=9 format=3 uid="uid://djelkq3gxvrft"]
 
 [ext_resource type="Theme" uid="uid://bql5e0cm2pyh8" path="res://Level/Lane/UI Theme.tres" id="1_1uh1k"]
 [ext_resource type="Script" uid="uid://dpj87j1ut8bw3" path="res://Level/Lane/lane.gd" id="1_rr5i5"]
@@ -7,6 +7,14 @@
 [ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="4_iae0s"]
 [ext_resource type="PackedScene" uid="uid://bj2bhoovxyyvx" path="res://Level/UI/Pile Icon.tscn" id="5_3y20t"]
 [ext_resource type="Script" uid="uid://bs2fhv4y2xtsn" path="res://Level/Lane/lane_upgrade.gd" id="6_iae0s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uh1k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.91, 0.91, 0.91, 1)
 
 [node name="Lane" type="Control"]
 layout_mode = 3
@@ -49,14 +57,14 @@ script = ExtResource("6_iae0s")
 lane = NodePath("..")
 cost_progression = Array[int]([3, 5, 8, 12])
 
-[node name="Drag Hitbox" type="ColorRect" parent="."]
-z_index = -1
+[node name="Click Hitbox" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 159.0
 offset_right = 989.0
 offset_bottom = 196.0
 mouse_filter = 1
-color = Color(1, 1, 1, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_1uh1k")
 
 [node name="GodPosition" type="Node2D" parent="."]
 position = Vector2(1236, -11)
