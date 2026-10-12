@@ -13,6 +13,7 @@ count = NodePath("Count")
 highlighter = NodePath("Highlighter")
 
 [node name="Count" type="Label" parent="."]
+z_index = 1
 offset_right = 40.0
 offset_bottom = 23.0
 text = "0"

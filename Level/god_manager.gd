@@ -25,6 +25,7 @@ func cycle():
 		
 		if g.tier_up_queued:
 			g.tier_up()
+			#var debug_pool = _get_forced_boons()
 			var pool = _get_valid_boons(g.identity,g.current_tier)
 			var new_boon_selection:BoonSelection = BoonSelection.create(g,pool,g.true_sprite)
 			add_child(new_boon_selection)
@@ -41,6 +42,9 @@ func _get_valid_boons(god:God.GODS, tier:int) -> Array[Node]:
 #	all_boons = all_boons.filter(func(b:Boon): return b.tier == tier)
 	return all_boons
 
+#func _get_forced_boons():
+	#var all_boons:Array[Node] = boon_pool.get_children()
+	
 
 func _shuffle_lanes():
 	gods.shuffle()

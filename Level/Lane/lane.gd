@@ -2,7 +2,7 @@ extends Control
 class_name Lane
 
 
-signal clicked
+signal clicked(who:Lane)
 signal card_added(card:CardData)
 signal lane_scored(who:Lane)
 signal scoring_started
@@ -37,6 +37,8 @@ var god_strategies:Array[BaseCardStrategy]
 
 static var strategy_pause:float = 0.5
 var button_supressions:int = 0
+
+var selection_requested:bool
 
 func _ready() -> void:
 	draw_pile.array = deck
@@ -164,6 +166,25 @@ func enable_buttons():
 	if button_supressions == 0:
 		for b in buttons:
 			b.disabled = false
+			
+func get_combined_card_list() -> Array[CardData]:
+	var combined_array:Array[CardData]
+	for c in deck:
+		combined_array.append(c)
+	
+	for c in discard:
+		combined_array.append(c)
+	
+	return combined_array
+
+func highlight():
+	click_hitbox.modulate = Color.WHITE
+
+func dehighlight():
+	click_hitbox.modulate = Color(Color.WHITE,0)
+
+func midlight():
+	click_hitbox.modulate = Color.GRAY
 
 func request_card_selection():
 	disable_buttons()
@@ -178,7 +199,7 @@ func pile_highlight_reset():
 ##used to validate click and drag data, for now thats only cards so this could honestly just return literal true
 func _can_drop_data(_position, data):
 	var result = typeof(data) == TYPE_DICTIONARY and data.has("RES")
-	if result: click_hitbox.modulate = Color.WHITE
+	if result: highlight()
 	return result
 
 ##called on mouse release when dragging suitable data, in this case meaning a card was dragged from hand
@@ -203,9 +224,16 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
-		clicked.emit()
+		clicked.emit(self)
 	pass # Replace with function body.
 
 
 func _on_mouse_exited() -> void:
-	click_hitbox.modulate = Color(Color.WHITE,0)
+	if selection_requested:
+		midlight()
+	else:
+		dehighlight()
+
+func _on_mouse_entered() -> void:
+	if selection_requested:
+		highlight()

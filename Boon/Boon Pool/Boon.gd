@@ -4,10 +4,15 @@ class_name Boon
 @warning_ignore("unused_signal")
 signal finished
 
+@warning_ignore("unused_signal")
 signal request_card_selections(count:int)
+
+signal request_lane_select
 
 @export var description:String
 @export var tier:int = 1
+
+@export var debug_force:bool = false
 
 @export var mask:Dictionary[God.GODS,bool] = {
 	God.GODS.A: false,

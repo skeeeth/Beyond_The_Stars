@@ -72,6 +72,7 @@ position = Vector2(1236, -11)
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="Play Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Upgrade" to="Upgrade" method="_on_pressed"]

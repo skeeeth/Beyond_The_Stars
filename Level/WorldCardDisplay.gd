@@ -2,6 +2,7 @@ extends Node2D
 class_name World
 
 signal splayed_card_clicked(card:CardDisplay)
+signal lane_clicked(lane:Lane)
 
 # Simple layer for connecting signals across the scene tree
 
@@ -66,6 +67,18 @@ func request_lane_card_selection(ve_type:ViewportEffects.types):
 	viewport_effects.apply_type(ve_type)
 	for l in lane_list:
 		l.request_card_selection()
+		
+func request_lane_selection():
+	for l in lane_list:
+		l.clicked.connect(lane_clicked.emit)
+		l.selection_requested = true
+		l.midlight()
+
+func end_lane_selection():
+	for l in lane_list:
+		l.clicked.disconnect(lane_clicked.emit)
+		l.selection_requested = false
+		l.dehighlight()
 
 func cancel_selection(ve_type:ViewportEffects.types):
 	viewport_effects.cancel(ve_type)

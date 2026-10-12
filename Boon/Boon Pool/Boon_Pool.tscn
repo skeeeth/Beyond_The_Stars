@@ -165,11 +165,12 @@ script = ExtResource("12_nnccf")
 grow_pattern = SubResource("Resource_dvhg7")
 target_count = 2
 description = "Give two cards [[0/1/0g0/0/0"
+debug_force = true
 mask = Dictionary[int, bool]({
-0: true,
+0: false,
 1: true,
-2: true,
-3: true
+2: false,
+3: false
 })
 
 [node name="Glimpse Beyond" type="Node" parent="."]
@@ -193,6 +194,8 @@ mask = Dictionary[int, bool]({
 2: true,
 3: false
 })
+
+[node name="Deploy Platoon" type="Node" parent="."]
 
 [node name="T2" type="Node" parent="."]
 

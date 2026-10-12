@@ -5,6 +5,7 @@ signal selected
 signal finished
 
 signal card_selection_requested(count:int)
+signal lane_selection_requested
 
 @export var boon:Boon
 @export var text_box: RichTextLabel
@@ -26,6 +27,9 @@ func set_boon(b:Boon):
 	if !boon.request_card_selections.is_connected(card_selection_requested.emit):
 		boon.request_card_selections.connect(card_selection_requested.emit, 4)
 	
+	if !boon.request_lane_select.is_connected(lane_selection_requested.emit):
+		boon.request_lane_select.connect(lane_selection_requested.emit, 4)
+	
 	text_box.text = ""#(boon.description)
 	format_text(boon.description)
 	title_box.text = boon.name
@@ -46,7 +50,6 @@ func format_text(text:String):
 		var num = int(char_)
 		extracted_stats.append(num)
 	 
-
 	#extracted_stats = [1,0,0,0,0,1]
 	
 	text_box.push_table(2,INLINE_ALIGNMENT_CENTER)
