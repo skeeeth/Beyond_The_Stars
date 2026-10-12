@@ -12,5 +12,5 @@ func apply(card:CardData,lane:Lane,active_cards:Array[CardDisplay]):
 	var previous_card = active_cards[index-1]
 	var previous_data:CardData = previous_card.data
 	display.request_removal()
-	add_stats(previous_data,card.get_adjusted_abs_values(), card.get_adjusted_rel_values(), false)
+	add_stats(previous_data,card.get_adjusted_abs_values(), card.get_adjusted_rel_values(), false, card.get_adjusted_favor())
 	previous_card.display()

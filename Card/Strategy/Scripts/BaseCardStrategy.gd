@@ -17,8 +17,8 @@ func find_display(data:CardData, list:Array[CardDisplay]) -> CardDisplay:
 	return null
 
 
-func add_stats(card:CardData,color:Dictionary[RM.types,int],
-		grey:Dictionary[int,int], temp:bool = false):
+static func add_stats(card:CardData,color:Dictionary[RM.types,int],
+		grey:Dictionary[int,int], temp:bool = false, favor:int = 0):
 	
 	var color_array = card.temp_color_mod if temp else card.static_color_mod
 	var rel_array = card.temp_grey_mod if temp else card.static_grey_mod
@@ -30,3 +30,8 @@ func add_stats(card:CardData,color:Dictionary[RM.types,int],
 	
 	for i in grey:
 		rel_array[i] += grey[i]
+	
+	if temp:
+		card.temp_favor_mod += favor
+	else:
+		card.static_favor_mod += favor

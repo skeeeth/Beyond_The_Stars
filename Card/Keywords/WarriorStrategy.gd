@@ -2,6 +2,7 @@ extends BaseCardStrategy
 class_name WarriorStrategy
 
 var warrior_keyword:Resource = preload("res://Card/Keywords/Warrior.tres")
+@warning_ignore("unused_parameter")
 func apply(card:CardData,lane:Lane,active_cards:Array[CardDisplay]):
 	var count:int = 0
 	for display_card in active_cards:

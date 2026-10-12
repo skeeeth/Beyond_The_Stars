@@ -26,7 +26,7 @@ signal temp_values_cleared
 	RM.types.BLUE: 0,
 }
 
-@export var favor:int
+@export var favor:int = 0
 var temp_favor_mod:int
 var static_favor_mod:int
 

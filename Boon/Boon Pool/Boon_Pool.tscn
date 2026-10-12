@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dg8sjc86dqcao"]
+[gd_scene load_steps=27 format=3 uid="uid://dg8sjc86dqcao"]
 
 [ext_resource type="Script" uid="uid://lao3lsrvbud1" path="res://Boon/Boon Pool/Boons/chosen_riff_raff.gd" id="1_pbi8e"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_b1cel"]
@@ -6,12 +6,19 @@
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="3_rgqg3"]
 [ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="4_5y4ju"]
 [ext_resource type="Script" uid="uid://buyohlpoohjaf" path="res://Boon/Boon Pool/Boons/Unnatural Stamina.gd" id="5_yxug4"]
-[ext_resource type="Script" uid="uid://bq5xmnhkt0cig" path="res://Boon/Boon Pool/Boons/generic_aura.gd" id="6_5y4ju"]
+[ext_resource type="Script" uid="uid://bq5xmnhkt0cig" path="res://Boon/Boon Pool/generic_aura.gd" id="6_5y4ju"]
 [ext_resource type="Script" uid="uid://wy5mxf6n00h8" path="res://Card/Strategy/Scripts/GrowOnPlay.gd" id="7_lridx"]
-[ext_resource type="Script" uid="uid://cl1q5ly50fwyq" path="res://Boon/Boon Pool/Boons/Card_Unlock.gd" id="7_scm78"]
+[ext_resource type="Script" uid="uid://cl1q5ly50fwyq" path="res://Boon/Boon Pool/Card_Unlock.gd" id="7_scm78"]
 [ext_resource type="Resource" uid="uid://rtgon2sxj7yu" path="res://Card/Instances/Worm Pack/Ravenous Worm.tres" id="8_rgqg3"]
 [ext_resource type="Script" uid="uid://dq8607as83sgg" path="res://Card/Strategy/Scripts/FilterBuff.gd" id="10_4qffb"]
-[ext_resource type="Script" uid="uid://cqtefdler24dg" path="res://Boon/Boon Pool/SowSeeds.gd" id="12_nnccf"]
+[ext_resource type="Resource" uid="uid://cq1wvwhwhegmw" path="res://Card/Instances/Worm Pack/Growing worm.tres" id="11_y2ul4"]
+[ext_resource type="Script" uid="uid://cqtefdler24dg" path="res://Boon/Boon Pool/Boons/SowSeeds.gd" id="12_nnccf"]
+[ext_resource type="Script" uid="uid://cm8nh767cdlw2" path="res://Boon/Boon Pool/SelectKeyword.gd" id="13_5p5qj"]
+[ext_resource type="Resource" uid="uid://cs2q1ba18sn7r" path="res://Card/Keywords/Grow.tres" id="14_oo0dp"]
+[ext_resource type="Resource" uid="uid://byyqoknyr5j68" path="res://Card/Instances/Grub Pack/RedGrub.tres" id="15_3w6en"]
+[ext_resource type="Resource" uid="uid://cgwgtft8gsbb" path="res://Card/Instances/Warrior Pack/Warrior.tres" id="15_npeu5"]
+[ext_resource type="Resource" uid="uid://whwhcojf4a3k" path="res://Card/Instances/Grub Pack/BlueGrub.tres" id="16_y2ul4"]
+[ext_resource type="Resource" uid="uid://b0ffta8l0ctae" path="res://Card/Instances/Grub Pack/GreenGrub.tres" id="17_npeu5"]
 
 [sub_resource type="Resource" id="Resource_lridx"]
 resource_local_to_scene = true
@@ -29,6 +36,52 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
+[sub_resource type="Resource" id="Resource_nnccf"]
+script = ExtResource("2_b1cel")
+absolute_scoring = Dictionary[int, int]({
+0: 1,
+1: 0,
+2: 0
+})
+favor = 10
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_5p5qj"]
+resource_local_to_scene = true
+script = ExtResource("10_4qffb")
+color_filter = Dictionary[int, int]({
+0: 1,
+1: 0,
+2: 0
+})
+buff = SubResource("Resource_nnccf")
+metadata/_custom_type_script = "uid://dq8607as83sgg"
+
+[sub_resource type="Resource" id="Resource_dvhg7"]
+script = ExtResource("2_b1cel")
+absolute_scoring = Dictionary[int, int]({
+0: 0,
+1: 1,
+2: 0
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_npeu5"]
+script = ExtResource("2_b1cel")
+card_name = "Ghost Card"
+relative_scoring = Dictionary[int, int]({
+-1: 1,
+0: 0,
+1: 1
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+favor = 15
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
 [sub_resource type="Resource" id="Resource_4qffb"]
 script = ExtResource("2_b1cel")
 absolute_scoring = Dictionary[int, int]({
@@ -44,27 +97,9 @@ script = ExtResource("7_lridx")
 growth_pattern = SubResource("Resource_4qffb")
 metadata/_custom_type_script = "uid://wy5mxf6n00h8"
 
-[sub_resource type="Resource" id="Resource_nnccf"]
-script = ExtResource("2_b1cel")
-absolute_scoring = Dictionary[int, int]({
-0: 1,
-1: 0,
-2: 0
-})
-metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
-
-[sub_resource type="Resource" id="Resource_5p5qj"]
-resource_local_to_scene = true
-script = ExtResource("10_4qffb")
-color_filter = Dictionary[int, int]({
-0: 1,
-1: 0,
-2: 0
-})
-buff = SubResource("Resource_nnccf")
-metadata/_custom_type_script = "uid://dq8607as83sgg"
-
 [node name="BoonPool" type="Node"]
+
+[node name="T1" type="Node" parent="."]
 
 [node name="Chosen Riff Raff" type="Node" parent="."]
 script = ExtResource("1_pbi8e")
@@ -74,40 +109,103 @@ description = "Grunt Cards gain 5x yield"
 [node name="Unnatural Stamina" type="Node" parent="."]
 script = ExtResource("5_yxug4")
 description = "Gain one adittional action per cycle"
-
-[node name="Aura of Growth" type="Node" parent="."]
-script = ExtResource("6_5y4ju")
-strategy = SubResource("Resource_58sd3")
-description = "Cards gain [[0/1/0g0/0/0 when played in attached lane"
 mask = Dictionary[int, bool]({
 0: true,
-1: true,
-2: true,
-3: true
+1: false,
+2: false,
+3: false
 })
 
 [node name="Aura of Greed" type="Node" parent="."]
 script = ExtResource("6_5y4ju")
 strategy = SubResource("Resource_5p5qj")
-description = "Cards with a red pip gain [[1/0/0g0/0/0 when played in this lane"
+description = "Cards with a red pip gain [[1/0/0g0/0/0 and 10 favor during scoring"
 mask = Dictionary[int, bool]({
-0: true,
-1: true,
+0: false,
+1: false,
 2: true,
 3: true
 })
 
 [node name="Worm Pack" type="Node" parent="."]
 script = ExtResource("7_scm78")
-cards = Array[ExtResource("2_b1cel")]([ExtResource("8_rgqg3")])
+cards = Array[ExtResource("2_b1cel")]([ExtResource("8_rgqg3"), ExtResource("11_y2ul4")])
 description = "Add worm cards to recruitment pool"
+mask = Dictionary[int, bool]({
+0: false,
+1: false,
+2: true,
+3: false
+})
 
-[node name="Generic Card Selection" type="Node" parent="."]
+[node name="Grub Pack" type="Node" parent="."]
+script = ExtResource("7_scm78")
+cards = Array[ExtResource("2_b1cel")]([ExtResource("15_3w6en"), ExtResource("16_y2ul4"), ExtResource("17_npeu5")])
+description = "Unlock Grub Cards"
+mask = Dictionary[int, bool]({
+0: false,
+1: true,
+2: false,
+3: false
+})
+
+[node name="Warrior Pack" type="Node" parent="."]
+script = ExtResource("7_scm78")
+cards = Array[ExtResource("2_b1cel")]([ExtResource("15_npeu5"), ExtResource("15_npeu5")])
+description = "Add Warrior Cards to pool"
+mask = Dictionary[int, bool]({
+0: false,
+1: false,
+2: false,
+3: true
+})
+
+[node name="Sow Seeds" type="Node" parent="."]
 script = ExtResource("12_nnccf")
+grow_pattern = SubResource("Resource_dvhg7")
 target_count = 2
+description = "Give two cards [[0/1/0g0/0/0"
 mask = Dictionary[int, bool]({
 0: true,
 1: true,
 2: true,
 3: true
+})
+
+[node name="Glimpse Beyond" type="Node" parent="."]
+script = ExtResource("12_nnccf")
+grow_pattern = SubResource("Resource_npeu5")
+description = "Target card gains [[0/0/0g1/0/1 and 15 favor"
+mask = Dictionary[int, bool]({
+0: true,
+1: false,
+2: true,
+3: false
+})
+
+[node name="Grow Skills" type="Node" parent="."]
+script = ExtResource("13_5p5qj")
+keyword = ExtResource("14_oo0dp")
+description = "Grant a card the Growth keyword"
+mask = Dictionary[int, bool]({
+0: false,
+1: true,
+2: true,
+3: false
+})
+
+[node name="T2" type="Node" parent="."]
+
+[node name="T3" type="Node" parent="."]
+
+[node name="Aura of Growth" type="Node" parent="."]
+script = ExtResource("6_5y4ju")
+strategy = SubResource("Resource_58sd3")
+description = "Cards gain [[0/1/0g0/0/0 when played in attached lane"
+tier = 3
+mask = Dictionary[int, bool]({
+0: false,
+1: true,
+2: false,
+3: false
 })

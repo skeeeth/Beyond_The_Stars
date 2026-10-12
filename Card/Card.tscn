@@ -5,8 +5,8 @@
 [ext_resource type="Material" uid="uid://cye8u3qvxc24j" path="res://Assets/CardMaterial.tres" id="1_hcyk8"]
 [ext_resource type="LabelSettings" uid="uid://c3wm0x6w7nv1l" path="res://Assets/CardStatLabelSettings.tres" id="3_5u7pk"]
 [ext_resource type="Texture2D" uid="uid://cddm3n0esqpdq" path="res://icon.svg" id="4_kkgq3"]
-[ext_resource type="StyleBox" uid="uid://cm2738lmkufw5" path="res://Card/BaseTextStyleBox.tres" id="6_x8cmv"]
-[ext_resource type="LabelSettings" uid="uid://h510q05jbwo7" path="res://Card/CardBodyLabeLSettings.tres" id="7_1xywt"]
+[ext_resource type="StyleBox" uid="uid://cm2738lmkufw5" path="res://Card/Assets/BaseTextStyleBox.tres" id="6_x8cmv"]
+[ext_resource type="LabelSettings" uid="uid://h510q05jbwo7" path="res://Card/Assets/CardBodyLabeLSettings.tres" id="7_1xywt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hcyk8"]
 line_spacing = -5.0

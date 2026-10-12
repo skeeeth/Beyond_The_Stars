@@ -29,4 +29,5 @@ func apply(card:CardData,lane:Lane,active_cards:Array[CardDisplay]):
 	
 	#only register applied applied if passed filters
 	applied.emit()
-	add_stats(card,buff.absolute_scoring,buff.relative_scoring,temp)
+	add_stats(card,buff.absolute_scoring,buff.relative_scoring,temp,buff.favor)
+	

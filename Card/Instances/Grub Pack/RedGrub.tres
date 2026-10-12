@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://byyqoknyr5j68"]
+
+[ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="1_dagrd"]
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="2_4c63v"]
+[ext_resource type="Resource" uid="uid://b2irdy1jwrbvc" path="res://Card/Keywords/Grub.tres" id="2_jcfue"]
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="3_jcfue"]
+
+[resource]
+script = ExtResource("3_jcfue")
+card_name = "Red Grub"
+keywords = Array[ExtResource("1_dagrd")]([ExtResource("2_jcfue")])
+absolute_scoring = Dictionary[int, int]({
+0: 2,
+1: 0,
+2: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"

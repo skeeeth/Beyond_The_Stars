@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://whwhcojf4a3k"]
+
+[ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="1_src7f"]
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="2_payif"]
+[ext_resource type="Resource" uid="uid://b2irdy1jwrbvc" path="res://Card/Keywords/Grub.tres" id="2_qc8j6"]
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="3_qc8j6"]
+
+[resource]
+script = ExtResource("3_qc8j6")
+card_name = "Blue Grub"
+keywords = Array[ExtResource("1_src7f")]([ExtResource("2_qc8j6")])
+absolute_scoring = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 2
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
