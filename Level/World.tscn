@@ -8,13 +8,39 @@
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="5_qj8ib"]
 [ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="6_qj8ib"]
 [ext_resource type="Script" uid="uid://csr4416oud3hj" path="res://Level/canvas_layer.gd" id="6_svajd"]
-[ext_resource type="Resource" uid="uid://dpcd6nill7hwx" path="res://Card/Instances/Starter Cards/GreyOne.tres" id="6_vjs1q"]
-[ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="7_ns2ak"]
 [ext_resource type="PackedScene" uid="uid://djvyr8av4rgyw" path="res://Level/god_manager.tscn" id="7_u7eci"]
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="7_xju0t"]
 [ext_resource type="Script" uid="uid://cp8eljtgcmec8" path="res://Level/action_manager.gd" id="8_g0h0v"]
 [ext_resource type="Script" uid="uid://c8cj01kh15eso" path="res://Level/button_sound.gd" id="8_qj8ib"]
 [ext_resource type="Texture2D" uid="uid://dshudyqgv164x" path="res://Assets/Kenny Lightmasks/shape_a_inverted.png" id="11_s4lld"]
+
+[sub_resource type="Resource" id="Resource_qj8ib"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Grunt Worker"
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 1,
+1: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_xju0t"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Grunt Devotee"
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+favor = 15
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [sub_resource type="Resource" id="Resource_vjs1q"]
 resource_local_to_scene = true
@@ -178,7 +204,7 @@ offset_left = 153.0
 offset_top = 31.0
 offset_right = 153.0
 offset_bottom = 31.0
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_vjs1q"), SubResource("Resource_ns2ak")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_qj8ib"), SubResource("Resource_xju0t")])
 
 [node name="Play Button" parent="Lanes/Lane" index="0"]
 script = ExtResource("8_qj8ib")
@@ -192,7 +218,7 @@ offset_top = 289.0
 offset_right = 154.0
 offset_bottom = 289.0
 type = 1
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_ccyba"), SubResource("Resource_lcjul")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_vjs1q"), SubResource("Resource_ns2ak")])
 
 [node name="Polygon2D" parent="Lanes/Lane2" index="1"]
 color = Color(0.264, 0.66, 0.28379998, 1)
@@ -203,7 +229,7 @@ offset_top = 548.0
 offset_right = 160.0
 offset_bottom = 548.0
 type = 2
-deck = Array[ExtResource("5_qj8ib")]([ExtResource("6_vjs1q"), ExtResource("7_ns2ak")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_ccyba"), SubResource("Resource_lcjul")])
 
 [node name="Polygon2D" parent="Lanes/Lane3" index="1"]
 color = Color(0.264, 0.31679994, 0.66, 1)
