@@ -17,6 +17,7 @@ var last_favor:float
 var tooltips:Array[Tooltip]
 var card_deal_sound# = FmodServer.create_event_instance("event:/Card Deal")
 @onready var tooltip_position: Node2D = $"Tooltip Position"
+var being_dragged:bool = false
 
 func _ready() -> void:
 	card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
@@ -160,24 +161,34 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	if !draggable:
 		return
 	
+	#being dragged feedback
+	visible = false
+	being_dragged = true
+	#_card_grab_sound()
+	
+	#set drag data
 	var drag_data:Dictionary = {
 		"RES" = data,
 		"source" = self
 	}
-
-	visible = false
+	
+	#set preview with offset
 	var preview = CardDisplay.create_from_data(data)
 	var drag_center = Control.new()
 	drag_center.add_child(preview)
 	set_drag_preview(drag_center)
 	preview.position -= get_local_mouse_position()
+	
 	return drag_data
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("LMB"):
 		#card_deal_sound.start()
 		#card_deal_sound.release()
-		visible = true
+		if being_dragged:
+			_card_grab_sound() #or release sound, if different
+			visible = true
+			being_dragged = false
 
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
