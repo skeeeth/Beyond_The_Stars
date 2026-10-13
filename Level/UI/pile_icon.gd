@@ -51,3 +51,6 @@ func _on_area_2d_mouse_exited() -> void:
 func _on_hitbox_mouse_entered() -> void:
 	if highlight_mode != highlight_modes.SELECTED:
 		set_highlight_mode(highlight_modes.HOVERED)
+		var UI_hover_sound = FmodServer.create_event_instance("event:/UI Hover")
+		UI_hover_sound.start()
+		UI_hover_sound.release()

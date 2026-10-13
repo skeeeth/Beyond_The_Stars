@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{c5f27061-88b7-48ad-b954-4e6ba70c746f}">
+		<property name="name">
+			<value>BGM_Filter</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a23207c5-caa6-4b3a-826b-e02ef6173f98}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{6f918520-78cc-4ccb-8900-7339f2639231}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{6f918520-78cc-4ccb-8900-7339f2639231}">
+		<property name="maximum">
+			<value>100</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>100</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{a9fc569c-9146-446f-8b87-b778a4462691}</destination>
+		</relationship>
+	</object>
+	<object class="SeekModulator" id="{a9fc569c-9146-446f-8b87-b778a4462691}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>cursorPosition</value>
+		</property>
+		<property name="speedAscending">
+			<value>0.64999997615814209</value>
+		</property>
+	</object>
+</objects>

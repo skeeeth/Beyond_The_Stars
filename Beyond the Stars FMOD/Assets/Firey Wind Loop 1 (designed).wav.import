@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwmxbq55klmjg"
+path="res://.godot/imported/Firey Wind Loop 1 (designed).wav-5683dda93929c1212f2e23eefaa073d6.sample"
+
+[deps]
+
+source_file="res://Beyond the Stars FMOD/Assets/Firey Wind Loop 1 (designed).wav"
+dest_files=["res://.godot/imported/Firey Wind Loop 1 (designed).wav-5683dda93929c1212f2e23eefaa073d6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

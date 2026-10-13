@@ -10,11 +10,12 @@ signal splayed_card_clicked(card:CardDisplay)
 static var instance:World #im going to essentially treat World class as a singleton
 var lane_list:Array[Lane] = []
 var current_list:Array
+var card_draw_sound = null
 @export var viewport_effects:ViewportEffects
 
 func _ready():
 	instance = self
-	
+	card_draw_sound = FmodServer.create_event_instance("event:/Card Deal")
 	lane_list.push_front(lanes.get_node("Lane"))
 	lane_list.push_front(lanes.get_node("Lane2"))
 	lane_list.push_front(lanes.get_node("Lane3"))
@@ -40,7 +41,6 @@ func splay(cards: Array):
 		card.mouse_filter = Control.MOUSE_FILTER_STOP
 		card.clicked.connect(on_card_clicked)
 		card_display.add_child(card)
-		var card_draw_sound = FmodServer.create_event_instance("event:/Card Deal")
 		card_draw_sound.start()
 		card_draw_sound.release()
 	
@@ -53,7 +53,6 @@ func splay(cards: Array):
 
 func on_card_clicked(card:CardDisplay):
 	splayed_card_clicked.emit(card)
-	
 	#update display if call does something
 	for l in lane_list:
 		l._update_pile_counts() #we out here calling 'private' methods from outside the class

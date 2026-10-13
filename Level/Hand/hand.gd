@@ -44,4 +44,12 @@ func on_resource_gain(type:RM.types, amount:int):
 
 func _on_button_pressed() -> void:
 	if RM.try_spend(RM.types.BLUE,draw_cost):
+		var UI_confirm_sound = FmodServer.create_event_instance("event:/UI Confirm")
+		UI_confirm_sound.start()
+		UI_confirm_sound.release()
 		draw_one()
+	
+func button_hover() -> void:
+	var button_hover_sound = FmodServer.create_event_instance("event:/UI Hover")
+	button_hover_sound.start()
+	button_hover_sound.release()
