@@ -26,7 +26,7 @@ func cycle():
 		if g.tier_up_queued:
 			g.tier_up()
 			#var debug_pool = _get_forced_boons()
-			var pool = _get_valid_boons(g.identity,g.current_tier)
+			var pool = _get_valid_boons(g.identity,g.current_tier-1)
 			var new_boon_selection:BoonSelection = BoonSelection.create(g,pool,g.true_sprite)
 			add_child(new_boon_selection)
 			await new_boon_selection.finished
