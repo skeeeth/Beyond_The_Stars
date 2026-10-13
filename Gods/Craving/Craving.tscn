@@ -13,7 +13,10 @@ layout_mode = 2
 mouse_filter = 1
 text = "Some long text"
 
-[node name="Label" type="Label" parent="."]
+[node name="Time Limit" type="Label" parent="."]
 layout_mode = 2
+size_flags_vertical = 8
+text = "Time left: 0"
+horizontal_alignment = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

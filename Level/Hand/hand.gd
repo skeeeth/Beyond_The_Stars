@@ -32,6 +32,7 @@ func draw_one():
 	
 	var new_card:CardDisplay = CardDisplay.create_from_data(card_pool.pick_random().duplicate())
 	new_card.draggable = true
+	new_card.mouse_filter = Control.MOUSE_FILTER_PASS
 	container.add_child(new_card)
 
 

@@ -38,6 +38,7 @@ func _ready() -> void:
 	
 	favor = favor #trigger setter function
 	texture_rect.texture = lane_sprite
+	craving.craving_failed.connect(on_craving_fail)
 	tier_up()
 
 func set_to_lane(lane:Lane):

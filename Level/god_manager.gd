@@ -12,7 +12,7 @@ signal boon_selection_finished
 @onready var dummy_lane: Lane = $"Dummy Lane"
 
 var unused_god:God
-var cravings_per_cycle:Array[int] = [1,1,2,2,2,3,3]
+var cravings_per_cycle:Array[int] = [1,1,2,2,2,3,3,0]
 
 func _ready() -> void:
 	action_manager.cycle_ending.connect(cycle)
@@ -39,7 +39,7 @@ func _get_valid_boons(god:God.GODS, tier:int) -> Array[Node]:
 	var all_boons:Array[Node] = boon_pool.get_children()
 	all_boons = all_boons.filter(func(node): return node is Boon)
 	all_boons = all_boons.filter(func(b:Boon): return b.mask[god])
-#	all_boons = all_boons.filter(func(b:Boon): return b.tier == tier)
+	all_boons = all_boons.filter(func(b:Boon): return b.tier == tier)
 	return all_boons
 
 #func _get_forced_boons():

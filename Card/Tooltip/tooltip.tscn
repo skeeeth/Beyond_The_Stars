@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://db0cemcv4bb5n"]
+[gd_scene load_steps=5 format=3 uid="uid://db0cemcv4bb5n"]
 
 [ext_resource type="Theme" uid="uid://b0e6ktoqxgsr4" path="res://Assets/CardTheme.tres" id="1_70vfq"]
 [ext_resource type="Script" uid="uid://g7x8v4f4t4ur" path="res://Card/Tooltip/tooltip.gd" id="1_w8n74"]
@@ -8,14 +8,10 @@
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_vt3p8"]
-font_size = 20
-font_color = Color(0, 0, 0, 1)
-
 [node name="Tooltip" type="PanelContainer" node_paths=PackedStringArray("word_label", "body_label")]
 z_index = 6
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 721.0
+offset_bottom = 70.0
 theme = ExtResource("1_70vfq")
 script = ExtResource("1_w8n74")
 keyword = ExtResource("3_vt3p8")
@@ -34,7 +30,8 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Body" type="Label" parent="VBoxContainer"]
+[node name="Body" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
+bbcode_enabled = true
 text = "Gain 1/1/0, 10 favor for each warrior scored simultaneously"
-label_settings = SubResource("LabelSettings_vt3p8")
+fit_content = true

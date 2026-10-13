@@ -28,12 +28,15 @@ func on_action_taken():
 		round_end()
 		
 func round_end():
+	if cycle == 7:
+		return
 	cycle_ending.emit()
 
-	
 func start_cycle():
 	actions_left = actions_per_cycle
 	cycle += 1
+
+		
 	if (cycle % 2) == 1:
 		hand.draw_cost += 1
 	bgm_node.set_parameter("Cycle", cycle)

@@ -8,6 +8,7 @@ var type:craving_types
 
 @export var card_odds_per_tier:Array[float]
 @onready var rich_text_label: RichTextLabel = $RichTextLabel
+@onready var time_limit_label: Label = $"Time Limit"
 
 var resource_matrix:Dictionary[RM.types,int] = {
 	RM.types.RED: 0,
@@ -15,9 +16,13 @@ var resource_matrix:Dictionary[RM.types,int] = {
 	RM.types.BLUE: 0,
 }
 
-
 var active:bool = false
-var time_limit:int = 2
+var time_limit:int = 2:
+	set(v):
+		time_limit = v
+		time_limit_label.text = "Cycles left: %s" % time_limit
+	get:
+		return time_limit
 
 func set_craving(tier:int):
 	active = true
@@ -31,6 +36,7 @@ func set_craving(tier:int):
 		set_card_craving(tier)
 
 func set_resource_craving(tier:int):
+	time_limit = 2
 	match tier:
 		1, 2:
 			var key = resource_matrix.keys().pick_random()
@@ -45,6 +51,7 @@ func set_resource_craving(tier:int):
 	display_card_craving()
 
 func set_card_craving(_tier):
+	time_limit = 2
 	type = craving_types.LANE
 	rich_text_label.text = "Hungry for card"
 
@@ -85,6 +92,8 @@ func on_unsated_cycle():
 	time_limit -= 1
 	if time_limit == 0:
 		craving_failed.emit()
+		visible = false
+		active = false
 
 func on_click():
 	if type == craving_types.RES:

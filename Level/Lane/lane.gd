@@ -51,14 +51,23 @@ func _update_pile_counts():
 	discard_pile.update()
 
 func draw_card():
-	var res = deck.pop_front()
-	discard.push_back(res)
+	if deck.size() == 0:
+		if discard.size() == 0:
+			draw_fail()
+			return
+		#reshuffle
+		for c in discard: 
+			deck.append(c)
+		deck.shuffle()
+		discard.clear()
+	#discard.push_back(res)
 	
 	#Play card deal audio
 	var card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
 	card_deal_sound.start()
 	card_deal_sound.release()
 	
+	var res = deck.pop_front()
 	var new_card = CardDisplay.create_from_data(res)
 	add_child(new_card)
 	active_cards.append(new_card)
@@ -69,15 +78,18 @@ func draw_card():
 	draw_slide.tween_property(new_card,"position",destination,0.2).set_ease(Tween.EASE_OUT)
 	#new_card.score(type)
 	
-	#reshuffle
-	if deck.size() == 0:
-		#deck = discard.duplicate()
-		for c in discard: 
-			deck.append(c)
-		deck.shuffle()
-		discard.clear()
-	
 	_update_pile_counts()
+
+#like if girl failure was a card draw
+func draw_fail():
+	var wiggle = self.create_tween()
+	var start:float = draw_pile.position.x
+	var wiggle_amount = 15
+	for i in range(0,5):
+		wiggle.tween_property(draw_pile,"position:x",start + wiggle_amount,0.05)
+		wiggle_amount *= -0.8
+	
+	wiggle.tween_property(draw_pile,"position:x",start,0.05)
 
 
 func _on_button_pressed() -> void:
@@ -149,9 +161,12 @@ func play():
 	for c in active_cards:
 		discard_tween.tween_callback(c.data.reset_temp_values)
 		discard_tween.tween_callback(c.display)
+		discard_tween.tween_callback(discard.append.bind(c.data))
 		discard_tween.tween_property(c,"position",discard_pile.position,0.2)
 	for c in active_cards:
 		discard_tween.chain().tween_callback(c.queue_free)
+	
+	discard_tween.tween_callback(_update_pile_counts)
 	
 	discard_tween.tween_interval(0.1)
 	discard_tween.tween_callback(lane_scored.emit.bind(self))

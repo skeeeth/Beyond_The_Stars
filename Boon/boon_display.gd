@@ -11,11 +11,12 @@ signal lane_selection_requested
 @export var text_box: RichTextLabel
 @export var title_box:Label
 
-@export var bg_colors:Array[Color]
-
+@export var color_export:Array[Color]
+static var bg_colors:Array[Color]
 var god:God
 
-#func _ready() -> void:
+func _ready() -> void:
+	bg_colors = color_export
 	#if boon:
 		#set_boon(boon)
 
@@ -31,16 +32,16 @@ func set_boon(b:Boon):
 		boon.request_lane_select.connect(lane_selection_requested.emit, 4)
 	
 	text_box.text = ""#(boon.description)
-	format_text(boon.description)
+	format_text(boon.description,text_box)
 	title_box.text = boon.name
 
-func format_text(text:String):
+static func format_text(text:String, rich_text_box:RichTextLabel):
 	var start = text.find("[[")
 	#var end = text.find("]]")
 	if start == -1:
-		text_box.append_text(text)
+		rich_text_box.append_text(text)
 		return
-	text_box.append_text(text.left(start))
+	rich_text_box.append_text(text.left(start))
 	var stat_block = text.substr(start+2, 11)
 	print(stat_block)
 	var extracted_stats:Array[int] = [0,0,0,0,0,0]
@@ -55,24 +56,24 @@ func format_text(text:String):
 	 
 	#extracted_stats = [1,0,0,0,0,1]
 	
-	text_box.push_table(2,INLINE_ALIGNMENT_CENTER)
+	rich_text_box.push_table(2,INLINE_ALIGNMENT_CENTER)
 	
 	for i in range(0,6):
 		#text_box.push_context() #breaks table for some reason?
-		text_box.push_cell()
-		text_box.set_cell_size_override(Vector2(64,16),Vector2(64,64))
-		text_box.set_cell_border_color(Color.BLACK)
-		text_box.push_bgcolor(bg_colors[i])
+		rich_text_box.push_cell()
+		rich_text_box.set_cell_size_override(Vector2(64,16),Vector2(64,64))
+		rich_text_box.set_cell_border_color(Color.BLACK)
+		rich_text_box.push_bgcolor(bg_colors[i])
 		if extracted_stats[i] > 0:
-			text_box.append_text(str(extracted_stats[i]))
+			rich_text_box.append_text(str(extracted_stats[i]))
 		else:
-			text_box.append_text(" ")
-		text_box.pop()
-		text_box.pop()
-	text_box.pop()
+			rich_text_box.append_text(" ")
+		rich_text_box.pop()
+		rich_text_box.pop()
+	rich_text_box.pop()
 	
 	var remaining_text = text.substr(start+13)
-	text_box.append_text(remaining_text)
+	rich_text_box.append_text(remaining_text)
 
 func hide_body():
 	%RichTextLabel.hide()
