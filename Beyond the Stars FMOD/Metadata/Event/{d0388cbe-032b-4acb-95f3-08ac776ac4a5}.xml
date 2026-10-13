@@ -203,6 +203,7 @@
 			<destination>{e997b94e-6ba2-485e-99e0-91ba1bcc18c7}</destination>
 			<destination>{ab41ebed-9b8d-43ff-9eb8-043c332f68bf}</destination>
 			<destination>{f47ae942-4c3e-4741-a7ab-8355a15f71f7}</destination>
+			<destination>{0cc2f970-ef28-4a26-b442-116df0691ca0}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{c90e6322-5780-4bd1-b79c-68c13eaf74df}" />
@@ -278,6 +279,17 @@
 		<property name="gainE">
 			<value>-9.52329445</value>
 		</property>
+	</object>
+	<object class="MixerSend" id="{0cc2f970-ef28-4a26-b442-116df0691ca0}">
+		<property name="level">
+			<value>-13.5</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{9da70287-302d-408e-837a-ff01d50a716a}</destination>
+		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{e9a2a007-a11a-4831-b6c5-f25645a6f190}" />
 	<object class="AutomationPoint" id="{e2695c03-371d-4607-abe0-9b4f2c03a32b}">

@@ -15,6 +15,7 @@ var last_color_stat_snapshot:Dictionary
 var last_grey_stat_snapshot:Dictionary
 var last_favor:float
 var tooltips:Array[Tooltip]
+var card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
 @onready var tooltip_position: Node2D = $"Tooltip Position"
 
 
@@ -59,6 +60,9 @@ func display():
 	abs_changes.append_array(rel_changes) #combined changes
 	if abs_changes.has(true):
 		#call stat change sound...
+		var stat_increase_sound = FmodServer.create_event_instance("event:/Stat Increase")
+		stat_increase_sound.start()
+		stat_increase_sound.release()
 		pass
 	
 	
@@ -156,7 +160,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		"RES" = data,
 		"source" = self
 	}
-	
+
 	visible = false
 	var preview = CardDisplay.create_from_data(data)
 	var drag_center = Control.new()
@@ -167,16 +171,22 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("LMB"):
+		card_deal_sound.start()
+		card_deal_sound.release()
 		visible = true
-
 
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
 		clicked.emit(self)
+		
 
 
 
 func _on_mouse_entered() -> void:
+	var _card_hover = FmodServer.create_event_instance("event:/UI Hover")
+	_card_hover.start()
+	_card_hover.release()
+	
 	for k in data.keywords:
 		var new_tt:Tooltip = Tooltip.create(k)
 		new_tt.position.y = tooltips.size() * 80
@@ -189,8 +199,8 @@ func _on_mouse_exited() -> void:
 		tt.queue_free()
 	tooltips.clear()
 	pass # Replace with function body.
-
-func _card_hover_sound() -> void:
-	var _card_hover = FmodServer.create_event_instance("event:/Card Deal")
-	_card_hover.start()
-	_card_hover.release()
+	
+func _card_grab_sound() -> void:
+	if draggable:
+		card_deal_sound.start()
+		card_deal_sound.release()
