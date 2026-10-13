@@ -78,14 +78,14 @@ func try_pay():
 func on_satisfy():
 	active = false
 	visible = false
-	#play sacrifice audio
-	var sacrifice_sound = FmodServer.create_event_instance("event:/Card Discard")
-	sacrifice_sound.start()
-	sacrifice_sound.release()
 
 func on_card_selected(card_display:CardDisplay):
 	World.instance.current_list.erase(card_display.data)
 	World.instance.cancel_selection(ViewportEffects.types.SACRIFICE)
+		#play sacrifice audio
+	var sacrifice_sound = FmodServer.create_event_instance("event:/Card Discard")
+	sacrifice_sound.start()
+	sacrifice_sound.release()
 	on_satisfy()
 
 func on_unsated_cycle():

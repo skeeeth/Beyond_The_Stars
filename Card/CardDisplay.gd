@@ -160,7 +160,6 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	if !draggable:
 		return
 	
-	_card_grab_sound()
 	var drag_data:Dictionary = {
 		"RES" = data,
 		"source" = self
@@ -176,8 +175,8 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("LMB"):
-		card_deal_sound.start()
-		card_deal_sound.release()
+		#card_deal_sound.start()
+		#card_deal_sound.release()
 		visible = true
 
 func _gui_input(event: InputEvent) -> void:

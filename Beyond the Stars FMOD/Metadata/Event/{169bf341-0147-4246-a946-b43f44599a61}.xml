@@ -55,7 +55,7 @@
 			<destination>{f9028eca-b0a8-484c-a89c-94458664e9a5}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{c9ff850a-15e7-4a51-aca1-f486f4d06ef3}</destination>
+			<destination>{4dce45c2-368e-442a-85c6-60c2fa8ef64e}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{c0a0a9dc-ba38-42a5-acf3-981e61b232da}" />
@@ -195,6 +195,8 @@
 	<object class="MixerBusEffectChain" id="{0cc1646e-b895-468f-b558-7332151aa949}">
 		<relationship name="effects">
 			<destination>{a41b6564-9aa0-4d03-81a5-93af54f34b08}</destination>
+			<destination>{18c99495-ea3f-4a5d-a071-c81953969afe}</destination>
+			<destination>{e0c30024-2e40-4ba1-ad36-2f6db4c3fdba}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{dca9adad-56ef-477b-8e5e-5e71a02a4bee}" />
@@ -332,6 +334,25 @@
 	</object>
 	<object class="MixerBusPanner" id="{43e99135-ded0-4611-b359-91581d37f175}" />
 	<object class="MixerBusFader" id="{a41b6564-9aa0-4d03-81a5-93af54f34b08}" />
+	<object class="DelayEffect" id="{18c99495-ea3f-4a5d-a071-c81953969afe}">
+		<property name="delay">
+			<value>86</value>
+		</property>
+		<property name="level">
+			<value>-14.5</value>
+		</property>
+	</object>
+	<object class="MixerSend" id="{e0c30024-2e40-4ba1-ad36-2f6db4c3fdba}">
+		<property name="level">
+			<value>-14</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{9da70287-302d-408e-837a-ff01d50a716a}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{0e66e3b3-d346-40c2-a087-a84be1f12b70}" />
 	<object class="MixerBusFader" id="{fb2f2a31-8580-4ab9-9ee0-82c1bfecb2a8}" />
 	<object class="MixerBusFader" id="{48746a6c-0106-4da4-bcbb-1e495810bdae}" />
