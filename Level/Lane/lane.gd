@@ -85,7 +85,12 @@ func _on_button_pressed() -> void:
 	var UI_confirm_sound = FmodServer.create_event_instance("event:/UI Confirm")
 	UI_confirm_sound.start()
 	UI_confirm_sound.release()
-	pass # Replace with function body.
+
+func add_card(data:CardData):
+	card_added.emit(data)
+	deck.append(data)
+	deck.shuffle()
+	_update_pile_counts()
 
 func play():
 	scoring_started.emit()
@@ -142,6 +147,8 @@ func play():
 	cards_queued_for_removal.clear()
 	
 	for c in active_cards:
+		discard_tween.tween_callback(c.data.reset_temp_values)
+		discard_tween.tween_callback(c.display)
 		discard_tween.tween_property(c,"position",discard_pile.position,0.2)
 	for c in active_cards:
 		discard_tween.chain().tween_callback(c.queue_free)
@@ -211,15 +218,11 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	
 	click_hitbox.modulate = Color(Color.WHITE,0)
 	
-	RM.try_spend(RM.types.BLUE, 1)
+	#RM.try_spend(RM.types.BLUE, 1)
 	
-	card_added.emit(card_data)
-	
-	
-	deck.append(card_data)
-	deck.shuffle()
+	add_card(card_data)
 	data["source"].queue_free()
-	_update_pile_counts()
+
 
 
 func _on_gui_input(event: InputEvent) -> void:

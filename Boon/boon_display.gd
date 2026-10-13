@@ -43,12 +43,15 @@ func format_text(text:String):
 	text_box.append_text(text.left(start))
 	var stat_block = text.substr(start+2, 11)
 	print(stat_block)
-	var extracted_stats:Array[int]
+	var extracted_stats:Array[int] = [0,0,0,0,0,0]
+	var stat_order:Array[int] = [0,2,4,1,3,5]
+	var order_index:int = 0
 	
-	for i in range(0,12,2):
-		var char_ = stat_block.substr(i,1)#wait this breaks with 2 digit numbers lol
+	for character_index in range(0,12,2):
+		var char_ = stat_block.substr(character_index,1)#wait this breaks with 2 digit numbers lol
 		var num = int(char_)
-		extracted_stats.append(num)
+		extracted_stats[stat_order[order_index]] = num
+		order_index += 1
 	 
 	#extracted_stats = [1,0,0,0,0,1]
 	
@@ -60,7 +63,10 @@ func format_text(text:String):
 		text_box.set_cell_size_override(Vector2(64,16),Vector2(64,64))
 		text_box.set_cell_border_color(Color.BLACK)
 		text_box.push_bgcolor(bg_colors[i])
-		text_box.append_text(str(extracted_stats[i]))
+		if extracted_stats[i] > 0:
+			text_box.append_text(str(extracted_stats[i]))
+		else:
+			text_box.append_text(" ")
 		text_box.pop()
 		text_box.pop()
 	text_box.pop()
@@ -70,6 +76,9 @@ func format_text(text:String):
 
 func hide_body():
 	%RichTextLabel.hide()
+
+func display_cards(cards:Array[CardData]):
+	pass
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):

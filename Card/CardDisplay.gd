@@ -67,7 +67,7 @@ func display():
 	%Description.text = text
 	
 	#sets bottom label to favor diff with +- sign
-	%"Favor Label".text = "%+d " % data.favor
+	%"Favor Label".text = "%+d " % data.get_adjusted_favor()
 	
 # hide color box if value is 0, otherwise display value
 func _set_color_value(label: Label, value: String, changed:bool = false):
@@ -111,7 +111,6 @@ func score(in_lane:RM.types):
 		RM.add_resource(adjusted_type,value)
 		
 	RM.score_favor(in_lane, data.get_adjusted_favor())
-	data.reset_temp_values()
 
 func request_removal():
 	removal_requested.emit(self)

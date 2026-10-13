@@ -50,7 +50,11 @@ func splay(cards: Array):
 	else:
 		$CanvasLayer/CenterContainer.disappear()
 
-
+func get_all_cards_in_play() -> Array[CardData]:
+	var combined_array:Array
+	for l in lane_list:
+		combined_array.append_array(l.get_combined_card_list())
+	return combined_array
 
 func on_card_clicked(card:CardDisplay):
 	splayed_card_clicked.emit(card)

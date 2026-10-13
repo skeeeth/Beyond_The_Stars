@@ -28,7 +28,9 @@ static func create(_god:God, boon_pool:Array[Node],sprite:Texture) -> BoonSelect
 	for b in forced_boons:
 		boon_pool.insert(0,b)
 	
-	for i in range(0,3):
+	boon_pool.resize(min(3,boon_pool.size()))
+	
+	for i in boon_pool.size():
 		new_bs.boon_options[i].set_boon(boon_pool[i])
 	
 	return new_bs #...always some new bs

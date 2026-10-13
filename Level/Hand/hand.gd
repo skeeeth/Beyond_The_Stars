@@ -10,7 +10,7 @@ static var card_pool:Array[CardData]
 var draw_cost:int = 0:
 	set(v):
 		draw_cost = v
-		button.text = "Draw card (%s cultist(s))" % draw_cost
+		button.text = "Draw card (%s cultists)" % draw_cost
 	get:
 		return draw_cost
 @onready var button: Button = $Button
@@ -22,6 +22,8 @@ func _ready() -> void:
 	
 	for i in range(0,starting_cards):
 		draw_one()
+	
+	draw_cost = 1
 
 func draw_one():
 	#Play card draw audio

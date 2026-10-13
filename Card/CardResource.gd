@@ -80,6 +80,7 @@ func reset_temp_values():
 	for i in temp_grey_mod:
 		temp_grey_mod[i] = 0
 	
+	temp_favor_mod = 0
 	temp_values_cleared.emit()
 
 func get_keyword_strategies() -> Array[BaseCardStrategy]:

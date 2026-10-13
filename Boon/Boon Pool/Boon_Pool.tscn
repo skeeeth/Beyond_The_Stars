@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dg8sjc86dqcao"]
+[gd_scene load_steps=31 format=3 uid="uid://dg8sjc86dqcao"]
 
 [ext_resource type="Script" uid="uid://lao3lsrvbud1" path="res://Boon/Boon Pool/Boons/chosen_riff_raff.gd" id="1_pbi8e"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_b1cel"]
@@ -19,6 +19,8 @@
 [ext_resource type="Resource" uid="uid://cgwgtft8gsbb" path="res://Card/Instances/Warrior Pack/Warrior.tres" id="15_npeu5"]
 [ext_resource type="Resource" uid="uid://whwhcojf4a3k" path="res://Card/Instances/Grub Pack/BlueGrub.tres" id="16_y2ul4"]
 [ext_resource type="Resource" uid="uid://b0ffta8l0ctae" path="res://Card/Instances/Grub Pack/GreenGrub.tres" id="17_npeu5"]
+[ext_resource type="Script" uid="uid://2q1fta1uaqod" path="res://Boon/Boon Pool/deploy_platoon.gd" id="19_dvhg7"]
+[ext_resource type="Resource" uid="uid://d4re05y24ny4" path="res://Card/Keywords/Tithe.tres" id="20_e5mks"]
 
 [sub_resource type="Resource" id="Resource_lridx"]
 resource_local_to_scene = true
@@ -81,6 +83,16 @@ resource_costs = Dictionary[int, int]({
 })
 favor = 15
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_e5mks"]
+script = ExtResource("2_b1cel")
+favor = 10
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_d4lxj"]
+script = ExtResource("7_lridx")
+growth_pattern = SubResource("Resource_e5mks")
+metadata/_custom_type_script = "uid://wy5mxf6n00h8"
 
 [sub_resource type="Resource" id="Resource_4qffb"]
 script = ExtResource("2_b1cel")
@@ -184,10 +196,13 @@ mask = Dictionary[int, bool]({
 3: false
 })
 
+[node name="T2" type="Node" parent="."]
+
 [node name="Grow Skills" type="Node" parent="."]
 script = ExtResource("13_5p5qj")
 keyword = ExtResource("14_oo0dp")
 description = "Grant a card the Growth keyword"
+tier = 2
 mask = Dictionary[int, bool]({
 0: false,
 1: true,
@@ -195,9 +210,29 @@ mask = Dictionary[int, bool]({
 3: false
 })
 
-[node name="Deploy Platoon" type="Node" parent="."]
+[node name="Aura of Deepening Devotion" type="Node" parent="."]
+script = ExtResource("6_5y4ju")
+strategy = SubResource("Resource_d4lxj")
+tier = 2
+mask = Dictionary[int, bool]({
+0: false,
+1: true,
+2: false,
+3: false
+})
 
-[node name="T2" type="Node" parent="."]
+[node name="Understand Insignifigance" type="Node" parent="."]
+script = ExtResource("13_5p5qj")
+keyword = ExtResource("20_e5mks")
+viewport_effect = 1
+description = "Select a card to give the tithe keyword"
+tier = 2
+mask = Dictionary[int, bool]({
+0: false,
+1: false,
+2: true,
+3: false
+})
 
 [node name="T3" type="Node" parent="."]
 
@@ -211,4 +246,18 @@ mask = Dictionary[int, bool]({
 1: true,
 2: false,
 3: false
+})
+
+[node name="Deploy Platoon" type="Node" parent="."]
+script = ExtResource("19_dvhg7")
+card = ExtResource("15_npeu5")
+count = 3
+description = "Add 3 warriors to target lane"
+tier = 3
+debug_force = true
+mask = Dictionary[int, bool]({
+0: false,
+1: false,
+2: false,
+3: true
 })
