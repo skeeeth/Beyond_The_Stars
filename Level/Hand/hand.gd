@@ -1,7 +1,6 @@
 extends Node2D
 class_name Hand
 
-
 static var card_pool:Array[CardData]
 @export var starting_pool:Array[CardData]
 @export var container:Container
@@ -23,7 +22,7 @@ func _ready() -> void:
 	for i in range(0,starting_cards):
 		draw_one()
 	
-	draw_cost = 1
+	draw_cost = 0
 
 func draw_one():
 	#Play card draw audio

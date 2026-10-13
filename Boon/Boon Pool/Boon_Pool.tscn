@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dg8sjc86dqcao"]
+[gd_scene load_steps=35 format=3 uid="uid://dg8sjc86dqcao"]
 
 [ext_resource type="Script" uid="uid://lao3lsrvbud1" path="res://Boon/Boon Pool/Boons/chosen_riff_raff.gd" id="1_pbi8e"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_b1cel"]
@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://b0ffta8l0ctae" path="res://Card/Instances/Grub Pack/GreenGrub.tres" id="17_npeu5"]
 [ext_resource type="Script" uid="uid://2q1fta1uaqod" path="res://Boon/Boon Pool/deploy_platoon.gd" id="19_dvhg7"]
 [ext_resource type="Resource" uid="uid://d4re05y24ny4" path="res://Card/Keywords/Tithe.tres" id="20_e5mks"]
+[ext_resource type="Script" uid="uid://fdenwufvq5qu" path="res://Boon/Boon Pool/LaneBlessing.gd" id="22_d4lxj"]
 
 [sub_resource type="Resource" id="Resource_lridx"]
 resource_local_to_scene = true
@@ -83,6 +84,26 @@ resource_costs = Dictionary[int, int]({
 })
 favor = 15
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_e502x"]
+script = ExtResource("2_b1cel")
+absolute_scoring = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 1
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_dfk0h"]
+script = ExtResource("2_b1cel")
+favor = 5
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_rgg3k"]
+script = ExtResource("7_lridx")
+growth_pattern = SubResource("Resource_dfk0h")
+temp = true
+metadata/_custom_type_script = "uid://wy5mxf6n00h8"
 
 [sub_resource type="Resource" id="Resource_e5mks"]
 script = ExtResource("2_b1cel")
@@ -175,7 +196,8 @@ mask = Dictionary[int, bool]({
 [node name="Sow Seeds" type="Node" parent="."]
 script = ExtResource("12_nnccf")
 grow_pattern = SubResource("Resource_dvhg7")
-target_count = 2
+target_count = 3
+viewport_effect = 1
 description = "Give two cards [[0/1/0g0/0/0"
 debug_force = true
 mask = Dictionary[int, bool]({
@@ -194,6 +216,30 @@ mask = Dictionary[int, bool]({
 1: false,
 2: true,
 3: false
+})
+
+[node name="Seek Comrades" type="Node" parent="."]
+script = ExtResource("12_nnccf")
+grow_pattern = SubResource("Resource_e502x")
+target_count = 3
+viewport_effect = 1
+mask = Dictionary[int, bool]({
+0: false,
+1: false,
+2: true,
+3: true
+})
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("22_d4lxj")
+strategy = SubResource("Resource_rgg3k")
+description = "Cards in target lane gain 5 favor during scoring"
+debug_force = true
+mask = Dictionary[int, bool]({
+0: true,
+1: true,
+2: true,
+3: true
 })
 
 [node name="T2" type="Node" parent="."]

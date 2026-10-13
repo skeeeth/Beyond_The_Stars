@@ -13,6 +13,7 @@ static var card_size:Vector2 = Vector2(188,200) #not synced with custom_minimum_
 var draggable:bool = false
 var last_color_stat_snapshot:Dictionary
 var last_grey_stat_snapshot:Dictionary
+var last_favor:float
 var tooltips:Array[Tooltip]
 @onready var tooltip_position: Node2D = $"Tooltip Position"
 
@@ -22,6 +23,7 @@ static func create_from_data(res:CardData) -> CardDisplay:
 	new_card.data = res
 	new_card.last_color_stat_snapshot = res.get_adjusted_abs_values()
 	new_card.last_grey_stat_snapshot = res.get_adjusted_rel_values()
+	new_card.last_favor = res.get_adjusted_favor()
 	for k in res.keywords:
 		k.strategy.applied.connect(new_card.blink_textbox)
 	new_card.display()
@@ -68,7 +70,17 @@ func display():
 	
 	#sets bottom label to favor diff with +- sign
 	%"Favor Label".text = "%+d " % data.get_adjusted_favor()
+	if last_favor != data.get_adjusted_favor():
+		_grow_label(%"Favor Label")
+	last_favor = data.get_adjusted_favor()
 	
+func _grow_label(label:Label):
+	var grow = self.create_tween()
+	var starting_size:int = label.label_settings.outline_size
+	grow.tween_property(label.label_settings,"outline_size",starting_size + 8, 0)
+	grow.tween_interval(Lane.strategy_pause)
+	grow.tween_property(label.label_settings,"outline_size",starting_size, 0)
+
 # hide color box if value is 0, otherwise display value
 func _set_color_value(label: Label, value: String, changed:bool = false):
 	var int_value = int(value)
@@ -81,11 +93,7 @@ func _set_color_value(label: Label, value: String, changed:bool = false):
 		label.text = value
 	
 	if changed:
-		var grow = self.create_tween()
-		var starting_size:int = label.label_settings.outline_size
-		grow.tween_property(label.label_settings,"outline_size",starting_size + 8, 0)
-		grow.tween_interval(Lane.strategy_pause)
-		grow.tween_property(label.label_settings,"outline_size",starting_size, 0)
+		_grow_label(label)
 
 
 ##maps which indexes are different, not the actual difference
