@@ -15,9 +15,11 @@ var last_color_stat_snapshot:Dictionary
 var last_grey_stat_snapshot:Dictionary
 var last_favor:float
 var tooltips:Array[Tooltip]
-var card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
+var card_deal_sound# = FmodServer.create_event_instance("event:/Card Deal")
 @onready var tooltip_position: Node2D = $"Tooltip Position"
 
+func _ready() -> void:
+	card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
 
 static func create_from_data(res:CardData) -> CardDisplay:
 	var new_card:CardDisplay = SELF_SCENE.instantiate()
@@ -29,6 +31,8 @@ static func create_from_data(res:CardData) -> CardDisplay:
 		k.strategy.applied.connect(new_card.blink_textbox)
 	new_card.display()
 	return new_card
+
+
 
 func display():
 	#show the cards name
