@@ -78,6 +78,9 @@ func request_lane_selection():
 		l.midlight()
 
 func end_lane_selection():
+	var node_sound = FmodServer.create_event_instance("event:/Node Select")
+	node_sound.start()
+	node_sound.release()
 	for l in lane_list:
 		l.clicked.disconnect(lane_clicked.emit)
 		l.selection_requested = false

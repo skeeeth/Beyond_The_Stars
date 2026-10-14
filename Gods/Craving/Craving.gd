@@ -96,6 +96,9 @@ func on_unsated_cycle():
 		active = false
 
 func on_click():
+	var _initiate_sacrifice = FmodServer.create_event_instance("event:/Initiate Sacrifice")
+	_initiate_sacrifice.start()
+	_initiate_sacrifice.release()
 	if type == craving_types.RES:
 		try_pay()
 	else:
@@ -111,3 +114,8 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
 		on_click()
 		pass
+		
+func _card_hover_sound() -> void:
+	var _card_hover = FmodServer.create_event_instance("event:/UI Hover")
+	_card_hover.start()
+	_card_hover.release()

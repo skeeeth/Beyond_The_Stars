@@ -90,7 +90,9 @@ func draw_fail():
 		wiggle_amount *= -0.8
 	
 	wiggle.tween_property(draw_pile,"position:x",start,0.05)
-
+	var draw_fail_sound = FmodServer.create_event_instance("event:/Card Waterfall")
+	draw_fail_sound.start()
+	draw_fail_sound.release()
 
 func _on_button_pressed() -> void:
 	play()
@@ -121,6 +123,11 @@ func play():
 	for c in active_cards:
 		var starting_y = c.position.y
 		strategy_tween.tween_property(c,"position:y", starting_y - 20, 0.05)
+		
+		#play scoring sound on animiation
+		var score_sound = FmodServer.create_event_instance("event:/Bell")
+		score_sound.start()
+		score_sound.release()
 		var apply_strategy_stack = func(strategies:Array[BaseCardStrategy]):
 			for s in strategies:
 				strategy_tween.tween_callback(s.apply.bind(c.data,self,active_cards))
@@ -253,4 +260,7 @@ func _on_mouse_exited() -> void:
 
 func _on_mouse_entered() -> void:
 	if selection_requested:
+		var lane_hover = FmodServer.create_event_instance("event:/UI Hover")
+		lane_hover.start()
+		lane_hover.release()
 		highlight()
