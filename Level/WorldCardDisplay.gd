@@ -20,7 +20,7 @@ func _ready():
 	lane_list.push_front(lanes.get_node("Lane"))
 	lane_list.push_front(lanes.get_node("Lane2"))
 	lane_list.push_front(lanes.get_node("Lane3"))
-	
+	RM.reset()
 	for lane in lane_list:
 		var draw_pile = lane.get_node("Draw Pile")
 		var discard_pile = lane.get_node("Discard Pile")

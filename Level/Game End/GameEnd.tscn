@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn8hhitufyxi8"]
+[gd_scene load_steps=3 format=3 uid="uid://dn8hhitufyxi8"]
 
 [ext_resource type="Script" uid="uid://cl6agm10qk5o2" path="res://Level/Game End/Game End.gd" id="1_5r52f"]
 
-[node name="Control" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_5r52f"]
+font_size = 50
+
+[node name="End Screen" type="Control"]
+z_index = 100
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5r52f")
 
-[node name="Label" type="Label" parent="."]
+[node name="Text Box" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -21,8 +26,10 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "TEXT"
+label_settings = SubResource("LabelSettings_5r52f")
 
 [node name="Backboard" type="ColorRect" parent="."]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,3 +37,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 833.0
+offset_top = 601.0
+offset_right = 1207.0
+offset_bottom = 754.0
+text = "Main Menu"
+
+[node name="Checklist Position" type="Node2D" parent="."]
+position = Vector2(412, 159)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -6,6 +6,7 @@ signal cycle_ending
 @export var lanes:Array[Lane]
 @export var hand:Hand
 @export var gm:GodManager
+@export var win_checklist:WinChecklist
 static var actions_per_cycle:int = 5
 var actions_left:int = actions_per_cycle
 var cycle:int = 0
@@ -31,6 +32,7 @@ func round_end():
 
 func start_cycle():
 	if cycle == 7:
+		GameEnd.activate(win_checklist)
 		return
 	actions_left = actions_per_cycle
 	cycle += 1

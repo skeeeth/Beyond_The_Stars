@@ -16,6 +16,7 @@ var draw_cost:int = 0:
 
 func _ready() -> void:
 	#RM.resource_added.connect(on_resource_gain)
+	Hand.card_pool.clear() #clear previous game addittions
 	for s in starting_pool:
 		Hand.card_pool.append(s)
 	
@@ -30,6 +31,7 @@ func draw_one():
 	card_deal_sound.start()
 	card_deal_sound.release()
 	
+	var breakpoint_readable_pool = card_pool
 	var new_card:CardDisplay = CardDisplay.create_from_data(card_pool.pick_random().duplicate())
 	new_card.draggable = true
 	new_card.mouse_filter = Control.MOUSE_FILTER_PASS

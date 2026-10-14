@@ -64,7 +64,16 @@ func try_spend_all(dict:Dictionary[types,int]) -> bool:
 	for t in types.values():
 		try_spend(t,dict[t])
 	return true
-	
+
+func reset():
+	current = {
+		types.RED: 3,
+		types.GREEN: 3,
+		types.BLUE: 0,
+		}
+
+	for k in cumulative:
+		cumulative[k] = 0
 	
 func score_favor(lane:types, amount:int):
 	favor_scored_in_lane.emit(lane, amount)
