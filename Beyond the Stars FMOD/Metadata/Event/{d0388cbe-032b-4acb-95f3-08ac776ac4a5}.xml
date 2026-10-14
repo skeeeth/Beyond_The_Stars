@@ -92,6 +92,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{0ae8a46a-98a2-48ad-89de-5390cb1d1b79}">
+		<property name="volume">
+			<value>-7</value>
+		</property>
 		<property name="pitch">
 			<value>-6.5</value>
 		</property>
@@ -248,7 +251,10 @@
 			<value>160</value>
 		</property>
 		<property name="feedback">
-			<value>2.5</value>
+			<value>55.5</value>
+		</property>
+		<property name="level">
+			<value>-10.5</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{f47ae942-4c3e-4741-a7ab-8355a15f71f7}">

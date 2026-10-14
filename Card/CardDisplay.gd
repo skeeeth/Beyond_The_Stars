@@ -19,8 +19,6 @@ var card_deal_sound# = FmodServer.create_event_instance("event:/Card Deal")
 @onready var tooltip_position: Node2D = $"Tooltip Position"
 var being_dragged:bool = false
 
-func _ready() -> void:
-	card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
 
 static func create_from_data(res:CardData) -> CardDisplay:
 	var new_card:CardDisplay = SELF_SCENE.instantiate()
@@ -183,8 +181,6 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("LMB"):
-		#card_deal_sound.start()
-		#card_deal_sound.release()
 		if being_dragged:
 			_card_grab_sound() #or release sound, if different
 			visible = true
@@ -193,6 +189,7 @@ func _input(event: InputEvent) -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
 		clicked.emit(self)
+		_card_grab_sound()
 		
 
 

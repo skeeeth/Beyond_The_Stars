@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{352e2c90-298d-4a22-8049-b96c4d1fb474}">
+		<property name="volume">
+			<value>-7</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{fe8bc14a-ddb3-45b2-b4fb-afb52c6b2355}</destination>
 		</relationship>
@@ -113,6 +116,7 @@
 	<object class="MixerBusEffectChain" id="{fe8bc14a-ddb3-45b2-b4fb-afb52c6b2355}">
 		<relationship name="effects">
 			<destination>{58db0b2f-6266-4852-9613-bee57a22a4ef}</destination>
+			<destination>{28478626-1263-4f3a-b6be-6fdbcab530d5}</destination>
 			<destination>{bbc4a4db-3ea3-4d43-8520-f65754a50905}</destination>
 		</relationship>
 	</object>
@@ -125,6 +129,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{0a6e82c5-b3e9-4a46-a799-3b184ab2a900}" />
 	<object class="MixerBusFader" id="{58db0b2f-6266-4852-9613-bee57a22a4ef}" />
+	<object class="ConvolutionReverbEffect" id="{28478626-1263-4f3a-b6be-6fdbcab530d5}">
+		<property name="wetLevel">
+			<value>-21</value>
+		</property>
+		<property name="dryLevel">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MixerSend" id="{bbc4a4db-3ea3-4d43-8520-f65754a50905}">
 		<property name="level">
 			<value>-14</value>
