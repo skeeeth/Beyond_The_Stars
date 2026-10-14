@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dg8sjc86dqcao"]
+[gd_scene load_steps=36 format=3 uid="uid://dg8sjc86dqcao"]
 
 [ext_resource type="Script" uid="uid://lao3lsrvbud1" path="res://Boon/Boon Pool/Boons/chosen_riff_raff.gd" id="1_pbi8e"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_b1cel"]
@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://b0ffta8l0ctae" path="res://Card/Instances/Grub Pack/GreenGrub.tres" id="17_npeu5"]
 [ext_resource type="Script" path="res://Boon/Boon Pool/deploy_platoon.gd" id="19_dvhg7"]
 [ext_resource type="Resource" uid="uid://d4re05y24ny4" path="res://Card/Keywords/Tithe.tres" id="20_e5mks"]
+[ext_resource type="Script" uid="uid://ci21oee3egfbd" path="res://Boon/Boon Pool/soul_fragment.gd" id="21_e502x"]
 [ext_resource type="Script" path="res://Boon/Boon Pool/LaneBlessing.gd" id="22_d4lxj"]
 
 [sub_resource type="Resource" id="Resource_lridx"]
@@ -197,7 +198,7 @@ mask = Dictionary[int, bool]({
 script = ExtResource("12_nnccf")
 grow_pattern = SubResource("Resource_dvhg7")
 target_count = 3
-description = "Give two cards [[0/1/0g0/0/0"
+description = "Give three cards [[0/1/0g0/0/0"
 mask = Dictionary[int, bool]({
 0: false,
 1: true,
@@ -233,9 +234,9 @@ strategy = SubResource("Resource_rgg3k")
 description = "Cards in target lane gain 5 favor during scoring"
 mask = Dictionary[int, bool]({
 0: true,
-1: true,
-2: true,
-3: true
+1: false,
+2: false,
+3: false
 })
 
 [node name="T2" type="Node" parent="."]
@@ -250,6 +251,18 @@ mask = Dictionary[int, bool]({
 1: true,
 2: true,
 3: false
+})
+
+[node name="Soul Fragment" type="Node" parent="."]
+script = ExtResource("21_e502x")
+description = "Select at least one soul fragment before the last cycle to win the game (this boon is available at tier two for all gods)"
+tier = 2
+debug_force = true
+mask = Dictionary[int, bool]({
+0: true,
+1: true,
+2: true,
+3: true
 })
 
 [node name="Aura of Deepening Devotion" type="Node" parent="."]

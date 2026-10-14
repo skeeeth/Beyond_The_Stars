@@ -30,7 +30,7 @@ func set_craving(tier:int):
 	var card_odds:float = card_odds_per_tier[tier]
 	
 	
-	if randf() < card_odds:
+	if randf() > card_odds:
 		set_resource_craving(tier)
 	else:
 		set_card_craving(tier)

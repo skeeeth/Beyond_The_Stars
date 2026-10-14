@@ -47,7 +47,8 @@ func _ready() -> void:
 		display.finished.connect(ending)
 		display.card_selection_requested.connect(card_selection_requested)
 		display.lane_selection_requested.connect(lane_selection_requested)
-		display.boon.request_select_effect.connect(set_selection_effect)
+		if display.boon:
+			display.boon.request_select_effect.connect(set_selection_effect)
 		display.god = god
 	
 	sprite_2d.texture = texture
