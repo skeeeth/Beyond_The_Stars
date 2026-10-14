@@ -37,6 +37,7 @@ func set_craving(tier:int):
 
 func set_resource_craving(tier:int):
 	time_limit = 2
+	type = craving_types.RES
 	match tier:
 		1, 2:
 			var key = resource_matrix.keys().pick_random()

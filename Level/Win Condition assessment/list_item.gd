@@ -9,7 +9,7 @@ signal button_pressed
 @onready var button: Button = $Button
 
 func check():
-	if !check_box.button_pressed:
+	if check_box.button_pressed:
 		return
 	
 	check_box.button_pressed = true
