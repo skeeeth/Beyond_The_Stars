@@ -19,9 +19,9 @@
 [ext_resource type="Resource" uid="uid://cgwgtft8gsbb" path="res://Card/Instances/Warrior Pack/Warrior.tres" id="15_npeu5"]
 [ext_resource type="Resource" uid="uid://whwhcojf4a3k" path="res://Card/Instances/Grub Pack/BlueGrub.tres" id="16_y2ul4"]
 [ext_resource type="Resource" uid="uid://b0ffta8l0ctae" path="res://Card/Instances/Grub Pack/GreenGrub.tres" id="17_npeu5"]
-[ext_resource type="Script" uid="uid://2q1fta1uaqod" path="res://Boon/Boon Pool/deploy_platoon.gd" id="19_dvhg7"]
+[ext_resource type="Script" path="res://Boon/Boon Pool/deploy_platoon.gd" id="19_dvhg7"]
 [ext_resource type="Resource" uid="uid://d4re05y24ny4" path="res://Card/Keywords/Tithe.tres" id="20_e5mks"]
-[ext_resource type="Script" uid="uid://fdenwufvq5qu" path="res://Boon/Boon Pool/LaneBlessing.gd" id="22_d4lxj"]
+[ext_resource type="Script" path="res://Boon/Boon Pool/LaneBlessing.gd" id="22_d4lxj"]
 
 [sub_resource type="Resource" id="Resource_lridx"]
 resource_local_to_scene = true
@@ -197,9 +197,7 @@ mask = Dictionary[int, bool]({
 script = ExtResource("12_nnccf")
 grow_pattern = SubResource("Resource_dvhg7")
 target_count = 3
-viewport_effect = 1
 description = "Give two cards [[0/1/0g0/0/0"
-debug_force = true
 mask = Dictionary[int, bool]({
 0: false,
 1: true,
@@ -222,7 +220,6 @@ mask = Dictionary[int, bool]({
 script = ExtResource("12_nnccf")
 grow_pattern = SubResource("Resource_e502x")
 target_count = 3
-viewport_effect = 1
 mask = Dictionary[int, bool]({
 0: false,
 1: false,
@@ -230,11 +227,10 @@ mask = Dictionary[int, bool]({
 3: true
 })
 
-[node name="Node" type="Node" parent="."]
+[node name="Bless Ground" type="Node" parent="."]
 script = ExtResource("22_d4lxj")
 strategy = SubResource("Resource_rgg3k")
 description = "Cards in target lane gain 5 favor during scoring"
-debug_force = true
 mask = Dictionary[int, bool]({
 0: true,
 1: true,
@@ -270,7 +266,6 @@ mask = Dictionary[int, bool]({
 [node name="Understand Insignifigance" type="Node" parent="."]
 script = ExtResource("13_5p5qj")
 keyword = ExtResource("20_e5mks")
-viewport_effect = 1
 description = "Select a card to give the tithe keyword"
 tier = 2
 mask = Dictionary[int, bool]({

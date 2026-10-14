@@ -6,6 +6,7 @@ signal finished
 @onready var sprite_2d: Sprite2D = $God
 @onready var background: Polygon2D = $Background
 
+@onready var boon_container: VBoxContainer = $"Boon Container"
 
 @export var boon_options:Array[BoonDisplay]
 var texture:Texture
@@ -14,6 +15,7 @@ var god:God
 
 var card_picks_left:int = 0
 
+var selection_effect:ViewportEffects.types = ViewportEffects.types.BUFF
 
 static func create(_god:God, boon_pool:Array[Node],sprite:Texture) -> BoonSelection:
 	var new_bs:BoonSelection = self_scene.instantiate()
@@ -33,6 +35,10 @@ static func create(_god:God, boon_pool:Array[Node],sprite:Texture) -> BoonSelect
 	for i in boon_pool.size():
 		new_bs.boon_options[i].set_boon(boon_pool[i])
 	
+	for bd in new_bs.boon_options:
+		if !bd.boon:
+			bd.hide()
+		
 	return new_bs #...always some new bs
 
 func _ready() -> void:
@@ -41,6 +47,7 @@ func _ready() -> void:
 		display.finished.connect(ending)
 		display.card_selection_requested.connect(card_selection_requested)
 		display.lane_selection_requested.connect(lane_selection_requested)
+		display.boon.request_select_effect.connect(set_selection_effect)
 		display.god = god
 	
 	sprite_2d.texture = texture
@@ -48,17 +55,24 @@ func _ready() -> void:
 	var grow_tween = create_tween()
 	grow_tween.tween_property(self,"scale",Vector2.ONE,0.2)
 
+func set_selection_effect(effect:ViewportEffects.types):
+	selection_effect = effect
+
 func card_selection_requested(_count:int):
-	World.instance.request_lane_card_selection(ViewportEffects.types.SACRIFICE)
+	World.instance.request_lane_card_selection(selection_effect)
 	
 	selection_fade()
 
 func lane_selection_requested():
-	World.instance.request_lane_selection()
+	World.instance.request_lane_selection(selection_effect)
 	selection_fade()
 
 func selection_fade():
-	modulate = Color(Color.WHITE,0.2)
+	boon_container.hide()
+	
+	var fade = self.create_tween()
+	fade.tween_property(self,"modulate", Color(Color.WHITE,0.2), 0.5)
+	#modulate = Color(Color.WHITE,0.2)
 
 
 func ending():

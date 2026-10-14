@@ -187,8 +187,10 @@ viewport_effects = NodePath("Viewport effects")
 
 [node name="Viewport effects" type="Node2D" parent="."]
 script = ExtResource("2_o6fwa")
+sacrifice_color = Color(0.47058824, 0.47058824, 0.47058824, 1)
+buff_color = Color(0.63483334, 0.65, 0.468, 1)
 
-[node name="Sacrifice Vision" type="PointLight2D" parent="Viewport effects"]
+[node name="Edge Light" type="PointLight2D" parent="Viewport effects"]
 position = Vector2(900, 547)
 scale = Vector2(6.69, -3.24)
 color = Color(0.47, 0.47, 0.47, 1)

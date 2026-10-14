@@ -3,12 +3,14 @@ class_name CardSelectBoon
 
 @export var target_count:int = 1
 var targets_left:int = target_count
-@export var viewport_effect:ViewportEffects.types
+@export var viewport_effect:ViewportEffects.types = ViewportEffects.types.BUFF
 
 func apply(_god:God):
 	targets_left = target_count
 	
+	request_select_effect.emit(viewport_effect)
 	request_card_selections.emit(target_count)
+
 	
 	var lp_callable:Callable
 	

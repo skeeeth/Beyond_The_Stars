@@ -71,7 +71,9 @@ func request_lane_card_selection(ve_type:ViewportEffects.types):
 	for l in lane_list:
 		l.request_card_selection()
 		
-func request_lane_selection():
+func request_lane_selection(ve_type:ViewportEffects.types = viewport_effects.types.BUFF):
+	
+	viewport_effects.apply_type(ve_type)
 	for l in lane_list:
 		l.clicked.connect(lane_clicked.emit)
 		l.selection_requested = true
@@ -88,3 +90,16 @@ func cancel_selection(ve_type:ViewportEffects.types):
 	splay([])
 	for l in lane_list:
 		l.pile_highlight_reset()
+
+
+#DEBUG FORCE FAVOR
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("1"):
+		@warning_ignore("int_as_enum_without_cast")
+		RM.score_favor(0,25)
+	if event.is_action_pressed("2"):
+		@warning_ignore("int_as_enum_without_cast")
+		RM.score_favor(1,25)
+	if event.is_action_pressed("3"):
+		@warning_ignore("int_as_enum_without_cast")
+		RM.score_favor(2,25)

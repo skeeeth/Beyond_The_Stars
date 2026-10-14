@@ -18,7 +18,6 @@ func _ready() -> void:
 	for l in lanes:
 		l.card_added.connect(on_action_taken.unbind(1))
 		l.lane_scored.connect(on_action_taken.unbind(1))
-	
 	gm.boon_selection_finished.connect(start_cycle)
 
 func on_action_taken():
@@ -28,11 +27,11 @@ func on_action_taken():
 		round_end()
 		
 func round_end():
-	if cycle == 7:
-		return
 	cycle_ending.emit()
 
 func start_cycle():
+	if cycle == 7:
+		return
 	actions_left = actions_per_cycle
 	cycle += 1
 

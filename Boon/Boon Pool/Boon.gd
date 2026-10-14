@@ -10,6 +10,8 @@ signal request_card_selections(count:int)
 @warning_ignore("unused_signal")
 signal request_lane_select
 
+signal request_select_effect(effect:ViewportEffects.types)
+
 @export var description:String
 @export var tier:int = 1
 

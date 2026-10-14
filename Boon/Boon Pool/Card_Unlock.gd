@@ -1,4 +1,5 @@
 extends Boon
+class_name CardPackBoon
 
 @export var cards:Array[CardData]
 

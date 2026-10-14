@@ -10,6 +10,8 @@ signal lane_selection_requested
 @export var boon:Boon
 @export var text_box: RichTextLabel
 @export var title_box:Label
+@export var card_container:Container
+
 
 @export var color_export:Array[Color]
 static var bg_colors:Array[Color]
@@ -34,6 +36,9 @@ func set_boon(b:Boon):
 	text_box.text = ""#(boon.description)
 	format_text(boon.description,text_box)
 	title_box.text = boon.name
+	
+	if boon is CardPackBoon:
+		display_cards(boon.cards)
 
 static func format_text(text:String, rich_text_box:RichTextLabel):
 	var start = text.find("[[")
@@ -43,7 +48,7 @@ static func format_text(text:String, rich_text_box:RichTextLabel):
 		return
 	rich_text_box.append_text(text.left(start))
 	var stat_block = text.substr(start+2, 11)
-	print(stat_block)
+	#print(stat_block)
 	var extracted_stats:Array[int] = [0,0,0,0,0,0]
 	var stat_order:Array[int] = [0,2,4,1,3,5]
 	var order_index:int = 0
@@ -77,9 +82,13 @@ static func format_text(text:String, rich_text_box:RichTextLabel):
 
 func hide_body():
 	%RichTextLabel.hide()
+	card_container.hide()
 
 func display_cards(cards:Array[CardData]):
-	pass
+	for card in cards:
+		var new_card = CardDisplay.create_from_data(card)
+		card_container.add_child(new_card)
+	
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):

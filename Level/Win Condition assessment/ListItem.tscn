@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3wdlkmqqja5a"]
+
+[ext_resource type="Script" uid="uid://dy42nfn3bjxri" path="res://Level/Win Condition assessment/list_item.gd" id="1_r40bm"]
+
+[node name="List Item" type="HBoxContainer"]
+script = ExtResource("1_r40bm")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 2
+text = "Total converts: x/100"
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 2
+button_mask = 0
+text = "aaa"

@@ -8,29 +8,29 @@
 [node name="Boon Display" type="Node2D" node_paths=PackedStringArray("boon_options")]
 z_index = 9
 script = ExtResource("1_hyphn")
-boon_options = [NodePath("VBoxContainer/PanelContainer"), NodePath("VBoxContainer/PanelContainer2"), NodePath("VBoxContainer/PanelContainer3")]
+boon_options = [NodePath("Boon Container/PanelContainer"), NodePath("Boon Container/PanelContainer2"), NodePath("Boon Container/PanelContainer3")]
 
 [node name="God" type="Sprite2D" parent="."]
 position = Vector2(411, 527)
 scale = Vector2(0.735, 0.735)
 texture = ExtResource("2_q4iqp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Boon Container" type="VBoxContainer" parent="."]
 offset_left = 1177.0
 offset_top = 339.0
 offset_right = 1783.0
 offset_bottom = 776.0
 theme = ExtResource("2_ebtbx")
 
-[node name="PanelContainer" parent="VBoxContainer" instance=ExtResource("3_q4iqp")]
+[node name="PanelContainer" parent="Boon Container" instance=ExtResource("3_q4iqp")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer2" parent="VBoxContainer" instance=ExtResource("3_q4iqp")]
+[node name="PanelContainer2" parent="Boon Container" instance=ExtResource("3_q4iqp")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer3" parent="VBoxContainer" instance=ExtResource("3_q4iqp")]
+[node name="PanelContainer3" parent="Boon Container" instance=ExtResource("3_q4iqp")]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -39,6 +39,6 @@ z_index = -1
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(2, 2, -4, 1085, 1935, 1078, 1923, -4)
 
-[connection signal="mouse_entered" from="VBoxContainer/PanelContainer" to="VBoxContainer/PanelContainer" method="_play_boon_hover"]
-[connection signal="mouse_entered" from="VBoxContainer/PanelContainer2" to="VBoxContainer/PanelContainer2" method="_play_boon_hover"]
-[connection signal="mouse_entered" from="VBoxContainer/PanelContainer3" to="VBoxContainer/PanelContainer3" method="_play_boon_hover"]
+[connection signal="mouse_entered" from="Boon Container/PanelContainer" to="Boon Container/PanelContainer" method="_play_boon_hover"]
+[connection signal="mouse_entered" from="Boon Container/PanelContainer2" to="Boon Container/PanelContainer2" method="_play_boon_hover"]
+[connection signal="mouse_entered" from="Boon Container/PanelContainer3" to="Boon Container/PanelContainer3" method="_play_boon_hover"]

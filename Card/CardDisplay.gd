@@ -164,7 +164,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	#being dragged feedback
 	visible = false
 	being_dragged = true
-	#_card_grab_sound()
+	_card_grab_sound()
 	
 	#set drag data
 	var drag_data:Dictionary = {
@@ -216,5 +216,6 @@ func _on_mouse_exited() -> void:
 	
 func _card_grab_sound() -> void:
 	if draggable:
+		card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
 		card_deal_sound.start()
 		card_deal_sound.release()
