@@ -80,6 +80,7 @@ func request_lane_selection(ve_type:ViewportEffects.types = viewport_effects.typ
 		l.midlight()
 
 func end_lane_selection():
+	viewport_effects.cancel()
 	var node_sound = FmodServer.create_event_instance("event:/Node Select")
 	node_sound.start()
 	node_sound.release()

@@ -25,9 +25,10 @@ bg_color = Color(0.2627451, 0.31764707, 0.65882355, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gasdx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x8cmv"]
+resource_local_to_scene = true
 font_size = 20
 
-[node name="Card" type="PanelContainer"]
+[node name="Card" type="PanelContainer" node_paths=PackedStringArray("favor_label")]
 material = ExtResource("1_hcyk8")
 custom_minimum_size = Vector2(188, 200)
 offset_right = 188.0
@@ -36,6 +37,7 @@ size_flags_horizontal = 6
 mouse_filter = 2
 theme = ExtResource("1_6ma3f")
 script = ExtResource("1_gasdx")
+favor_label = NodePath("VBoxContainer/Panel/Favor Label")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2

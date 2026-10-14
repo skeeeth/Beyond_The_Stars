@@ -22,7 +22,7 @@ enum GODS{A,B,C,D}
 @onready var texture_rect: TextureRect = $CanvasGroup/VBoxContainer/TextureRect
 @export var craving:Craving
 
-static var favor_tiers:Array[int] = [0, 50, 125, 200, 500]
+static var favor_tiers:Array[int] = [0, 50, 125, 200]
 var current_tier:int = 0 #why the fuck did i call it this instead of just 'tier'???
 var tier_up_queued:bool = false
 #@export var boon_pool:Array[Boon]

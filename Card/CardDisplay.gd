@@ -18,7 +18,7 @@ var tooltips:Array[Tooltip]
 var card_deal_sound# = FmodServer.create_event_instance("event:/Card Deal")
 @onready var tooltip_position: Node2D = $"Tooltip Position"
 var being_dragged:bool = false
-
+@export var favor_label:Label
 
 static func create_from_data(res:CardData) -> CardDisplay:
 	var new_card:CardDisplay = SELF_SCENE.instantiate()
@@ -76,9 +76,9 @@ func display():
 	%Description.text = text
 	
 	#sets bottom label to favor diff with +- sign
-	%"Favor Label".text = "%+d " % data.get_adjusted_favor()
+	favor_label.text = "%+d " % data.get_adjusted_favor()
 	if last_favor != data.get_adjusted_favor():
-		_grow_label(%"Favor Label")
+		_grow_label(favor_label)
 	last_favor = data.get_adjusted_favor()
 	
 func _grow_label(label:Label):

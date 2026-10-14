@@ -15,6 +15,19 @@ position = Vector2(411, 527)
 scale = Vector2(0.735, 0.735)
 texture = ExtResource("2_q4iqp")
 
+[node name="Input Eater" type="ColorRect" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
 [node name="Boon Container" type="VBoxContainer" parent="."]
 offset_left = 1177.0
 offset_top = 339.0

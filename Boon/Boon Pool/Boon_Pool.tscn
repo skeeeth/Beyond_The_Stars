@@ -97,13 +97,18 @@ metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [sub_resource type="Resource" id="Resource_dfk0h"]
 script = ExtResource("2_b1cel")
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
 favor = 5
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [sub_resource type="Resource" id="Resource_rgg3k"]
+resource_local_to_scene = true
 script = ExtResource("7_lridx")
 growth_pattern = SubResource("Resource_dfk0h")
-temp = true
 metadata/_custom_type_script = "uid://wy5mxf6n00h8"
 
 [sub_resource type="Resource" id="Resource_e5mks"]
@@ -232,6 +237,7 @@ mask = Dictionary[int, bool]({
 script = ExtResource("22_d4lxj")
 strategy = SubResource("Resource_rgg3k")
 description = "Cards in target lane gain 5 favor during scoring"
+debug_force = true
 mask = Dictionary[int, bool]({
 0: true,
 1: false,
@@ -250,7 +256,7 @@ mask = Dictionary[int, bool]({
 0: false,
 1: true,
 2: true,
-3: false
+3: true
 })
 
 [node name="Soul Fragment" type="Node" parent="."]
@@ -282,7 +288,7 @@ keyword = ExtResource("20_e5mks")
 description = "Select a card to give the tithe keyword"
 tier = 2
 mask = Dictionary[int, bool]({
-0: false,
+0: true,
 1: false,
 2: true,
 3: false
@@ -298,7 +304,7 @@ tier = 3
 mask = Dictionary[int, bool]({
 0: false,
 1: true,
-2: false,
+2: true,
 3: false
 })
 
@@ -310,7 +316,7 @@ description = "Add 3 warriors to target lane"
 tier = 3
 debug_force = true
 mask = Dictionary[int, bool]({
-0: false,
+0: true,
 1: false,
 2: false,
 3: true

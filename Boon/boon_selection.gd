@@ -5,6 +5,7 @@ signal finished
 
 @onready var sprite_2d: Sprite2D = $God
 @onready var background: Polygon2D = $Background
+@onready var input_eater: ColorRect = $"Input Eater"
 
 @onready var boon_container: VBoxContainer = $"Boon Container"
 
@@ -75,7 +76,7 @@ func selection_fade():
 	var fade = self.create_tween()
 	fade.tween_property(self,"modulate", Color(Color.WHITE,0.2), 0.5)
 	#modulate = Color(Color.WHITE,0.2)
-
+	input_eater.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func ending():
 	var shrink_tween = create_tween()

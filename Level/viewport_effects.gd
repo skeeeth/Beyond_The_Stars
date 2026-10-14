@@ -16,7 +16,7 @@ func apply_type(type:types):
 			edge_light.color = buff_color
 			create_tween().tween_property(edge_light,"energy",0.5,1.0)
 
-func cancel(type:types):
+func cancel(type:types = types.SACRIFICE):
 	match type:
 		_:
 			create_tween().tween_property(edge_light,"energy",0.0,1.0)
