@@ -159,7 +159,6 @@
 			<destination>{770a0243-8328-4f37-a99f-88440a534007}</destination>
 			<destination>{2d045342-e9a1-4510-8294-64e127a8f6d2}</destination>
 			<destination>{952e881e-d3bf-4461-8f9a-6998a87a23e2}</destination>
-			<destination>{968b90bc-1afd-4ad6-8b86-a001631faa7a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{08c10a94-c0b7-4ad6-9e7a-c4ae6e95a8d2}" />
@@ -189,6 +188,9 @@
 		<property name="delay">
 			<value>240</value>
 		</property>
+		<property name="feedback">
+			<value>7</value>
+		</property>
 		<property name="level">
 			<value>-4</value>
 		</property>
@@ -200,17 +202,6 @@
 		<property name="wetLevel">
 			<value>0</value>
 		</property>
-	</object>
-	<object class="MixerSend" id="{968b90bc-1afd-4ad6-8b86-a001631faa7a}">
-		<property name="level">
-			<value>0</value>
-		</property>
-		<property name="inputFormat">
-			<value>1</value>
-		</property>
-		<relationship name="mixerReturn">
-			<destination>{9da70287-302d-408e-837a-ff01d50a716a}</destination>
-		</relationship>
 	</object>
 	<object class="AutomationPoint" id="{0df9205e-c06a-42a1-a955-b55cb7960a24}">
 		<property name="position">
