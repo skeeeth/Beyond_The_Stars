@@ -1,4 +1,6 @@
 extends Boon
 
 func apply(_god:God):
-	pass
+	WinChecklist.instance.soul_fragment.check()
+	disable()
+	finished.emit()

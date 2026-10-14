@@ -28,6 +28,7 @@ static func create(_god:God, boon_pool:Array[Node],sprite:Texture) -> BoonSelect
 			forced_boons.append(b)
 	
 	for b in forced_boons:
+		boon_pool.erase(b)
 		boon_pool.insert(0,b)
 	
 	boon_pool.resize(min(3,boon_pool.size()))

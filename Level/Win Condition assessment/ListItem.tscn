@@ -12,4 +12,9 @@ text = "Total converts: x/100"
 [node name="CheckBox" type="CheckBox" parent="."]
 layout_mode = 2
 button_mask = 0
-text = "aaa"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+disabled = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

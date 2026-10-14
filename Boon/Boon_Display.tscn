@@ -40,7 +40,7 @@ layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 1
 bbcode_enabled = true
-text = "Some Sample Text"
+text = "Some Sample Text "
 fit_content = true
 
 [node name="Card Container" type="HBoxContainer" parent="VBoxContainer"]

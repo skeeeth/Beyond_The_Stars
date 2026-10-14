@@ -25,3 +25,7 @@ signal request_select_effect(effect:ViewportEffects.types)
 }
 
 @abstract func apply(god:God)
+
+func disable():
+	for key in mask:
+		mask[key] = false

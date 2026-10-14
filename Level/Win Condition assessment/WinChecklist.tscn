@@ -12,5 +12,35 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_kjck7")
 
-[node name="Cult Size" parent="." instance=ExtResource("2_328j4")]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="Cult Size" parent="HBoxContainer" instance=ExtResource("2_328j4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Great Feast" parent="HBoxContainer" instance=ExtResource("2_328j4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Text" parent="HBoxContainer/Great Feast" index="0"]
+text = "Great Feast"
+
+[node name="Button" parent="HBoxContainer/Great Feast" index="2"]
+disabled = false
+text = "Begin Feast (30 food, 2 sacrifices)"
+
+[node name="Soul Fragment" parent="HBoxContainer" instance=ExtResource("2_328j4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Text" parent="HBoxContainer/Soul Fragment" index="0"]
+text = "Soul Fragment "
+
+[connection signal="button_pressed" from="HBoxContainer/Great Feast" to="." method="_on_great_feast_button_pressed"]
+
+[editable path="HBoxContainer/Great Feast"]
+[editable path="HBoxContainer/Soul Fragment"]
