@@ -54,7 +54,6 @@ func _on_button_pressed() -> void:
 		UI_confirm_sound.start()
 		UI_confirm_sound.release()
 		draw_one()
-		draw_one()
 	
 func button_hover() -> void:
 	var button_hover_sound = FmodServer.create_event_instance("event:/UI Hover")
