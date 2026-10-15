@@ -10,7 +10,7 @@ signal cycle_ending
 static var actions_per_cycle:int = 5
 var actions_left:int = actions_per_cycle
 var cycle:int = 0
-@onready var bgm_node: FmodEventEmitter2D = $"../../../BGM Node"
+@export var bgm_node: FmodEventEmitter2D
 
 func _ready() -> void:
 	#we dont care what card or lane is actually being played here, just that it happened

@@ -29,6 +29,8 @@ var card_plays:int = 2:
 @onready var discard_pile: Pile = %"Discard Pile"
 @onready var god_position: Node2D = $GodPosition
 @onready var click_hitbox: Panel = $"Click Hitbox"
+@onready var camera_position: Node2D = $"Camera position"
+
 
 @onready var buttons:Array[Button] = [%"Play Button", $Upgrade]
 @export var lane_strategies:Array[BaseCardStrategy]

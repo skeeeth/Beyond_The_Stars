@@ -13,6 +13,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mwphg")
 
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 2
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 text = "Label"

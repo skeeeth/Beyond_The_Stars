@@ -32,6 +32,12 @@ var cumulative:Dictionary[types,int] = {
 	types.BLUE: 0,
 }
 
+const resource_icons:Dictionary[types,Texture2D] = {
+	types.RED: preload("res://Assets/Icon/OfferingICON.png"),
+	types.GREEN: preload("res://Assets/Icon/FoodICON.png"),
+	types.BLUE: preload("res://Assets/Icon/OfferingICON.png")
+}
+
 ##add an amount of resource to current and fire a coprresponding signal
 ##NOTE: do not add negative values to spend, instead use try_spend()
 func add_resource(type:types,amount:int):
