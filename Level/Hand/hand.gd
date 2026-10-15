@@ -31,19 +31,21 @@ func draw_one():
 	card_deal_sound.start()
 	card_deal_sound.release()
 	
-	var breakpoint_readable_pool = card_pool
+	#var breakpoint_readable_pool = card_pool
 	var new_card:CardDisplay = CardDisplay.create_from_data(card_pool.pick_random().duplicate())
 	new_card.draggable = true
 	new_card.mouse_filter = Control.MOUSE_FILTER_PASS
+	new_card.display()
 	container.add_child(new_card)
 
 
-func on_resource_gain(type:RM.types, amount:int):
-	if type != RM.types.BLUE:
-		return
-	
-	for i in range(0,amount):
-		draw_one()
+
+#func on_resource_gain(type:RM.types, amount:int):
+	#if type != RM.types.BLUE:
+		#return
+	#
+	#for i in range(0,amount):
+		#draw_one()
 
 
 func _on_button_pressed() -> void:
@@ -51,6 +53,7 @@ func _on_button_pressed() -> void:
 		var UI_confirm_sound = FmodServer.create_event_instance("event:/UI Confirm")
 		UI_confirm_sound.start()
 		UI_confirm_sound.release()
+		draw_one()
 		draw_one()
 	
 func button_hover() -> void:

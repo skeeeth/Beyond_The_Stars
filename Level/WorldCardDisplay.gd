@@ -13,6 +13,7 @@ var lane_list:Array[Lane] = []
 var current_list:Array
 var card_draw_sound = null
 @export var viewport_effects:ViewportEffects
+#@onready var hand: Hand = $Hand
 
 func _ready():
 	instance = self
@@ -31,19 +32,25 @@ func _ready():
 # Display contents of a pile of cards at center of screen
 # Ignore if there are 0 cards in pile
 func splay(cards: Array):
+	var typed_list:Array[CardData]
+	for c in cards:
+		typed_list.append(c)
 	# clear current cards in card display
 	for child in card_display.get_children():
 		child.queue_free()
 	
 	# add new cards to card display
 	current_list = cards
-	for card in cards:
-		card = CardDisplay.create_from_data(card)
-		card.mouse_filter = Control.MOUSE_FILTER_STOP
+	for data in cards:
+		var card = CardDisplay.create_from_data(data)
+		card.mouse_filter = Control.MouseFilter.MOUSE_FILTER_STOP
+		card.draggable = false
 		card.clicked.connect(on_card_clicked)
 		card_display.add_child(card)
+		#card.display()
 		card_draw_sound.start()
 		card_draw_sound.release()
+
 	
 	if current_list.size() > 0:
 		$CanvasLayer/CenterContainer.display()

@@ -28,12 +28,20 @@ static func create_from_data(res:CardData) -> CardDisplay:
 	new_card.last_favor = res.get_adjusted_favor()
 	for k in res.keywords:
 		k.strategy.applied.connect(new_card.blink_textbox)
-	new_card.display()
+	new_card.visible = false
+	#new_card.display.call_deferred()
 	return new_card
 
+func _ready() -> void:
+	var delay = self.create_tween()
+	
+	delay.tween_interval(1.0/60.0)
+	delay.tween_callback(display)
+	delay.tween_callback(show)
 
 
 func display():
+	
 	#show the cards name
 	%"Card Name".text = data.card_name
 	
@@ -82,6 +90,7 @@ func display():
 	last_favor = data.get_adjusted_favor()
 	
 func _grow_label(label:Label):
+	
 	var grow = self.create_tween()
 	var starting_size:int = label.label_settings.outline_size
 	grow.tween_property(label.label_settings,"outline_size",starting_size + 8, 0)
@@ -91,12 +100,12 @@ func _grow_label(label:Label):
 # hide color box if value is 0, otherwise display value
 func _set_color_value(label: Label, value: String, changed:bool = false):
 	var int_value = int(value)
-	var panel = label.get_parent()
+	var panel:CanvasItem = label.get_parent()
 	if int_value == 0:
-		panel.self_modulate = Color.TRANSPARENT
+		panel.modulate = Color.TRANSPARENT
 		label.text = ""
 	else:
-		panel.self_modulate = Color.WHITE
+		panel.modulate = Color.WHITE
 		label.text = value
 	
 	if changed:
@@ -215,4 +224,3 @@ func _card_grab_sound() -> void:
 	if draggable:
 		card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
 		card_deal_sound.start()
-		card_deal_sound.release()
