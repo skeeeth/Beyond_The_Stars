@@ -50,7 +50,7 @@ size_flags_vertical = 3
 [node name="Background" type="Polygon2D" parent="."]
 z_index = -1
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(2, 2, -4, 1085, 1935, 1078, 1923, -4)
+polygon = PackedVector2Array(-38, -39, -43, 1115, 1970, 1115, 1947, -24)
 
 [connection signal="mouse_entered" from="Boon Container/PanelContainer" to="Boon Container/PanelContainer" method="_play_boon_hover"]
 [connection signal="mouse_entered" from="Boon Container/PanelContainer2" to="Boon Container/PanelContainer2" method="_play_boon_hover"]

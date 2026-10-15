@@ -1,5 +1,5 @@
 extends CenterContainer
-#class_name CenterCardDisplay
+class_name CenterCardDisplay
 
 # Close the pile preview on any click (press only, so releases and scroll wheel don't close it)
 #func _input(event: InputEvent) -> void:

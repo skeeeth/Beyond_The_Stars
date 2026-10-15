@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://coobmrgaiqaa0"]
+[gd_scene load_steps=4 format=3 uid="uid://coobmrgaiqaa0"]
 
 [ext_resource type="Script" uid="uid://c65cqpaq2t3tx" path="res://Level/UI/Resource Display.gd" id="1_mwphg"]
+[ext_resource type="Texture2D" uid="uid://dq67lowvnjnsr" path="res://Assets/Icon/OfferingICON.png" id="2_kq41r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mwphg"]
 font_size = 24
+font_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="PanelContainer"]
 anchors_preset = 15
@@ -13,11 +15,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mwphg")
 
-[node name="Icon" type="TextureRect" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_kq41r")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "Label"
 label_settings = SubResource("LabelSettings_mwphg")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://djelkq3gxvrft"]
+[gd_scene load_steps=10 format=3 uid="uid://djelkq3gxvrft"]
 
 [ext_resource type="Theme" uid="uid://bql5e0cm2pyh8" path="res://Level/Lane/UI Theme.tres" id="1_1uh1k"]
 [ext_resource type="Script" uid="uid://dpj87j1ut8bw3" path="res://Level/Lane/lane.gd" id="1_rr5i5"]
@@ -7,11 +7,7 @@
 [ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="4_iae0s"]
 [ext_resource type="PackedScene" uid="uid://bj2bhoovxyyvx" path="res://Level/UI/Pile Icon.tscn" id="5_3y20t"]
 [ext_resource type="Script" uid="uid://bs2fhv4y2xtsn" path="res://Level/Lane/lane_upgrade.gd" id="6_iae0s"]
-[ext_resource type="Script" uid="uid://bs18n7qvuxt7t" path="res://Level/Lane/resource_map.gd" id="8_nceqa"]
-[ext_resource type="Texture2D" uid="uid://ddgogw2jpmupt" path="res://Assets/Icon/UpTriangle.png" id="8_xrdmo"]
-[ext_resource type="Texture2D" uid="uid://bv1h23jgbjcxg" path="res://Assets/Icon/KnowledgeICON.png" id="9_5wohj"]
-[ext_resource type="Texture2D" uid="uid://1qh01yv2x42d" path="res://Assets/Icon/CardBG_Frame.png" id="11_4kl2l"]
-[ext_resource type="Texture2D" uid="uid://d2tidhnhslfc6" path="res://Assets/Icon/DownTriangle.png" id="12_tbp5f"]
+[ext_resource type="PackedScene" uid="uid://c8lihsm427v3f" path="res://Level/Lane/resource_map.tscn" id="8_xrdmo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uh1k"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -20,8 +16,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.91, 0.91, 0.91, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_5wohj"]
 
 [node name="Lane" type="Control"]
 layout_mode = 3
@@ -34,10 +28,10 @@ deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_iae
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 0
-offset_left = -176.0
-offset_top = -10.0
-offset_right = -10.0
-offset_bottom = 53.0
+offset_left = -345.0
+offset_top = -18.0
+offset_right = -179.0
+offset_bottom = 45.0
 text = "Play Cards (1 Action)"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -46,18 +40,19 @@ polygon = PackedVector2Array(0, -20, 1500, -20, 1500, 500, 0, 500, 0, 500)
 
 [node name="Draw Pile" parent="." instance=ExtResource("5_3y20t")]
 unique_name_in_owner = true
+position = Vector2(-171, 3)
 
 [node name="Discard Pile" parent="." instance=ExtResource("5_3y20t")]
 unique_name_in_owner = true
-position = Vector2(1028, 0)
+position = Vector2(1305, 443)
 
 [node name="Upgrade" type="Button" parent="." node_paths=PackedStringArray("lane")]
 z_index = 2
 layout_mode = 0
-offset_left = -190.0
-offset_top = 72.0
-offset_right = -7.0
-offset_bottom = 152.0
+offset_left = -356.0
+offset_top = 170.0
+offset_right = -173.0
+offset_bottom = 250.0
 text = "Upgrade play number (X Money)"
 autowrap_mode = 2
 script = ExtResource("6_iae0s")
@@ -74,77 +69,19 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_1uh1k")
 
 [node name="GodPosition" type="Node2D" parent="."]
-position = Vector2(919, 625)
+position = Vector2(814, 610)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="Camera position" type="Node2D" parent="."]
-position = Vector2(601, 420)
+position = Vector2(547, 423)
 
 [node name="Camera2D" type="Camera2D" parent="Camera position"]
 
-[node name="Resource Map" type="VBoxContainer" parent="." node_paths=PackedStringArray("lane")]
-layout_mode = 0
-offset_left = -181.0
-offset_top = 274.0
-offset_right = -181.0
-offset_bottom = 314.0
-script = ExtResource("8_nceqa")
+[node name="Resource Map" parent="." node_paths=PackedStringArray("lane") instance=ExtResource("8_xrdmo")]
+position = Vector2(-343.00003, 268)
+scale = Vector2(0.69, 0.69)
 lane = NodePath("..")
-
-[node name="Above" type="HBoxContainer" parent="Resource Map"]
-layout_mode = 2
-
-[node name="AboveSymbol" type="TextureRect" parent="Resource Map/Above"]
-layout_mode = 2
-texture = ExtResource("8_xrdmo")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Resource Map/Above"]
-layout_mode = 2
-text = "="
-label_settings = SubResource("LabelSettings_5wohj")
-
-[node name="AboveType" type="TextureRect" parent="Resource Map/Above"]
-layout_mode = 2
-texture = ExtResource("9_5wohj")
-expand_mode = 2
-
-[node name="Current" type="HBoxContainer" parent="Resource Map"]
-layout_mode = 2
-
-[node name="Current Symbol" type="TextureRect" parent="Resource Map/Current"]
-layout_mode = 2
-texture = ExtResource("11_4kl2l")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Resource Map/Current"]
-layout_mode = 2
-text = "="
-label_settings = SubResource("LabelSettings_5wohj")
-
-[node name="Current Type" type="TextureRect" parent="Resource Map/Current"]
-layout_mode = 2
-texture = ExtResource("9_5wohj")
-expand_mode = 2
-
-[node name="Below" type="HBoxContainer" parent="Resource Map"]
-layout_mode = 2
-
-[node name="Below Symbol" type="TextureRect" parent="Resource Map/Below"]
-layout_mode = 2
-texture = ExtResource("12_tbp5f")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Resource Map/Below"]
-layout_mode = 2
-text = "="
-label_settings = SubResource("LabelSettings_5wohj")
-
-[node name="Below Type" type="TextureRect" parent="Resource Map/Below"]
-layout_mode = 2
-texture = ExtResource("9_5wohj")
-expand_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

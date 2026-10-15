@@ -12,18 +12,19 @@
 [node name="Hand" type="Node2D" node_paths=PackedStringArray("container")]
 script = ExtResource("1_3h6oy")
 starting_pool = Array[ExtResource("2_gr2ax")]([ExtResource("4_12a2t"), ExtResource("6_vgng6"), ExtResource("5_n4dmy"), ExtResource("3_u32pl"), ExtResource("7_cfgea"), ExtResource("8_0rafd")])
-container = NodePath("Container")
+container = NodePath("Small")
 
-[node name="Container" type="HBoxContainer" parent="."]
+[node name="Small" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(0.8, 0.8)
 
 [node name="Button" type="Button" parent="."]
-offset_left = -195.0
-offset_top = 13.0
-offset_right = -23.0
-offset_bottom = 86.0
+offset_left = 58.0
+offset_top = -100.0
+offset_right = 230.0
+offset_bottom = -27.0
 text = "Draw Card (x cultists)"
 
 [connection signal="mouse_entered" from="Button" to="." method="button_hover"]

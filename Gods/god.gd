@@ -42,6 +42,7 @@ func _ready() -> void:
 	tier_up()
 
 func set_to_lane(lane:Lane):
+	reparent(lane)
 	#if current_lane:
 		#current_lane.god_strategies.clear()
 	#lane.god = self

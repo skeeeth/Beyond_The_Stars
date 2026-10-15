@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8lihsm427v3f"]
+
+[ext_resource type="Script" uid="uid://bs18n7qvuxt7t" path="res://Level/Lane/resource_map.gd" id="1_bcf0e"]
+[ext_resource type="Texture2D" uid="uid://ddgogw2jpmupt" path="res://Assets/Icon/UpTriangle.png" id="2_lb3lg"]
+[ext_resource type="LabelSettings" uid="uid://lwax0n4258ql" path="res://Level/Map Label.tres" id="3_3kjll"]
+[ext_resource type="Texture2D" uid="uid://bv1h23jgbjcxg" path="res://Assets/Icon/KnowledgeICON.png" id="4_2fg4x"]
+[ext_resource type="Texture2D" uid="uid://1qh01yv2x42d" path="res://Assets/Icon/CardBG_Frame.png" id="5_x7del"]
+[ext_resource type="Texture2D" uid="uid://d2tidhnhslfc6" path="res://Assets/Icon/DownTriangle.png" id="6_q37sx"]
+
+[node name="Resource Map" type="Node2D"]
+script = ExtResource("1_bcf0e")
+image_order = Array[int]([0, 0, 0])
+
+[node name="Above" type="HBoxContainer" parent="."]
+offset_left = 64.00001
+offset_top = 61.0
+offset_right = 960.0
+offset_bottom = 233.0
+scale = Vector2(0.47, 0.47)
+size_flags_vertical = 3
+
+[node name="AboveSymbol" type="TextureRect" parent="Above"]
+layout_mode = 2
+texture = ExtResource("2_lb3lg")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Above"]
+layout_mode = 2
+text = "="
+label_settings = ExtResource("3_3kjll")
+
+[node name="AboveType" type="TextureRect" parent="Above"]
+layout_mode = 2
+texture = ExtResource("4_2fg4x")
+expand_mode = 2
+
+[node name="Current" type="HBoxContainer" parent="."]
+offset_left = 54.0
+offset_top = 160.0
+offset_right = 950.0
+offset_bottom = 332.0
+scale = Vector2(0.675, 0.675)
+size_flags_vertical = 3
+
+[node name="Current Symbol" type="TextureRect" parent="Current"]
+layout_mode = 2
+texture = ExtResource("5_x7del")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Current"]
+layout_mode = 2
+text = "="
+label_settings = ExtResource("3_3kjll")
+
+[node name="Current Type" type="TextureRect" parent="Current"]
+layout_mode = 2
+texture = ExtResource("4_2fg4x")
+expand_mode = 2
+
+[node name="Below" type="HBoxContainer" parent="."]
+offset_left = 63.000008
+offset_top = 288.0
+offset_right = 959.0
+offset_bottom = 461.0
+scale = Vector2(0.47, 0.47)
+size_flags_vertical = 3
+
+[node name="Below Symbol" type="TextureRect" parent="Below"]
+layout_mode = 2
+texture = ExtResource("6_q37sx")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Below"]
+layout_mode = 2
+text = "="
+label_settings = ExtResource("3_3kjll")
+
+[node name="Below Type" type="TextureRect" parent="Below"]
+layout_mode = 2
+texture = ExtResource("4_2fg4x")
+expand_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 748.0
+offset_bottom = 880.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_x7del")
+region_rect = Rect2(1, 8, 750, 792)
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 110
+
+[connection signal="gui_input" from="Above" to="." method="_on_above_gui_input"]
+[connection signal="gui_input" from="Below" to="." method="_on_below_gui_input"]

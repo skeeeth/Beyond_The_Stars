@@ -4,15 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://hldtdhotkij" path="res://Assets/CardNinepatch.png" id="2_wpxes"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nknms"]
+content_margin_top = 58.0
 texture = ExtResource("2_wpxes")
 texture_margin_left = 32.0
-texture_margin_top = 60.0
 texture_margin_right = 32.0
-texture_margin_bottom = 60.0
 expand_margin_left = 32.0
-expand_margin_top = 50.0
+expand_margin_top = 28.0
 expand_margin_right = 32.0
-expand_margin_bottom = 25.0
 
 [sub_resource type="SystemFont" id="SystemFont_wpxes"]
 
@@ -24,4 +22,4 @@ RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/normal_font_size = 13
 RichTextLabel/fonts/bold_font = SubResource("SystemFont_wpxes")
 RichTextLabel/fonts/normal_font = SubResource("SystemFont_wpxes")
-VBoxContainer/constants/separation = 0
+VBoxContainer/constants/separation = -1

@@ -7,6 +7,7 @@ signal card_added(card:CardData)
 signal lane_scored(who:Lane)
 signal scoring_started
 
+
 @export var type:RM.types
 
 @export var deck:Array[CardData]
@@ -14,7 +15,7 @@ var discard:Array[CardData]
 
 var active_cards:Array[CardDisplay]
 var cards_queued_for_removal:Array[CardDisplay]
-var x_spacing = 25
+var x_spacing = 64
 
 var card_plays:int = 2:
 	set(v):
@@ -30,6 +31,7 @@ var card_plays:int = 2:
 @onready var god_position: Node2D = $GodPosition
 @onready var click_hitbox: Panel = $"Click Hitbox"
 @onready var camera_position: Node2D = $"Camera position"
+@onready var resource_map: ResourceMap = $"Resource Map"
 
 
 @onready var buttons:Array[Button] = [%"Play Button", $Upgrade]
@@ -72,11 +74,13 @@ func draw_card():
 	var res = deck.pop_front()
 	var new_card = CardDisplay.create_from_data(res)
 	add_child(new_card)
+	new_card.position = draw_pile.position
 	active_cards.append(new_card)
 	new_card.removal_requested.connect(cards_queued_for_removal.append)
 	
 	var draw_slide = create_tween()
-	var destination = Vector2(active_cards.size() * (CardDisplay.card_size.x + x_spacing),0)
+	var destination = Vector2((active_cards.size()-1)  * (CardDisplay.card_size.x + x_spacing),0)
+	destination.x += x_spacing
 	draw_slide.tween_property(new_card,"position",destination,0.2).set_ease(Tween.EASE_OUT)
 	#new_card.score(type)
 	

@@ -7,7 +7,7 @@ signal lane_clicked(lane:Lane)
 # Simple layer for connecting signals across the scene tree
 
 @onready var lanes = $Lanes
-@onready var card_display: = $CanvasLayer/CenterContainer/HBoxContainer
+@export var card_display:CenterCardDisplay
 static var instance:World #im going to essentially treat World class as a singleton
 var lane_list:Array[Lane] = []
 var current_list:Array
@@ -32,9 +32,9 @@ func _ready():
 # Display contents of a pile of cards at center of screen
 # Ignore if there are 0 cards in pile
 func splay(cards: Array):
-	var typed_list:Array[CardData]
-	for c in cards:
-		typed_list.append(c)
+	#var typed_list:Array[CardData]
+	#for c in cards:
+		#typed_list.append(c)
 	# clear current cards in card display
 	for child in card_display.get_children():
 		child.queue_free()
@@ -53,9 +53,9 @@ func splay(cards: Array):
 
 	
 	if current_list.size() > 0:
-		$CanvasLayer/CenterContainer.display()
+		card_display.display()
 	else:
-		$CanvasLayer/CenterContainer.disappear()
+		card_display.disappear()
 
 func get_all_cards_in_play() -> Array[CardData]:
 	var combined_array:Array

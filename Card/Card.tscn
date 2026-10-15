@@ -38,6 +38,7 @@ font_size = 24
 font_color = Color(0, 0, 0, 1)
 
 [node name="Card" type="PanelContainer" node_paths=PackedStringArray("favor_label")]
+modulate = Color(0.74, 0.74, 0.74, 1)
 custom_minimum_size = Vector2(279, 534)
 offset_right = 279.0
 offset_bottom = 534.0

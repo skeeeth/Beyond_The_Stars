@@ -5,25 +5,40 @@ extends Node2D
 @export var lane_spacing:float = 1200
 
 @export var cam:Camera2D
-
-var lane_index:int = 0
+var moving:bool = false
+var lane_index:int = 1
 
 func _ready() -> void:
 	for i in range(lanes.size()):
 		lanes[i].position.y = lane_spacing * i
-		
-	cam.global_position = lanes[0].camera_position.global_position
+		lanes[i].resource_map.move_request.connect(move_camera)
+		lanes[i].position.x = 0
+	
+	#cam.global_position = lanes[1].camera_position.global_position
+	
+	center_lane(lanes[1])
 	cam.make_current()
 
 func move_camera(direction:int = 1):
-	var camera_move = create_tween()
-	var target_lane:Lane = lanes[lane_index+direction]
+	if moving:
+		return
 	
-	camera_move.tween_property(cam,"global_position", target_lane.camera_position.global_position, 1.0)
+	moving = true
+	var camera_move = create_tween()
+	var target_lane:Lane = lanes[posmod(lane_index+direction,lanes.size())]
+	
+	camera_move.tween_property(cam,"global_position", target_lane.camera_position.global_position, 1.1).set_ease(Tween.EASE_IN_OUT)
+	camera_move.tween_callback(center_lane.bind(target_lane))
 	#cam.global_position = target_lane.camera_position.global_position
 	lane_index += direction
 
-
+func center_lane(lane:Lane):
+	moving = false
+	lane.position = Vector2.ZERO
+	cam.global_position = lane.camera_position.global_position
+	lanes[posmod(lane_index+1,lanes.size())].position.y = (lane.position.y + lane_spacing)
+	lanes[posmod(lane_index-1,lanes.size())].position.y = lane.position.y - lane_spacing
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_up"):

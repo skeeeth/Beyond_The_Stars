@@ -35,7 +35,7 @@ var cumulative:Dictionary[types,int] = {
 const resource_icons:Dictionary[types,Texture2D] = {
 	types.RED: preload("res://Assets/Icon/OfferingICON.png"),
 	types.GREEN: preload("res://Assets/Icon/FoodICON.png"),
-	types.BLUE: preload("res://Assets/Icon/OfferingICON.png")
+	types.BLUE: preload("res://Assets/Icon/KnowledgeICON.png")
 }
 
 ##add an amount of resource to current and fire a coprresponding signal
