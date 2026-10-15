@@ -1,12 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://t05wdcm7wbwt"]
+[gd_scene load_steps=21 format=3 uid="uid://t05wdcm7wbwt"]
 
 [ext_resource type="Theme" uid="uid://b0e6ktoqxgsr4" path="res://Assets/CardTheme.tres" id="1_6ma3f"]
 [ext_resource type="Script" uid="uid://igyu1wajboa7" path="res://Card/CardDisplay.gd" id="1_gasdx"]
-[ext_resource type="Material" uid="uid://cye8u3qvxc24j" path="res://Assets/CardMaterial.tres" id="1_hcyk8"]
 [ext_resource type="LabelSettings" uid="uid://c3wm0x6w7nv1l" path="res://Assets/CardStatLabelSettings.tres" id="3_5u7pk"]
-[ext_resource type="Texture2D" uid="uid://cddm3n0esqpdq" path="res://icon.svg" id="4_kkgq3"]
+[ext_resource type="Texture2D" uid="uid://nlj7ok8bhsos" path="res://Assets/GruntDevoteeCard01.png" id="4_1xywt"]
 [ext_resource type="StyleBox" uid="uid://cm2738lmkufw5" path="res://Card/Assets/BaseTextStyleBox.tres" id="6_x8cmv"]
 [ext_resource type="LabelSettings" uid="uid://h510q05jbwo7" path="res://Card/Assets/CardBodyLabeLSettings.tres" id="7_1xywt"]
+[ext_resource type="Texture2D" uid="uid://dq67lowvnjnsr" path="res://Assets/Icon/OfferingICON.png" id="8_g6lc7"]
+[ext_resource type="Texture2D" uid="uid://yyptl14usa0p" path="res://Assets/Icon/FoodICON.png" id="8_ia3ss"]
+[ext_resource type="Texture2D" uid="uid://bv1h23jgbjcxg" path="res://Assets/Icon/KnowledgeICON.png" id="9_ia3ss"]
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="10_73nlx"]
+[ext_resource type="Texture2D" uid="uid://dfoss2qt6igr7" path="res://Assets/Icon/FavorICON.png" id="10_bw5ej"]
+[ext_resource type="Texture2D" uid="uid://b4i0agnkr3pqy" path="res://Assets/UpTriangle.png" id="10_vthg7"]
+[ext_resource type="Texture2D" uid="uid://1qh01yv2x42d" path="res://Assets/Icon/CardBG_Frame.png" id="11_vthg7"]
+[ext_resource type="Texture2D" uid="uid://d1ny0fndedeia" path="res://Assets/DownTriangle.png" id="12_a8gao"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hcyk8"]
 line_spacing = -5.0
@@ -26,21 +33,24 @@ bg_color = Color(0.2627451, 0.31764707, 0.65882355, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_x8cmv"]
 resource_local_to_scene = true
-font_size = 20
+font = ExtResource("10_73nlx")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
 
 [node name="Card" type="PanelContainer" node_paths=PackedStringArray("favor_label")]
-material = ExtResource("1_hcyk8")
-custom_minimum_size = Vector2(188, 200)
-offset_right = 188.0
-offset_bottom = 200.0
+custom_minimum_size = Vector2(279, 534)
+offset_right = 279.0
+offset_bottom = 534.0
 size_flags_horizontal = 6
 mouse_filter = 2
 theme = ExtResource("1_6ma3f")
 script = ExtResource("1_gasdx")
-favor_label = NodePath("VBoxContainer/Panel/Favor Label")
+favor_label = NodePath("VBoxContainer/HBoxContainer3/Favor Label")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -59,36 +69,35 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
 
+[node name="GreenCost" type="Label" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("3_5u7pk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_ia3ss")
+expand_mode = 2
+
 [node name="Green" type="Panel" parent="VBoxContainer/HBoxContainer2"]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5u7pk")
 
-[node name="GreenCost" type="Label" parent="VBoxContainer/HBoxContainer2/Green"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "10"
-label_settings = ExtResource("3_5u7pk")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-visible = false
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(180, 120)
+[node name="Icon" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("4_kkgq3")
-expand_mode = 1
+texture = ExtResource("4_1xywt")
+expand_mode = 4
+stretch_mode = 4
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
@@ -112,13 +121,29 @@ label_settings = ExtResource("7_1xywt")
 horizontal_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Red" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_g6lc7")
+expand_mode = 2
+
+[node name="RedValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("3_5u7pk")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Red" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer"]
+visible = false
 modulate = Color(1, 1, 1, 0.972549)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
@@ -127,20 +152,24 @@ size_flags_vertical = 4
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_6ma3f")
 
-[node name="RedValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Red"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_ia3ss")
+expand_mode = 2
+
+[node name="GreenValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "1"
+layout_mode = 2
+text = "3"
 label_settings = ExtResource("3_5u7pk")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Green" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="Green" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer2"]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -148,20 +177,24 @@ size_flags_vertical = 4
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_5u7pk")
 
-[node name="GreenValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Green"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("9_ia3ss")
+expand_mode = 2
+
+[node name="BlueValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "3"
+layout_mode = 2
+text = "5"
 label_settings = ExtResource("3_5u7pk")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Blue" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="Blue" type="Panel" parent="VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer3"]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -169,103 +202,111 @@ size_flags_vertical = 4
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_kkgq3")
 
-[node name="BlueValue" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Blue"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "5"
-label_settings = ExtResource("3_5u7pk")
-horizontal_alignment = 1
-vertical_alignment = 2
-
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Grey-1" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(32, 32)
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
-[node name="Grey-1Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey-1"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_vthg7")
+expand_mode = 2
+
+[node name="Grey-1Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 mouse_filter = 1
 text = "2"
 label_settings = ExtResource("3_5u7pk")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Grey0" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Grey-1" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
-[node name="Grey0Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey0"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("11_vthg7")
+expand_mode = 2
+
+[node name="Grey0Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 mouse_filter = 1
 text = "4"
 label_settings = ExtResource("3_5u7pk")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Grey1" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Grey0" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
-[node name="Grey+1Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Grey1"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("12_a8gao")
+expand_mode = 2
+
+[node name="Grey+1Value" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 mouse_filter = 1
 text = "6"
 label_settings = ExtResource("3_5u7pk")
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="Grey1" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("10_bw5ej")
+expand_mode = 2
+
+[node name="Favor Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+text = "+20"
+label_settings = SubResource("LabelSettings_x8cmv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Panel" type="ColorRect" parent="VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 19.76)
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 1
 color = Color(0.4509804, 0.07058824, 0.5019608, 1)
-
-[node name="Favor Label" type="Label" parent="VBoxContainer/Panel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 0.76000977
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "+20"
-label_settings = SubResource("LabelSettings_x8cmv")
-horizontal_alignment = 1
-vertical_alignment = 2
 
 [node name="Tooltip Position" type="Node2D" parent="."]
 position = Vector2(209.69, 3)
