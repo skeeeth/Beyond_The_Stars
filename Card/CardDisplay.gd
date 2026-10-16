@@ -3,6 +3,7 @@ class_name CardDisplay
 
 signal clicked(who:CardDisplay)
 signal removal_requested(who:CardDisplay)
+signal hovered(who:CardDisplay)
 
 @export var data:CardData
 
@@ -207,6 +208,7 @@ func _on_mouse_entered() -> void:
 	_card_hover.start()
 	_card_hover.release()
 	
+	hovered.emit()
 	for k in data.keywords:
 		var new_tt:Tooltip = Tooltip.create(k)
 		new_tt.position.y = tooltips.size() * 80
@@ -215,6 +217,7 @@ func _on_mouse_entered() -> void:
 		
 
 func _on_mouse_exited() -> void:
+	print("exited")
 	for tt in tooltips:
 		tt.queue_free()
 	tooltips.clear()

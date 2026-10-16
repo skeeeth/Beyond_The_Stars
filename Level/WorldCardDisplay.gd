@@ -36,7 +36,7 @@ func splay(cards: Array):
 	#for c in cards:
 		#typed_list.append(c)
 	# clear current cards in card display
-	for child in card_display.get_children():
+	for child in card_display.container.get_children():
 		child.queue_free()
 	
 	# add new cards to card display
@@ -46,7 +46,7 @@ func splay(cards: Array):
 		card.mouse_filter = Control.MouseFilter.MOUSE_FILTER_STOP
 		card.draggable = false
 		card.clicked.connect(on_card_clicked)
-		card_display.add_child(card)
+		card_display.container.add_child(card)
 		#card.display()
 		card_draw_sound.start()
 		card_draw_sound.release()

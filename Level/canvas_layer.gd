@@ -1,6 +1,8 @@
 extends CenterContainer
 class_name CenterCardDisplay
 
+
+@export var container:HBoxContainer
 # Close the pile preview on any click (press only, so releases and scroll wheel don't close it)
 #func _input(event: InputEvent) -> void:
 	#if visible and event is InputEventMouseButton and event.pressed \

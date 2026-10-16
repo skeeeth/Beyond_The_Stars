@@ -15,7 +15,7 @@ var discard:Array[CardData]
 
 var active_cards:Array[CardDisplay]
 var cards_queued_for_removal:Array[CardDisplay]
-var x_spacing = 64
+var x_spacing = 16
 
 var card_plays:int = 2:
 	set(v):
@@ -194,13 +194,15 @@ func disable_buttons():
 	button_supressions += 1
 	if button_supressions > 0:
 		for b in buttons:
-			b.disabled = true
+			if b:
+				b.disabled = true
 
 func enable_buttons():
 	button_supressions -= 1
 	if button_supressions == 0:
 		for b in buttons:
-			b.disabled = false
+			if b:
+				b.disabled = false
 			
 func get_combined_card_list() -> Array[CardData]:
 	var combined_array:Array[CardData]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=31 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="Script" uid="uid://bwap3b66q8u8y" path="res://Level/WorldCardDisplay.gd" id="1_kwlfk"]
@@ -14,10 +14,11 @@
 [ext_resource type="Script" uid="uid://cp8eljtgcmec8" path="res://Level/action_manager.gd" id="8_g0h0v"]
 [ext_resource type="Resource" uid="uid://bfjbywhuhnccv" path="res://Card/Keywords/Warrior.tres" id="8_ns2ak"]
 [ext_resource type="Script" uid="uid://c8cj01kh15eso" path="res://Level/button_sound.gd" id="8_qj8ib"]
+[ext_resource type="Texture2D" uid="uid://nlj7ok8bhsos" path="res://Assets/GruntDevoteeCard01.png" id="10_ccyba"]
 [ext_resource type="Texture2D" uid="uid://dshudyqgv164x" path="res://Assets/Kenny Lightmasks/shape_a_inverted.png" id="11_s4lld"]
 [ext_resource type="PackedScene" uid="uid://dn8hhitufyxi8" path="res://Level/Game End/GameEnd.tscn" id="12_xju0t"]
 
-[sub_resource type="Resource" id="Resource_ns2ak"]
+[sub_resource type="Resource" id="Resource_ccyba"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Worker"
@@ -34,7 +35,7 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_ccyba"]
+[sub_resource type="Resource" id="Resource_lcjul"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Devotee"
@@ -44,27 +45,27 @@ resource_costs = Dictionary[int, int]({
 2: 0
 })
 favor = 15
-metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
-
-[sub_resource type="Resource" id="Resource_lcjul"]
-resource_local_to_scene = true
-script = ExtResource("5_qj8ib")
-card_name = "Grunt Worker"
-relative_scoring = Dictionary[int, int]({
--1: 0,
-0: 1,
-1: 0
-})
-resource_costs = Dictionary[int, int]({
-0: 0,
-1: 0,
-2: 0
-})
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [sub_resource type="Resource" id="Resource_abuqb"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
+card_name = "Grunt Worker"
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 1,
+1: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_02j7v"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
 card_name = "Grunt Devotee"
 resource_costs = Dictionary[int, int]({
 0: 0,
@@ -74,7 +75,7 @@ resource_costs = Dictionary[int, int]({
 favor = 15
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_02j7v"]
+[sub_resource type="Resource" id="Resource_g2nqd"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Worker"
@@ -90,7 +91,7 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_g2nqd"]
+[sub_resource type="Resource" id="Resource_utnpk"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Devotee"
@@ -102,7 +103,7 @@ resource_costs = Dictionary[int, int]({
 favor = 15
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_utnpk"]
+[sub_resource type="Resource" id="Resource_gs1rt"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Clueless Contractor"
@@ -114,7 +115,7 @@ relative_scoring = Dictionary[int, int]({
 favor = -25
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_gs1rt"]
+[sub_resource type="Resource" id="Resource_87nhp"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Evangelist"
@@ -126,7 +127,7 @@ absolute_scoring = Dictionary[int, int]({
 favor = 20
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_87nhp"]
+[sub_resource type="Resource" id="Resource_up2ya"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Fasting Fanatic"
@@ -143,7 +144,7 @@ resource_costs = Dictionary[int, int]({
 favor = 40
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_up2ya"]
+[sub_resource type="Resource" id="Resource_qv5hx"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Fat Cat"
@@ -160,7 +161,7 @@ resource_costs = Dictionary[int, int]({
 favor = -10
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_qv5hx"]
+[sub_resource type="Resource" id="Resource_xujkg"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Remote Worker"
@@ -171,7 +172,7 @@ relative_scoring = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_xujkg"]
+[sub_resource type="Resource" id="Resource_313p5"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Socialite"
@@ -213,7 +214,7 @@ offset_left = 153.0
 offset_top = 31.0
 offset_right = 153.0
 offset_bottom = 31.0
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_ns2ak"), SubResource("Resource_ccyba")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_ccyba"), SubResource("Resource_lcjul")])
 
 [node name="Play Button" parent="Lanes/Lane" index="0"]
 script = ExtResource("8_qj8ib")
@@ -230,7 +231,7 @@ offset_top = 289.0
 offset_right = 154.0
 offset_bottom = 289.0
 type = 1
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_lcjul"), SubResource("Resource_abuqb")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_abuqb"), SubResource("Resource_02j7v")])
 
 [node name="Polygon2D" parent="Lanes/Lane2" index="1"]
 color = Color(0.264, 0.66, 0.28379998, 1)
@@ -244,7 +245,7 @@ offset_top = 548.0
 offset_right = 160.0
 offset_bottom = 548.0
 type = 2
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_02j7v"), SubResource("Resource_g2nqd")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_g2nqd"), SubResource("Resource_utnpk")])
 
 [node name="Polygon2D" parent="Lanes/Lane3" index="1"]
 color = Color(0.264, 0.31679994, 0.66, 1)
@@ -276,7 +277,7 @@ fmod_parameters/Cycle/variant_type = 2
 
 [node name="Hand" parent="Camera2D/CanvasLayer2" instance=ExtResource("5_0obbo")]
 position = Vector2(25, 882)
-starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_utnpk"), SubResource("Resource_gs1rt"), SubResource("Resource_87nhp"), SubResource("Resource_up2ya"), SubResource("Resource_qv5hx"), SubResource("Resource_xujkg")])
+starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_gs1rt"), SubResource("Resource_87nhp"), SubResource("Resource_up2ya"), SubResource("Resource_qv5hx"), SubResource("Resource_xujkg"), SubResource("Resource_313p5")])
 
 [node name="TopBar" parent="Camera2D/CanvasLayer2" instance=ExtResource("2_e0a3j")]
 
@@ -294,7 +295,7 @@ bgm_node = NodePath("../../../../../BGM Node")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D/CanvasLayer2"]
 
-[node name="CenterContainer" type="CenterContainer" parent="Camera2D/CanvasLayer2/CanvasLayer"]
+[node name="CenterContainer" type="CenterContainer" parent="Camera2D/CanvasLayer2/CanvasLayer" node_paths=PackedStringArray("container")]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
@@ -304,6 +305,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("6_svajd")
+container = NodePath("HBoxContainer")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer2/CanvasLayer/CenterContainer"]
 self_modulate = Color(1, 1, 1, 0)

@@ -73,7 +73,7 @@ func try_spend_all(dict:Dictionary[types,int]) -> bool:
 
 func reset():
 	current = {
-		types.RED: 3,
+		types.RED: 99,
 		types.GREEN: 3,
 		types.BLUE: 0,
 		}

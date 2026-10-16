@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://rtgon2sxj7yu"]
+[gd_resource type="Resource" script_class="CardData" load_steps=8 format=3 uid="uid://rtgon2sxj7yu"]
 
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="1_3a5us"]
 [ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="1_4bp2q"]
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="1_jjvko"]
 [ext_resource type="Script" uid="uid://wy5mxf6n00h8" path="res://Card/Strategy/Scripts/GrowOnPlay.gd" id="2_4bp2q"]
+[ext_resource type="Texture2D" uid="uid://nlj7ok8bhsos" path="res://Assets/GruntDevoteeCard01.png" id="4_85vrt"]
 
 [sub_resource type="Resource" id="Resource_jjvko"]
 script = ExtResource("1_3a5us")

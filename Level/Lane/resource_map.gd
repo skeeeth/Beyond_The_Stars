@@ -9,6 +9,9 @@ signal move_request(direction:int)
 @onready var current_type: TextureRect = $"Current/Current Type"
 @onready var below_type: TextureRect = $"Below/Below Type"
 
+static func create():
+	pass
+
 func _ready() -> void:
 	set_icons_in_lane(lane)
 		#icons[i].texture = RM.resource_icons[image_order[i]]
