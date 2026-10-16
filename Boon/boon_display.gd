@@ -89,7 +89,7 @@ func display_cards(cards:Array[CardData]):
 		var new_card = CardDisplay.create_from_data(card)
 		new_card.scale = Vector2(0.4,0.4)
 		card_container.add_child(new_card)
-	
+
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):

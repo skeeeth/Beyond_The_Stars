@@ -90,6 +90,3 @@ patch_margin_left = 100
 patch_margin_top = 100
 patch_margin_right = 100
 patch_margin_bottom = 110
-
-[connection signal="gui_input" from="Above" to="." method="_on_above_gui_input"]
-[connection signal="gui_input" from="Below" to="." method="_on_below_gui_input"]

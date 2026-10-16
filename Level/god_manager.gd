@@ -10,15 +10,21 @@ signal boon_selection_finished
 
 @onready var boon_pool: Node = $BoonPool
 @onready var dummy_lane: Lane = $"Dummy Lane"
+@onready var background: CycleFinishAnimator = $Background
+
 
 var unused_god:God
 var cravings_per_cycle:Array[int] = [1,1,2,2,2,3,3,0]
 
 func _ready() -> void:
 	action_manager.cycle_ending.connect(cycle)
+
 	cycle()
 
 func cycle():
+	background.start()
+	await background.step_finished
+	
 	for g in gods:
 		if g.craving.active:
 			g.craving.on_unsated_cycle()
@@ -34,6 +40,9 @@ func cycle():
 	boon_selection_finished.emit()
 	_shuffle_lanes()
 	_assign_cravings()
+	background.finish()
+	background.visible = true
+
 
 func _get_valid_boons(god:God.GODS, tier:int) -> Array[Node]:
 	var all_boons:Array[Node] = boon_pool.get_children()
@@ -69,7 +78,8 @@ func _assign_cravings():
 	indexes = indexes.slice(0,num_cravings)
 	for i in indexes:
 		gods[i].set_craving()
-	
+
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_f"):

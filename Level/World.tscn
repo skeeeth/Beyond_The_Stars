@@ -204,9 +204,10 @@ energy = 0.0
 blend_mode = 1
 texture = ExtResource("11_s4lld")
 
-[node name="Lanes" type="Node2D" parent="." node_paths=PackedStringArray("lanes", "cam")]
+[node name="Lanes" type="Node2D" parent="." node_paths=PackedStringArray("lanes", "hand", "cam")]
 script = ExtResource("4_vjs1q")
 lanes = [NodePath("Lane"), NodePath("Lane2"), NodePath("Lane3")]
+hand = NodePath("../Camera2D/CanvasLayer2/Hand")
 cam = NodePath("../Camera2D")
 
 [node name="Lane" parent="Lanes" instance=ExtResource("1_hleuw")]

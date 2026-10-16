@@ -96,15 +96,18 @@ expand_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Icon" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("4_1xywt")
 expand_mode = 4
 stretch_mode = 4
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -126,6 +129,7 @@ horizontal_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -288,6 +292,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_gasdx")
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)

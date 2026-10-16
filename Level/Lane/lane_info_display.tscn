@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bu8cmomwet08m"]
+
+[node name="Lane Info Display" type="Node2D"]

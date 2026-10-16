@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://dekf8nbom4dk6"]
+
+[ext_resource type="Shader" uid="uid://dyquc5c7unev4" path="res://Level/FadeFog.gdshader" id="1_67qwe"]
+[ext_resource type="Script" uid="uid://c4d4sn5so4lfp" path="res://Level/cycle_transition.gd" id="2_s1qyi"]
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="3_s1qyi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltjxn"]
+shader = ExtResource("1_67qwe")
+shader_parameter/fade = -0.36
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hit43"]
+frequency = 0.0058
+offset = Vector3(-631.12, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_msp0b"]
+width = 1920
+height = 1080
+noise = SubResource("FastNoiseLite_hit43")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3truk"]
+font = ExtResource("3_s1qyi")
+font_size = 61
+
+[node name="Background" type="Sprite2D"]
+material = SubResource("ShaderMaterial_ltjxn")
+texture = SubResource("NoiseTexture2D_msp0b")
+centered = false
+script = ExtResource("2_s1qyi")
+
+[node name="Cycle Finished Text" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 728.0
+offset_top = 60.0
+offset_right = 1201.0
+offset_bottom = 122.0
+text = "Cycle Finished"
+label_settings = SubResource("LabelSettings_3truk")

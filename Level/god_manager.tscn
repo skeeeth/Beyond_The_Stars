@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://djvyr8av4rgyw"]
+[gd_scene load_steps=16 format=3 uid="uid://djvyr8av4rgyw"]
 
 [ext_resource type="Script" uid="uid://bjmii7tqwywfq" path="res://Level/god_manager.gd" id="1_pqgjq"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="2_dqsry"]
@@ -12,8 +12,9 @@
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="10_hit43"]
 [ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="10_msp0b"]
 [ext_resource type="Texture2D" uid="uid://nlj7ok8bhsos" path="res://Assets/GruntDevoteeCard01.png" id="12_hit43"]
+[ext_resource type="PackedScene" uid="uid://dekf8nbom4dk6" path="res://Level/cycle_animation.tscn" id="13_msp0b"]
 
-[sub_resource type="Resource" id="Resource_hit43"]
+[sub_resource type="Resource" id="Resource_msp0b"]
 resource_local_to_scene = true
 script = ExtResource("9_cm3bx")
 card_name = "Grunt Worker"
@@ -29,7 +30,7 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_msp0b"]
+[sub_resource type="Resource" id="Resource_ltjxn"]
 resource_local_to_scene = true
 script = ExtResource("9_cm3bx")
 card_name = "Grunt Devotee"
@@ -73,7 +74,9 @@ offset_top = 461.0
 offset_right = 899.0
 offset_bottom = 461.0
 mouse_filter = 2
-deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_hit43"), SubResource("Resource_msp0b")])
+deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_msp0b"), SubResource("Resource_ltjxn")])
 
 [node name="Away Point" type="Node2D" parent="."]
 position = Vector2(2123, 532)
+
+[node name="Background" parent="." instance=ExtResource("13_msp0b")]

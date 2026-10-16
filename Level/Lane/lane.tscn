@@ -63,9 +63,9 @@ cost_progression = Array[int]([3, 5, 9, 15])
 [node name="Click Hitbox" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 159.0
+offset_left = -20.0
 offset_right = 989.0
-offset_bottom = 196.0
+offset_bottom = 477.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_1uh1k")
 
@@ -73,6 +73,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_1uh1k")
 position = Vector2(814, 610)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
+fit_margin = 131.0
+clear_margin = 77.0
+use_mipmaps = true
+
+[node name="Border" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(657, 238)
+scale = Vector2(1, 1.2181818)
+texture = ExtResource("9_5wohj")
 
 [node name="Camera position" type="Node2D" parent="."]
 position = Vector2(547, 423)
@@ -83,11 +91,6 @@ position = Vector2(547, 423)
 position = Vector2(-394, 373)
 scale = Vector2(0.69, 0.69)
 lane = NodePath("..")
-
-[node name="Border" type="Sprite2D" parent="."]
-position = Vector2(657, 238)
-scale = Vector2(1, 1.2181818)
-texture = ExtResource("9_5wohj")
 
 [node name="Faded Display Map" parent="." node_paths=PackedStringArray("lane") instance=ExtResource("8_xrdmo")]
 modulate = Color(1, 1, 1, 0.2)

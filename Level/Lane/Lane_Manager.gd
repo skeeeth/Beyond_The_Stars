@@ -4,6 +4,7 @@ extends Node2D
 
 @export var lane_spacing:float = 1200
 
+@export var hand:Hand
 @export var cam:Camera2D
 var moving:bool = false
 var lane_index:int = 1
@@ -13,11 +14,14 @@ func _ready() -> void:
 		lanes[i].position.y = lane_spacing * i
 		lanes[i].resource_map.move_request.connect(move_camera)
 		lanes[i].position.x = 0
-	
+		hand.card_grabbed.connect(lanes[i].midlight)
+		hand.card_released.connect(lanes[i].dehighlight)
 	#cam.global_position = lanes[1].camera_position.global_position
 	
 	center_lane(lanes[1])
 	cam.make_current()
+	
+	
 
 func move_camera(direction:int = 1):
 	if moving:
@@ -38,7 +42,6 @@ func center_lane(lane:Lane):
 	cam.global_position = lane.camera_position.global_position
 	lanes[posmod(lane_index+1,lanes.size())].position.y = (lane.position.y + lane_spacing)
 	lanes[posmod(lane_index-1,lanes.size())].position.y = lane.position.y - lane_spacing
-	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_up"):

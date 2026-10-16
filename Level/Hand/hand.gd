@@ -1,6 +1,9 @@
 extends Node2D
 class_name Hand
 
+signal card_grabbed
+signal card_released
+
 static var card_pool:Array[CardData]
 @export var starting_pool:Array[CardData]
 @export var container:Container
@@ -36,8 +39,9 @@ func draw_one():
 	new_card.draggable = true
 	new_card.mouse_filter = Control.MOUSE_FILTER_PASS
 	new_card.display()
+	new_card.grabbed.connect(card_grabbed.emit)
+	new_card.released.connect(card_released.emit)
 	container.add_child(new_card)
-
 
 
 #func on_resource_gain(type:RM.types, amount:int):
@@ -59,3 +63,7 @@ func button_hover() -> void:
 	var button_hover_sound = FmodServer.create_event_instance("event:/UI Hover")
 	button_hover_sound.start()
 	button_hover_sound.release()
+
+
+func on_card_entered():
+	pass

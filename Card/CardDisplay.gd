@@ -4,6 +4,8 @@ class_name CardDisplay
 signal clicked(who:CardDisplay)
 signal removal_requested(who:CardDisplay)
 signal hovered(who:CardDisplay)
+signal grabbed
+signal released
 
 @export var data:CardData
 
@@ -173,6 +175,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	visible = false
 	being_dragged = true
 	_card_grab_sound()
+	grabbed.emit()
 	
 	#set drag data
 	var drag_data:Dictionary = {
@@ -195,6 +198,7 @@ func _input(event: InputEvent) -> void:
 			_card_grab_sound() #or release sound, if different
 			visible = true
 			being_dragged = false
+			released.emit()
 
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
@@ -214,10 +218,9 @@ func _on_mouse_entered() -> void:
 		new_tt.position.y = tooltips.size() * 80
 		tooltip_position.add_child(new_tt)
 		tooltips.append(new_tt)
-		
 
 func _on_mouse_exited() -> void:
-	print("exited")
+	#print("exited")
 	for tt in tooltips:
 		tt.queue_free()
 	tooltips.clear()

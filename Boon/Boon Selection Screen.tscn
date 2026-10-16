@@ -48,6 +48,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Background" type="Polygon2D" parent="."]
+visible = false
 z_index = -1
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-38, -39, -43, 1115, 1970, 1115, 1947, -24)

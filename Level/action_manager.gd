@@ -8,11 +8,14 @@ signal cycle_ending
 @export var gm:GodManager
 @export var win_checklist:WinChecklist
 static var actions_per_cycle:int = 5
+static var instance:ActionManager
 var actions_left:int = actions_per_cycle
 var cycle:int = 0
 @export var bgm_node: FmodEventEmitter2D
 
 func _ready() -> void:
+	ActionManager.instance = self
+	
 	#we dont care what card or lane is actually being played here, just that it happened
 	# hence the unbinding to match signature of triggered callable
 	

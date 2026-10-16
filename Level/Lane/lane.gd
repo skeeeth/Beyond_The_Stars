@@ -33,6 +33,7 @@ var card_plays:int = 2:
 @onready var camera_position: Node2D = $"Camera position"
 @onready var resource_map: ResourceMap = $"Resource Map"
 
+#@onready var highlighter: Highlighter = $Highlighter
 
 @onready var buttons:Array[Button] = [%"Play Button", $Upgrade]
 @export var lane_strategies:Array[BaseCardStrategy]
@@ -216,9 +217,11 @@ func get_combined_card_list() -> Array[CardData]:
 
 func highlight():
 	click_hitbox.modulate = Color.WHITE
+	#highlighter.enable()
 
 func dehighlight():
 	click_hitbox.modulate = Color(Color.WHITE,0)
+	#highlighter.disable()
 
 func midlight():
 	click_hitbox.modulate = Color.GRAY
