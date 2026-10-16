@@ -40,7 +40,8 @@ func set_highlight_mode(mode:highlight_modes):
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("LMB"):
 		deck_clicked.emit(array)
-		set_highlight_mode(highlight_modes.SELECTED)
+		if array.size() > 0:
+			set_highlight_mode(highlight_modes.SELECTED)
 
 
 func _on_area_2d_mouse_exited() -> void:
@@ -54,3 +55,26 @@ func _on_hitbox_mouse_entered() -> void:
 		var UI_hover_sound = FmodServer.create_event_instance("event:/UI Hover")
 		UI_hover_sound.start()
 		UI_hover_sound.release()
+
+func fly_in_card(card:CardDisplay):
+	var fly = self.create_tween() #haikyu reference !!??!??11!!1!
+	fly.tween_property(card,"position",position,0.5)
+	fly.parallel().tween_property(card,"scale",Vector2.ZERO,0.5)
+	fly.parallel().tween_callback(shuffle_tween_anim)
+
+func shuffle_tween_anim():
+	var shuffle = self.create_tween()
+	var card_one = $CanvasGroup/Card2
+	var card_two = $CanvasGroup/Card3
+	var p1 = Vector2(5,-5)
+	var p2 = -p1
+	var target_z = 1
+	for i in range(0,3):
+		shuffle.tween_property(card_one,"position",p1,0.2)
+		shuffle.parallel().tween_property(card_two,"position",p2,0.2)
+		shuffle.tween_property(card_one,"z_index",target_z,0)
+		p1 *= -1
+		p2 *= -1
+		target_z *= -1
+	shuffle.tween_property(card_one,"position", Vector2.ZERO, 0.05)
+	shuffle.tween_property(card_two,"position", Vector2.ZERO, 0.05)

@@ -240,11 +240,16 @@ func _can_drop_data(_position, data):
 	return result
 
 ##called on mouse release when dragging suitable data, in this case meaning a card was dragged from hand
-func _drop_data(_at_position: Vector2, data: Variant) -> void:
+func _drop_data(at_position: Vector2, data: Variant) -> void:
 	var card_data:CardData = data["RES"]
 	
 	if !RM.try_spend_all(card_data.resource_costs):
 		return
+	
+	var dummy_display = CardDisplay.create_from_data(card_data)
+	draw_pile.fly_in_card(dummy_display)
+	add_child(dummy_display)
+	dummy_display.position = at_position
 	
 	click_hitbox.modulate = Color(Color.WHITE,0)
 	

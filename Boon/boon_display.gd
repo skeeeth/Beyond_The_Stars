@@ -87,6 +87,7 @@ func hide_body():
 func display_cards(cards:Array[CardData]):
 	for card in cards:
 		var new_card = CardDisplay.create_from_data(card)
+		new_card.scale = Vector2(0.4,0.4)
 		card_container.add_child(new_card)
 	
 
