@@ -31,7 +31,7 @@ var card_plays:int = 0:
 @onready var god_position: Node2D = $GodPosition
 @onready var click_hitbox: Panel = $"Click Hitbox"
 @onready var camera_position: Node2D = $"Camera position"
-@onready var resource_map: ResourceMap = $"Resource Map"
+#@onready var resource_map: ResourceMap = $"Resource Map"
 
 #@onready var highlighter: Highlighter = $Highlighter
 

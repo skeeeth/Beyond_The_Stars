@@ -1,14 +1,123 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu8cmomwet08m"]
+[gd_scene load_steps=12 format=3 uid="uid://bu8cmomwet08m"]
 
 [ext_resource type="Texture2D" uid="uid://dq67lowvnjnsr" path="res://Assets/Icon/OfferingICON.png" id="1_am4ty"]
+[ext_resource type="Script" uid="uid://bqbsfkobk3u8w" path="res://Level/Lane/lane_info_display.gd" id="1_px7uy"]
+[ext_resource type="Texture2D" uid="uid://b4i0agnkr3pqy" path="res://Assets/UpTriangle.png" id="2_n3u4k"]
+[ext_resource type="Texture2D" uid="uid://d2tidhnhslfc6" path="res://Assets/Icon/DownTriangle.png" id="3_diryk"]
+[ext_resource type="Texture2D" uid="uid://d0wtsq2umfqyk" path="res://Card/Assets/CardBG_Grey (1).png" id="3_qb4x7"]
+[ext_resource type="ButtonGroup" uid="uid://dmaa77giskecm" path="res://Level/Lane/Location Display.tres" id="5_shpn1"]
+[ext_resource type="Texture2D" uid="uid://ddgogw2jpmupt" path="res://Assets/Icon/UpTriangle.png" id="6_7fbuw"]
+[ext_resource type="Texture2D" uid="uid://yyptl14usa0p" path="res://Assets/Icon/FoodICON.png" id="6_x0mn8"]
+[ext_resource type="Texture2D" uid="uid://bv1h23jgbjcxg" path="res://Assets/Icon/KnowledgeICON.png" id="7_pom6r"]
+[ext_resource type="Texture2D" uid="uid://d1ny0fndedeia" path="res://Assets/DownTriangle.png" id="9_2h3y1"]
 
-[node name="Lane Info Display" type="Node2D"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2kbe"]
+
+[node name="Lane Info Display" type="Node2D" node_paths=PackedStringArray("up_arrow", "down_arrow", "radio_buttons")]
+script = ExtResource("1_px7uy")
+up_arrow = NodePath("Node2D/PanelContainer/HBoxContainer/VBoxContainer2/Up Arrow")
+down_arrow = NodePath("Node2D/PanelContainer/HBoxContainer/VBoxContainer2/Down Arrow")
+radio_buttons = [NodePath("Node2D/PanelContainer/HBoxContainer/VBoxContainer/Coin"), NodePath("Node2D/PanelContainer/HBoxContainer/VBoxContainer/Food"), NodePath("Node2D/PanelContainer/HBoxContainer/VBoxContainer/Knowledge")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_am4ty")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="God Icon" type="TextureRect" parent="."]
+visible = false
 offset_left = 116.0
 offset_top = -31.0
-offset_right = 156.0
+offset_right = 155.99994
 offset_bottom = 9.0
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(46, 679)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Node2D"]
+z_index = -1
+offset_left = -43.0
+offset_top = -384.0
+offset_right = 734.4193
+offset_bottom = 990.19336
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("3_qb4x7")
+region_rect = Rect2(1, 8, 751, 792)
+patch_margin_left = 94
+patch_margin_top = 227
+patch_margin_right = 98
+patch_margin_bottom = 210
+
+[node name="PanelContainer" type="PanelContainer" parent="Node2D"]
+offset_left = -16.0
+offset_top = -345.0
+offset_right = 256.0
+offset_bottom = 5.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_h2kbe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Coin" type="CheckBox" parent="Node2D/PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+button_group = ExtResource("5_shpn1")
+icon = ExtResource("1_am4ty")
+icon_alignment = 2
+expand_icon = true
+
+[node name="Food" type="CheckBox" parent="Node2D/PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+button_group = ExtResource("5_shpn1")
+icon = ExtResource("6_x0mn8")
+icon_alignment = 2
+expand_icon = true
+
+[node name="Knowledge" type="CheckBox" parent="Node2D/PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+button_group = ExtResource("5_shpn1")
+icon = ExtResource("7_pom6r")
+icon_alignment = 2
+expand_icon = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Node2D/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Up Button" type="Button" parent="Node2D/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("6_7fbuw")
+expand_icon = true
+
+[node name="Down Button" type="Button" parent="Node2D/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("9_2h3y1")
+expand_icon = true
+
+[node name="Up Arrow" type="TextureRect" parent="Node2D/PanelContainer/HBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_n3u4k")
+expand_mode = 2
+
+[node name="Down Arrow" type="TextureRect" parent="Node2D/PanelContainer/HBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_diryk")
+expand_mode = 2
+
+[connection signal="pressed" from="Node2D/PanelContainer/HBoxContainer/VBoxContainer2/Up Button" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="Node2D/PanelContainer/HBoxContainer/VBoxContainer2/Down Button" to="." method="_on_down_button_pressed"]

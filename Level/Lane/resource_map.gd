@@ -1,7 +1,7 @@
 extends Node2D
 class_name ResourceMap
 
-#signal move_request(direction:int)
+
 
 @export var lane:Lane
 #@export var image_order:Array[RM.types]
