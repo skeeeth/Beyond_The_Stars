@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyy8u8y55lkkl"]
+
+[ext_resource type="Script" uid="uid://bs2fhv4y2xtsn" path="res://Level/Lane/lane_upgrade.gd" id="1_qa1cy"]
+[ext_resource type="Texture2D" uid="uid://dq67lowvnjnsr" path="res://Assets/Icon/OfferingICON.png" id="2_d6x3r"]
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="3_l5yxk"]
+[ext_resource type="Texture2D" uid="uid://1qh01yv2x42d" path="res://Assets/Icon/CardBG_Frame.png" id="4_qllrk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d6x3r"]
+font = ExtResource("3_l5yxk")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l5yxk"]
+font = ExtResource("3_l5yxk")
+font_size = 240
+font_color = Color(0, 0, 0, 1)
+
+[node name="Upgrade" type="Button"]
+z_index = 2
+offset_right = 212.0
+offset_bottom = 263.0
+flat = true
+autowrap_mode = 2
+script = ExtResource("1_qa1cy")
+cost_progression = Array[int]([0, 0, 3, 7, 12])
+
+[node name="Cost" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 160.0
+offset_right = 161.0
+offset_bottom = 211.0
+
+[node name="TextureRect" type="TextureRect" parent="Cost"]
+layout_mode = 2
+texture = ExtResource("2_d6x3r")
+expand_mode = 2
+
+[node name="Cost Label" type="Label" parent="Cost"]
+layout_mode = 2
+text = ": 3"
+label_settings = SubResource("LabelSettings_d6x3r")
+
+[node name="Plus Sign" type="Label" parent="."]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 214.0
+offset_bottom = 414.0
+text = "+"
+label_settings = SubResource("LabelSettings_l5yxk")
+horizontal_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 213.0
+offset_bottom = 260.0
+texture = ExtResource("4_qllrk")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

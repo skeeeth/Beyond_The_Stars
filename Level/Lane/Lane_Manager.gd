@@ -12,7 +12,7 @@ var lane_index:int = 1
 func _ready() -> void:
 	for i in range(lanes.size()):
 		lanes[i].position.y = lane_spacing * i
-		lanes[i].resource_map.move_request.connect(move_camera)
+		#lanes[i].resource_map.move_request.connect(move_camera)
 		lanes[i].position.x = 0
 		hand.card_grabbed.connect(lanes[i].midlight)
 		hand.card_released.connect(lanes[i].dehighlight)

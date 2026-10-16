@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://dpcd6nill7hwx" path="res://Card/Instances/Starter Cards/GreyOne.tres" id="3_36dom"]
 [ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="4_iae0s"]
 [ext_resource type="PackedScene" uid="uid://bj2bhoovxyyvx" path="res://Level/UI/Pile Icon.tscn" id="5_3y20t"]
-[ext_resource type="Script" uid="uid://bs2fhv4y2xtsn" path="res://Level/Lane/lane_upgrade.gd" id="6_iae0s"]
+[ext_resource type="PackedScene" uid="uid://dyy8u8y55lkkl" path="res://Level/Lane/upgrade_button.tscn" id="7_5wohj"]
 [ext_resource type="PackedScene" uid="uid://c8lihsm427v3f" path="res://Level/Lane/resource_map.tscn" id="8_xrdmo"]
 [ext_resource type="Texture2D" uid="uid://13ox0tece8j7" path="res://LaneBorderBlack.png" id="9_5wohj"]
 
@@ -47,18 +47,14 @@ position = Vector2(-353, 3)
 unique_name_in_owner = true
 position = Vector2(1299, 81)
 
-[node name="Upgrade" type="Button" parent="." node_paths=PackedStringArray("lane")]
-z_index = 2
+[node name="Upgrade" parent="." node_paths=PackedStringArray("lane", "resource_map_base") instance=ExtResource("7_5wohj")]
+z_index = 5
 layout_mode = 0
-offset_left = 186.0
-offset_top = 588.0
-offset_right = 369.0
-offset_bottom = 668.0
-text = "Upgrade play number (X Money)"
-autowrap_mode = 2
-script = ExtResource("6_iae0s")
+offset_top = 86.0
+offset_right = 222.0
+offset_bottom = 351.0
 lane = NodePath("..")
-cost_progression = Array[int]([3, 5, 9, 15])
+resource_map_base = NodePath("../Faded Display Map")
 
 [node name="Click Hitbox" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -66,7 +62,7 @@ layout_mode = 0
 offset_left = -20.0
 offset_right = 989.0
 offset_bottom = 477.0
-mouse_filter = 1
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1uh1k")
 
 [node name="GodPosition" type="Node2D" parent="."]
@@ -94,12 +90,11 @@ lane = NodePath("..")
 
 [node name="Faded Display Map" parent="." node_paths=PackedStringArray("lane") instance=ExtResource("8_xrdmo")]
 modulate = Color(1, 1, 1, 0.2)
-position = Vector2(-48, 67)
-scale = Vector2(0.69, 0.69)
+position = Vector2(-10, 94)
+scale = Vector2(0.51, 0.51)
 lane = NodePath("..")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="Play Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Upgrade" to="Upgrade" method="_on_pressed"]

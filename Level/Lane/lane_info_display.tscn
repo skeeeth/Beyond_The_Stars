@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://bu8cmomwet08m"]
+[gd_scene load_steps=2 format=3 uid="uid://bu8cmomwet08m"]
+
+[ext_resource type="Texture2D" uid="uid://dq67lowvnjnsr" path="res://Assets/Icon/OfferingICON.png" id="1_am4ty"]
 
 [node name="Lane Info Display" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_am4ty")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 116.0
+offset_top = -31.0
+offset_right = 156.0
+offset_bottom = 9.0

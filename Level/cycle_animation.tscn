@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ltjxn"]
 shader = ExtResource("1_67qwe")
-shader_parameter/fade = -0.36
+shader_parameter/fade = -1.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_hit43"]
 frequency = 0.0058

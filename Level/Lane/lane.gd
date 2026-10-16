@@ -17,7 +17,7 @@ var active_cards:Array[CardDisplay]
 var cards_queued_for_removal:Array[CardDisplay]
 var x_spacing = 16
 
-var card_plays:int = 2:
+var card_plays:int = 0:
 	set(v):
 		card_plays = v
 		%"Play Button".text = "Play %s Cards" % card_plays

@@ -19,6 +19,7 @@ enum GODS{A,B,C,D}
 @export var max_favor:int = 1000
 @export var lane_sprite:Texture2D
 @export var true_sprite:Texture2D
+@export var nav_icon:Texture2D
 @onready var texture_rect: TextureRect = $CanvasGroup/VBoxContainer/TextureRect
 @export var craving:Craving
 
