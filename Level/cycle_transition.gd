@@ -28,13 +28,13 @@ func finish():
 	fade_background(false)
 	step_finished.emit()
 
-func fade_background(fade_in:bool = true,time:float = 2.0) -> Signal:
+func fade_background(fade_in:bool = true,time:float = 2.0, end_opacity:float = 1.0) -> Signal:
 	var start_value:float = +1
-	var end_value:float = -1
+	var end_value:float = -end_opacity
 	
 	if fade_in:
 		start_value = -1
-		end_value = +1
+		end_value = end_opacity
 
 	var rssp = func reverse_set_shader_parameter(value:float,parameter:String):
 		background_material.set_shader_parameter(parameter,value)
@@ -42,3 +42,6 @@ func fade_background(fade_in:bool = true,time:float = 2.0) -> Signal:
 	var fade = self.create_tween()
 	fade.tween_method(rssp.bind("fade"),start_value, end_value, time)
 	return fade.finished
+
+func fade_out_requested(end_opacity:float):
+	fade_background(false,2.0,end_opacity)

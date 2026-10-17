@@ -2,7 +2,7 @@ extends Node2D
 class_name BoonSelection
 
 signal finished
-signal request_fade
+signal request_fade(opacity)
 
 @onready var sprite_2d: Sprite2D = $God
 @onready var background: Polygon2D = $Background
@@ -78,7 +78,7 @@ func lane_selection_requested():
 func selection_fade():
 	boon_container.hide()
 	
-	request_fade.emit()
+	request_fade.emit(0.8)
 	var fade = self.create_tween()
 	fade.tween_property(self,"modulate", Color(Color.WHITE,0.2), 0.5)
 	#modulate = Color(Color.WHITE,0.2)
