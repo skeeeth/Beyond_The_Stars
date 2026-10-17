@@ -33,4 +33,4 @@ func _on_up_button_pressed() -> void:
 
 
 func _on_down_button_pressed() -> void:
-	request_move(-1)
+	request_move(+1)

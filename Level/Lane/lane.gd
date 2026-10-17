@@ -20,7 +20,7 @@ var x_spacing = 16
 var card_plays:int = 0:
 	set(v):
 		card_plays = v
-		%"Play Button".text = "Play %s Cards" % card_plays
+		#%"Play Button".text = "Play %s Cards" % card_plays
 	get:
 		return card_plays
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://djelkq3gxvrft"]
+[gd_scene load_steps=12 format=3 uid="uid://djelkq3gxvrft"]
 
 [ext_resource type="Theme" uid="uid://bql5e0cm2pyh8" path="res://Level/Lane/UI Theme.tres" id="1_1uh1k"]
 [ext_resource type="Script" uid="uid://dpj87j1ut8bw3" path="res://Level/Lane/lane.gd" id="1_rr5i5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://dpcd6nill7hwx" path="res://Card/Instances/Starter Cards/GreyOne.tres" id="3_36dom"]
 [ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="4_iae0s"]
 [ext_resource type="PackedScene" uid="uid://bj2bhoovxyyvx" path="res://Level/UI/Pile Icon.tscn" id="5_3y20t"]
+[ext_resource type="LabelSettings" uid="uid://if8ust6gi00u" path="res://Level/Lane/ButtonCostText.tres" id="6_nceqa"]
 [ext_resource type="PackedScene" uid="uid://dyy8u8y55lkkl" path="res://Level/Lane/upgrade_button.tscn" id="7_5wohj"]
 [ext_resource type="PackedScene" uid="uid://c8lihsm427v3f" path="res://Level/Lane/resource_map.tscn" id="8_xrdmo"]
 [ext_resource type="Texture2D" uid="uid://13ox0tece8j7" path="res://LaneBorderBlack.png" id="9_5wohj"]
@@ -29,10 +30,28 @@ deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_iae
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 0
-offset_top = 593.0
-offset_right = 166.0
-offset_bottom = 656.0
-text = "Play Cards (1 Action)"
+offset_left = -14.0
+offset_top = 580.0
+offset_right = 251.0
+offset_bottom = 688.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Play Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Play Button/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Play Button/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Collect"
+label_settings = ExtResource("6_nceqa")
+horizontal_alignment = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

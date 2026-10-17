@@ -8,11 +8,12 @@ static var card_pool:Array[CardData]
 @export var starting_pool:Array[CardData]
 @export var container:Container
 @export var starting_cards:int = 3
+@export var max_hand_size:int = 8
 
 var draw_cost:int = 0:
 	set(v):
 		draw_cost = v
-		button.text = "Draw card (%s cultists)" % draw_cost
+		%"Cost Text".text = ":%s " % draw_cost
 	get:
 		return draw_cost
 @onready var button: Button = $Button

@@ -1,4 +1,43 @@
-[gd_resource type="Theme" load_steps=20 format=4 uid="uid://bql5e0cm2pyh8"]
+[gd_resource type="Theme" load_steps=25 format=4 uid="uid://bql5e0cm2pyh8"]
+
+[ext_resource type="Texture2D" uid="uid://d0wtsq2umfqyk" path="res://Card/Assets/CardBG_Grey (1).png" id="1_46amj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_46amj"]
+content_margin_left = 45.0
+content_margin_top = 45.0
+content_margin_right = 45.0
+content_margin_bottom = 45.0
+texture = ExtResource("1_46amj")
+expand_margin_left = 5.0
+expand_margin_top = 20.0
+expand_margin_right = 5.0
+expand_margin_bottom = 20.0
+modulate_color = Color(0.88, 0.88, 0.88, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_46amj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_okkbl"]
+content_margin_left = 45.0
+content_margin_top = 45.0
+content_margin_right = 45.0
+content_margin_bottom = 45.0
+texture = ExtResource("1_46amj")
+expand_margin_left = 5.0
+expand_margin_top = 20.0
+expand_margin_right = 5.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jp0x"]
+content_margin_left = 45.0
+content_margin_top = 45.0
+content_margin_right = 45.0
+content_margin_bottom = 45.0
+texture = ExtResource("1_46amj")
+expand_margin_left = 5.0
+expand_margin_top = 20.0
+expand_margin_right = 5.0
+expand_margin_bottom = 20.0
+modulate_color = Color(0.58, 0.58, 0.58, 1)
 
 [sub_resource type="Image" id="Image_knb1o"]
 data = {
@@ -1637,6 +1676,11 @@ expand_margin_bottom = 2.0
 bg_color = Color(0.62, 0.62, 0.62, 1)
 
 [resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_46amj")
+Button/styles/focus = SubResource("StyleBoxEmpty_46amj")
+Button/styles/hover = SubResource("StyleBoxTexture_okkbl")
+Button/styles/normal = SubResource("StyleBoxTexture_46amj")
+Button/styles/pressed = SubResource("StyleBoxTexture_7jp0x")
 CheckBox/colors/checkbox_checked_color = Color(1, 1, 1, 1)
 CheckBox/colors/checkbox_unchecked_color = Color(1, 1, 1, 1)
 CheckBox/colors/font_color = Color(0.875, 0.875, 0.875, 1)
