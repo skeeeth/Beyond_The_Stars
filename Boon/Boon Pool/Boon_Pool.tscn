@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dg8sjc86dqcao"]
+[gd_scene load_steps=51 format=3 uid="uid://dg8sjc86dqcao"]
 
 [ext_resource type="Script" uid="uid://lao3lsrvbud1" path="res://Boon/Boon Pool/Boons/chosen_riff_raff.gd" id="1_pbi8e"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_b1cel"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ctata67elcdck" path="res://Assets/Boons/Boon_UnnaturalStamina_Card.png" id="8_rgg3k"]
 [ext_resource type="Resource" uid="uid://rtgon2sxj7yu" path="res://Card/Instances/Worm Pack/Ravenous Worm.tres" id="8_rgqg3"]
 [ext_resource type="Script" uid="uid://dq8607as83sgg" path="res://Card/Strategy/Scripts/FilterBuff.gd" id="10_4qffb"]
+[ext_resource type="Texture2D" uid="uid://q0yikcn4cr6h" path="res://Assets/Boons/BoonAuraofGreedCard.png" id="11_cjb04"]
 [ext_resource type="Texture2D" uid="uid://dpbvpxdgucgcm" path="res://Assets/Boons/Boon_AuraofGrowth_Card.png" id="11_dfw5u"]
 [ext_resource type="Resource" uid="uid://cq1wvwhwhegmw" path="res://Card/Instances/Worm Pack/Growing worm.tres" id="11_y2ul4"]
 [ext_resource type="Script" uid="uid://cqtefdler24dg" path="res://Boon/Boon Pool/Boons/SowSeeds.gd" id="12_nnccf"]
@@ -175,10 +176,11 @@ mask = Dictionary[int, bool]({
 script = ExtResource("6_5y4ju")
 strategy = SubResource("Resource_5p5qj")
 description = "Under [god]'s watch, cards with a red pip score +10 favor and permanently gain [[1/0/0g0/0/0 when played"
-icon = ExtResource("11_dfw5u")
+icon = ExtResource("11_cjb04")
+debug_force = true
 mask = Dictionary[int, bool]({
-0: false,
-1: false,
+0: true,
+1: true,
 2: true,
 3: true
 })
@@ -248,6 +250,7 @@ mask = Dictionary[int, bool]({
 script = ExtResource("12_nnccf")
 grow_pattern = SubResource("Resource_e502x")
 target_count = 3
+description = "Select three cards to apply [[0/0/1g0/0/0"
 icon = ExtResource("25_xyn15")
 mask = Dictionary[int, bool]({
 0: false,

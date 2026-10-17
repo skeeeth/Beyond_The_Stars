@@ -2,6 +2,7 @@ extends Node2D
 class_name BoonSelection
 
 signal finished
+signal request_fade
 
 @onready var sprite_2d: Sprite2D = $God
 @onready var background: Polygon2D = $Background
@@ -23,6 +24,10 @@ static func create(_god:God, boon_pool:Array[Node],sprite:Texture) -> BoonSelect
 	new_bs.texture = sprite
 	new_bs.god = _god
 	boon_pool.shuffle()
+	
+	for bd in new_bs.boon_options:
+		bd.god = _god
+
 	var forced_boons:Array[Boon]
 	for b:Boon in boon_pool:
 		if b.debug_force:
@@ -38,7 +43,7 @@ static func create(_god:God, boon_pool:Array[Node],sprite:Texture) -> BoonSelect
 		new_bs.boon_options[i].set_boon(boon_pool[i])
 	
 	for bd in new_bs.boon_options:
-		if !bd.boon:
+		if bd.boon.name == "Test":
 			bd.hide()
 		
 	return new_bs #...always some new bs
@@ -73,6 +78,7 @@ func lane_selection_requested():
 func selection_fade():
 	boon_container.hide()
 	
+	request_fade.emit()
 	var fade = self.create_tween()
 	fade.tween_property(self,"modulate", Color(Color.WHITE,0.2), 0.5)
 	#modulate = Color(Color.WHITE,0.2)

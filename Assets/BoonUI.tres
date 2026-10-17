@@ -1,7 +1,8 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://d0qvm744k8k3i"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4cctf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cctf"]
+bg_color = Color(0.52, 0.52, 0.52, 0.5568628)
 
 [resource]
-PanelContainer/styles/panel = SubResource("StyleBoxEmpty_4cctf")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_4cctf")
 RichTextLabel/font_sizes/normal_font_size = 28

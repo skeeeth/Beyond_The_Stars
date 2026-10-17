@@ -14,11 +14,14 @@ signal lane_selection_requested
 @export var icon:TextureRect
 
 @export var color_export:Array[Color]
+@export var icon_export:Array[Texture2D]
 static var bg_colors:Array[Color]
+static var stat_icons:Array[Texture2D]
 var god:God
 
 func _ready() -> void:
 	bg_colors = color_export
+	stat_icons = icon_export
 	#if boon:
 		#set_boon(boon)
 
@@ -34,7 +37,12 @@ func set_boon(b:Boon):
 		boon.request_lane_select.connect(lane_selection_requested.emit, 4)
 	
 	text_box.text = ""#(boon.description)
-	format_text(boon.description,text_box)
+	
+	var format_text_bindings = [boon.description, text_box]
+	if god:
+		format_text_bindings.append(god.identity)
+	format_text.bindv(format_text_bindings).call()
+	
 	title_box.text = boon.name
 	
 	icon.texture = boon.icon
@@ -42,12 +50,16 @@ func set_boon(b:Boon):
 	if boon is CardPackBoon:
 		display_cards(boon.cards)
 
-static func format_text(text:String, rich_text_box:RichTextLabel):
+static func format_text(text:String, rich_text_box:RichTextLabel, god_type:God.GODS = God.GODS.A):
 	var start = text.find("[[")
 	#var end = text.find("]]")
 	if start == -1:
 		rich_text_box.append_text(text)
 		return
+	
+	var god_name:String = God.god_names[god_type]
+	text = text.replace("[god]",god_name)
+	
 	rich_text_box.append_text(text.left(start))
 	var stat_block = text.substr(start+2, 11)
 	#print(stat_block)
@@ -63,21 +75,27 @@ static func format_text(text:String, rich_text_box:RichTextLabel):
 	 
 	#extracted_stats = [1,0,0,0,0,1]
 	
-	rich_text_box.push_table(2,INLINE_ALIGNMENT_CENTER)
-	
 	for i in range(0,6):
-		#text_box.push_context() #breaks table for some reason?
-		rich_text_box.push_cell()
-		rich_text_box.set_cell_size_override(Vector2(64,16),Vector2(64,64))
-		rich_text_box.set_cell_border_color(Color.BLACK)
-		rich_text_box.push_bgcolor(bg_colors[i])
 		if extracted_stats[i] > 0:
-			rich_text_box.append_text(str(extracted_stats[i]))
-		else:
-			rich_text_box.append_text(" ")
-		rich_text_box.pop()
-		rich_text_box.pop()
-	rich_text_box.pop()
+			rich_text_box.append_text(" %+d " % extracted_stats[i])  
+			rich_text_box.add_image(stat_icons[i],64,64, Color(-1,-1,-1))
+
+	
+	#rich_text_box.push_table(2,INLINE_ALIGNMENT_CENTER)
+	#
+	#for i in range(0,6):
+		##text_box.push_context() #breaks table for some reason?
+		#rich_text_box.push_cell()
+		#rich_text_box.set_cell_size_override(Vector2(64,16),Vector2(64,64))
+		#rich_text_box.set_cell_border_color(Color.BLACK)
+		#rich_text_box.push_bgcolor(bg_colors[i])
+		#if extracted_stats[i] > 0:
+			#rich_text_box.append_text(str(extracted_stats[i]))
+		#else:
+			#rich_text_box.append_text(" ")
+		#rich_text_box.pop()
+		#rich_text_box.pop()
+	#rich_text_box.pop()
 	
 	var remaining_text = text.substr(start+13)
 	rich_text_box.append_text(remaining_text)

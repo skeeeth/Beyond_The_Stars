@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://nlj7ok8bhsos" path="res://Assets/GruntDevoteeCard01.png" id="12_hit43"]
 [ext_resource type="PackedScene" uid="uid://dekf8nbom4dk6" path="res://Level/cycle_animation.tscn" id="13_msp0b"]
 
-[sub_resource type="Resource" id="Resource_rx3h6"]
+[sub_resource type="Resource" id="Resource_ltjxn"]
 resource_local_to_scene = true
 script = ExtResource("9_cm3bx")
 card_name = "Grunt Worker"
@@ -31,7 +31,7 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_k2roj"]
+[sub_resource type="Resource" id="Resource_rx3h6"]
 resource_local_to_scene = true
 script = ExtResource("9_cm3bx")
 card_name = "Grunt Devotee"
@@ -62,6 +62,7 @@ lane_sprite = ExtResource("5_na2wg")
 true_sprite = ExtResource("5_na2wg")
 
 [node name="D" parent="." instance=ExtResource("2_dqsry")]
+identity = 3
 lane_sprite = ExtResource("6_na2wg")
 true_sprite = ExtResource("6_na2wg")
 
@@ -75,7 +76,7 @@ offset_top = 461.0
 offset_right = 899.0
 offset_bottom = 461.0
 mouse_filter = 2
-deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_rx3h6"), SubResource("Resource_k2roj")])
+deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_ltjxn"), SubResource("Resource_rx3h6")])
 
 [node name="Away Point" type="Node2D" parent="."]
 position = Vector2(2123, 532)

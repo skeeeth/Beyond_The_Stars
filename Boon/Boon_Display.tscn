@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1ad0kb4a8ppu"]
+[gd_scene load_steps=12 format=3 uid="uid://b1ad0kb4a8ppu"]
 
 [ext_resource type="Theme" uid="uid://d0qvm744k8k3i" path="res://Assets/BoonUI.tres" id="1_2veik"]
 [ext_resource type="Script" uid="uid://cm8esxgtyua60" path="res://Boon/boon_display.gd" id="1_slq2i"]
 [ext_resource type="Script" uid="uid://cjwad125niwqo" path="res://Boon/test.gd" id="3_mbfsb"]
+[ext_resource type="Texture2D" uid="uid://dq67lowvnjnsr" path="res://Assets/Icon/OfferingICON.png" id="3_msa3r"]
 [ext_resource type="Texture2D" uid="uid://srv80ks50ru8" path="res://Assets/Boons/Boon_BlankCard.png" id="4_1oy8l"]
+[ext_resource type="Texture2D" uid="uid://b4i0agnkr3pqy" path="res://Assets/UpTriangle.png" id="4_vst7g"]
+[ext_resource type="Texture2D" uid="uid://yyptl14usa0p" path="res://Assets/Icon/FoodICON.png" id="5_wn2od"]
+[ext_resource type="Texture2D" uid="uid://1qh01yv2x42d" path="res://Assets/Icon/CardBG_Frame.png" id="6_n1yje"]
+[ext_resource type="Texture2D" uid="uid://bv1h23jgbjcxg" path="res://Assets/Icon/KnowledgeICON.png" id="7_gl26m"]
+[ext_resource type="Texture2D" uid="uid://d1ny0fndedeia" path="res://Assets/DownTriangle.png" id="8_ib307"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2veik"]
 font_size = 20
@@ -22,6 +28,7 @@ title_box = NodePath("HBoxContainer/VBoxContainer/Title Label")
 card_container = NodePath("HBoxContainer/VBoxContainer/Card Container")
 icon = NodePath("HBoxContainer/TextureRect")
 color_export = Array[Color]([Color(0.65882355, 0.2627451, 0.2627451, 1), Color(0.6, 0.6, 0.6, 1), Color(0.2627451, 0.65882355, 0.28235295, 1), Color(0.6, 0.6, 0.6, 1), Color(0.2627451, 0.31764707, 0.65882355, 1), Color(0.6, 0.6, 0.6, 1)])
+icon_export = Array[Texture2D]([ExtResource("3_msa3r"), ExtResource("4_vst7g"), ExtResource("5_wn2od"), ExtResource("6_n1yje"), ExtResource("7_gl26m"), ExtResource("8_ib307")])
 
 [node name="Test" type="Node" parent="."]
 script = ExtResource("3_mbfsb")
@@ -53,14 +60,13 @@ layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 24)
+custom_minimum_size = Vector2(0, 159.87)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 3
 mouse_filter = 1
 bbcode_enabled = true
 text = "Some Sample Text "
 fit_content = true
-vertical_alignment = 1
 
 [node name="Card Container" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 visible = false

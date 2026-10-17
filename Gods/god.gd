@@ -4,7 +4,16 @@ class_name God
 var current_lane:Lane
 
 enum GODS{A,B,C,D}
+
+const god_names:Dictionary[GODS,String] = {
+	GODS.A: "Gan'th",
+	GODS.B: "Kolma",
+	GODS.C: "Myggos",
+	GODS.D: "Mahuax"
+}
+
 @export var identity:GODS
+
 
 @export var favor:int = 25:
 	set(v):
