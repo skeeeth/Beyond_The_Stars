@@ -1,39 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1ad0kb4a8ppu"]
+[gd_scene load_steps=6 format=3 uid="uid://b1ad0kb4a8ppu"]
 
 [ext_resource type="Theme" uid="uid://d0qvm744k8k3i" path="res://Assets/BoonUI.tres" id="1_2veik"]
 [ext_resource type="Script" uid="uid://cm8esxgtyua60" path="res://Boon/boon_display.gd" id="1_slq2i"]
 [ext_resource type="Script" uid="uid://cjwad125niwqo" path="res://Boon/test.gd" id="3_mbfsb"]
+[ext_resource type="Texture2D" uid="uid://srv80ks50ru8" path="res://Assets/Boons/Boon_BlankCard.png" id="4_1oy8l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2veik"]
 font_size = 20
-font_color = Color(0.16078432, 0, 0.16078432, 1)
+font_color = Color(0.93, 0.8277, 0.93, 1)
 
-[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("text_box", "title_box", "card_container")]
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("boon", "text_box", "title_box", "card_container", "icon")]
 offset_right = 274.0
 offset_bottom = 159.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme = ExtResource("1_2veik")
 script = ExtResource("1_slq2i")
-text_box = NodePath("VBoxContainer/RichTextLabel")
-title_box = NodePath("VBoxContainer/Title Label")
-card_container = NodePath("VBoxContainer/Card Container")
+boon = NodePath("Test")
+text_box = NodePath("HBoxContainer/VBoxContainer/RichTextLabel")
+title_box = NodePath("HBoxContainer/VBoxContainer/Title Label")
+card_container = NodePath("HBoxContainer/VBoxContainer/Card Container")
+icon = NodePath("HBoxContainer/TextureRect")
 color_export = Array[Color]([Color(0.65882355, 0.2627451, 0.2627451, 1), Color(0.6, 0.6, 0.6, 1), Color(0.2627451, 0.65882355, 0.28235295, 1), Color(0.6, 0.6, 0.6, 1), Color(0.2627451, 0.31764707, 0.65882355, 1), Color(0.6, 0.6, 0.6, 1)])
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Test" type="Node" parent="."]
+script = ExtResource("3_mbfsb")
+description = "give [[0/1/1/0/1/1]]"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1oy8l")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Title Label" type="Label" parent="VBoxContainer"]
+[node name="Title Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Title"
 label_settings = SubResource("LabelSettings_2veik")
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
@@ -42,12 +60,10 @@ mouse_filter = 1
 bbcode_enabled = true
 text = "Some Sample Text "
 fit_content = true
+vertical_alignment = 1
 
-[node name="Card Container" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Card Container" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-
-[node name="Test" type="Node" parent="."]
-script = ExtResource("3_mbfsb")
-description = "give [[0/1/1/0/1/1]]"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

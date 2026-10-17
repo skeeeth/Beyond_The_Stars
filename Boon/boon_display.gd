@@ -11,7 +11,7 @@ signal lane_selection_requested
 @export var text_box: RichTextLabel
 @export var title_box:Label
 @export var card_container:Container
-
+@export var icon:TextureRect
 
 @export var color_export:Array[Color]
 static var bg_colors:Array[Color]
@@ -36,6 +36,8 @@ func set_boon(b:Boon):
 	text_box.text = ""#(boon.description)
 	format_text(boon.description,text_box)
 	title_box.text = boon.name
+	
+	icon.texture = boon.icon
 	
 	if boon is CardPackBoon:
 		display_cards(boon.cards)
@@ -85,10 +87,11 @@ func hide_body():
 	card_container.hide()
 
 func display_cards(cards:Array[CardData]):
-	for card in cards:
-		var new_card = CardDisplay.create_from_data(card)
-		new_card.scale = Vector2(0.4,0.4)
-		card_container.add_child(new_card)
+	return
+	#for card in cards:
+		#var new_card = CardDisplay.create_from_data(card)
+		#new_card.scale = Vector2(0.4,0.4)
+		#card_container.add_child(new_card)
 
 
 func _on_gui_input(event: InputEvent) -> void:

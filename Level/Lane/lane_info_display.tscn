@@ -32,6 +32,7 @@ offset_bottom = 9.0
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(46, 679)
+scale = Vector2(0.445, 0.445)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Node2D"]
 z_index = -1

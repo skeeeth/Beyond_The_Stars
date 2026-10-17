@@ -13,6 +13,7 @@ signal request_lane_select
 signal request_select_effect(effect:ViewportEffects.types)
 
 @export var description:String
+@export var icon:Texture2D
 @export var tier:int = 1
 
 @export var debug_force:bool = false

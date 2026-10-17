@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh7xqfv4uw8ii"]
+[gd_scene load_steps=7 format=3 uid="uid://bh7xqfv4uw8ii"]
 
 [ext_resource type="Script" uid="uid://cry1ifbl0v5sc" path="res://Boon/boon_selection.gd" id="1_hyphn"]
 [ext_resource type="Theme" uid="uid://d0qvm744k8k3i" path="res://Assets/BoonUI.tres" id="2_ebtbx"]
-[ext_resource type="Texture2D" uid="uid://dmds4riot6no3" path="res://Assets/Placeholder/WormWIP_atlas.tres" id="2_q4iqp"]
+[ext_resource type="Texture2D" uid="uid://bvxkxdfg51jne" path="res://Assets/Placeholder/Wip/GodBeauty03_WIP.png" id="2_exuk8"]
 [ext_resource type="PackedScene" uid="uid://b1ad0kb4a8ppu" path="res://Boon/Boon_Display.tscn" id="3_q4iqp"]
+[ext_resource type="Texture2D" uid="uid://dsp7ye6tj7ouy" path="res://Assets/Borders/GodBg_FrameWHITE (1).png" id="5_q4iqp"]
+[ext_resource type="Texture2D" uid="uid://dyoyeittrlni8" path="res://Assets/GameBg (2).png" id="6_exuk8"]
 
 [node name="Boon Display" type="Node2D" node_paths=PackedStringArray("boon_options")]
 z_index = 9
@@ -11,9 +13,9 @@ script = ExtResource("1_hyphn")
 boon_options = [NodePath("Boon Container/PanelContainer"), NodePath("Boon Container/PanelContainer2"), NodePath("Boon Container/PanelContainer3")]
 
 [node name="God" type="Sprite2D" parent="."]
-position = Vector2(411, 527)
-scale = Vector2(0.735, 0.735)
-texture = ExtResource("2_q4iqp")
+position = Vector2(385.00003, 633)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_exuk8")
 
 [node name="Input Eater" type="ColorRect" parent="."]
 z_index = -1
@@ -29,10 +31,10 @@ mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
 [node name="Boon Container" type="VBoxContainer" parent="."]
-offset_left = 1177.0
-offset_top = 339.0
-offset_right = 1783.0
-offset_bottom = 776.0
+offset_left = 946.0
+offset_top = 164.0
+offset_right = 1875.0
+offset_bottom = 951.0
 theme = ExtResource("2_ebtbx")
 
 [node name="PanelContainer" parent="Boon Container" instance=ExtResource("3_q4iqp")]
@@ -48,10 +50,19 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Background" type="Polygon2D" parent="."]
-visible = false
 z_index = -1
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-38, -39, -43, 1115, 1970, 1115, 1947, -24)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(381, 532)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_q4iqp")
+
+[node name="Space BG" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("6_exuk8")
+centered = false
 
 [connection signal="mouse_entered" from="Boon Container/PanelContainer" to="Boon Container/PanelContainer" method="_play_boon_hover"]
 [connection signal="mouse_entered" from="Boon Container/PanelContainer2" to="Boon Container/PanelContainer2" method="_play_boon_hover"]

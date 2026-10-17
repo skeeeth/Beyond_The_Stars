@@ -80,6 +80,7 @@ highlight_color = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://dnsitrioyh1hj"
 
 [node name="Boon Display" parent="." instance=ExtResource("5_66s73")]
+visible = false
 offset_left = 323.0
 offset_top = 3.0
 offset_right = 740.0

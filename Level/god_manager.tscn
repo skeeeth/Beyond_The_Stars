@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://djvyr8av4rgyw"]
+[gd_scene load_steps=17 format=3 uid="uid://djvyr8av4rgyw"]
 
 [ext_resource type="Script" uid="uid://bjmii7tqwywfq" path="res://Level/god_manager.gd" id="1_pqgjq"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="2_dqsry"]
 [ext_resource type="PackedScene" uid="uid://dg8sjc86dqcao" path="res://Boon/Boon Pool/Boon_Pool.tscn" id="3_dqsry"]
 [ext_resource type="Texture2D" uid="uid://demf8fipc5g5p" path="res://Assets/Placeholder/SkullWIP_atlas.tres" id="3_nv7fa"]
 [ext_resource type="Texture2D" uid="uid://b8fx50yeydigm" path="res://Assets/Placeholder/PlantWipAtlas.tres" id="4_a58x4"]
+[ext_resource type="Texture2D" uid="uid://bvxkxdfg51jne" path="res://Assets/Placeholder/Wip/GodBeauty03_WIP.png" id="5_ltjxn"]
 [ext_resource type="Texture2D" uid="uid://dmds4riot6no3" path="res://Assets/Placeholder/WormWIP_atlas.tres" id="5_na2wg"]
 [ext_resource type="Texture2D" uid="uid://wc37ox281hkk" path="res://Assets/Placeholder/KnightWIP_atlas.tres" id="6_na2wg"]
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="8_wi2ff"]
@@ -14,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://nlj7ok8bhsos" path="res://Assets/GruntDevoteeCard01.png" id="12_hit43"]
 [ext_resource type="PackedScene" uid="uid://dekf8nbom4dk6" path="res://Level/cycle_animation.tscn" id="13_msp0b"]
 
-[sub_resource type="Resource" id="Resource_msp0b"]
+[sub_resource type="Resource" id="Resource_rx3h6"]
 resource_local_to_scene = true
 script = ExtResource("9_cm3bx")
 card_name = "Grunt Worker"
@@ -30,7 +31,7 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_ltjxn"]
+[sub_resource type="Resource" id="Resource_k2roj"]
 resource_local_to_scene = true
 script = ExtResource("9_cm3bx")
 card_name = "Grunt Devotee"
@@ -53,7 +54,7 @@ true_sprite = ExtResource("3_nv7fa")
 [node name="B" parent="." instance=ExtResource("2_dqsry")]
 identity = 1
 lane_sprite = ExtResource("4_a58x4")
-true_sprite = ExtResource("4_a58x4")
+true_sprite = ExtResource("5_ltjxn")
 
 [node name="C" parent="." instance=ExtResource("2_dqsry")]
 identity = 2
@@ -74,7 +75,7 @@ offset_top = 461.0
 offset_right = 899.0
 offset_bottom = 461.0
 mouse_filter = 2
-deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_msp0b"), SubResource("Resource_ltjxn")])
+deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_rx3h6"), SubResource("Resource_k2roj")])
 
 [node name="Away Point" type="Node2D" parent="."]
 position = Vector2(2123, 532)
