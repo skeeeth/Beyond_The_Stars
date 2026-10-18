@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://bs2fhv4y2xtsn" path="res://Level/Lane/lane_upgrade.gd" id="1_qa1cy"]
 [ext_resource type="Texture2D" uid="uid://dq67lowvnjnsr" path="res://Assets/Icon/OfferingICON.png" id="2_d6x3r"]
 [ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="3_l5yxk"]
-[ext_resource type="LabelSettings" uid="uid://if8ust6gi00u" path="res://Level/Lane/ButtonCostText.tres" id="3_xxgwr"]
 [ext_resource type="Texture2D" uid="uid://1qh01yv2x42d" path="res://Assets/Icon/CardBG_Frame.png" id="4_qllrk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qllrk"]
+font = ExtResource("3_l5yxk")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_l5yxk"]
 font = ExtResource("3_l5yxk")
@@ -34,7 +38,7 @@ expand_mode = 2
 [node name="Cost Label" type="Label" parent="Cost"]
 layout_mode = 2
 text = ": 3"
-label_settings = ExtResource("3_xxgwr")
+label_settings = SubResource("LabelSettings_qllrk")
 
 [node name="Plus Sign" type="Label" parent="."]
 layout_mode = 0
