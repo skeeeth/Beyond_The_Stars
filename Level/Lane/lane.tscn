@@ -30,10 +30,10 @@ deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_iae
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 0
-offset_left = -14.0
-offset_top = 580.0
-offset_right = 251.0
-offset_bottom = 688.0
+offset_left = -333.0
+offset_top = 346.0
+offset_right = -177.0
+offset_bottom = 436.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Play Button"]
 layout_mode = 1
@@ -44,6 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Play Button/HBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Play Button/HBoxContainer"]

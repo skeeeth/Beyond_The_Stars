@@ -95,11 +95,10 @@ func recieve_boon(boon:Boon):
 
 
 func _on_v_box_container_mouse_entered() -> void:
-	boon_display.visible = true
-
-
-
+	pass
+	#boon_display.visible = true
 
 
 func _on_v_box_container_mouse_exited() -> void:
-	boon_display.visible = false
+	pass
+	#boon_display.visible = false
