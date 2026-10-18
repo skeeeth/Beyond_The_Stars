@@ -1,23 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgd1v7y7gr4sc"]
+[gd_scene load_steps=6 format=3 uid="uid://cgd1v7y7gr4sc"]
 
+[ext_resource type="Theme" uid="uid://b0e6ktoqxgsr4" path="res://Assets/CardTheme.tres" id="1_ok21u"]
 [ext_resource type="Script" uid="uid://e11lb33a4pe8" path="res://Gods/Craving/Craving.gd" id="1_ufsqf"]
+[ext_resource type="StyleBox" uid="uid://bj88eq4tljbtd" path="res://Level/Lane/old Boon Style Box.tres" id="2_ok21u"]
+[ext_resource type="Texture2D" uid="uid://dfoss2qt6igr7" path="res://Assets/Icon/FavorICON.png" id="2_sg7wt"]
 
-[node name="PanelContainer" type="PanelContainer"]
-offset_right = 264.0
-offset_bottom = 76.0
+[sub_resource type="LabelSettings" id="LabelSettings_sg7wt"]
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("rich_text_label", "time_limit_label")]
+offset_right = 268.0
+offset_bottom = 233.0
+theme = ExtResource("1_ok21u")
+theme_override_styles/panel = ExtResource("2_ok21u")
 script = ExtResource("1_ufsqf")
 card_odds_per_tier = Array[float]([0.0, 0.0, 0.5, 1.0])
+rich_text_label = NodePath("HBoxContainer/Body")
+time_limit_label = NodePath("HBoxContainer/HBoxContainer/Time Limit")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-mouse_filter = 1
-text = "Some long text"
 
-[node name="Time Limit" type="Label" parent="."]
+[node name="Static Craving Text" type="RichTextLabel" parent="HBoxContainer"]
+clip_contents = false
 layout_mode = 2
-size_flags_vertical = 8
-text = "Time left: 0"
+size_flags_vertical = 2
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1] I... Crave..."
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
+
+[node name="Body" type="RichTextLabel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+fit_content = true
+scroll_active = false
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Time Limit" type="RichTextLabel" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[shake rate=10.0 level=5 connected=1] Time left: 0"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "- 100"
+label_settings = SubResource("LabelSettings_sg7wt")
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_sg7wt")
+expand_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_card_hover_sound"]

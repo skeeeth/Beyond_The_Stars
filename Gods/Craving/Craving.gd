@@ -7,8 +7,8 @@ enum craving_types{RES, LANE, HAND}
 var type:craving_types
 
 @export var card_odds_per_tier:Array[float]
-@onready var rich_text_label: RichTextLabel = $RichTextLabel
-@onready var time_limit_label: Label = $"Time Limit"
+@export var rich_text_label: RichTextLabel
+@export var time_limit_label: RichTextLabel
 
 var resource_matrix:Dictionary[RM.types,int] = {
 	RM.types.RED: 0,
@@ -20,7 +20,8 @@ var active:bool = false
 var time_limit:int = 2:
 	set(v):
 		time_limit = v
-		time_limit_label.text = "Cycles left: %s" % time_limit
+		time_limit_label.remove_paragraph(0)
+		time_limit_label.append_text("Cycles left %s" % time_limit)
 	get:
 		return time_limit
 
@@ -40,6 +41,8 @@ func set_resource_craving(tier:int):
 	type = craving_types.RES
 	match tier:
 		1, 2:
+			#for i in resource_matrix:
+				#resource_matrix[i] = 1
 			var key = resource_matrix.keys().pick_random()
 			resource_matrix[key] = tier  * 3
 		_:
@@ -54,18 +57,20 @@ func set_resource_craving(tier:int):
 func set_card_craving(_tier):
 	time_limit = 2
 	type = craving_types.LANE
-	rich_text_label.text = "Hungry for card"
+	rich_text_label.append_text("\nHungry for card")
 
 func display_card_craving():
-	var string:String = ""
+	#var string:String = ""
 	for i in resource_matrix:
+		rich_text_label.newline()
 		if resource_matrix[i] == 0:
 			continue
-		var new_text:String = RM.names[i]
-		new_text += ": %s \n" % resource_matrix[i]
-		string += new_text
-		
-	rich_text_label.text = string
+		# new_text:String = RM.names[i]
+		#new_text += ": %s \n" % resource_matrix[i]
+		#string += new_text
+		rich_text_label.add_image(RM.resource_icons[i],64,64)
+		rich_text_label.append_text(": %s " % resource_matrix[i])
+
 
 func try_pay():
 	if type == craving_types.LANE:
