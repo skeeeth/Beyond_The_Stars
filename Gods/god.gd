@@ -38,7 +38,7 @@ var tier_up_queued:bool = false
 #@export var boon_pool:Array[Boon]
 @export var aura_strategies:Array[BaseCardStrategy]
 @export var highlighter:Highlighter
-@onready var boon_display: BoonHistoryDisplay = $"Boon Display"
+@onready var boon_display: BoonHistoryDisplay = $"Boon History"
 
 
 var boon_history:Array[Boon]

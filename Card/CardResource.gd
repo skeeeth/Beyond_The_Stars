@@ -4,7 +4,7 @@ class_name CardData
 signal temp_values_cleared
 
 @export var card_name:String = "Card Name"
-@export var texture = preload("res://Assets/GruntDevoteeCard01.png")
+@export var texture:Texture2D # = preload("res://Assets/GruntDevoteeCard01.png")
 #@export var description:String = ""
 @export var keywords:Array[Keyword]
 

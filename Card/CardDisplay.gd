@@ -11,7 +11,7 @@ signal released
 
 const SELF_SCENE = preload("uid://t05wdcm7wbwt")
 
-static var card_size:Vector2 = Vector2(279, 534) #not synced with custom_minimum_size! Change both manually
+static var card_size:Vector2 = Vector2(271, 486) #not synced with custom_minimum_size! Change both manually
 
 var draggable:bool = false
 var last_color_stat_snapshot:Dictionary
@@ -22,10 +22,12 @@ var card_deal_sound# = FmodServer.create_event_instance("event:/Card Deal")
 @onready var tooltip_position: Node2D = $"Tooltip Position"
 var being_dragged:bool = false
 @export var favor_label:Label
+@export var icon:TextureRect
 
 static func create_from_data(res:CardData) -> CardDisplay:
 	var new_card:CardDisplay = SELF_SCENE.instantiate()
 	new_card.data = res
+	new_card.icon.texture = res.texture
 	new_card.last_color_stat_snapshot = res.get_adjusted_abs_values()
 	new_card.last_grey_stat_snapshot = res.get_adjusted_rel_values()
 	new_card.last_favor = res.get_adjusted_favor()

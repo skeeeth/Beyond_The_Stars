@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://hldtdhotkij" path="res://Assets/CardNinepatch.png" id="2_wpxes"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nknms"]
-content_margin_top = 58.0
+content_margin_top = 47.0
 texture = ExtResource("2_wpxes")
 texture_margin_left = 32.0
 texture_margin_right = 32.0

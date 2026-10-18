@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://cipv4ypbnion5"]
+
+[ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="1_hvvie"]
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="2_xx1xv"]
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="3_23xc1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hm0aw"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Card_AgInvestor_grey.png-8ea4cc640deda097bc74ee98b2bfd1b0.ctex"
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_23xc1")
+card_name = "Agnostic Investor"
+texture = SubResource("CompressedTexture2D_hm0aw")
+relative_scoring = Dictionary[int, int]({
+-1: 1,
+0: 0,
+1: 1
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"

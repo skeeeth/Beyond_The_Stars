@@ -1,16 +1,19 @@
 extends PanelContainer
 class_name BoonHistoryDisplay
 
-@onready var container: BoxContainer = $Container
-var displays:Array[BoonDisplay]
+#@onready var container: BoxContainer = $Container
+@export var displays:Array[BoonDisplay]
 @export var locked_boon:Boon
 
+
 func _ready() -> void:
-	for node in container.get_children():
-		displays.append(node)
+	#for node in container.get_children():
+		#displays.append(node)
 	
+	var empty_stylebox:StyleBox = StyleBoxEmpty.new()
 	for d in displays:
-		d.mouse_filter = Control.MOUSE_FILTER_PASS
+		d.mouse_filter = Control.MouseFilter.MOUSE_FILTER_IGNORE
+		d.add_theme_stylebox_override("panel", empty_stylebox)
 		
 	display_boons([])
 

@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://cq1wvwhwhegmw"]
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://cq1wvwhwhegmw"]
 
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="1_53fg2"]
 [ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="1_f85te"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_f85te"]
 [ext_resource type="Resource" uid="uid://cs2q1ba18sn7r" path="res://Card/Keywords/Grow.tres" id="2_qbigr"]
+[ext_resource type="Texture2D" uid="uid://cjvqqme3v0npr" path="res://Assets/Cards/Card_GrowingWorm_ Grey.png" id="5_qbigr"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2_f85te")
 card_name = "Growing Worm"
+texture = ExtResource("5_qbigr")
 keywords = Array[ExtResource("1_f85te")]([ExtResource("2_qbigr")])
 relative_scoring = Dictionary[int, int]({
 -1: 0,

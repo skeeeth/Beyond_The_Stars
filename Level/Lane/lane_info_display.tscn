@@ -31,7 +31,7 @@ offset_right = 155.99994
 offset_bottom = 9.0
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(46, 679)
+position = Vector2(28.000002, 681)
 scale = Vector2(0.445, 0.445)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Node2D"]

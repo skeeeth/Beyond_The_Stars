@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="1_4bp2q"]
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="1_jjvko"]
 [ext_resource type="Script" uid="uid://wy5mxf6n00h8" path="res://Card/Strategy/Scripts/GrowOnPlay.gd" id="2_4bp2q"]
-[ext_resource type="Texture2D" uid="uid://nlj7ok8bhsos" path="res://Assets/GruntDevoteeCard01.png" id="4_85vrt"]
+[ext_resource type="Texture2D" uid="uid://8v4cv4v6ccw0" path="res://Assets/Cards/Card_RavenousWorm_Grey.png" id="6_kkj2d"]
 
 [sub_resource type="Resource" id="Resource_jjvko"]
 script = ExtResource("1_3a5us")
@@ -21,8 +21,10 @@ growth_pattern = SubResource("Resource_jjvko")
 metadata/_custom_type_script = "uid://wy5mxf6n00h8"
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_3a5us")
 card_name = "Ravenous Worm"
+texture = ExtResource("6_kkj2d")
 relative_scoring = Dictionary[int, int]({
 -1: 0,
 0: 8,

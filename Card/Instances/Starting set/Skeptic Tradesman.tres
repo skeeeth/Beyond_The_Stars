@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://cipv4ypbnion5"]
+
+[ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="1_66kjy"]
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="2_btngn"]
+[ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="3_2chyk"]
+[ext_resource type="Texture2D" uid="uid://bpsg181pc1bl1" path="res://Assets/Cards/Card_ tradesman_grey.png" id="4_66kjy"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_2chyk")
+card_name = "Skeptic Tradesman"
+texture = ExtResource("4_66kjy")
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 3,
+1: 0
+})
+favor = -25
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"

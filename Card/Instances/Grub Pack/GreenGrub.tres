@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://b0ffta8l0ctae"]
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://b0ffta8l0ctae"]
 
 [ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="1_1lq30"]
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="2_qob7k"]
 [ext_resource type="Resource" uid="uid://b2irdy1jwrbvc" path="res://Card/Keywords/Grub.tres" id="2_uwtew"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="3_uwtew"]
+[ext_resource type="Texture2D" uid="uid://hty2tji3flm8" path="res://Assets/Cards/Card_GreenGrub.png" id="5_uwtew"]
 
 [resource]
 script = ExtResource("3_uwtew")
 card_name = "Green Grub"
+texture = ExtResource("5_uwtew")
 keywords = Array[ExtResource("1_1lq30")]([ExtResource("2_uwtew")])
 absolute_scoring = Dictionary[int, int]({
 0: 0,

@@ -7,7 +7,7 @@
 [node name="TopBar" type="PanelContainer"]
 custom_minimum_size = Vector2(1920, 64)
 offset_right = 1920.0
-offset_bottom = 92.0
+offset_bottom = 64.0
 theme = ExtResource("1_f84f6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -25,4 +25,5 @@ layout_mode = 2
 type = 2
 
 [node name="Control4" parent="HBoxContainer" instance=ExtResource("2_6dc8k")]
+visible = false
 layout_mode = 2

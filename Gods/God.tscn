@@ -66,6 +66,7 @@ texture = ExtResource("3_1wvvq")
 expand_mode = 2
 
 [node name="Craving" parent="." instance=ExtResource("3_m5r1x")]
+visible = false
 offset_left = 374.0
 offset_top = 111.0
 offset_right = 638.0
@@ -77,13 +78,12 @@ canvas_group = NodePath("../CanvasGroup")
 highlight_color = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://dnsitrioyh1hj"
 
-[node name="Boon Display" parent="." instance=ExtResource("5_66s73")]
-visible = false
-offset_left = 319.0
-offset_top = -72.0
-offset_right = 804.0
-offset_bottom = 87.0
-mouse_filter = 2
+[node name="Boon History" parent="." instance=ExtResource("5_66s73")]
+offset_left = -279.0
+offset_top = -120.0
+offset_right = -23.0
+offset_bottom = 365.0
+mouse_filter = 0
 
 [connection signal="mouse_entered" from="CanvasGroup/VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasGroup/VBoxContainer" to="." method="_on_v_box_container_mouse_exited"]

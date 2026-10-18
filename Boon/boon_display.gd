@@ -104,6 +104,7 @@ func hide_body():
 	%RichTextLabel.hide()
 	card_container.hide()
 
+@warning_ignore("unused_parameter")
 func display_cards(cards:Array[CardData]):
 	return
 	#for card in cards:

@@ -1,6 +1,7 @@
 extends BaseCardStrategy
 class_name GrowKeywordStrategy
 
+@warning_ignore("unused_parameter")
 func apply(card:CardData,lane:Lane,active_cards:Array[CardDisplay]):
 	
 	var filter_add = func(read:Dictionary,write:Dictionary):

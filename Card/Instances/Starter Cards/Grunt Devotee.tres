@@ -3,13 +3,16 @@
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="1_ecwho"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="1_ivkkq"]
 [ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="1_xubp3"]
-[ext_resource type="Resource" uid="uid://bfjbywhuhnccv" path="res://Card/Keywords/Warrior.tres" id="2_xubp3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xubp3"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Card_gruntdevotee.png-cbadf53dd811339fe1a98683df7a8670.ctex"
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_ivkkq")
 card_name = "Grunt Devotee"
-keywords = Array[ExtResource("1_xubp3")]([ExtResource("2_xubp3")])
+texture = SubResource("CompressedTexture2D_xubp3")
 resource_costs = Dictionary[int, int]({
 0: 0,
 1: 0,
