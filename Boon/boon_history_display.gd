@@ -1,7 +1,7 @@
 extends PanelContainer
 class_name BoonHistoryDisplay
 
-@onready var container: BoxContainer = $Container
+@onready var container: VBoxContainer = $Container
 var displays:Array[BoonDisplay]
 @export var locked_boon:Boon
 
@@ -20,7 +20,7 @@ func display_boons(boons:Array[Boon]):
 		displays[i].set_boon(b)
 		i += 1
 	
-	while i < God.favor_tiers.size()-1:
+	while i < God.favor_tiers.size():
 		displays[i].set_boon(locked_boon)
 		displays[i].hide_body()
 		i += 1

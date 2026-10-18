@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=32 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="Script" uid="uid://bwap3b66q8u8y" path="res://Level/WorldCardDisplay.gd" id="1_kwlfk"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://dshudyqgv164x" path="res://Assets/Kenny Lightmasks/shape_a_inverted.png" id="11_s4lld"]
 [ext_resource type="PackedScene" uid="uid://dn8hhitufyxi8" path="res://Level/Game End/GameEnd.tscn" id="12_xju0t"]
 [ext_resource type="PackedScene" uid="uid://bu8cmomwet08m" path="res://Level/Lane/lane_info_display.tscn" id="18_lcjul"]
-[ext_resource type="Material" uid="uid://cye8u3qvxc24j" path="res://Assets/CardMaterial.tres" id="19_abuqb"]
 
 [sub_resource type="Resource" id="Resource_lcjul"]
 resource_local_to_scene = true
@@ -265,15 +264,6 @@ auto_release = true
 fmod_parameters/Cycle/id = -1888767007511780636
 fmod_parameters/Cycle = 1
 fmod_parameters/Cycle/variant_type = 2
-
-[node name="Paper BG?" type="ColorRect" parent="."]
-visible = false
-z_index = -999
-material = ExtResource("19_abuqb")
-offset_left = -608.0
-offset_top = -1303.0
-offset_right = 1929.0
-offset_bottom = 3041.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -38,7 +38,6 @@ description = "give [[0/1/1/0/1/1]]"
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(159, 159)
 layout_mode = 2
 texture = ExtResource("4_1oy8l")
 expand_mode = 2

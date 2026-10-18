@@ -1,14 +1,14 @@
 shader_type canvas_item;
 
 uniform sampler2D noise;
-uniform vec4 base_color: source_color;
+uniform vec4 base_color;
 uniform float noise_strength: hint_range(0.0, 1.0, 0.05);
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
-	COLOR = mix(base_color,texture(noise,UV),noise_strength);
+	COLOR = mix(texture(TEXTURE,UV),texture(noise,UV),noise_strength);
 	//COLOR = ;
 	// Called for every pixel the material is visible on.
 }
