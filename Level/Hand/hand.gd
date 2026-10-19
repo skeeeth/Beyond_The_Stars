@@ -9,6 +9,11 @@ static var card_pool:Array[CardData]
 @export var container:Container
 @export var starting_cards:int = 3
 @export var max_hand_size:int = 8
+#@onready var hand_label: Label = $"Hand Label"
+var cards_in_hand:int = 0:
+	set(v):
+		cards_in_hand = v
+		%"Hand Label".text = "Hand (%s/%s)" % [cards_in_hand,max_hand_size]
 
 var draw_cost:int = 0:
 	set(v):
@@ -30,6 +35,7 @@ func _ready() -> void:
 	draw_cost = 0
 
 func draw_one():
+	cards_in_hand += 1
 	#Play card draw audio
 	var card_deal_sound = FmodServer.create_event_instance("event:/Card Deal")
 	card_deal_sound.start()
@@ -42,6 +48,7 @@ func draw_one():
 	new_card.display()
 	new_card.grabbed.connect(card_grabbed.emit)
 	new_card.released.connect(card_released.emit)
+	new_card.tree_exiting.connect(on_card_leaving_tree)
 	container.add_child(new_card)
 
 
@@ -56,12 +63,17 @@ func draw_fail():
 	pass
 
 func _on_button_pressed() -> void:
-
+	if cards_in_hand >= max_hand_size:
+		draw_fail()
+		return
+	
 	if RM.try_spend(RM.types.BLUE,draw_cost):
 		var UI_confirm_sound = FmodServer.create_event_instance("event:/UI Confirm")
 		UI_confirm_sound.start()
 		UI_confirm_sound.release()
 		draw_one()
+	else:
+		draw_fail()
 	
 func button_hover() -> void:
 	var button_hover_sound = FmodServer.create_event_instance("event:/UI Hover")
@@ -69,5 +81,12 @@ func button_hover() -> void:
 	button_hover_sound.release()
 
 
-func on_card_entered():
+func on_card_leaving_tree():
+	cards_in_hand -= 1
 	pass
+
+#func _on_small_child_exiting_tree(node: Node) -> void:
+	#print(node)
+	#cards_in_hand -= 1
+	#
+	#pass # Replace with function body.
