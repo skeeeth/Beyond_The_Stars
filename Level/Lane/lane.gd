@@ -135,9 +135,12 @@ func play():
 		strategy_tween.tween_property(c,"position:y", starting_y - 20, 0.05)
 		
 		#play scoring sound on animiation
-		var score_sound = FmodServer.create_event_instance("event:/Bell")
-		score_sound.start()
-		score_sound.release()
+		var play_score_sound = func pss(): #full call as lambda
+			var score_sound = FmodServer.create_event_instance("event:/Bell")
+			score_sound.start()
+			score_sound.release()
+		strategy_tween.tween_callback(play_score_sound)
+		
 		var apply_strategy_stack = func(strategies:Array[BaseCardStrategy]):
 			for s in strategies:
 				strategy_tween.tween_callback(s.apply.bind(c.data,self,active_cards))

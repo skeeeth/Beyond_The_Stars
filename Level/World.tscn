@@ -216,14 +216,14 @@ metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 [node name="World" type="Node2D" node_paths=PackedStringArray("card_display", "viewport_effects")]
 texture_filter = 4
 script = ExtResource("1_kwlfk")
-card_display = NodePath("Camera2D/CanvasLayer2/CenterContainer")
-viewport_effects = NodePath("Camera2D/Viewport effects")
+card_display = NodePath("Camera2D/CanvasLayer2/ViewFollow World/CenterContainer")
+viewport_effects = NodePath("Camera2D/CanvasLayer2/ViewFollow World/Viewport effects")
 
 [node name="Lanes" type="Node2D" parent="." node_paths=PackedStringArray("lanes", "info_display", "hand", "cam")]
 script = ExtResource("4_vjs1q")
 lanes = [NodePath("Lane"), NodePath("Lane2"), NodePath("Lane3")]
-info_display = NodePath("../Camera2D/CanvasLayer2/Lane Info Display")
-hand = NodePath("../Camera2D/CanvasLayer2/Hand")
+info_display = NodePath("../Camera2D/CanvasLayer2/ViewFollow World/Lane Info Display")
+hand = NodePath("../Camera2D/CanvasLayer2/ViewFollow World/Hand")
 cam = NodePath("../Camera2D")
 
 [node name="Lane" parent="Lanes" instance=ExtResource("1_hleuw")]
@@ -294,51 +294,61 @@ offset_bottom = 3041.0
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Camera2D"]
 
-[node name="Hand" parent="Camera2D/CanvasLayer2" instance=ExtResource("5_0obbo")]
+[node name="ViewFollow World" type="Node2D" parent="Camera2D/CanvasLayer2"]
+texture_filter = 4
+
+[node name="Hand" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("5_0obbo")]
 position = Vector2(0, 755.1)
 starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_pstpm"), SubResource("Resource_33gh6"), SubResource("Resource_dkxd2"), SubResource("Resource_qcenn"), SubResource("Resource_pstpm"), SubResource("Resource_wgige")])
 
-[node name="TopBar" parent="Camera2D/CanvasLayer2" instance=ExtResource("2_e0a3j")]
+[node name="TopBar" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("2_e0a3j")]
+offset_left = 300.0
+offset_right = 1308.9994
+offset_bottom = 70.0
 
-[node name="Action Manager" parent="Camera2D/CanvasLayer2/TopBar/SuperBar/PanelContainer" index="0" node_paths=PackedStringArray("lanes", "hand", "gm", "bgm_node")]
-lanes = [NodePath("../../../../../../Lanes/Lane"), NodePath("../../../../../../Lanes/Lane2"), NodePath("../../../../../../Lanes/Lane3")]
+[node name="Action Manager" parent="Camera2D/CanvasLayer2/ViewFollow World/TopBar/SuperBar/PanelContainer" index="0" node_paths=PackedStringArray("lanes", "hand", "gm", "bgm_node")]
+lanes = [NodePath("../../../../../../../Lanes/Lane"), NodePath("../../../../../../../Lanes/Lane2"), NodePath("../../../../../../../Lanes/Lane3")]
 hand = NodePath("../../../../Hand")
 gm = NodePath("../../../../God Manager")
-bgm_node = NodePath("../../../../../../BGM Node")
+bgm_node = NodePath("../../../../../../../BGM Node")
 
-[node name="God Manager" parent="Camera2D/CanvasLayer2" node_paths=PackedStringArray("lanes", "action_manager") instance=ExtResource("7_u7eci")]
-lanes = [NodePath("../../../Lanes/Lane"), NodePath("../../../Lanes/Lane2"), NodePath("../../../Lanes/Lane3")]
+[node name="God Manager" parent="Camera2D/CanvasLayer2/ViewFollow World" node_paths=PackedStringArray("lanes", "action_manager") instance=ExtResource("7_u7eci")]
+lanes = [NodePath("../../../../Lanes/Lane"), NodePath("../../../../Lanes/Lane2"), NodePath("../../../../Lanes/Lane3")]
 action_manager = NodePath("../TopBar/SuperBar/PanelContainer/Action Manager")
 
-[node name="Lane Info Display" parent="Camera2D/CanvasLayer2" instance=ExtResource("18_lcjul")]
+[node name="Lane Info Display" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("18_lcjul")]
 position = Vector2(0, -142.44)
 
-[node name="CenterContainer" type="CenterContainer" parent="Camera2D/CanvasLayer2" node_paths=PackedStringArray("container")]
-visible = false
+[node name="CenterContainer" type="CenterContainer" parent="Camera2D/CanvasLayer2/ViewFollow World" node_paths=PackedStringArray("container")]
 self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("6_svajd")
 container = NodePath("HBoxContainer")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer2/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer2/ViewFollow World/CenterContainer"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer2/CenterContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer2/ViewFollow World/CenterContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Test"
 
-[node name="Viewport effects" type="Node2D" parent="Camera2D"]
+[node name="Viewport effects" type="Node2D" parent="Camera2D/CanvasLayer2/ViewFollow World"]
 script = ExtResource("2_o6fwa")
 sacrifice_color = Color(0.47058824, 0.47058824, 0.47058824, 1)
 buff_color = Color(0.63483334, 0.65, 0.468, 1)
 
-[node name="Edge Light" type="PointLight2D" parent="Camera2D/Viewport effects"]
+[node name="Edge Light" type="PointLight2D" parent="Camera2D/CanvasLayer2/ViewFollow World/Viewport effects"]
 position = Vector2(900, 547)
 scale = Vector2(6.69, -3.24)
 color = Color(0.47, 0.47, 0.47, 1)
@@ -357,4 +367,4 @@ texture = ExtResource("11_s4lld")
 [editable path="Lanes/Lane2"]
 [editable path="Lanes/Lane3"]
 [editable path="End Screen"]
-[editable path="Camera2D/CanvasLayer2/TopBar"]
+[editable path="Camera2D/CanvasLayer2/ViewFollow World/TopBar"]

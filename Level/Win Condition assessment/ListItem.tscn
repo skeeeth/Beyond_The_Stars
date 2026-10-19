@@ -1,22 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3wdlkmqqja5a"]
+[gd_scene load_steps=7 format=3 uid="uid://b3wdlkmqqja5a"]
 
+[ext_resource type="Theme" uid="uid://d2n7pa4128l2a" path="res://Level/Win Condition assessment/ChecklistTheme.tres" id="1_a36an"]
 [ext_resource type="Script" uid="uid://dy42nfn3bjxri" path="res://Level/Win Condition assessment/list_item.gd" id="1_r40bm"]
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="2_b0sql"]
+[ext_resource type="Texture2D" uid="uid://hfnb7rml8tie" path="res://Assets/Cards/CardBG_Grey.png" id="4_nt1ai"]
+[ext_resource type="Texture2D" uid="uid://bp0qbfbdftidd" path="res://Assets/Cards/CardBG_Checked.png" id="5_nt1ai"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a36an"]
+font = ExtResource("2_b0sql")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
 
 [node name="List Item" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 size_flags_vertical = 6
+theme = ExtResource("1_a36an")
 script = ExtResource("1_r40bm")
 
 [node name="Text" type="Label" parent="."]
 layout_mode = 2
 text = "Total converts: x/100"
+label_settings = SubResource("LabelSettings_a36an")
 
-[node name="CheckBox" type="CheckBox" parent="."]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
-button_mask = 0
+size_flags_vertical = 4
+max_value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_nt1ai")
+texture_progress = ExtResource("5_nt1ai")
 
 [node name="Button" type="Button" parent="."]
-visible = false
 layout_mode = 2
 disabled = true
 

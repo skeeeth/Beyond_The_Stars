@@ -5,14 +5,16 @@ signal cleared
 signal button_pressed
 
 @onready var label: Label = $Text
-@onready var check_box: CheckBox = $CheckBox
+#@onready var check_box: CheckBox = $CheckBox
 @onready var button: Button = $Button
+var is_cleared:bool = false
+@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 
 func check():
-	if check_box.button_pressed:
+	if is_cleared:
 		return
-	
-	check_box.button_pressed = true
+	texture_progress_bar.value = 1
+	#check_box.button_pressed = true
 	cleared.emit()
 
 
