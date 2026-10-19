@@ -12,6 +12,8 @@ static var instance:WinChecklist #give reference
 @onready var soul_fragment: WinListItem = %"Soul Fragment"
 @onready var great_feast: WinListItem = %"Great Feast"
 @onready var checklist_panel: PanelContainer = $"HBoxContainer/Checklist Panel"
+@onready var h_box_container: VBoxContainer = $HBoxContainer
+
 @onready var spacer: Control = $HBoxContainer/Spacer
 
 
@@ -73,4 +75,4 @@ func on_sacrifice_selected(card_display:CardDisplay):
 #endregion
 
 func _on_pressed() -> void:
-	checklist_panel.visible = !checklist_panel.visible
+	h_box_container.visible = !h_box_container.visible

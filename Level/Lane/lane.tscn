@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djelkq3gxvrft"]
+[gd_scene load_steps=13 format=3 uid="uid://djelkq3gxvrft"]
 
 [ext_resource type="Theme" uid="uid://bql5e0cm2pyh8" path="res://Level/Lane/UI Theme.tres" id="1_1uh1k"]
 [ext_resource type="Script" uid="uid://dpj87j1ut8bw3" path="res://Level/Lane/lane.gd" id="1_rr5i5"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://c8lihsm427v3f" path="res://Level/Lane/resource_map.tscn" id="8_xrdmo"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="9_4kl2l"]
 [ext_resource type="Texture2D" uid="uid://13ox0tece8j7" path="res://LaneBorderBlack.png" id="9_5wohj"]
-[ext_resource type="PackedScene" uid="uid://bvsrixsn17ly8" path="res://Level/Win Condition assessment/WinChecklist.tscn" id="12_tbp5f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uh1k"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -121,13 +120,6 @@ lane = NodePath("..")
 
 [node name="Card Start Position" type="Node2D" parent="."]
 position = Vector2(-80, 74)
-
-[node name="Win Condition" parent="." instance=ExtResource("12_tbp5f")]
-layout_mode = 1
-offset_left = 597.0
-offset_top = 535.0
-offset_right = 697.0
-offset_bottom = 635.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

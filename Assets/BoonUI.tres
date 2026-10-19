@@ -1,6 +1,10 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://d0qvm744k8k3i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cctf"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
 bg_color = Color(0.52, 0.52, 0.52, 0.5568628)
 
 [resource]

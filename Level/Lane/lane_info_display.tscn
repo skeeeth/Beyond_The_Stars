@@ -38,8 +38,8 @@ scale = Vector2(0.445, 0.445)
 z_index = -1
 offset_left = -43.0
 offset_top = -384.0
-offset_right = 734.4193
-offset_bottom = 990.19336
+offset_right = 951.0919
+offset_bottom = 1456.3767
 scale = Vector2(0.31, 0.31)
 texture = ExtResource("3_qb4x7")
 region_rect = Rect2(1, 8, 751, 792)
@@ -51,8 +51,8 @@ patch_margin_bottom = 210
 [node name="PanelContainer" type="PanelContainer" parent="Node2D"]
 offset_left = -16.0
 offset_top = -345.0
-offset_right = 256.0
-offset_bottom = 5.0
+offset_right = 368.5393
+offset_bottom = 143.82019
 theme_override_styles/panel = SubResource("StyleBoxTexture_h2kbe")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Node2D/PanelContainer"]

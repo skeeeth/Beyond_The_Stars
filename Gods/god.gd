@@ -27,8 +27,9 @@ const god_names:Dictionary[GODS,String] = {
 
 @export var max_favor:int = 1000
 @export var lane_sprite:Texture2D
+@export var middle_sprite:Texture2D
 @export var true_sprite:Texture2D
-@export var nav_icon:Texture2D
+#@export var nav_icon:Texture2D
 @export var texture_rect: TextureRect
 @export var craving:Craving
 

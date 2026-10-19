@@ -1,21 +1,27 @@
-[gd_scene load_steps=17 format=3 uid="uid://djvyr8av4rgyw"]
+[gd_scene load_steps=23 format=3 uid="uid://djvyr8av4rgyw"]
 
 [ext_resource type="Script" uid="uid://bjmii7tqwywfq" path="res://Level/god_manager.gd" id="1_pqgjq"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="2_dqsry"]
 [ext_resource type="PackedScene" uid="uid://dg8sjc86dqcao" path="res://Boon/Boon Pool/Boon_Pool.tscn" id="3_dqsry"]
 [ext_resource type="Texture2D" uid="uid://beixhppmj4o4b" path="res://Assets/Gods/GanthForm2.png" id="3_ltjxn"]
+[ext_resource type="Texture2D" uid="uid://dhdasc3qfid8" path="res://Assets/Gods/GanthForm1.png" id="3_rx3h6"]
 [ext_resource type="Texture2D" uid="uid://ck26tji7spnx" path="res://Assets/Gods/GanthForm3.png" id="4_ltjxn"]
-[ext_resource type="Texture2D" uid="uid://bvxkxdfg51jne" path="res://Assets/Placeholder/Wip/GodBeauty03_WIP.png" id="5_ltjxn"]
 [ext_resource type="Texture2D" uid="uid://o7wo2ciuo1de" path="res://Assets/Gods/KolmaForm1(1).png" id="5_rx3h6"]
-[ext_resource type="Texture2D" uid="uid://wc37ox281hkk" path="res://Assets/Placeholder/KnightWIP_atlas.tres" id="6_na2wg"]
+[ext_resource type="Texture2D" uid="uid://c1t5mox8tbvcc" path="res://Assets/Gods/KolmaForm2_Ver2.png" id="7_6qq0n"]
 [ext_resource type="Texture2D" uid="uid://cjrpr3rkcv82c" path="res://Assets/Gods/MahuaxForm3.png" id="7_k2roj"]
+[ext_resource type="Texture2D" uid="uid://chsgmmkraje6v" path="res://Assets/Gods/KolmaForm3.png" id="8_nxgok"]
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="8_wi2ff"]
+[ext_resource type="Texture2D" uid="uid://c7n6sol0hlxac" path="res://Assets/Gods/MahuaxForm1.png" id="9_6qq0n"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="9_cm3bx"]
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="10_hit43"]
 [ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="10_msp0b"]
+[ext_resource type="Texture2D" uid="uid://b2buvvqk2fr6k" path="res://Assets/Gods/MahuaxForm2.png" id="10_nxgok"]
+[ext_resource type="Texture2D" uid="uid://c3vcpa3euwhp5" path="res://Assets/Gods/MyggosForm1.png" id="12_faw51"]
 [ext_resource type="PackedScene" uid="uid://dekf8nbom4dk6" path="res://Level/cycle_animation.tscn" id="13_msp0b"]
+[ext_resource type="Texture2D" uid="uid://d168hyi24n5o2" path="res://Assets/Gods/MyggosForm2.png" id="13_oxw7b"]
+[ext_resource type="Texture2D" uid="uid://5o1m7ecqsoqu" path="res://Assets/Gods/MyggosForm3.png" id="14_nd15h"]
 
-[sub_resource type="Resource" id="Resource_ltjxn"]
+[sub_resource type="Resource" id="Resource_xgq5k"]
 resource_local_to_scene = true
 script = ExtResource("9_cm3bx")
 card_name = "Grunt Worker"
@@ -31,7 +37,7 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_rx3h6"]
+[sub_resource type="Resource" id="Resource_n5pov"]
 resource_local_to_scene = true
 script = ExtResource("9_cm3bx")
 card_name = "Grunt Devotee"
@@ -45,26 +51,30 @@ metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [node name="God Manager" type="Node2D" node_paths=PackedStringArray("gods")]
 script = ExtResource("1_pqgjq")
-gods = [NodePath("Ganth"), NodePath("B"), NodePath("C"), NodePath("D")]
+gods = [NodePath("Ganth"), NodePath("Kolma"), NodePath("Mahuax"), NodePath("Myggos")]
 
 [node name="Ganth" parent="." instance=ExtResource("2_dqsry")]
-lane_sprite = ExtResource("3_ltjxn")
+lane_sprite = ExtResource("3_rx3h6")
+middle_sprite = ExtResource("3_ltjxn")
 true_sprite = ExtResource("4_ltjxn")
 
-[node name="B" parent="." instance=ExtResource("2_dqsry")]
+[node name="Kolma" parent="." instance=ExtResource("2_dqsry")]
 identity = 1
 lane_sprite = ExtResource("5_rx3h6")
-true_sprite = ExtResource("5_ltjxn")
+middle_sprite = ExtResource("7_6qq0n")
+true_sprite = ExtResource("8_nxgok")
 
-[node name="C" parent="." instance=ExtResource("2_dqsry")]
+[node name="Mahuax" parent="." instance=ExtResource("2_dqsry")]
 identity = 2
-lane_sprite = ExtResource("7_k2roj")
+lane_sprite = ExtResource("9_6qq0n")
+middle_sprite = ExtResource("10_nxgok")
 true_sprite = ExtResource("7_k2roj")
 
-[node name="D" parent="." instance=ExtResource("2_dqsry")]
+[node name="Myggos" parent="." instance=ExtResource("2_dqsry")]
 identity = 3
-lane_sprite = ExtResource("6_na2wg")
-true_sprite = ExtResource("6_na2wg")
+lane_sprite = ExtResource("12_faw51")
+middle_sprite = ExtResource("13_oxw7b")
+true_sprite = ExtResource("14_nd15h")
 
 [node name="BoonPool" parent="." instance=ExtResource("3_dqsry")]
 
@@ -76,7 +86,7 @@ offset_top = 461.0
 offset_right = 899.0
 offset_bottom = 461.0
 mouse_filter = 2
-deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_ltjxn"), SubResource("Resource_rx3h6")])
+deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_xgq5k"), SubResource("Resource_n5pov")])
 
 [node name="Away Point" type="Node2D" parent="."]
 position = Vector2(2123, 532)

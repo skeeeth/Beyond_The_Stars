@@ -214,6 +214,7 @@ absolute_scoring = Dictionary[int, int]({
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("card_display", "viewport_effects")]
+texture_filter = 4
 script = ExtResource("1_kwlfk")
 card_display = NodePath("Camera2D/CanvasLayer2/CenterContainer")
 viewport_effects = NodePath("Camera2D/Viewport effects")

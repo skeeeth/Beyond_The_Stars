@@ -1715,11 +1715,12 @@ texture = ExtResource("3_b7xga")
 expand_mode = 1
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -47.0
+offset_left = -18.0
 offset_top = 102.0
 offset_right = 320.0
 offset_bottom = 746.0
@@ -1736,7 +1737,6 @@ texture = ExtResource("3_b7xga")
 stretch_mode = 4
 
 [node name="Checklist Panel" type="PanelContainer" parent="HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
