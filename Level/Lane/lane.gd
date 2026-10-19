@@ -24,6 +24,8 @@ var card_plays:int = 0:
 	get:
 		return card_plays
 
+var score_sound
+
 #var draw_pile:Pile
 #var discard_pile:Pile
 @onready var draw_pile: Pile = %"Draw Pile"
@@ -134,10 +136,6 @@ func play():
 		var starting_y = c.position.y
 		strategy_tween.tween_property(c,"position:y", starting_y - 20, 0.05)
 		
-		#play scoring sound on animiation
-		var score_sound = FmodServer.create_event_instance("event:/Bell")
-		score_sound.start()
-		score_sound.release()
 		var apply_strategy_stack = func(strategies:Array[BaseCardStrategy]):
 			for s in strategies:
 				strategy_tween.tween_callback(s.apply.bind(c.data,self,active_cards))

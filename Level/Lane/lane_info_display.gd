@@ -34,3 +34,8 @@ func _on_up_button_pressed() -> void:
 
 func _on_down_button_pressed() -> void:
 	request_move(+1)
+	
+func _UI_hover_sound() -> void:
+	var UI_Hover = FmodServer.create_event_instance("event:/UI Hover")
+	UI_Hover.start()
+	UI_Hover.release()

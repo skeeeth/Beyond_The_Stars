@@ -9,6 +9,7 @@ extends Node2D
 @export var cam:Camera2D
 var moving:bool = false
 var lane_index:int = 1
+var lane_change_sound
 
 func _ready() -> void:
 	for i in range(lanes.size()):
@@ -36,6 +37,9 @@ func move_camera(direction:int = 1):
 	
 	camera_move.tween_property(cam,"global_position", target_lane.camera_position.global_position, 1.1).set_ease(Tween.EASE_IN_OUT)
 	camera_move.tween_callback(center_lane.bind(target_lane))
+	lane_change_sound = FmodServer.create_event_instance("event:/Lane Change")
+	lane_change_sound.start()
+	lane_change_sound.release()	
 	#cam.global_position = target_lane.camera_position.global_position
 	lane_index += direction
 

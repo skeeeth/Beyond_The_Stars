@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dw84gen3dqdh6"
+path="res://.godot/imported/Cycle Change.wav-2963b055d8332f13b827c9af66adbf67.sample"
+
+[deps]
+
+source_file="res://Beyond the Stars FMOD/Assets/Cycle Change.wav"
+dest_files=["res://.godot/imported/Cycle Change.wav-2963b055d8332f13b827c9af66adbf67.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
