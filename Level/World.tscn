@@ -320,6 +320,7 @@ lanes = [NodePath("../../../Lanes/Lane"), NodePath("../../../Lanes/Lane2"), Node
 action_manager = NodePath("../TopBar/HBoxContainer/Action Manager")
 
 [node name="Lane Info Display" parent="Camera2D/CanvasLayer2" instance=ExtResource("18_lcjul")]
+position = Vector2(0, -142.44)
 
 [node name="CenterContainer" type="CenterContainer" parent="Camera2D/CanvasLayer2" node_paths=PackedStringArray("container")]
 visible = false

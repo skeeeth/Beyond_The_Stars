@@ -11,7 +11,7 @@ signal released
 
 const SELF_SCENE = preload("uid://t05wdcm7wbwt")
 
-static var card_size:Vector2 = Vector2(300, 420) #not synced with custom_minimum_size! Change both manually
+static var card_size:Vector2 = Vector2(280, 434) #not synced with custom_minimum_size! Change both manually
 
 var draggable:bool = false
 var last_color_stat_snapshot:Dictionary

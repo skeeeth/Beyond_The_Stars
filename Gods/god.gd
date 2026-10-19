@@ -29,7 +29,7 @@ const god_names:Dictionary[GODS,String] = {
 @export var lane_sprite:Texture2D
 @export var true_sprite:Texture2D
 @export var nav_icon:Texture2D
-@onready var texture_rect: TextureRect = $CanvasGroup/VBoxContainer/TextureRect
+@export var texture_rect: TextureRect
 @export var craving:Craving
 
 static var favor_tiers:Array[int] = [0, 50, 125, 200]

@@ -2,7 +2,7 @@ extends Node2D
 
 @export var lanes:Array[Lane]
 
-@export var lane_spacing:float = 1200
+@export var lane_spacing:float = 1600
 @export var info_display:LaneInfoDisplay
 
 @export var hand:Hand

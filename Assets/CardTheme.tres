@@ -3,7 +3,6 @@
 [ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="1_e73gm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e73gm"]
-content_margin_left = 15.0
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20

@@ -10,8 +10,10 @@ font_size = 18
 font_color = Color(0, 0, 0, 1)
 
 [node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("rich_text_label", "time_limit_label")]
-offset_right = 268.0
-offset_bottom = 233.0
+offset_left = 5.0
+offset_top = -22.0
+offset_right = 273.0
+offset_bottom = 57.0
 theme = ExtResource("1_ok21u")
 theme_override_styles/panel = ExtResource("2_ok21u")
 script = ExtResource("1_ufsqf")
@@ -33,7 +35,7 @@ scroll_active = false
 horizontal_alignment = 1
 
 [node name="Body" type="RichTextLabel" parent="HBoxContainer"]
-custom_minimum_size = Vector2(0, 180)
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
