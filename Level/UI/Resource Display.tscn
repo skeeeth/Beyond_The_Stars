@@ -1,9 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://coobmrgaiqaa0"]
 
+[ext_resource type="Theme" uid="uid://bql5e0cm2pyh8" path="res://Level/Lane/UI Theme.tres" id="1_3f1wj"]
 [ext_resource type="Script" uid="uid://c65cqpaq2t3tx" path="res://Level/UI/Resource Display.gd" id="1_mwphg"]
 [ext_resource type="Texture2D" uid="uid://dq67lowvnjnsr" path="res://Assets/Icon/OfferingICON.png" id="2_kq41r"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kq41r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mwphg"]
 font_size = 24
@@ -13,9 +12,10 @@ font_color = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -1046.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_kq41r")
+theme = ExtResource("1_3f1wj")
 script = ExtResource("1_mwphg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -30,3 +30,6 @@ expand_mode = 2
 layout_mode = 2
 text = "Label"
 label_settings = SubResource("LabelSettings_mwphg")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2

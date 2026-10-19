@@ -4,6 +4,8 @@ extends Control
 @onready var label: Label = $HBoxContainer/Label
 @onready var icon: TextureRect = $HBoxContainer/Icon
 
+@export var panel_variations:Dictionary[RM.types,StyleBox]
+
 func _ready() -> void:
 	RM.resource_added.connect(on_update)
 	RM.resource_spend.connect(on_update)

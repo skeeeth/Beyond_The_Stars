@@ -47,4 +47,4 @@ func start_cycle():
 	_set_text()
 
 func _set_text():
-	text = "Actions Left: %s Cycle: %s" % [actions_left,cycle]
+	text = "Actions Left: %s \nCycle: %s" % [actions_left,cycle]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dvsbqpcyvpbjs"]
 
 [ext_resource type="Script" uid="uid://defwwvykdu5oq" path="res://Gods/god.gd" id="1_6270s"]
-[ext_resource type="Texture2D" uid="uid://dhdasc3qfid8" path="res://Assets/Gods/KolmaForm1.png" id="2_1wvvq"]
+[ext_resource type="Texture2D" uid="uid://dhdasc3qfid8" path="res://Assets/Gods/GanthForm1.png" id="2_1wvvq"]
 [ext_resource type="Texture2D" uid="uid://dfoss2qt6igr7" path="res://Assets/Icon/FavorICON.png" id="3_1wvvq"]
 [ext_resource type="PackedScene" uid="uid://cgd1v7y7gr4sc" path="res://Gods/Craving/Craving.tscn" id="3_m5r1x"]
 [ext_resource type="Script" uid="uid://dnsitrioyh1hj" path="res://Level/UI/Util/Highlighter.gd" id="4_s3vwt"]

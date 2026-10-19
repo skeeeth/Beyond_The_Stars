@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Button
 class_name WinChecklist
 
 static var instance:WinChecklist #give reference
@@ -11,11 +11,14 @@ static var instance:WinChecklist #give reference
 @onready var cult_size: WinListItem = %"Cult Size"
 @onready var soul_fragment: WinListItem = %"Soul Fragment"
 @onready var great_feast: WinListItem = %"Great Feast"
+@onready var checklist_panel: PanelContainer = $"HBoxContainer/Checklist Panel"
+@onready var spacer: Control = $HBoxContainer/Spacer
 
 
 var clears_left:int
 
 func _ready() -> void:
+	spacer.custom_minimum_size = size
 	RM.resource_added.connect(on_cultist_generated)
 	WinChecklist.instance = self
 	for item in list_items:
@@ -68,3 +71,6 @@ func on_sacrifice_selected(card_display:CardDisplay):
 		great_feast.button.queue_free()
 
 #endregion
+
+func _on_pressed() -> void:
+	checklist_panel.visible = !checklist_panel.visible

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dy42nfn3bjxri" path="res://Level/Win Condition assessment/list_item.gd" id="1_r40bm"]
 
 [node name="List Item" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+size_flags_vertical = 6
 script = ExtResource("1_r40bm")
 
 [node name="Text" type="Label" parent="."]
@@ -14,6 +16,7 @@ layout_mode = 2
 button_mask = 0
 
 [node name="Button" type="Button" parent="."]
+visible = false
 layout_mode = 2
 disabled = true
 

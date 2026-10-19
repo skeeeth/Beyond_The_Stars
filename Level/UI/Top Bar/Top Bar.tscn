@@ -1,29 +1,80 @@
-[gd_scene load_steps=4 format=3 uid="uid://7v06mp8tklo5"]
+[gd_scene load_steps=11 format=3 uid="uid://7v06mp8tklo5"]
 
 [ext_resource type="Theme" uid="uid://bql5e0cm2pyh8" path="res://Level/Lane/UI Theme.tres" id="1_f84f6"]
 [ext_resource type="PackedScene" uid="uid://coobmrgaiqaa0" path="res://Level/UI/Resource Display.tscn" id="1_qer4y"]
 [ext_resource type="PackedScene" uid="uid://bvsrixsn17ly8" path="res://Level/Win Condition assessment/WinChecklist.tscn" id="2_6dc8k"]
+[ext_resource type="Script" uid="uid://cp8eljtgcmec8" path="res://Level/action_manager.gd" id="4_bgn82"]
+[ext_resource type="StyleBox" uid="uid://d2oyfad8cfkap" path="res://Level/UI/Top Bar/ResourceRedStylebox.tres" id="4_xsvaj"]
+[ext_resource type="Texture2D" uid="uid://cdavr8svbecof" path="res://Assets/Cards/CardBg_Green.png" id="5_o6so3"]
+[ext_resource type="Texture2D" uid="uid://c0wvbbhe7f6kf" path="res://Assets/Cards/CardBG_Blue.png" id="6_o6so3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f84f6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8l60k"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("5_o6so3")
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v0hmi"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("6_o6so3")
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [node name="TopBar" type="PanelContainer"]
-custom_minimum_size = Vector2(1920, 64)
-offset_right = 1920.0
-offset_bottom = 64.0
+offset_left = 320.0
+offset_top = 5.0
+offset_right = 1600.0
+offset_bottom = 69.0
+mouse_filter = 2
 theme = ExtResource("1_f84f6")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f84f6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="SuperBar" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Control" parent="HBoxContainer" instance=ExtResource("1_qer4y")]
+[node name="PanelContainer" type="PanelContainer" parent="SuperBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Action Manager" type="Label" parent="SuperBar/PanelContainer"]
+layout_mode = 2
+text = "Cycle:
+Actions left:"
+script = ExtResource("4_bgn82")
+
+[node name="Win Condition" type="HBoxContainer" parent="SuperBar"]
 layout_mode = 2
 
-[node name="Control2" parent="HBoxContainer" instance=ExtResource("1_qer4y")]
+[node name="Resource Bar" type="HBoxContainer" parent="SuperBar"]
 layout_mode = 2
+
+[node name="Control" parent="SuperBar/Resource Bar" instance=ExtResource("1_qer4y")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_xsvaj")
+
+[node name="Control2" parent="SuperBar/Resource Bar" instance=ExtResource("1_qer4y")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8l60k")
 type = 1
 
-[node name="Control3" parent="HBoxContainer" instance=ExtResource("1_qer4y")]
+[node name="Control3" parent="SuperBar/Resource Bar" instance=ExtResource("1_qer4y")]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_v0hmi")
 type = 2
 
-[node name="Control4" parent="HBoxContainer" instance=ExtResource("2_6dc8k")]
-visible = false
+[node name="Win Checklist" parent="SuperBar" instance=ExtResource("2_6dc8k")]
 layout_mode = 2
+size_flags_horizontal = 10

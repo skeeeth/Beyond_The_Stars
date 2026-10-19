@@ -4,9 +4,9 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_46amj"]
 content_margin_left = 45.0
-content_margin_top = 45.0
+content_margin_top = 5.0
 content_margin_right = 45.0
-content_margin_bottom = 45.0
+content_margin_bottom = 5.0
 texture = ExtResource("1_46amj")
 expand_margin_left = 5.0
 expand_margin_top = 20.0

@@ -82,7 +82,8 @@ func draw_card():
 	new_card.removal_requested.connect(cards_queued_for_removal.append)
 	
 	var draw_slide = create_tween()
-	var destination = Vector2((active_cards.size()-1)  * (CardDisplay.card_size.x + x_spacing),0)
+	var destination = card_start_position.position
+	destination += Vector2((active_cards.size()-1)  * (CardDisplay.card_size.x + x_spacing),0)
 	#destination.x += x_spacing
 	draw_slide.tween_property(new_card,"position",destination,0.2).set_ease(Tween.EASE_OUT)
 	#new_card.score(type)
