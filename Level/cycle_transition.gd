@@ -16,6 +16,9 @@ func start():
 		return
 	
 	create_tween().tween_property(cycle_finished_text,"modulate",Color(Color.WHITE),1.0)
+	var cycle_transition_sound = FmodServer.create_event_instance("event:/Cycle Change")
+	cycle_transition_sound.start()
+	cycle_transition_sound.release()
 	await fade_background(true)
 	await create_tween().tween_property(cycle_finished_text,"modulate",Color(Color.WHITE,0),1.0).finished
 	step_finished.emit()
@@ -25,6 +28,9 @@ func finish():
 		step_finished.emit.call_deferred()
 		game_start_cycle = false
 		return
+	var exit_transition_sound = FmodServer.create_event_instance("event:/Cycle Transition End")
+	exit_transition_sound.start()
+	exit_transition_sound.release()
 	fade_background(false)
 	step_finished.emit()
 

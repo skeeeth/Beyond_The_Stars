@@ -120,5 +120,7 @@ size_flags_vertical = 3
 texture = ExtResource("3_diryk")
 expand_mode = 2
 
+[connection signal="mouse_entered" from="Node2D/PanelContainer/HBoxContainer/VBoxContainer2/Up Button" to="." method="_UI_hover_sound"]
 [connection signal="pressed" from="Node2D/PanelContainer/HBoxContainer/VBoxContainer2/Up Button" to="." method="_on_up_button_pressed"]
+[connection signal="mouse_entered" from="Node2D/PanelContainer/HBoxContainer/VBoxContainer2/Down Button" to="." method="_UI_hover_sound"]
 [connection signal="pressed" from="Node2D/PanelContainer/HBoxContainer/VBoxContainer2/Down Button" to="." method="_on_down_button_pressed"]
