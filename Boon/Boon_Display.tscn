@@ -68,6 +68,7 @@ mouse_filter = 1
 bbcode_enabled = true
 text = "Some Sample Text "
 fit_content = true
+vertical_alignment = 1
 
 [node name="Card Container" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 visible = false
