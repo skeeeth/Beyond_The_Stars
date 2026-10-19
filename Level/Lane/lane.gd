@@ -45,7 +45,7 @@ var god_strategies:Array[BaseCardStrategy]
 static var strategy_pause:float = 0.5
 var button_supressions:int = 0
 
-var selection_requested:bool
+var selection_requested:bool = false
 
 func _ready() -> void:
 	draw_pile.array = deck

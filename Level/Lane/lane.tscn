@@ -71,6 +71,15 @@ position = Vector2(-373, -98)
 unique_name_in_owner = true
 position = Vector2(1274, -104)
 
+[node name="Click Hitbox" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -82.0
+offset_right = 1262.0
+offset_bottom = 477.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_1uh1k")
+
 [node name="Upgrade" parent="." node_paths=PackedStringArray("lane", "resource_map_base") instance=ExtResource("7_5wohj")]
 z_index = 0
 layout_mode = 0
@@ -80,15 +89,6 @@ offset_right = 165.0
 offset_bottom = 348.0
 lane = NodePath("..")
 resource_map_base = NodePath("../Faded Display Map")
-
-[node name="Click Hitbox" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = -82.0
-offset_right = 1262.0
-offset_bottom = 477.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1uh1k")
 
 [node name="GodPosition" type="Node2D" parent="."]
 position = Vector2(1471, 598)
