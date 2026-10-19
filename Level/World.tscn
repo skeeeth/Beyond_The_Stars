@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=41 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="Script" uid="uid://bwap3b66q8u8y" path="res://Level/WorldCardDisplay.gd" id="1_kwlfk"]
@@ -7,42 +7,220 @@
 [ext_resource type="Script" uid="uid://bfccvgy7wx2x4" path="res://Level/Lane/Lane_Manager.gd" id="4_vjs1q"]
 [ext_resource type="PackedScene" uid="uid://c8beh1a7tqv1g" path="res://Level/Hand/hand.tscn" id="5_0obbo"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="5_qj8ib"]
+[ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="6_qj8ib"]
 [ext_resource type="Script" uid="uid://csr4416oud3hj" path="res://Level/canvas_layer.gd" id="6_svajd"]
-[ext_resource type="Resource" uid="uid://dpcd6nill7hwx" path="res://Card/Instances/Starter Cards/GreyOne.tres" id="7_abuqb"]
 [ext_resource type="PackedScene" uid="uid://djvyr8av4rgyw" path="res://Level/god_manager.tscn" id="7_u7eci"]
-[ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="8_02j7v"]
+[ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="7_xju0t"]
 [ext_resource type="Script" uid="uid://cp8eljtgcmec8" path="res://Level/action_manager.gd" id="8_g0h0v"]
 [ext_resource type="Script" uid="uid://c8cj01kh15eso" path="res://Level/button_sound.gd" id="8_qj8ib"]
 [ext_resource type="Texture2D" uid="uid://dshudyqgv164x" path="res://Assets/Kenny Lightmasks/shape_a_inverted.png" id="11_s4lld"]
 [ext_resource type="PackedScene" uid="uid://dn8hhitufyxi8" path="res://Level/Game End/GameEnd.tscn" id="12_xju0t"]
-[ext_resource type="Resource" uid="uid://cipv4ypbnion5" path="res://Card/Instances/Starting set/Skeptic Tradesman.tres" id="13_utnpk"]
-[ext_resource type="Resource" uid="uid://qxojvrxkgnpl" path="res://Card/Instances/Starting set/Evangelist.tres" id="14_gs1rt"]
-[ext_resource type="Resource" uid="uid://52gvomajgeaf" path="res://Card/Instances/Starting set/Fasting Fanatic.tres" id="15_87nhp"]
-[ext_resource type="Resource" uid="uid://b2ax6f33kwc4h" path="res://Card/Instances/Starting set/Fat Cat.tres" id="16_up2ya"]
-[ext_resource type="Resource" uid="uid://qvrqlbmqb4mf" path="res://Card/Instances/Starting set/Socialite.tres" id="17_qv5hx"]
+[ext_resource type="Texture2D" uid="uid://bpsg181pc1bl1" path="res://Assets/Cards/Card_ tradesman_grey.png" id="13_g2nqd"]
+[ext_resource type="Texture2D" uid="uid://btscxd18c1eyq" path="res://Assets/Cards/Card_FastingFanaticGreen.png" id="14_utnpk"]
+[ext_resource type="Texture2D" uid="uid://bq0f06gqoylpt" path="res://Assets/Cards/Card_Fatcat_red.png" id="15_gs1rt"]
+[ext_resource type="Texture2D" uid="uid://by4y127uk17xx" path="res://Assets/Cards/Card_SocialiteBlue.png" id="16_87nhp"]
 [ext_resource type="PackedScene" uid="uid://bu8cmomwet08m" path="res://Level/Lane/lane_info_display.tscn" id="18_lcjul"]
 [ext_resource type="Material" uid="uid://cye8u3qvxc24j" path="res://Assets/CardMaterial.tres" id="19_abuqb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2nqd"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Card_GruntWorker_Grey.png-6a56ed2cd7bb410d97d6bbd55f0edcb2.ctex"
+
+[sub_resource type="Resource" id="Resource_utnpk"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Grunt Worker"
+texture = SubResource("CompressedTexture2D_g2nqd")
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 1,
+1: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gs1rt"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Card_gruntdevotee.png-cbadf53dd811339fe1a98683df7a8670.ctex"
+
+[sub_resource type="Resource" id="Resource_87nhp"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Grunt Devotee"
+texture = SubResource("CompressedTexture2D_gs1rt")
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+favor = 15
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_up2ya"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Card_GruntWorker_Grey.png-6a56ed2cd7bb410d97d6bbd55f0edcb2.ctex"
+
+[sub_resource type="Resource" id="Resource_qv5hx"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Grunt Worker"
+texture = SubResource("CompressedTexture2D_up2ya")
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 1,
+1: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xujkg"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Card_gruntdevotee.png-cbadf53dd811339fe1a98683df7a8670.ctex"
+
+[sub_resource type="Resource" id="Resource_313p5"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Grunt Devotee"
+texture = SubResource("CompressedTexture2D_xujkg")
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+favor = 15
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_65geu"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Card_GruntWorker_Grey.png-6a56ed2cd7bb410d97d6bbd55f0edcb2.ctex"
+
+[sub_resource type="Resource" id="Resource_pqrr3"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Grunt Worker"
+texture = SubResource("CompressedTexture2D_65geu")
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 1,
+1: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dlbl1"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Card_gruntdevotee.png-cbadf53dd811339fe1a98683df7a8670.ctex"
+
+[sub_resource type="Resource" id="Resource_pstpm"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Grunt Devotee"
+texture = SubResource("CompressedTexture2D_dlbl1")
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+favor = 15
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_woec4"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Skeptic Tradesman"
+texture = ExtResource("13_g2nqd")
+relative_scoring = Dictionary[int, int]({
+-1: 0,
+0: 3,
+1: 0
+})
+favor = -25
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_33gh6"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Card_EvangelistBlue.png-0eda90e4bd4b27c5e7e230b7cc2315b0.ctex"
+
+[sub_resource type="Resource" id="Resource_dkxd2"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Evangelist"
+texture = SubResource("CompressedTexture2D_33gh6")
+absolute_scoring = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 1
+})
+favor = 20
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_qcenn"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Fasting Fanatic"
+texture = ExtResource("14_utnpk")
+absolute_scoring = Dictionary[int, int]({
+0: 0,
+1: 1,
+2: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+favor = 40
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_wgige"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Fat Cat"
+texture = ExtResource("15_gs1rt")
+absolute_scoring = Dictionary[int, int]({
+0: 3,
+1: 0,
+2: 0
+})
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 2,
+2: 0
+})
+favor = -10
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_gpwjo"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Socialite"
+texture = ExtResource("16_87nhp")
+absolute_scoring = Dictionary[int, int]({
+0: 1,
+1: 0,
+2: 1
+})
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [sub_resource type="LabelSettings" id="LabelSettings_abuqb"]
 font_size = 24
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("card_display", "viewport_effects")]
 script = ExtResource("1_kwlfk")
-card_display = NodePath("Camera2D/CanvasLayer2/CanvasLayer/CenterContainer")
-viewport_effects = NodePath("Viewport effects")
-
-[node name="Viewport effects" type="Node2D" parent="."]
-script = ExtResource("2_o6fwa")
-sacrifice_color = Color(0.47058824, 0.47058824, 0.47058824, 1)
-buff_color = Color(0.63483334, 0.65, 0.468, 1)
-
-[node name="Edge Light" type="PointLight2D" parent="Viewport effects"]
-position = Vector2(900, 547)
-scale = Vector2(6.69, -3.24)
-color = Color(0.47, 0.47, 0.47, 1)
-energy = 0.0
-blend_mode = 1
-texture = ExtResource("11_s4lld")
+card_display = NodePath("Camera2D/CanvasLayer2/CenterContainer")
+viewport_effects = NodePath("Camera2D/Viewport effects")
 
 [node name="Lanes" type="Node2D" parent="." node_paths=PackedStringArray("lanes", "info_display", "hand", "cam")]
 script = ExtResource("4_vjs1q")
@@ -56,7 +234,7 @@ offset_left = 153.0
 offset_top = 31.0
 offset_right = 153.0
 offset_bottom = 31.0
-deck = Array[ExtResource("5_qj8ib")]([ExtResource("7_abuqb"), ExtResource("8_02j7v")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_utnpk"), SubResource("Resource_87nhp")])
 
 [node name="Play Button" parent="Lanes/Lane" index="0"]
 script = ExtResource("8_qj8ib")
@@ -65,23 +243,25 @@ script = ExtResource("8_qj8ib")
 color = Color(0.66, 0.264, 0.264, 1)
 
 [node name="Lane2" parent="Lanes" instance=ExtResource("1_hleuw")]
+visible = false
 offset_left = 154.0
 offset_top = 289.0
 offset_right = 154.0
 offset_bottom = 289.0
 type = 1
-deck = Array[ExtResource("5_qj8ib")]([ExtResource("7_abuqb"), ExtResource("8_02j7v")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_qv5hx"), SubResource("Resource_313p5")])
 
 [node name="Polygon2D" parent="Lanes/Lane2" index="1"]
 color = Color(0.264, 0.66, 0.28379998, 1)
 
 [node name="Lane3" parent="Lanes" instance=ExtResource("1_hleuw")]
+visible = false
 offset_left = 160.0
 offset_top = 548.0
 offset_right = 160.0
 offset_bottom = 548.0
 type = 2
-deck = Array[ExtResource("5_qj8ib")]([ExtResource("7_abuqb"), ExtResource("8_02j7v")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_pqrr3"), SubResource("Resource_pstpm")])
 
 [node name="Polygon2D" parent="Lanes/Lane3" index="1"]
 color = Color(0.264, 0.31679994, 0.66, 1)
@@ -118,8 +298,8 @@ offset_bottom = 3041.0
 [node name="CanvasLayer2" type="CanvasLayer" parent="Camera2D"]
 
 [node name="Hand" parent="Camera2D/CanvasLayer2" instance=ExtResource("5_0obbo")]
-position = Vector2(25, 882)
-starting_pool = Array[ExtResource("5_qj8ib")]([ExtResource("13_utnpk"), ExtResource("14_gs1rt"), ExtResource("15_87nhp"), ExtResource("16_up2ya"), ExtResource("13_utnpk"), ExtResource("17_qv5hx")])
+position = Vector2(0, 755.1)
+starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_woec4"), SubResource("Resource_dkxd2"), SubResource("Resource_qcenn"), SubResource("Resource_wgige"), SubResource("Resource_woec4"), SubResource("Resource_gpwjo")])
 
 [node name="TopBar" parent="Camera2D/CanvasLayer2" instance=ExtResource("2_e0a3j")]
 
@@ -135,9 +315,13 @@ gm = NodePath("../../../God Manager")
 win_checklist = NodePath("../Control4")
 bgm_node = NodePath("../../../../../BGM Node")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D/CanvasLayer2"]
+[node name="God Manager" parent="Camera2D/CanvasLayer2" node_paths=PackedStringArray("lanes", "action_manager") instance=ExtResource("7_u7eci")]
+lanes = [NodePath("../../../Lanes/Lane"), NodePath("../../../Lanes/Lane2"), NodePath("../../../Lanes/Lane3")]
+action_manager = NodePath("../TopBar/HBoxContainer/Action Manager")
 
-[node name="CenterContainer" type="CenterContainer" parent="Camera2D/CanvasLayer2/CanvasLayer" node_paths=PackedStringArray("container")]
+[node name="Lane Info Display" parent="Camera2D/CanvasLayer2" instance=ExtResource("18_lcjul")]
+
+[node name="CenterContainer" type="CenterContainer" parent="Camera2D/CanvasLayer2" node_paths=PackedStringArray("container")]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
@@ -149,19 +333,26 @@ mouse_filter = 2
 script = ExtResource("6_svajd")
 container = NodePath("HBoxContainer")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer2/CanvasLayer/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer2/CenterContainer"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer2/CanvasLayer/CenterContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer2/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "Test"
 
-[node name="God Manager" parent="Camera2D/CanvasLayer2" node_paths=PackedStringArray("lanes", "action_manager") instance=ExtResource("7_u7eci")]
-lanes = [NodePath("../../../Lanes/Lane"), NodePath("../../../Lanes/Lane2"), NodePath("../../../Lanes/Lane3")]
-action_manager = NodePath("../TopBar/HBoxContainer/Action Manager")
+[node name="Viewport effects" type="Node2D" parent="Camera2D"]
+script = ExtResource("2_o6fwa")
+sacrifice_color = Color(0.47058824, 0.47058824, 0.47058824, 1)
+buff_color = Color(0.63483334, 0.65, 0.468, 1)
 
-[node name="Lane Info Display" parent="Camera2D/CanvasLayer2" instance=ExtResource("18_lcjul")]
+[node name="Edge Light" type="PointLight2D" parent="Camera2D/Viewport effects"]
+position = Vector2(900, 547)
+scale = Vector2(6.69, -3.24)
+color = Color(0.47, 0.47, 0.47, 1)
+energy = 0.0
+blend_mode = 1
+texture = ExtResource("11_s4lld")
 
 [connection signal="mouse_entered" from="Lanes/Lane/Play Button" to="Lanes/Lane/Play Button" method="_hover_sound"]
 [connection signal="mouse_entered" from="Lanes/Lane/Upgrade" to="Lanes/Lane/Play Button" method="_hover_sound"]

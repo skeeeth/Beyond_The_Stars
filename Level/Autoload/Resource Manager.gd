@@ -75,7 +75,7 @@ func reset():
 	current = {
 		types.RED: 99,
 		types.GREEN: 3,
-		types.BLUE: 0,
+		types.BLUE: 99,
 		}
 
 	for k in cumulative:

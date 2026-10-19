@@ -1,31 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bj2bhoovxyyvx"]
+[gd_scene load_steps=7 format=3 uid="uid://bj2bhoovxyyvx"]
 
 [ext_resource type="Script" uid="uid://58p0rsgl7ftv" path="res://Level/UI/pile_icon.gd" id="1_gtld2"]
 [ext_resource type="Material" uid="uid://cnpftegsf3pw0" path="res://Assets/Shaders/Highlightable.tres" id="2_upfhc"]
 [ext_resource type="Script" uid="uid://dnsitrioyh1hj" path="res://Level/UI/Util/Highlighter.gd" id="3_upfhc"]
-[ext_resource type="PackedScene" uid="uid://t05wdcm7wbwt" path="res://Card/Card.tscn" id="3_vxyn5"]
-[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="4_q3xtq"]
+[ext_resource type="Theme" uid="uid://b0e6ktoqxgsr4" path="res://Assets/CardTheme.tres" id="4_vxyn5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q3xtq"]
 font_size = 40
 font_color = Color(0, 0, 0, 1)
 outline_size = 4
-
-[sub_resource type="SystemFont" id="SystemFont_yoe00"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_s1lpb"]
-resource_local_to_scene = true
-font = SubResource("SystemFont_yoe00")
-font_size = 24
-font_color = Color(0, 0, 0, 1)
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_0qb5r"]
-resource_local_to_scene = true
-font = ExtResource("4_q3xtq")
-font_size = 24
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upfhc"]
 size = Vector2(236, 330)
@@ -46,6 +29,7 @@ label_settings = SubResource("LabelSettings_q3xtq")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 material = ExtResource("2_upfhc")
+position = Vector2(-14, 0)
 fit_margin = 266.0
 
 [node name="Polygon2D" type="Polygon2D" parent="CanvasGroup"]
@@ -59,75 +43,24 @@ position = Vector2(11, 13)
 color = Color(0.13682577, 0.13682574, 0.13682571, 1)
 polygon = PackedVector2Array(0, 0, 0, 180, 140, 180, 140, 0)
 
-[node name="Card2" parent="CanvasGroup" instance=ExtResource("3_vxyn5")]
-offset_left = 18.0
-offset_top = 8.0
-offset_right = 297.0
-offset_bottom = 542.0
-scale = Vector2(0.56, 0.56)
-script = null
+[node name="Card2" type="PanelContainer" parent="CanvasGroup"]
+custom_minimum_size = Vector2(300, 420)
+offset_left = 15.0
+offset_right = 315.0
+offset_bottom = 420.0
+scale = Vector2(0.65, 0.65)
+mouse_filter = 2
+theme = ExtResource("4_vxyn5")
 
-[node name="VBoxContainer" parent="CanvasGroup/Card2" index="0"]
-visible = false
-
-[node name="GreenCost" parent="CanvasGroup/Card2/VBoxContainer/HBoxContainer2/HBoxContainer" index="0"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="RedValue" parent="CanvasGroup/Card2/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="GreenValue" parent="CanvasGroup/Card2/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer2" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="BlueValue" parent="CanvasGroup/Card2/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer3" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="Grey-1Value" parent="CanvasGroup/Card2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="Grey0Value" parent="CanvasGroup/Card2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="Grey+1Value" parent="CanvasGroup/Card2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="Favor Label" parent="CanvasGroup/Card2/VBoxContainer/HBoxContainer3" index="1"]
-label_settings = SubResource("LabelSettings_0qb5r")
-
-[node name="Card3" parent="CanvasGroup" instance=ExtResource("3_vxyn5")]
-offset_left = 18.0
-offset_top = 8.0
-offset_right = 297.0
-offset_bottom = 542.0
-scale = Vector2(0.56, 0.56)
-script = null
-
-[node name="VBoxContainer" parent="CanvasGroup/Card3" index="0"]
-visible = false
-
-[node name="GreenCost" parent="CanvasGroup/Card3/VBoxContainer/HBoxContainer2/HBoxContainer" index="0"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="RedValue" parent="CanvasGroup/Card3/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="GreenValue" parent="CanvasGroup/Card3/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer2" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="BlueValue" parent="CanvasGroup/Card3/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer3" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="Grey-1Value" parent="CanvasGroup/Card3/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="Grey0Value" parent="CanvasGroup/Card3/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="Grey+1Value" parent="CanvasGroup/Card3/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3" index="1"]
-label_settings = SubResource("LabelSettings_s1lpb")
-
-[node name="Favor Label" parent="CanvasGroup/Card3/VBoxContainer/HBoxContainer3" index="1"]
-label_settings = SubResource("LabelSettings_0qb5r")
+[node name="Card3" type="PanelContainer" parent="CanvasGroup"]
+custom_minimum_size = Vector2(300, 420)
+offset_left = 32.0
+offset_top = 25.0
+offset_right = 332.0
+offset_bottom = 445.0
+scale = Vector2(0.65, 0.65)
+mouse_filter = 2
+theme = ExtResource("4_vxyn5")
 
 [node name="Highlighter" type="Node" parent="." node_paths=PackedStringArray("canvas_group")]
 script = ExtResource("3_upfhc")
@@ -141,11 +74,9 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(108, 155)
+rotation = -0.0030008433
 shape = SubResource("RectangleShape2D_upfhc")
 
 [connection signal="input_event" from="Hitbox" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
 [connection signal="mouse_exited" from="Hitbox" to="." method="_on_area_2d_mouse_exited"]
-
-[editable path="CanvasGroup/Card2"]
-[editable path="CanvasGroup/Card3"]

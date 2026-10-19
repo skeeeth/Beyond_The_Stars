@@ -15,6 +15,7 @@ func _ready() -> void:
 		lanes[i].position.y = lane_spacing * i
 		#lanes[i].resource_map.move_request.connect(move_camera)
 		lanes[i].position.x = 0
+		lanes[i].show()
 		hand.card_grabbed.connect(lanes[i].midlight)
 		hand.card_released.connect(lanes[i].dehighlight)
 	#cam.global_position = lanes[1].camera_position.global_position

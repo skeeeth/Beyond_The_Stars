@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Control
 class_name CardDisplay
 
 signal clicked(who:CardDisplay)
@@ -11,7 +11,7 @@ signal released
 
 const SELF_SCENE = preload("uid://t05wdcm7wbwt")
 
-static var card_size:Vector2 = Vector2(271, 486) #not synced with custom_minimum_size! Change both manually
+static var card_size:Vector2 = Vector2(300, 420) #not synced with custom_minimum_size! Change both manually
 
 var draggable:bool = false
 var last_color_stat_snapshot:Dictionary
@@ -22,7 +22,18 @@ var card_deal_sound# = FmodServer.create_event_instance("event:/Card Deal")
 @onready var tooltip_position: Node2D = $"Tooltip Position"
 var being_dragged:bool = false
 @export var favor_label:Label
+@export var description_label:Label
+@export var cost_label:Label
 @export var icon:TextureRect
+
+
+@export_category("Stat Labels")
+@export var red_label:Label
+@export var green_label:Label
+@export var blue_label:Label
+@export var g_up_label:Label
+@export var g_zero_label:Label
+@export var g_down_label:Label
 
 static func create_from_data(res:CardData) -> CardDisplay:
 	var new_card:CardDisplay = SELF_SCENE.instantiate()
@@ -39,7 +50,7 @@ static func create_from_data(res:CardData) -> CardDisplay:
 
 func _ready() -> void:
 	var delay = self.create_tween()
-	
+
 	delay.tween_interval(1.0/60.0)
 	delay.tween_callback(display)
 	delay.tween_callback(show)
@@ -48,29 +59,29 @@ func _ready() -> void:
 func display():
 	
 	#show the cards name
-	%"Card Name".text = data.card_name
+	#%"Card Name".text = data.card_name
 	
 	# Set red, blue and green values
 	var adj_abs_values = data.get_adjusted_abs_values()
 	var abs_changes = _get_stat_differences(last_color_stat_snapshot,adj_abs_values)
-	_set_color_value(%RedValue, str(adj_abs_values[RM.types.RED]), abs_changes[0])
-	_set_color_value(%GreenValue, str(adj_abs_values[RM.types.GREEN]), abs_changes[0])
-	_set_color_value(%BlueValue, str(adj_abs_values[RM.types.BLUE]), abs_changes[0])
+	_set_color_value(red_label, (adj_abs_values[RM.types.RED]), abs_changes[0])
+	_set_color_value(green_label, (adj_abs_values[RM.types.GREEN]), abs_changes[0])
+	_set_color_value(blue_label, (adj_abs_values[RM.types.BLUE]), abs_changes[0])
 	
 	last_color_stat_snapshot = adj_abs_values
 	
 	# Set lane specific (grey) values
 	var adj_rel_values = data.get_adjusted_rel_values()
 	var rel_changes = _get_stat_differences(last_grey_stat_snapshot,adj_rel_values)
-	_set_color_value(%"Grey-1Value", str(adj_rel_values[-1]), rel_changes[0])
-	_set_color_value(%"Grey0Value", str(adj_rel_values[0]), rel_changes[1])
-	_set_color_value(%"Grey+1Value", str(adj_rel_values[1]), rel_changes[2])
+	_set_color_value(g_up_label, (adj_rel_values[-1]), rel_changes[0])
+	_set_color_value(g_zero_label, (adj_rel_values[0]), rel_changes[1])
+	_set_color_value(g_down_label, (adj_rel_values[1]), rel_changes[2])
 	
 	last_grey_stat_snapshot = adj_rel_values
 	
 	#sets a label for the GREEN cost of a card, there's technology for cards to have other kinds of
 	# costs but like having more symbols on the already cluttered card is dubious
-	_set_color_value(%GreenCost, str(data.resource_costs[RM.types.GREEN]))
+	_set_color_value(cost_label, (data.resource_costs[RM.types.GREEN]))
 	
 	#play a sound if stats have changed
 	abs_changes.append_array(rel_changes) #combined changes
@@ -86,7 +97,7 @@ func display():
 	var text:String = ""
 	for keyword in data.keywords:
 		text += keyword.word + "\n"
-	%Description.text = text
+	description_label.text = text
 	
 	#sets bottom label to favor diff with +- sign
 	favor_label.text = "%+d " % data.get_adjusted_favor()
@@ -103,16 +114,20 @@ func _grow_label(label:Label):
 	grow.tween_property(label.label_settings,"outline_size",starting_size, 0)
 
 # hide color box if value is 0, otherwise display value
-func _set_color_value(label: Label, value: String, changed:bool = false):
-	var int_value = int(value)
+func _set_color_value(label: Label, value: int, changed:bool = false):
+	
+	
+	#label.text = "%0d" % value
+	label.text = str(value)
+	#var int_value = int(value)
 	var panel:CanvasItem = label.get_parent()
-	if int_value == 0:
+	if value == 0:
 		panel.modulate = Color.TRANSPARENT
-		label.text = ""
+		#label.text = "" 
 	else:
 		panel.modulate = Color.WHITE
-		label.text = value
-	
+
+		#label.text = str(value)
 	if changed:
 		_grow_label(label)
 
@@ -157,14 +172,15 @@ const BASE_TEXT_STYLE_BOX = preload("uid://cm2738lmkufw5")
 const HIGHLIGHT_STYLE_BOX = preload("uid://fujdbjtsa2ew")
 
 func blink_textbox():
-	var box:PanelContainer = %Description.get_parent()
-	var tween = create_tween().bind_node(self)
-	tween.tween_callback(box.add_theme_stylebox_override.bind("panel", HIGHLIGHT_STYLE_BOX))
-	#box.remove_theme_stylebox_override("panel")
-	#box.add_theme_stylebox_override("panel", HIGHLIGHT_STYLE_BOX)
-
-	tween.tween_interval(Lane.strategy_pause)
-	tween.tween_callback(box.add_theme_stylebox_override.bind("panel", BASE_TEXT_STYLE_BOX))
+	return
+	#var box:PanelContainer = %Description.get_parent()
+	#var tween = create_tween().bind_node(self)
+	#tween.tween_callback(box.add_theme_stylebox_override.bind("panel", HIGHLIGHT_STYLE_BOX))
+	##box.remove_theme_stylebox_override("panel")
+	##box.add_theme_stylebox_override("panel", HIGHLIGHT_STYLE_BOX)
+#
+	#tween.tween_interval(Lane.strategy_pause)
+	#tween.tween_callback(box.add_theme_stylebox_override.bind("panel", BASE_TEXT_STYLE_BOX))
 	
 
 

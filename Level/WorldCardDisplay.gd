@@ -41,6 +41,7 @@ func splay(cards: Array):
 	
 	# add new cards to card display
 	current_list = cards
+	
 	for data in cards:
 		var card = CardDisplay.create_from_data(data)
 		card.mouse_filter = Control.MouseFilter.MOUSE_FILTER_STOP

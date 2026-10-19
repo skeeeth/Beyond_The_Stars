@@ -22,6 +22,8 @@ border_color = Color(0.91, 0.91, 0.91, 1)
 [node name="Lane" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 9.0
+offset_right = 9.0
 theme = ExtResource("1_1uh1k")
 script = ExtResource("1_rr5i5")
 deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_iae0s")])
@@ -30,9 +32,9 @@ deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_iae
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 0
-offset_left = -329.0
+offset_left = -322.0
 offset_top = 292.0
-offset_right = -173.0
+offset_right = -166.0
 offset_bottom = 382.0
 scale = Vector2(1, 0.805)
 
@@ -62,7 +64,7 @@ polygon = PackedVector2Array(0, -20, 1500, -20, 1500, 500, 0, 500, 0, 500)
 
 [node name="Draw Pile" parent="." instance=ExtResource("5_3y20t")]
 unique_name_in_owner = true
-position = Vector2(-351, -37)
+position = Vector2(-398, -34)
 
 [node name="Discard Pile" parent="." instance=ExtResource("5_3y20t")]
 unique_name_in_owner = true
@@ -71,18 +73,18 @@ position = Vector2(1299, 81)
 [node name="Upgrade" parent="." node_paths=PackedStringArray("lane", "resource_map_base") instance=ExtResource("7_5wohj")]
 z_index = 0
 layout_mode = 0
-offset_left = 10.0
-offset_top = 86.0
-offset_right = 232.0
-offset_bottom = 351.0
+offset_left = -57.0
+offset_top = 83.0
+offset_right = 165.0
+offset_bottom = 348.0
 lane = NodePath("..")
 resource_map_base = NodePath("../Faded Display Map")
 
 [node name="Click Hitbox" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -20.0
-offset_right = 989.0
+offset_left = -82.0
+offset_right = 1262.0
 offset_bottom = 477.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1uh1k")
@@ -107,9 +109,12 @@ position = Vector2(547, 423)
 
 [node name="Faded Display Map" parent="." node_paths=PackedStringArray("lane") instance=ExtResource("8_xrdmo")]
 modulate = Color(1, 1, 1, 0.2)
-position = Vector2(-10, 94)
+position = Vector2(248, 28)
 scale = Vector2(0.51, 0.51)
 lane = NodePath("..")
+
+[node name="Card Start Position" type="Node2D" parent="."]
+position = Vector2(-59, 72)
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d2tidhnhslfc6" path="res://Assets/Icon/DownTriangle.png" id="6_q37sx"]
 
 [node name="Resource Map" type="Node2D"]
+visible = false
 script = ExtResource("1_bcf0e")
 
 [node name="Above" type="HBoxContainer" parent="."]

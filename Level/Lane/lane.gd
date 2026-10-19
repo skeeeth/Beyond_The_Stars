@@ -15,7 +15,7 @@ var discard:Array[CardData]
 
 var active_cards:Array[CardDisplay]
 var cards_queued_for_removal:Array[CardDisplay]
-var x_spacing = 16
+var x_spacing = 2
 
 var card_plays:int = 0:
 	set(v):
@@ -31,6 +31,8 @@ var card_plays:int = 0:
 @onready var god_position: Node2D = $GodPosition
 @onready var click_hitbox: Panel = $"Click Hitbox"
 @onready var camera_position: Node2D = $"Camera position"
+@onready var card_start_position: Node2D = $"Card Start Position"
+
 #@onready var resource_map: ResourceMap = $"Resource Map"
 
 #@onready var highlighter: Highlighter = $Highlighter
@@ -81,7 +83,7 @@ func draw_card():
 	
 	var draw_slide = create_tween()
 	var destination = Vector2((active_cards.size()-1)  * (CardDisplay.card_size.x + x_spacing),0)
-	destination.x += x_spacing
+	#destination.x += x_spacing
 	draw_slide.tween_property(new_card,"position",destination,0.2).set_ease(Tween.EASE_OUT)
 	#new_card.score(type)
 	

@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://baemyg0cd56h0"]
+
+[ext_resource type="Texture2D" uid="uid://bnthqrdbctftt" path="res://Assets/LaneBG_Value (2).png" id="1_4ltuf"]
+
+[resource]
+content_margin_left = 3.0
+content_margin_top = 6.0
+content_margin_bottom = 7.0
+texture = ExtResource("1_4ltuf")
+region_rect = Rect2(0, 0, 1226, 550)
