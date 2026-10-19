@@ -50,7 +50,7 @@ func _ready() -> void:
 	favor = favor #trigger setter function
 	texture_rect.texture = lane_sprite
 	craving.craving_failed.connect(on_craving_fail)
-	tier_up()
+	tier_up.call_deferred()
 
 func set_to_lane(lane:Lane):
 	reparent(lane)
@@ -85,6 +85,14 @@ func tier_up():
 	current_tier = min(current_tier + 1, favor_tiers.size()-1)
 	tier_up_queued = false
 	max_favor = favor_tiers[current_tier]
+	
+	if current_tier > 1:
+		boon_display.displays[current_tier-2].modulate = Color.WHITE #reshow hidden icon
+	var tier_icon = boon_display.displays[current_tier-1]
+	tier_icon.modulate = Color(Color.WHITE,0) #hide covered boon icon
+	var icon_position = boon_display.displays[current_tier-1].icon.global_position
+	#var extra_offset = (Vector2(102,0)) #this shit is based on NOTHING will break easily
+	%"Favor Bar".global_position = icon_position #+ extra_offset
 	%"Favor Bar".max_value = max_favor
 	%"Favor Bar".min_value = favor_tiers[current_tier-1]
 

@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://d168hyi24n5o2" path="res://Assets/Gods/MyggosForm2.png" id="13_oxw7b"]
 [ext_resource type="Texture2D" uid="uid://5o1m7ecqsoqu" path="res://Assets/Gods/MyggosForm3.png" id="14_nd15h"]
 
-[sub_resource type="Resource" id="Resource_xgq5k"]
+[sub_resource type="Resource" id="Resource_faw51"]
 resource_local_to_scene = true
 script = ExtResource("9_cm3bx")
 card_name = "Grunt Worker"
@@ -37,7 +37,7 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_n5pov"]
+[sub_resource type="Resource" id="Resource_oxw7b"]
 resource_local_to_scene = true
 script = ExtResource("9_cm3bx")
 card_name = "Grunt Devotee"
@@ -86,7 +86,7 @@ offset_top = 461.0
 offset_right = 899.0
 offset_bottom = 461.0
 mouse_filter = 2
-deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_xgq5k"), SubResource("Resource_n5pov")])
+deck = Array[ExtResource("9_cm3bx")]([SubResource("Resource_faw51"), SubResource("Resource_oxw7b")])
 
 [node name="Away Point" type="Node2D" parent="."]
 position = Vector2(2123, 532)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvsbqpcyvpbjs"]
+[gd_scene load_steps=13 format=3 uid="uid://dvsbqpcyvpbjs"]
 
 [ext_resource type="Script" uid="uid://defwwvykdu5oq" path="res://Gods/god.gd" id="1_6270s"]
 [ext_resource type="Texture2D" uid="uid://dhdasc3qfid8" path="res://Assets/Gods/GanthForm1.png" id="2_1wvvq"]
@@ -6,12 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://cgd1v7y7gr4sc" path="res://Gods/Craving/Craving.tscn" id="3_m5r1x"]
 [ext_resource type="Script" uid="uid://dnsitrioyh1hj" path="res://Level/UI/Util/Highlighter.gd" id="4_s3vwt"]
 [ext_resource type="PackedScene" uid="uid://bqy5sbmqjwct7" path="res://Boon/BoonHistoryDisplay.tscn" id="5_66s73"]
+[ext_resource type="Texture2D" uid="uid://b0pe5lo2amjs1" path="res://Assets/Icon/BlackSquare.png" id="7_j1ssj"]
+[ext_resource type="Texture2D" uid="uid://ckvw8a02jwsfp" path="res://Assets/Boons/BoonBG_Frame.png" id="8_mfyvb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6270s"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5r1x"]
 bg_color = Color(0.43137255, 0, 0.6, 1)
+
+[sub_resource type="Gradient" id="Gradient_j1ssj"]
+colors = PackedColorArray(0.43137255, 0, 0.6, 1, 0.43137255, 0, 0.6, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mfyvb"]
+gradient = SubResource("Gradient_j1ssj")
 
 [node name="God" type="Node2D" node_paths=PackedStringArray("texture_rect", "craving", "highlighter")]
 script = ExtResource("1_6270s")
@@ -41,37 +49,22 @@ mouse_filter = 2
 texture = ExtResource("2_1wvvq")
 stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasGroup"]
-offset_left = -2.0
-offset_top = -555.0
-offset_right = 1918.0
-offset_bottom = 358.0
-
-[node name="Favor Bar" type="ProgressBar" parent="CanvasGroup/HBoxContainer"]
+[node name="Old Favor Bar" type="ProgressBar" parent="CanvasGroup"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 480)
-layout_mode = 2
+visible = false
+offset_left = -118.0
+offset_top = -44.0
+offset_right = -117.0
+offset_bottom = -43.0
 size_flags_vertical = 8
 mouse_filter = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_6270s")
 theme_override_styles/fill = SubResource("StyleBoxFlat_m5r1x")
 value = 60.8
-fill_mode = 2
 show_percentage = false
 
-[node name="Favor Label" type="Label" parent="CanvasGroup/HBoxContainer/Favor Bar"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "100/1000"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Favor Icon" type="TextureRect" parent="CanvasGroup/HBoxContainer/Favor Bar"]
+[node name="Favor Icon" type="TextureRect" parent="CanvasGroup/Old Favor Bar"]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -82,6 +75,12 @@ offset_bottom = 19.5
 grow_vertical = 2
 texture = ExtResource("3_1wvvq")
 expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasGroup"]
+offset_left = -2.0
+offset_top = -555.0
+offset_right = 1918.0
+offset_bottom = 358.0
 
 [node name="Craving" parent="." instance=ExtResource("3_m5r1x")]
 visible = false
@@ -102,6 +101,36 @@ offset_top = -120.0
 offset_right = -23.0
 offset_bottom = 365.0
 mouse_filter = 0
+
+[node name="Favor Bar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+offset_left = -173.0
+offset_top = -284.0
+offset_right = -23.0
+offset_bottom = -125.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_j1ssj")
+texture_over = ExtResource("8_mfyvb")
+texture_progress = SubResource("GradientTexture1D_mfyvb")
+
+[node name="Favor Label" type="Label" parent="Favor Bar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -11.5
+offset_right = 35.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/1000"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer" to="." method="_on_v_box_container_mouse_exited"]

@@ -52,8 +52,11 @@ func draw_one():
 	#for i in range(0,amount):
 		#draw_one()
 
+func draw_fail():
+	pass
 
 func _on_button_pressed() -> void:
+
 	if RM.try_spend(RM.types.BLUE,draw_cost):
 		var UI_confirm_sound = FmodServer.create_event_instance("event:/UI Confirm")
 		UI_confirm_sound.start()
