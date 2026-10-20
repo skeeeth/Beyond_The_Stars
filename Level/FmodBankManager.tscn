@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c8t58gm2tdlgy"]
+[gd_scene load_steps=0 format=3 uid="uid://c8t58gm2tdlgy"]
 
 [node name="FmodBankManager" type="Node2D"]
 

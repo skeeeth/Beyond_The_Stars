@@ -56,6 +56,8 @@ func display_text(checklist:WinChecklist):
 	var title_line:String
 	var god_info = get_god_info()
 	var highest_favor_god:God.GODS =  god_info["Max God"]
+	var max_tier = god_info["Max Tier"]
+	var min_tier = god_info["Min Tier"]
 	
 	match highest_favor_god:
 		God.GODS.A:
@@ -71,11 +73,11 @@ func display_text(checklist:WinChecklist):
 			path = "res://Assets/Text Scrolls/Mahaux Win.txt"
 			title_line = "Mahaux Ascension Ending"
 	
-	if god_info["Max Tier"] < 3:
+	if max_tier < 3:
 		path = "res://Assets/Text Scrolls/Neutral Loss.txt"
 		title_line = "Bad End"
 	
-	if checklist.clears_left <= 0 and god_info["Min Tier"] == 3:
+	if checklist.clears_left <= 0 and min_tier >= 3:
 		path = "res://Assets/Text Scrolls/Player Win.txt"
 		title_line = "True End"
 		

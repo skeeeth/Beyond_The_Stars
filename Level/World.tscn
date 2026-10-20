@@ -372,7 +372,4 @@ texture = ExtResource("11_s4lld")
 [editable path="Lanes/Lane2"]
 [editable path="Lanes/Lane3"]
 [editable path="Camera2D/CanvasLayer2/ViewFollow World/End Screen"]
-[editable path="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition"]
-[editable path="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Great Feast"]
-[editable path="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Soul Fragment"]
 [editable path="Camera2D/CanvasLayer2/ViewFollow World/TopBar"]
