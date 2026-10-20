@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brkt3l770v85a"
+path="res://.godot/imported/Seasons of the Gods Title (drums).wav-b1469ee4fa2c2a3a9dd6df33a78a7b25.sample"
+
+[deps]
+
+source_file="res://Beyond the Stars FMOD/Assets/Seasons of the Gods Title (drums).wav"
+dest_files=["res://.godot/imported/Seasons of the Gods Title (drums).wav-b1469ee4fa2c2a3a9dd6df33a78a7b25.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
