@@ -84,10 +84,10 @@ offset_bottom = 358.0
 
 [node name="Craving" parent="." instance=ExtResource("3_m5r1x")]
 visible = false
-offset_left = -266.0
-offset_top = -259.0
-offset_right = -2.0
-offset_bottom = -135.0
+offset_left = -269.0
+offset_top = -381.0
+offset_right = -5.0
+offset_bottom = -257.0
 
 [node name="Highlighter" type="Node" parent="." node_paths=PackedStringArray("canvas_group")]
 script = ExtResource("4_s3vwt")

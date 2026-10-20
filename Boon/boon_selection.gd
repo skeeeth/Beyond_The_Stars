@@ -19,9 +19,13 @@ var card_picks_left:int = 0
 
 var selection_effect:ViewportEffects.types = ViewportEffects.types.BUFF
 
-static func create(_god:God, boon_pool:Array[Node],sprite:Texture) -> BoonSelection:
+static func create(_god:God, boon_pool:Array[Node],_sprite:Texture) -> BoonSelection:
 	var new_bs:BoonSelection = self_scene.instantiate()
-	new_bs.texture = sprite
+	match _god.current_tier:
+		2:
+			new_bs.texture = _god.middle_sprite
+		_:
+			new_bs.texture = _god.true_sprite
 	new_bs.god = _god
 	boon_pool.shuffle()
 	
