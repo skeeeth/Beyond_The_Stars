@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c8t58gm2tdlgy"]
+
+[node name="FmodBankManager" type="Node2D"]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Beyond the Stars FMOD/Build/Desktop/Master.strings.bank", "res://Beyond the Stars FMOD/Build/Desktop/Master.bank"]
+
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/Title Music"
+event_guid = "{822b1dd7-e4b9-4213-ab2f-1bdfd3555dc4}"
+allow_fadeout = false

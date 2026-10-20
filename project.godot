@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 RM="*res://Level/Autoload/Resource Manager.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
+FmodBankManager="*res://Level/FmodBankManager.tscn"
 
 [display]
 

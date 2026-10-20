@@ -31,6 +31,7 @@ offset_bottom = 1080.0
 mouse_filter = 2
 texture = ExtResource("2_tx4r1")
 
+[connection signal="mouse_entered" from="Start game" to="." method="mouse_hover_sound"]
 [connection signal="pressed" from="Start game" to="." method="_on_start_game_pressed"]
 [connection signal="mouse_entered" from="Start game/ColorRect" to="." method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="Start game/ColorRect" to="." method="_on_color_rect_mouse_exited"]
