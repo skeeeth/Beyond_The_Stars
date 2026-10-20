@@ -74,7 +74,7 @@ func display_text(checklist:WinChecklist):
 		title_line = "Bad End"
 	
 	if checklist.clears_left == 0 and god_info["Min Tier"] == 3:
-		path == "res://Assets/Text Scrolls/Player Win.txt"
+		path = "res://Assets/Text Scrolls/Player Win.txt"
 		title_line = "True End"
 		
 	title_box.text = title_line
