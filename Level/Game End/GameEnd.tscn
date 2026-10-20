@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn8hhitufyxi8"]
+[gd_scene load_steps=4 format=3 uid="uid://dn8hhitufyxi8"]
 
 [ext_resource type="Script" uid="uid://cl6agm10qk5o2" path="res://Level/Game End/Game End.gd" id="1_5r52f"]
-[ext_resource type="PackedScene" uid="uid://bvsrixsn17ly8" path="res://Level/Win Condition assessment/WinChecklist.tscn" id="2_ym578"]
 [ext_resource type="Script" uid="uid://cmad8hbvh0qyf" path="res://Assets/Icon/TextScroll.gd" id="3_gdeqk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5r52f"]
@@ -51,12 +50,6 @@ text = "Main Menu"
 [node name="Checklist Position" type="Node2D" parent="."]
 position = Vector2(854, -49)
 
-[node name="Win Condition" parent="Checklist Position" instance=ExtResource("2_ym578")]
-offset_right = 64.0
-
-[node name="Button" parent="Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Great Feast" index="2"]
-visible = false
-
 [node name="Scroll Text" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 807.0
@@ -77,7 +70,3 @@ scroll_following_visible_characters = true
 script = ExtResource("3_gdeqk")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-
-[editable path="Checklist Position/Win Condition"]
-[editable path="Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Great Feast"]
-[editable path="Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Soul Fragment"]

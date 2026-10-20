@@ -23,6 +23,7 @@ static func activate(checklist:WinChecklist):
 func setup(checklist:WinChecklist):
 	visible = true
 	checklist.reparent(checklist_position,false)
+	checklist.position = Vector2.ZERO
 	checklist.h_box_container.visible = true
 	display_text(checklist)
 	#if checklist.clears_left == 0:
