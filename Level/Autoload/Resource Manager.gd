@@ -73,9 +73,9 @@ func try_spend_all(dict:Dictionary[types,int]) -> bool:
 
 func reset():
 	current = {
-		types.RED: 99,
+		types.RED: 3,
 		types.GREEN: 3,
-		types.BLUE: 99,
+		types.BLUE: 0,
 		}
 
 	for k in cumulative:
