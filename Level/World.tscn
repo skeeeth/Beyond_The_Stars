@@ -367,6 +367,9 @@ texture = ExtResource("11_s4lld")
 [connection signal="mouse_entered" from="Lanes/Lane2/Upgrade" to="Lanes/Lane/Play Button" method="_hover_sound"]
 [connection signal="mouse_entered" from="Lanes/Lane3/Play Button" to="Lanes/Lane/Play Button" method="_hover_sound"]
 [connection signal="mouse_entered" from="Lanes/Lane3/Upgrade" to="Lanes/Lane/Play Button" method="_hover_sound"]
+[connection signal="mouse_entered" from="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition" to="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition" method="mouse_hover"]
+[connection signal="mouse_entered" from="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Great Feast" to="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition" method="mouse_hover"]
+[connection signal="mouse_entered" from="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Great Feast/Button" to="Lanes/Lane/Play Button" method="_hover_sound"]
 
 [editable path="Lanes/Lane"]
 [editable path="Lanes/Lane2"]
