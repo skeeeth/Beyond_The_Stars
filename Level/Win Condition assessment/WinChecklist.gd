@@ -77,6 +77,9 @@ func on_sacrifice_selected(card_display:CardDisplay):
 #endregion
 
 func _on_pressed() -> void:
+	var UI_confirm = FmodServer.create_event_instance("event:/UI Confirm")
+	UI_confirm.start()
+	UI_confirm.release()
 	h_box_container.visible = !h_box_container.visible
 	set_favor_tier_text()
 
@@ -91,3 +94,8 @@ func set_favor_tier_text():
 		#var breakpoint_readable_god_tiers = God.god_tiers
 		favor_tiers.add_image(FAVOR_ICON,32,32)
 		favor_tiers.append_text(" %s/%s\n" % [God.god_tiers[key],3])
+		
+func mouse_hover() -> void:
+	var UI_hover = FmodServer.create_event_instance("event:/UI Hover")
+	UI_hover.start()
+	UI_hover.release()
