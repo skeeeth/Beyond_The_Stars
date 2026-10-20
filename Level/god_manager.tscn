@@ -51,7 +51,7 @@ metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [node name="God Manager" type="Node2D" node_paths=PackedStringArray("gods")]
 script = ExtResource("1_pqgjq")
-gods = [NodePath("Ganth"), NodePath("Kolma"), NodePath("Mahuax"), NodePath("Myggos")]
+gods = [NodePath("Ganth"), NodePath("Kolma"), NodePath("Myggos"), NodePath("Mahuax")]
 
 [node name="Ganth" parent="." instance=ExtResource("2_dqsry")]
 lane_sprite = ExtResource("3_rx3h6")
@@ -64,13 +64,13 @@ lane_sprite = ExtResource("5_rx3h6")
 middle_sprite = ExtResource("7_6qq0n")
 true_sprite = ExtResource("8_nxgok")
 
-[node name="Mahuax" parent="." instance=ExtResource("2_dqsry")]
+[node name="Myggos" parent="." instance=ExtResource("2_dqsry")]
 identity = 2
 lane_sprite = ExtResource("9_6qq0n")
 middle_sprite = ExtResource("10_nxgok")
 true_sprite = ExtResource("7_k2roj")
 
-[node name="Myggos" parent="." instance=ExtResource("2_dqsry")]
+[node name="Mahuax" parent="." instance=ExtResource("2_dqsry")]
 identity = 3
 lane_sprite = ExtResource("12_faw51")
 middle_sprite = ExtResource("13_oxw7b")

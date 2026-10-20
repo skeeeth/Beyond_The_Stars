@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://buf0hretkfi1s"]
+
+[ext_resource type="Texture2D" uid="uid://dyoyeittrlni8" path="res://Assets/GameBg (2).png" id="1_0i1pn"]
+[ext_resource type="Script" uid="uid://b1sesoloqed8v" path="res://Level/Win Condition assessment/intro_text_scroll.gd" id="1_aehqf"]
+[ext_resource type="Script" uid="uid://cmad8hbvh0qyf" path="res://Assets/Icon/TextScroll.gd" id="1_mmi86"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0i1pn"]
+font_size = 32
+
+[node name="Intro Text Scroll" type="TextureRect" node_paths=PackedStringArray("label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0i1pn")
+script = ExtResource("1_aehqf")
+label = NodePath("VBoxContainer/Label")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_right = -320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Intro
+Spacebar to skip"
+label_settings = SubResource("LabelSettings_0i1pn")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/normal_font_size = 28
+text = "It is hard to believe it has already been one year since I first encountered it. It was an autumn day, marked by a brisk breeze, encouraging the first leaves to fall from their maternal branches. I had come upon a brook, pleasant and bubbling, cool to the touch. Having had no destination in particular, I decided to follow the current along the damp trail, occasionally stopping to rest and drink from my new flowing companion.
+
+After a few hours, the brook grew into a stream. The ribbons of water never branched, only widened. As if in an instant, the atmosphere shifted. The air was briny and thick. If I wasn’t hundreds of miles from shore, I would have assumed the salty, humid air was a product of a coastal climate. I don’t know why, but I continued forward.
+
+I remember very little after that, save for a few images branded into my mind’s eye: foaming waters, sapsick trees, a stream terminating at the base of a hollow tree. Then I was back at the entryway of my apartment. My brow and back were drenched with sweat, my jaw was sore, and a sharp saltwater stung my nostrils. A ringing voice took root in my ears, but I could not make sense of what it was saying. 
+
+I did not tell anyone about the brook or the voice. Occasionally I would find myself at my apartment’s doorway, unaware of the preceding events. The sensations were always the same: aches, pains, sweat, the chalky enamel of my own teeth wearing down. In those months, the only thing I knew for certain was that the voice was taking shape. It no longer rang, and it didn’t sound like anything I had ever heard before. The voice bubbled and groaned, creaking under the weight of its unseen owner. 
+
+Last night was the first time I understood. The voice had become clear: “O humble Servant. It is time to awaken my children. Only one of them may usher in the New Age. Only seven cycles remain. Your final act of destined service awaits.” 
+"
+scroll_following_visible_characters = true
+script = ExtResource("1_mmi86")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn8hhitufyxi8"]
+[gd_scene load_steps=5 format=3 uid="uid://dn8hhitufyxi8"]
 
 [ext_resource type="Script" uid="uid://cl6agm10qk5o2" path="res://Level/Game End/Game End.gd" id="1_5r52f"]
+[ext_resource type="PackedScene" uid="uid://bvsrixsn17ly8" path="res://Level/Win Condition assessment/WinChecklist.tscn" id="2_ym578"]
+[ext_resource type="Script" uid="uid://cmad8hbvh0qyf" path="res://Assets/Icon/TextScroll.gd" id="3_gdeqk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5r52f"]
 font_size = 50
@@ -16,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5r52f")
 
-[node name="Text Box" type="Label" parent="."]
+[node name="Title Box" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -25,7 +27,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "TEXT"
+text = "End"
 label_settings = SubResource("LabelSettings_5r52f")
 
 [node name="Backboard" type="ColorRect" parent="."]
@@ -40,13 +42,42 @@ color = Color(0, 0, 0, 1)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 833.0
-offset_top = 601.0
-offset_right = 1207.0
-offset_bottom = 754.0
+offset_left = 795.0
+offset_top = 863.0
+offset_right = 1169.0
+offset_bottom = 1016.0
 text = "Main Menu"
 
 [node name="Checklist Position" type="Node2D" parent="."]
-position = Vector2(412, 159)
+position = Vector2(854, -49)
+
+[node name="Win Condition" parent="Checklist Position" instance=ExtResource("2_ym578")]
+offset_right = 64.0
+
+[node name="Button" parent="Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Great Feast" index="2"]
+visible = false
+
+[node name="Scroll Text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 89.0
+offset_right = 1858.0
+offset_bottom = 845.0
+theme_override_font_sizes/normal_font_size = 28
+text = "As the sun rose after the 7th cycle, I heard an ancient voice ring within my skull. Though I had never understood it before this moment, it was familiar and comforting. For the first time in 7 cycles, The Oldest One had reached out to me from the void. It said:
+
+“My faithful servant, I have observed your ingenuity, your bounty, your prudence. You are a worthy vessel for the next eternity.  Rise. Ascend. Do with the world as you wish.”
+
+I lifted my head to the stars and accepted the power of The Oldest One. I felt a sharp pain rush through every fiber of my being as I witnessed the journey of every one of my atoms through space and time. With a sudden rush, I rematerialized into a form outwardly identical, but fundamentally new. 
+
+Now I inhale the earth and exhale the stars. I walk among you, but I simultaneously exist in worlds that you will never know. If you are reading this, I have spared our world a bleaker fate. Though you will flicker as a distant star through the atmosphere, know that we were connected in the short span of your existence.
+"
+scroll_following = true
+scroll_following_visible_characters = true
+script = ExtResource("3_gdeqk")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+
+[editable path="Checklist Position/Win Condition"]
+[editable path="Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Great Feast"]
+[editable path="Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Soul Fragment"]

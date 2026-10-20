@@ -34,7 +34,7 @@ func finish():
 	fade_background(false)
 	step_finished.emit()
 
-func fade_background(fade_in:bool = true,time:float = 2.0, end_opacity:float = 1.0) -> Signal:
+func fade_background(fade_in:bool = true,time:float = 0.1, end_opacity:float = 1.0) -> Signal:
 	var start_value:float = +1
 	var end_value:float = -end_opacity
 	

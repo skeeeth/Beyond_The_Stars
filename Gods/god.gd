@@ -20,6 +20,8 @@ const god_names:Dictionary[GODS,String] = {
 		favor = v
 		%"Favor Bar".value = favor
 		%"Favor Label".text = "%s/%s" % [favor,max_favor]
+		if current_tier == favor_tiers.size():
+			return
 		if favor >= favor_tiers[current_tier]:
 			queue_tier_up()
 	get:
@@ -41,6 +43,12 @@ var tier_up_queued:bool = false
 @export var highlighter:Highlighter
 @onready var boon_display: BoonHistoryDisplay = $"Boon History"
 
+static var god_tiers:Dictionary[God.GODS, int] ={
+	GODS.A: 0,
+	GODS.B: 0,
+	GODS.C: 0,
+	GODS.D: 0
+}
 
 var boon_history:Array[Boon]
 
@@ -79,15 +87,26 @@ func on_craving_fail():
 	favor -= 100
 
 func queue_tier_up():
+	if current_tier  >= favor_tiers.size():
+		return
+	
 	tier_up_queued = true
 
 func tier_up():
-	current_tier = min(current_tier + 1, favor_tiers.size()-1)
+	current_tier = min(current_tier + 1, favor_tiers.size())
 	tier_up_queued = false
-	max_favor = favor_tiers[current_tier]
-	
 	if current_tier > 1:
 		boon_display.displays[current_tier-2].modulate = Color.WHITE #reshow hidden icon
+	
+	if current_tier == 4:
+		%"Favor Bar".hide()
+		return
+
+	max_favor = favor_tiers[current_tier]
+	
+	god_tiers[identity] = current_tier
+	
+
 	var tier_icon = boon_display.displays[current_tier-1]
 	tier_icon.modulate = Color(Color.WHITE,0) #hide covered boon icon
 	var icon_position = boon_display.displays[current_tier-1].icon.global_position
@@ -96,6 +115,7 @@ func tier_up():
 	%"Favor Bar".max_value = max_favor
 	%"Favor Bar".min_value = favor_tiers[current_tier-1]
 
+	
 	favor = favor #calls setter to potentially queue an adittonal tier up
 
 func recieve_boon(boon:Boon):

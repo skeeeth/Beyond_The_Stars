@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=40 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="Script" uid="uid://bwap3b66q8u8y" path="res://Level/WorldCardDisplay.gd" id="1_kwlfk"]
@@ -20,16 +20,17 @@
 [ext_resource type="Texture2D" uid="uid://by4y127uk17xx" path="res://Assets/Cards/Card_SocialiteBlue.png" id="16_87nhp"]
 [ext_resource type="PackedScene" uid="uid://bu8cmomwet08m" path="res://Level/Lane/lane_info_display.tscn" id="18_lcjul"]
 [ext_resource type="Material" uid="uid://cye8u3qvxc24j" path="res://Assets/CardMaterial.tres" id="19_abuqb"]
+[ext_resource type="PackedScene" uid="uid://buf0hretkfi1s" path="res://Level/Win Condition assessment/intro_text_scroll.tscn" id="21_g2nqd"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_02j7v"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2nqd"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_GruntWorker_Grey.png-6a56ed2cd7bb410d97d6bbd55f0edcb2.ctex"
 
-[sub_resource type="Resource" id="Resource_g2nqd"]
+[sub_resource type="Resource" id="Resource_utnpk"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Worker"
-texture = SubResource("CompressedTexture2D_02j7v")
+texture = SubResource("CompressedTexture2D_g2nqd")
 relative_scoring = Dictionary[int, int]({
 -1: 0,
 0: 1,
@@ -42,15 +43,15 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_utnpk"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gs1rt"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_gruntdevotee.png-cbadf53dd811339fe1a98683df7a8670.ctex"
 
-[sub_resource type="Resource" id="Resource_gs1rt"]
+[sub_resource type="Resource" id="Resource_87nhp"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Devotee"
-texture = SubResource("CompressedTexture2D_utnpk")
+texture = SubResource("CompressedTexture2D_gs1rt")
 resource_costs = Dictionary[int, int]({
 0: 0,
 1: 0,
@@ -59,15 +60,15 @@ resource_costs = Dictionary[int, int]({
 favor = 15
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_87nhp"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_up2ya"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_GruntWorker_Grey.png-6a56ed2cd7bb410d97d6bbd55f0edcb2.ctex"
 
-[sub_resource type="Resource" id="Resource_up2ya"]
+[sub_resource type="Resource" id="Resource_qv5hx"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Worker"
-texture = SubResource("CompressedTexture2D_87nhp")
+texture = SubResource("CompressedTexture2D_up2ya")
 relative_scoring = Dictionary[int, int]({
 -1: 0,
 0: 1,
@@ -80,15 +81,15 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qv5hx"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xujkg"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_gruntdevotee.png-cbadf53dd811339fe1a98683df7a8670.ctex"
 
-[sub_resource type="Resource" id="Resource_xujkg"]
+[sub_resource type="Resource" id="Resource_313p5"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Devotee"
-texture = SubResource("CompressedTexture2D_qv5hx")
+texture = SubResource("CompressedTexture2D_xujkg")
 resource_costs = Dictionary[int, int]({
 0: 0,
 1: 0,
@@ -97,15 +98,15 @@ resource_costs = Dictionary[int, int]({
 favor = 15
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_313p5"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_65geu"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_GruntWorker_Grey.png-6a56ed2cd7bb410d97d6bbd55f0edcb2.ctex"
 
-[sub_resource type="Resource" id="Resource_65geu"]
+[sub_resource type="Resource" id="Resource_pqrr3"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Worker"
-texture = SubResource("CompressedTexture2D_313p5")
+texture = SubResource("CompressedTexture2D_65geu")
 relative_scoring = Dictionary[int, int]({
 -1: 0,
 0: 1,
@@ -118,24 +119,24 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pqrr3"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dlbl1"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_gruntdevotee.png-cbadf53dd811339fe1a98683df7a8670.ctex"
-
-[sub_resource type="Resource" id="Resource_dlbl1"]
-resource_local_to_scene = true
-script = ExtResource("5_qj8ib")
-card_name = "Grunt Devotee"
-texture = SubResource("CompressedTexture2D_pqrr3")
-resource_costs = Dictionary[int, int]({
-0: 0,
-1: 0,
-2: 0
-})
-favor = 15
-metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [sub_resource type="Resource" id="Resource_pstpm"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Grunt Devotee"
+texture = SubResource("CompressedTexture2D_dlbl1")
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+favor = 15
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_woec4"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Skeptic Tradesman"
@@ -148,15 +149,15 @@ relative_scoring = Dictionary[int, int]({
 favor = -25
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_woec4"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_33gh6"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_EvangelistBlue.png-0eda90e4bd4b27c5e7e230b7cc2315b0.ctex"
 
-[sub_resource type="Resource" id="Resource_33gh6"]
+[sub_resource type="Resource" id="Resource_dkxd2"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Evangelist"
-texture = SubResource("CompressedTexture2D_woec4")
+texture = SubResource("CompressedTexture2D_33gh6")
 absolute_scoring = Dictionary[int, int]({
 0: 0,
 1: 0,
@@ -165,7 +166,7 @@ absolute_scoring = Dictionary[int, int]({
 favor = 20
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_dkxd2"]
+[sub_resource type="Resource" id="Resource_qcenn"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Fasting Fanatic"
@@ -183,7 +184,7 @@ resource_costs = Dictionary[int, int]({
 favor = 40
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_qcenn"]
+[sub_resource type="Resource" id="Resource_wgige"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Fat Cat"
@@ -201,7 +202,7 @@ resource_costs = Dictionary[int, int]({
 favor = -10
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_wgige"]
+[sub_resource type="Resource" id="Resource_gpwjo"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Socialite"
@@ -231,7 +232,7 @@ offset_left = 153.0
 offset_top = 31.0
 offset_right = 153.0
 offset_bottom = 31.0
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_g2nqd"), SubResource("Resource_gs1rt")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_utnpk"), SubResource("Resource_87nhp")])
 
 [node name="Play Button" parent="Lanes/Lane" index="0"]
 script = ExtResource("8_qj8ib")
@@ -246,7 +247,7 @@ offset_top = 289.0
 offset_right = 154.0
 offset_bottom = 289.0
 type = 1
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_up2ya"), SubResource("Resource_xujkg")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_qv5hx"), SubResource("Resource_313p5")])
 
 [node name="Polygon2D" parent="Lanes/Lane2" index="1"]
 color = Color(0.264, 0.66, 0.28379998, 1)
@@ -258,15 +259,10 @@ offset_top = 548.0
 offset_right = 160.0
 offset_bottom = 548.0
 type = 2
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_65geu"), SubResource("Resource_dlbl1")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_pqrr3"), SubResource("Resource_pstpm")])
 
 [node name="Polygon2D" parent="Lanes/Lane3" index="1"]
 color = Color(0.264, 0.31679994, 0.66, 1)
-
-[node name="End Screen" parent="." instance=ExtResource("12_xju0t")]
-visible = false
-offset_right = 1920.0
-offset_bottom = 1080.0
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://Beyond the Stars FMOD/Build/Desktop/Master.strings.bank", "res://Beyond the Stars FMOD/Build/Desktop/Master.bank"]
@@ -297,19 +293,26 @@ offset_bottom = 3041.0
 [node name="ViewFollow World" type="Node2D" parent="Camera2D/CanvasLayer2"]
 texture_filter = 4
 
+[node name="End Screen" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("12_xju0t")]
+visible = false
+z_index = 999
+offset_right = 1920.0
+offset_bottom = 1080.0
+
 [node name="Hand" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("5_0obbo")]
 position = Vector2(0, 755.1)
-starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_pstpm"), SubResource("Resource_33gh6"), SubResource("Resource_dkxd2"), SubResource("Resource_qcenn"), SubResource("Resource_pstpm"), SubResource("Resource_wgige")])
+starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_woec4"), SubResource("Resource_dkxd2"), SubResource("Resource_qcenn"), SubResource("Resource_wgige"), SubResource("Resource_woec4"), SubResource("Resource_gpwjo")])
 
 [node name="TopBar" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("2_e0a3j")]
 offset_left = 300.0
 offset_right = 1308.9994
 offset_bottom = 70.0
 
-[node name="Action Manager" parent="Camera2D/CanvasLayer2/ViewFollow World/TopBar/SuperBar/PanelContainer" index="0" node_paths=PackedStringArray("lanes", "hand", "gm", "bgm_node")]
+[node name="Action Manager" parent="Camera2D/CanvasLayer2/ViewFollow World/TopBar/SuperBar/PanelContainer" index="0" node_paths=PackedStringArray("lanes", "hand", "gm", "win_checklist", "bgm_node")]
 lanes = [NodePath("../../../../../../../Lanes/Lane"), NodePath("../../../../../../../Lanes/Lane2"), NodePath("../../../../../../../Lanes/Lane3")]
 hand = NodePath("../../../../Hand")
 gm = NodePath("../../../../God Manager")
+win_checklist = NodePath("../../Win Checklist")
 bgm_node = NodePath("../../../../../../../BGM Node")
 
 [node name="God Manager" parent="Camera2D/CanvasLayer2/ViewFollow World" node_paths=PackedStringArray("lanes", "action_manager") instance=ExtResource("7_u7eci")]
@@ -356,6 +359,8 @@ energy = 0.0
 blend_mode = 1
 texture = ExtResource("11_s4lld")
 
+[node name="Intro Text Scroll" parent="Camera2D/CanvasLayer2" instance=ExtResource("21_g2nqd")]
+
 [connection signal="mouse_entered" from="Lanes/Lane/Play Button" to="Lanes/Lane/Play Button" method="_hover_sound"]
 [connection signal="mouse_entered" from="Lanes/Lane/Upgrade" to="Lanes/Lane/Play Button" method="_hover_sound"]
 [connection signal="mouse_entered" from="Lanes/Lane2/Play Button" to="Lanes/Lane/Play Button" method="_hover_sound"]
@@ -366,5 +371,8 @@ texture = ExtResource("11_s4lld")
 [editable path="Lanes/Lane"]
 [editable path="Lanes/Lane2"]
 [editable path="Lanes/Lane3"]
-[editable path="End Screen"]
+[editable path="Camera2D/CanvasLayer2/ViewFollow World/End Screen"]
+[editable path="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition"]
+[editable path="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Great Feast"]
+[editable path="Camera2D/CanvasLayer2/ViewFollow World/End Screen/Checklist Position/Win Condition/HBoxContainer/Checklist Panel/VBoxContainer/Soul Fragment"]
 [editable path="Camera2D/CanvasLayer2/ViewFollow World/TopBar"]

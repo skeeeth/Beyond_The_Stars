@@ -13,6 +13,7 @@ signal boon_selection_finished
 @onready var background: CycleFinishAnimator = $Background
 
 
+
 var unused_god:God
 var cravings_per_cycle:Array[int] = [1,1,2,2,2,3,3,0]
 

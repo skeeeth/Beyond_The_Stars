@@ -15,6 +15,7 @@ static var instance:WinChecklist #give reference
 @onready var h_box_container: VBoxContainer = $HBoxContainer
 
 @onready var spacer: Control = $HBoxContainer/Spacer
+@onready var favor_tiers: RichTextLabel = $"HBoxContainer/Checklist Panel/VBoxContainer/Favor Tiers"
 
 
 var clears_left:int
@@ -29,6 +30,7 @@ func _ready() -> void:
 	great_feast.button.text = "Begin Feast (%s food, %s sacrifices)" % [feast_cost, sacrifices]
 	clears_left = list_items.size()
 	on_cultist_generated(RM.types.BLUE,0)
+	set_favor_tier_text()
 
 func on_win_condition_cleared():
 	clears_left -= 1
@@ -76,3 +78,16 @@ func on_sacrifice_selected(card_display:CardDisplay):
 
 func _on_pressed() -> void:
 	h_box_container.visible = !h_box_container.visible
+	set_favor_tier_text()
+
+const FAVOR_ICON = preload("uid://dfoss2qt6igr7")
+
+func set_favor_tier_text():
+	favor_tiers.text = ""
+	favor_tiers.append_text("Gain Favor of the Gods:\n")
+	for key in God.god_names:
+		favor_tiers.append_text(God.god_names[key])
+		favor_tiers.append_text(": ")
+		#var breakpoint_readable_god_tiers = God.god_tiers
+		favor_tiers.add_image(FAVOR_ICON,32,32)
+		favor_tiers.append_text(" %s/%s\n" % [God.god_tiers[key],3])

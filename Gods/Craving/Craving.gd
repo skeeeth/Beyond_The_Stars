@@ -28,6 +28,7 @@ var time_limit:int = 2:
 func set_craving(tier:int):
 	active = true
 	visible = true
+	tier = max(tier,card_odds_per_tier.size()-1)
 	var card_odds:float = card_odds_per_tier[tier]
 	
 	

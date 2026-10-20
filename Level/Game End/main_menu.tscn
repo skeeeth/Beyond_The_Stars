@@ -1,15 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwcxvxsttp0vy"]
+[gd_scene load_steps=3 format=3 uid="uid://bwcxvxsttp0vy"]
 
 [ext_resource type="Script" uid="uid://bby6eya0sf88v" path="res://Level/Game End/main_menu.gd" id="1_vhdc1"]
+[ext_resource type="Texture2D" uid="uid://c00x1bhanlcm7" path="res://Assets/MainMenuScrewn.png" id="2_tx4r1"]
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource("1_vhdc1")
 
 [node name="Start game" type="Button" parent="."]
-offset_left = 327.0
-offset_top = 237.0
-offset_right = 734.0
-offset_bottom = 333.0
-text = "Start game"
+z_index = 3
+offset_left = 205.0
+offset_top = 619.0
+offset_right = 973.0
+offset_bottom = 879.0
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="Start game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.11, 0.11, 0.11, 0.4)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_right = 1921.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("2_tx4r1")
 
 [connection signal="pressed" from="Start game" to="." method="_on_start_game_pressed"]
+[connection signal="mouse_entered" from="Start game/ColorRect" to="." method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="Start game/ColorRect" to="." method="_on_color_rect_mouse_exited"]

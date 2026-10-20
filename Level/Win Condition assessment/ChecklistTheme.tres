@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=36 format=4 uid="uid://d2n7pa4128l2a"]
+[gd_resource type="Theme" load_steps=37 format=4 uid="uid://d2n7pa4128l2a"]
 
 [ext_resource type="Texture2D" uid="uid://hfnb7rml8tie" path="res://Assets/Cards/CardBG_Grey.png" id="1_dfyus"]
 [ext_resource type="Texture2D" uid="uid://1qh01yv2x42d" path="res://Assets/Icon/CardBG_Frame.png" id="2_dfyus"]
 [ext_resource type="Texture2D" uid="uid://cdavr8svbecof" path="res://Assets/Cards/CardBg_Green.png" id="2_lyrcv"]
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="4_lyrcv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_46amj"]
 texture = ExtResource("1_dfyus")
@@ -2123,3 +2124,6 @@ CheckBox/styles/normal = SubResource("StyleBoxEmpty_gtsvv")
 CheckBox/styles/pressed = SubResource("StyleBoxEmpty_5cgwf")
 Label/colors/font_color = Color(0, 0, 0, 1)
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_46amj")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/normal_font_size = 26
+RichTextLabel/fonts/normal_font = ExtResource("4_lyrcv")
