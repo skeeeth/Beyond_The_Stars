@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dg8sjc86dqcao"]
+[gd_scene load_steps=51 format=3 uid="uid://dg8sjc86dqcao"]
 
 [ext_resource type="Script" uid="uid://lao3lsrvbud1" path="res://Boon/Boon Pool/Boons/chosen_riff_raff.gd" id="1_pbi8e"]
 [ext_resource type="Script" uid="uid://c4xgjyl5skdwk" path="res://Card/CardResource.gd" id="2_b1cel"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://b0irekpit0jyy" path="res://Assets/Boons/Boon_SeekComrades_Card.png" id="25_xyn15"]
 [ext_resource type="Texture2D" uid="uid://c8lpl6brvghbh" path="res://Assets/Boons/BoonBlessGroundCard.png" id="28_ok7ym"]
 [ext_resource type="Texture2D" uid="uid://d3yrji4dc5kiu" path="res://Assets/Boons/BoonGrowSkillsCard.png" id="31_xyn15"]
+[ext_resource type="Texture2D" uid="uid://butbt5aj33ahe" path="res://Assets/Boons/CardBoon_SoukFragment.png" id="32_cjb04"]
 [ext_resource type="Texture2D" uid="uid://mlte7mv2tnf5" path="res://Assets/Boons/Boon_AuraofDeepeningDevotion_Card.png" id="33_6ytuf"]
 [ext_resource type="Texture2D" uid="uid://qounnugo53ep" path="res://Assets/Boons/BoonUnderstandInsignifiganceCard.png" id="35_6ytuf"]
 [ext_resource type="Texture2D" uid="uid://bbk2tj8xfa3g3" path="res://Assets/Boons/Boon_DeployPlatoon_Card.png" id="37_dfw7t"]
@@ -176,10 +177,9 @@ script = ExtResource("6_5y4ju")
 strategy = SubResource("Resource_5p5qj")
 description = "Under [god]'s watch, cards with a red pip score +10 favor and permanently gain [[1/0/0g0/0/0 when played"
 icon = ExtResource("11_cjb04")
-debug_force = true
 mask = Dictionary[int, bool]({
-0: true,
-1: true,
+0: false,
+1: false,
 2: true,
 3: true
 })
@@ -289,6 +289,7 @@ mask = Dictionary[int, bool]({
 [node name="Soul Fragment" type="Node" parent="."]
 script = ExtResource("21_e502x")
 description = "Select at least one soul fragment before the last cycle to win the game (this boon is available at tier two for all gods)"
+icon = ExtResource("32_cjb04")
 tier = 2
 debug_force = true
 mask = Dictionary[int, bool]({
@@ -346,7 +347,6 @@ count = 3
 description = "Select lane to deploy 3 Warriors"
 icon = ExtResource("37_dfw7t")
 tier = 3
-debug_force = true
 mask = Dictionary[int, bool]({
 0: true,
 1: false,

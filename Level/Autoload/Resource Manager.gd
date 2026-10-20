@@ -80,6 +80,7 @@ func reset():
 
 	for k in cumulative:
 		cumulative[k] = 0
+		resource_added.emit(k,0)
 	
 func score_favor(lane:types, amount:int):
 	favor_scored_in_lane.emit(lane, amount)

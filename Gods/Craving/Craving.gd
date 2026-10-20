@@ -28,9 +28,10 @@ var time_limit:int = 2:
 func set_craving(tier:int):
 	active = true
 	visible = true
-	tier = max(tier,card_odds_per_tier.size()-1)
+	tier = min(tier,card_odds_per_tier.size()-1)
 	var card_odds:float = card_odds_per_tier[tier]
-	
+	rich_text_label.text = ""
+	rich_text_label.clear()
 	
 	if randf() > card_odds:
 		set_resource_craving(tier)

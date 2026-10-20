@@ -34,6 +34,5 @@ texture_progress = ExtResource("5_nt1ai")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
-disabled = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

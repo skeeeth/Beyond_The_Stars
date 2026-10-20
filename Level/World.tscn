@@ -300,7 +300,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="Hand" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("5_0obbo")]
-position = Vector2(0, 755.1)
+position = Vector2(0, 762.29)
 starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_woec4"), SubResource("Resource_dkxd2"), SubResource("Resource_qcenn"), SubResource("Resource_wgige"), SubResource("Resource_woec4"), SubResource("Resource_gpwjo")])
 
 [node name="TopBar" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("2_e0a3j")]

@@ -23,6 +23,7 @@ static func activate(checklist:WinChecklist):
 func setup(checklist:WinChecklist):
 	visible = true
 	checklist.reparent(checklist_position,false)
+	checklist.h_box_container.visible = true
 	display_text(checklist)
 	#if checklist.clears_left == 0:
 		#display_text(win_text)
@@ -73,7 +74,7 @@ func display_text(checklist:WinChecklist):
 		path = "res://Assets/Text Scrolls/Neutral Loss.txt"
 		title_line = "Bad End"
 	
-	if checklist.clears_left == 0 and god_info["Min Tier"] == 3:
+	if checklist.clears_left <= 0 and god_info["Min Tier"] == 3:
 		path = "res://Assets/Text Scrolls/Player Win.txt"
 		title_line = "True End"
 		

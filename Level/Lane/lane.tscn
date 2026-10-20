@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://djelkq3gxvrft"]
+[gd_scene load_steps=15 format=3 uid="uid://djelkq3gxvrft"]
 
 [ext_resource type="Theme" uid="uid://bql5e0cm2pyh8" path="res://Level/Lane/UI Theme.tres" id="1_1uh1k"]
 [ext_resource type="Script" uid="uid://dpj87j1ut8bw3" path="res://Level/Lane/lane.gd" id="1_rr5i5"]
@@ -6,11 +6,20 @@
 [ext_resource type="Resource" uid="uid://dpcd6nill7hwx" path="res://Card/Instances/Starter Cards/GreyOne.tres" id="3_36dom"]
 [ext_resource type="Resource" uid="uid://didxprwee34en" path="res://Card/Instances/Starter Cards/Grunt Devotee.tres" id="4_iae0s"]
 [ext_resource type="PackedScene" uid="uid://bj2bhoovxyyvx" path="res://Level/UI/Pile Icon.tscn" id="5_3y20t"]
-[ext_resource type="LabelSettings" uid="uid://if8ust6gi00u" path="res://Level/Lane/ButtonCostText.tres" id="6_nceqa"]
 [ext_resource type="PackedScene" uid="uid://dyy8u8y55lkkl" path="res://Level/Lane/upgrade_button.tscn" id="7_5wohj"]
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="7_tbp5f"]
 [ext_resource type="PackedScene" uid="uid://c8lihsm427v3f" path="res://Level/Lane/resource_map.tscn" id="8_xrdmo"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="9_4kl2l"]
 [ext_resource type="Texture2D" uid="uid://13ox0tece8j7" path="res://LaneBorderBlack.png" id="9_5wohj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kl2l"]
+font = ExtResource("7_tbp5f")
+font_size = 55
+font_color = Color(0, 0, 0, 1)
+outline_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_v0oui"]
+font = ExtResource("7_tbp5f")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uh1k"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -33,10 +42,10 @@ deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_iae
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 0
-offset_left = 820.0
-offset_top = 503.0
-offset_right = 976.0
-offset_bottom = 593.0
+offset_left = 713.0
+offset_top = 468.0
+offset_right = 1026.0
+offset_bottom = 619.5528
 scale = Vector2(1, 0.805)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Play Button"]
@@ -55,8 +64,17 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Collect"
-label_settings = ExtResource("6_nceqa")
+label_settings = SubResource("LabelSettings_4kl2l")
 horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Play Button/HBoxContainer/Label"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 57.3478
+offset_right = 195.0
+offset_bottom = 80.3478
+text = "(1 Action)"
+label_settings = SubResource("LabelSettings_v0oui")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
