@@ -45,7 +45,7 @@ var card_plays:int = 0:
 var god_strategies:Array[BaseCardStrategy]
 
 static var strategy_pause:float = 0.5
-var button_supressions:int = 0
+var button_supressions:int = 1
 
 var selection_requested:bool = false
 
@@ -208,6 +208,7 @@ func disable_buttons():
 
 func enable_buttons():
 	button_supressions -= 1
+	print("button supressions: %s" % button_supressions)
 	if button_supressions == 0:
 		for b in buttons:
 			if b:
@@ -235,14 +236,12 @@ func midlight():
 	click_hitbox.modulate = Color.GRAY
 
 func request_card_selection():
-	disable_buttons()
 	draw_pile.set_highlight_mode(Pile.highlight_modes.PULSING)
 	discard_pile.set_highlight_mode(Pile.highlight_modes.PULSING)
 	
 func pile_highlight_reset():
 	draw_pile.set_highlight_mode(Pile.highlight_modes.OFF)
 	discard_pile.set_highlight_mode(Pile.highlight_modes.OFF)
-	enable_buttons()
 
 ##used to validate click and drag data, for now thats only cards so this could honestly just return literal true
 func _can_drop_data(_position, data):

@@ -35,6 +35,10 @@ func splay(cards: Array):
 	#var typed_list:Array[CardData]
 	#for c in cards:
 		#typed_list.append(c)
+	
+	#for l in lane_list:
+		#l.disable_buttons()
+	
 	# clear current cards in card display
 	for child in card_display.container.get_children():
 		child.queue_free()

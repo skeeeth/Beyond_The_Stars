@@ -32,11 +32,17 @@ func on_action_taken():
 		
 func round_end():
 	cycle_ending.emit()
+	for l in lanes:
+		l.disable_buttons()
 
 func start_cycle():
 	if cycle == 7:
 		GameEnd.activate(win_checklist)
 		return
+		
+	for l in lanes:
+		l.enable_buttons()
+	
 	actions_left = actions_per_cycle
 	cycle += 1
 
