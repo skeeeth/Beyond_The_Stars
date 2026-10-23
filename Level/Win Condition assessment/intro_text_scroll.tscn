@@ -8,7 +8,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_0i1pn"]
 font = ExtResource("3_jtcns")
 font_size = 32
-outline_size = 4
+outline_size = 3
 
 [node name="Intro Text Scroll" type="TextureRect" node_paths=PackedStringArray("label")]
 anchors_preset = 15
@@ -31,11 +31,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Intro
 Spacebar to skip"
 label_settings = SubResource("LabelSettings_0i1pn")
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Spacer" type="Control" parent="VBoxContainer"]
 layout_mode = 2
