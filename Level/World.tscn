@@ -308,7 +308,8 @@ offset_left = 300.0
 offset_right = 1308.9994
 offset_bottom = 70.0
 
-[node name="Action Manager" parent="Camera2D/CanvasLayer2/ViewFollow World/TopBar/SuperBar/PanelContainer2/VBoxContainer" index="1" node_paths=PackedStringArray("hand", "gm", "win_checklist", "cycle_text", "bgm_node")]
+[node name="Action Manager" parent="Camera2D/CanvasLayer2/ViewFollow World/TopBar/SuperBar/PanelContainer2/VBoxContainer" index="1" node_paths=PackedStringArray("lanes", "hand", "gm", "win_checklist", "cycle_text", "bgm_node")]
+lanes = [NodePath("../../../../../../../../Lanes/Lane"), NodePath("../../../../../../../../Lanes/Lane2"), NodePath("../../../../../../../../Lanes/Lane3")]
 hand = NodePath("../../../../../Hand")
 gm = NodePath("../../../../../God Manager")
 win_checklist = NodePath("../../../Win Checklist")
