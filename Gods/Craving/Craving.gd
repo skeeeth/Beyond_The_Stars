@@ -85,6 +85,10 @@ func try_pay():
 			_initiate_sacrifice.start()
 			_initiate_sacrifice.release()
 			on_satisfy()
+		else:
+			var deny_sound = FmodServer.create_event_instance("event:/UI Deny")
+			deny_sound.start()
+			deny_sound.release()
 
 func on_satisfy():
 	active = false

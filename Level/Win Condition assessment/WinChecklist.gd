@@ -46,6 +46,10 @@ func on_cultist_generated(resource_type:RM.types, _amount:int):
 func _on_great_feast_button_pressed() -> void:
 	if RM.try_spend(RM.types.GREEN,feast_cost):
 		start_feast()
+	else:
+		var deny_sound = FmodServer.create_event_instance("event:/UI Deny")
+		deny_sound.start()
+		deny_sound.release()
 	pass # Replace with function body.
 
 #region Mr Feast

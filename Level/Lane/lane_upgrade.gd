@@ -16,6 +16,9 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	if !RM.try_spend(cost_type,cost_progression[current_stage]): 
+		var deny_sound = FmodServer.create_event_instance("event:/UI Deny")
+		deny_sound.start()
+		deny_sound.release()
 		return #do nothing on fail (or later to some kind of error feedback but nothing for now)
 	
 	var UI_confirm_sound = FmodServer.create_event_instance("event:/UI Confirm")
