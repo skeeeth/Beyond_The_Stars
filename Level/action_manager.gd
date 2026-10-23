@@ -24,6 +24,7 @@ func _ready() -> void:
 		#l.card_added.connect(on_action_taken.unbind(1))
 		l.lane_scored.connect(on_action_taken.unbind(1))
 	gm.boon_selection_finished.connect(start_cycle)
+	_set_text()
 
 func on_action_taken():
 	actions_left -= 1
@@ -51,6 +52,7 @@ func start_cycle():
 	if (cycle % 2) == 1:
 		hand.draw_cost += 1
 	bgm_node.set_parameter("Cycle", cycle)
+	_set_text()
 	_set_cycle_text()
 
 func _set_text():
