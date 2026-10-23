@@ -11,6 +11,6 @@ metadata/_custom_type_script = "uid://bwwlyd4jn2fvg"
 [resource]
 script = ExtResource("1_mdoal")
 word = "Tithe"
-description = "When this card would gain a resource, instead score 5 adittional favor"
+description = "Gain +5 favor for each resource earned. Gain no resources"
 strategy = SubResource("Resource_io4sm")
 metadata/_custom_type_script = "uid://hymadn3vxqo"

@@ -45,7 +45,7 @@ var card_plays:int = 0:
 var god_strategies:Array[BaseCardStrategy]
 
 static var strategy_pause:float = 0.5
-var button_supressions:int = 0
+var button_supressions:int = 1
 
 var selection_requested:bool = false
 

@@ -69,6 +69,14 @@ text = "Some Sample Text "
 fit_content = true
 vertical_alignment = 1
 
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+
 [node name="Card Container" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
