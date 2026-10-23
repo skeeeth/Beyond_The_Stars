@@ -81,6 +81,9 @@ func try_pay():
 		World.instance.splayed_card_clicked.connect(on_card_selected,4)
 	else:
 		if RM.try_spend_all(resource_matrix):
+			var _initiate_sacrifice = FmodServer.create_event_instance("event:/Initiate Sacrifice")
+			_initiate_sacrifice.start()
+			_initiate_sacrifice.release()
 			on_satisfy()
 
 func on_satisfy():
@@ -104,12 +107,12 @@ func on_unsated_cycle():
 		active = false
 
 func on_click():
-	var _initiate_sacrifice = FmodServer.create_event_instance("event:/Initiate Sacrifice")
-	_initiate_sacrifice.start()
-	_initiate_sacrifice.release()
 	if type == craving_types.RES:
 		try_pay()
 	else:
+		var _initiate_sacrifice = FmodServer.create_event_instance("event:/Initiate Sacrifice")
+		_initiate_sacrifice.start()
+		_initiate_sacrifice.release()
 		var _signal:Signal =World.instance.splayed_card_clicked
 		if _signal.is_connected(on_card_selected): 
 			#disable sacrifice mode
