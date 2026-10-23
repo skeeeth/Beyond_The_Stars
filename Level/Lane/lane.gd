@@ -45,7 +45,7 @@ var card_plays:int = 0:
 var god_strategies:Array[BaseCardStrategy]
 
 static var strategy_pause:float = 0.5
-var button_supressions:int = 1
+var button_supressions:int = 0
 
 var selection_requested:bool = false
 
@@ -208,7 +208,7 @@ func disable_buttons():
 
 func enable_buttons():
 	button_supressions -= 1
-	print("button supressions: %s" % button_supressions)
+	print("Enabled buttons; button supressions: %s" % button_supressions)
 	if button_supressions == 0:
 		for b in buttons:
 			if b:

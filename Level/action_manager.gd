@@ -27,6 +27,7 @@ func _ready() -> void:
 
 func on_action_taken():
 	actions_left -= 1
+	print(actions_left)
 	_set_text()
 	if actions_left == 0:
 		round_end()
