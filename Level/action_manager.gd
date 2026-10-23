@@ -20,7 +20,7 @@ func _ready() -> void:
 	# hence the unbinding to match signature of triggered callable
 	
 	for l in lanes:
-		l.card_added.connect(on_action_taken.unbind(1))
+		#l.card_added.connect(on_action_taken.unbind(1))
 		l.lane_scored.connect(on_action_taken.unbind(1))
 	gm.boon_selection_finished.connect(start_cycle)
 
