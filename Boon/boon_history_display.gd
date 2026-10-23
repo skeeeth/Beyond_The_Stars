@@ -5,6 +5,7 @@ class_name BoonHistoryDisplay
 @export var displays:Array[BoonDisplay]
 @export var locked_boon:Boon
 
+@onready var god_identifier: Label = $"Container/God Identifier"
 
 func _ready() -> void:
 	#for node in container.get_children():

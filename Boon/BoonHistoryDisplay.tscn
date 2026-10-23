@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqy5sbmqjwct7"]
+[gd_scene load_steps=10 format=3 uid="uid://bqy5sbmqjwct7"]
 
 [ext_resource type="Script" uid="uid://dohke6esj2lcr" path="res://Boon/boon_history_display.gd" id="1_hn5vc"]
 [ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="2_t8xh6"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://srv80ks50ru8" path="res://Assets/Boons/Boon_BlankCard.png" id="4_tgv4s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgv4s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t8xh6"]
+font = ExtResource("2_t8xh6")
+font_size = 28
 
 [sub_resource type="LabelSettings" id="LabelSettings_4nukf"]
 font = ExtResource("2_t8xh6")
@@ -27,6 +31,13 @@ locked_boon = NodePath("Locked")
 [node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
+
+[node name="God Identifier" type="Label" parent="Container"]
+layout_mode = 2
+text = "Lane Visited by:
+"
+label_settings = SubResource("LabelSettings_t8xh6")
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container"]
 layout_mode = 2

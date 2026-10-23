@@ -59,6 +59,8 @@ func _ready() -> void:
 	texture_rect.texture = lane_sprite
 	craving.craving_failed.connect(on_craving_fail)
 	tier_up.call_deferred()
+	boon_display.god_identifier.text += god_names[identity]
+
 
 func set_to_lane(lane:Lane):
 	reparent(lane)
