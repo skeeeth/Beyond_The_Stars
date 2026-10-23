@@ -308,16 +308,16 @@ offset_left = 300.0
 offset_right = 1308.9994
 offset_bottom = 70.0
 
-[node name="Action Manager" parent="Camera2D/CanvasLayer2/ViewFollow World/TopBar/SuperBar/PanelContainer" index="0" node_paths=PackedStringArray("lanes", "hand", "gm", "win_checklist", "bgm_node")]
-lanes = [NodePath("../../../../../../../Lanes/Lane"), NodePath("../../../../../../../Lanes/Lane2"), NodePath("../../../../../../../Lanes/Lane3")]
-hand = NodePath("../../../../Hand")
-gm = NodePath("../../../../God Manager")
-win_checklist = NodePath("../../Win Checklist")
-bgm_node = NodePath("../../../../../../../BGM Node")
+[node name="Action Manager" parent="Camera2D/CanvasLayer2/ViewFollow World/TopBar/SuperBar/PanelContainer2/VBoxContainer" index="1" node_paths=PackedStringArray("hand", "gm", "win_checklist", "cycle_text", "bgm_node")]
+hand = NodePath("../../../../../Hand")
+gm = NodePath("../../../../../God Manager")
+win_checklist = NodePath("../../../Win Checklist")
+cycle_text = NodePath("../../../PanelContainer/VBoxContainer/Cycle Number")
+bgm_node = NodePath("../../../../../../../../BGM Node")
 
 [node name="God Manager" parent="Camera2D/CanvasLayer2/ViewFollow World" node_paths=PackedStringArray("lanes", "action_manager") instance=ExtResource("7_u7eci")]
 lanes = [NodePath("../../../../Lanes/Lane"), NodePath("../../../../Lanes/Lane2"), NodePath("../../../../Lanes/Lane3")]
-action_manager = NodePath("../TopBar/SuperBar/PanelContainer/Action Manager")
+action_manager = NodePath("../TopBar/SuperBar/PanelContainer2/VBoxContainer/Action Manager")
 
 [node name="Lane Info Display" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("18_lcjul")]
 position = Vector2(0, -142.44)
@@ -360,6 +360,7 @@ blend_mode = 1
 texture = ExtResource("11_s4lld")
 
 [node name="Intro Text Scroll" parent="Camera2D/CanvasLayer2" instance=ExtResource("21_g2nqd")]
+visible = false
 
 [connection signal="mouse_entered" from="Lanes/Lane/Play Button" to="Lanes/Lane/Play Button" method="_hover_sound"]
 [connection signal="mouse_entered" from="Lanes/Lane/Upgrade" to="Lanes/Lane/Play Button" method="_hover_sound"]

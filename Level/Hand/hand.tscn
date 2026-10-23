@@ -35,7 +35,7 @@ scale = Vector2(0.8, 0.8)
 [node name="Button" type="Button" parent="."]
 offset_left = 301.0
 offset_top = -101.0
-offset_right = 543.0
+offset_right = 670.055
 offset_bottom = -11.0
 theme = ExtResource("9_12a2t")
 
@@ -44,18 +44,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 39.0
-offset_top = 15.0
-offset_right = -36.0
-offset_bottom = -14.0
+offset_left = -7.5
+offset_top = 8.5
+offset_right = 10.5
+offset_bottom = -7.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -3
 
 [node name="Label" type="Label" parent="Button/VBoxContainer"]
 layout_mode = 2
-text = "Draw Card"
+text = "Recruit Acolyte"
 label_settings = SubResource("LabelSettings_vgng6")
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Button/VBoxContainer"]
 layout_mode = 2

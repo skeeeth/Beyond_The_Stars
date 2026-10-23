@@ -17,7 +17,7 @@ var card_draw_sound = null
 
 func _ready():
 	instance = self
-	card_draw_sound = FmodServer.create_event_instance("event:/Card Deal")
+	#card_draw_sound = FmodServer.create_event_instance("event:/Card Deal")
 	lane_list.push_front(lanes.get_node("Lane"))
 	lane_list.push_front(lanes.get_node("Lane2"))
 	lane_list.push_front(lanes.get_node("Lane3"))

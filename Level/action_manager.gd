@@ -7,6 +7,7 @@ signal cycle_ending
 @export var hand:Hand
 @export var gm:GodManager
 @export var win_checklist:WinChecklist
+@export var cycle_text:Label
 static var actions_per_cycle:int = 5
 static var instance:ActionManager
 var actions_left:int = actions_per_cycle
@@ -50,7 +51,10 @@ func start_cycle():
 	if (cycle % 2) == 1:
 		hand.draw_cost += 1
 	bgm_node.set_parameter("Cycle", cycle)
-	_set_text()
+	_set_cycle_text()
 
 func _set_text():
-	text = "Actions Left: %s \nCycle: %s" % [actions_left,cycle]
+	text = "%s" % actions_left
+	
+func _set_cycle_text():
+	cycle_text.text = "%s" % cycle
