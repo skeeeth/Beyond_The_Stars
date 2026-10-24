@@ -9,11 +9,12 @@
 
 [node name="Win Condition" type="Button"]
 custom_minimum_size = Vector2(64, 64)
-anchors_preset = 10
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-offset_right = -1856.0
+offset_left = -64.0
 offset_bottom = 64.0
-grow_horizontal = 2
+grow_horizontal = 0
 size_flags_vertical = 3
 theme = ExtResource("1_gtsvv")
 toggle_mode = true
@@ -25,10 +26,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.08)
 texture = ExtResource("3_b7xga")
 expand_mode = 1
+stretch_mode = 5
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 visible = false
@@ -63,7 +70,7 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="HBoxContainer/Checklist Panel/VBoxContainer"]
 layout_mode = 2
-text = "Ascention conditions"
+text = "Ascension conditions"
 label_settings = ExtResource("5_ayey8")
 horizontal_alignment = 1
 

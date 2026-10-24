@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bqcv0lc48dq5o"]
+
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="1_5fkoy"]
+
+[resource]
+font = ExtResource("1_5fkoy")
+font_size = 26
+font_color = Color(0, 0, 0, 1)

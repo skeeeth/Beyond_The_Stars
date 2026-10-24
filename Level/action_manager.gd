@@ -7,7 +7,8 @@ signal cycle_ending
 @export var hand:Hand
 @export var gm:GodManager
 @export var win_checklist:WinChecklist
-static var actions_per_cycle:int = 5
+@export var cycle_text:Label
+static var actions_per_cycle:int = 3
 static var instance:ActionManager
 var actions_left:int = actions_per_cycle
 var cycle:int = 0
@@ -23,6 +24,7 @@ func _ready() -> void:
 		#l.card_added.connect(on_action_taken.unbind(1))
 		l.lane_scored.connect(on_action_taken.unbind(1))
 	gm.boon_selection_finished.connect(start_cycle)
+	_set_text()
 
 func on_action_taken():
 	actions_left -= 1
@@ -51,6 +53,10 @@ func start_cycle():
 		hand.draw_cost += 1
 	bgm_node.set_parameter("Cycle", cycle)
 	_set_text()
+	_set_cycle_text()
 
 func _set_text():
-	text = "Actions Left: %s \nCycle: %s" % [actions_left,cycle]
+	text = "%s" % actions_left
+	
+func _set_cycle_text():
+	cycle_text.text = "%s" % cycle

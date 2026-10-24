@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://buf0hretkfi1s"]
+[gd_scene load_steps=6 format=3 uid="uid://buf0hretkfi1s"]
 
 [ext_resource type="Texture2D" uid="uid://dyoyeittrlni8" path="res://Assets/GameBg (2).png" id="1_0i1pn"]
-[ext_resource type="Script" uid="uid://b1sesoloqed8v" path="res://Level/Win Condition assessment/intro_text_scroll.gd" id="1_aehqf"]
-[ext_resource type="Script" uid="uid://cmad8hbvh0qyf" path="res://Assets/Icon/TextScroll.gd" id="1_mmi86"]
+[ext_resource type="Script" path="res://Level/Win Condition assessment/intro_text_scroll.gd" id="1_aehqf"]
+[ext_resource type="Script" path="res://Assets/Icon/TextScroll.gd" id="1_mmi86"]
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="3_jtcns"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0i1pn"]
+font = ExtResource("3_jtcns")
 font_size = 32
+outline_size = 3
 
 [node name="Intro Text Scroll" type="TextureRect" node_paths=PackedStringArray("label")]
 anchors_preset = 15
@@ -28,11 +31,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Intro
 Spacebar to skip"
 label_settings = SubResource("LabelSettings_0i1pn")
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Spacer" type="Control" parent="VBoxContainer"]
 layout_mode = 2
@@ -41,6 +46,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("3_jtcns")
 theme_override_font_sizes/normal_font_size = 28
 text = "It is hard to believe it has already been one year since I first encountered it. It was an autumn day, marked by a brisk breeze, encouraging the first leaves to fall from their maternal branches. I had come upon a brook, pleasant and bubbling, cool to the touch. Having had no destination in particular, I decided to follow the current along the damp trail, occasionally stopping to rest and drink from my new flowing companion.
 

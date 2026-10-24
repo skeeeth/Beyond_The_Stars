@@ -10,5 +10,6 @@ metadata/_custom_type_script = "uid://bo66ta2up73au"
 [resource]
 script = ExtResource("1_vkr0c")
 word = "Grub"
+description = "Card to the left of a Grub will consume it and gain a permanent bonus to a specified stat"
 strategy = SubResource("Resource_jthcr")
 metadata/_custom_type_script = "uid://hymadn3vxqo"

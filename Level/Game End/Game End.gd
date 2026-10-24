@@ -22,9 +22,11 @@ static func activate(checklist:WinChecklist):
 
 func setup(checklist:WinChecklist):
 	visible = true
-	checklist.reparent(checklist_position,false)
-	checklist.position = Vector2.ZERO
+	#checklist.reparent(checklist_position,false)
+	#checklist.position = Vector2.ZERO
 	checklist.h_box_container.visible = true
+	checklist.h_box_container.reparent(checklist_position,false)
+	checklist.h_box_container.position = Vector2.ZERO
 	display_text(checklist)
 	#if checklist.clears_left == 0:
 		#display_text(win_text)
@@ -62,27 +64,35 @@ func display_text(checklist:WinChecklist):
 	match highest_favor_god:
 		God.GODS.A:
 			path = "res://Assets/Text Scrolls/Ganth Win.txt"
-			title_line = "Ganth Ascension Ending"
+			title_line = "Ganth Ascends"
 		God.GODS.B:
 			path = "res://Assets/Text Scrolls/Kolma Win.txt"
-			title_line = "Kolma Ascension Ending"
+			title_line = "Kolma Ascends"
 		God.GODS.C:
 			path = "res://Assets/Text Scrolls/Myggos Win.txt"
-			title_line = "Myggos Ascension Ending"
+			title_line = "Myggos Ascends"
 		God.GODS.D:
 			path = "res://Assets/Text Scrolls/Mahaux Win.txt"
-			title_line = "Mahaux Ascension Ending"
+			title_line = "Mahaux Ascends"
 	
 	if max_tier < 3:
 		path = "res://Assets/Text Scrolls/Neutral Loss.txt"
-		title_line = "Bad End"
+		title_line = "Failed Ascension"
 	
 	if checklist.clears_left <= 0 and min_tier >= 3:
 		path = "res://Assets/Text Scrolls/Player Win.txt"
-		title_line = "True End"
+		title_line = "True Ascension"
 		
 	title_box.text = title_line
 	scroll_text.set_text_from_path(path)
 
 func _on_button_pressed() -> void:
+	var UI_confirm_sound = FmodServer.create_event_instance("event:/Cycle Change")
+	UI_confirm_sound.start()
+	UI_confirm_sound.release()
 	get_tree().change_scene_to_file("res://Level/Game End/main_menu.tscn")
+	
+func _on_button_hover() -> void:
+	var UI_hover_sound = FmodServer.create_event_instance("event:/UI Hover")
+	UI_hover_sound.start()
+	UI_hover_sound.release()

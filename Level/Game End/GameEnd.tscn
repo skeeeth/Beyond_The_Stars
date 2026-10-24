@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn8hhitufyxi8"]
+[gd_scene load_steps=5 format=3 uid="uid://dn8hhitufyxi8"]
 
 [ext_resource type="Script" uid="uid://cl6agm10qk5o2" path="res://Level/Game End/Game End.gd" id="1_5r52f"]
-[ext_resource type="Script" uid="uid://cmad8hbvh0qyf" path="res://Assets/Icon/TextScroll.gd" id="3_gdeqk"]
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="2_gdeqk"]
+[ext_resource type="Script" path="res://Assets/Icon/TextScroll.gd" id="3_gdeqk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5r52f"]
+font = ExtResource("2_gdeqk")
 font_size = 50
+outline_size = 3
 
 [node name="End Screen" type="Control"]
 z_index = 100
@@ -22,12 +25,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -47.0
+offset_right = 47.0
+offset_bottom = 96.0
 grow_horizontal = 2
 text = "End"
 label_settings = SubResource("LabelSettings_5r52f")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Backboard" type="ColorRect" parent="."]
 z_index = -1
@@ -48,7 +53,6 @@ offset_bottom = 1016.0
 text = "Main Menu"
 
 [node name="Checklist Position" type="Node2D" parent="."]
-position = Vector2(854, -49)
 
 [node name="Scroll Text" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -56,7 +60,8 @@ offset_left = 807.0
 offset_top = 89.0
 offset_right = 1858.0
 offset_bottom = 845.0
-theme_override_font_sizes/normal_font_size = 28
+theme_override_fonts/normal_font = ExtResource("2_gdeqk")
+theme_override_font_sizes/normal_font_size = 31
 text = "As the sun rose after the 7th cycle, I heard an ancient voice ring within my skull. Though I had never understood it before this moment, it was familiar and comforting. For the first time in 7 cycles, The Oldest One had reached out to me from the void. It said:
 
 “My faithful servant, I have observed your ingenuity, your bounty, your prudence. You are a worthy vessel for the next eternity.  Rise. Ascend. Do with the world as you wish.”
@@ -69,4 +74,5 @@ scroll_following = true
 scroll_following_visible_characters = true
 script = ExtResource("3_gdeqk")
 
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_hover"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

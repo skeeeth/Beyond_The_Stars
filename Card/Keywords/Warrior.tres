@@ -12,6 +12,6 @@ metadata/_custom_type_script = "uid://b10n0lx7nychn"
 resource_name = "Warrior"
 script = ExtResource("1_m1g0l")
 word = "Warrior"
-description = "Gain [[1/0/0g0/0/0, 10 favor during scoring for each warrior scored simultaneously"
+description = "Gain +1 Gold and, +10 favor during scoring for each warrior scored simultaneously"
 strategy = SubResource("Resource_6fotk")
 metadata/_custom_type_script = "uid://hymadn3vxqo"

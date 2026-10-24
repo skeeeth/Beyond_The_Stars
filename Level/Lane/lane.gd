@@ -221,7 +221,7 @@ func disable_buttons():
 
 func enable_buttons():
 	button_supressions -= 1
-	print("button supressions: %s" % button_supressions)
+	print("Enabled buttons; button supressions: %s" % button_supressions)
 	if button_supressions == 0:
 		for b in buttons:
 			if b:

@@ -51,14 +51,15 @@ func set_boon(b:Boon):
 		display_cards(boon.cards)
 
 static func format_text(text:String, rich_text_box:RichTextLabel, god_type:God.GODS = God.GODS.A):
+	var god_name:String = God.god_names[god_type]
+	text = text.replace("[god]",god_name)
 	var start = text.find("[[")
 	#var end = text.find("]]")
 	if start == -1:
 		rich_text_box.append_text(text)
 		return
 	
-	var god_name:String = God.god_names[god_type]
-	text = text.replace("[god]",god_name)
+	
 	
 	rich_text_box.append_text(text.left(start))
 	var stat_block = text.substr(start+2, 11)

@@ -23,12 +23,12 @@
 [ext_resource type="Texture2D" uid="uid://025gei6lvh0a" path="res://Assets/Boons/Boon_WormPack_Card.png" id="15_orkh0"]
 [ext_resource type="Resource" uid="uid://whwhcojf4a3k" path="res://Card/Instances/Grub Pack/BlueGrub.tres" id="16_y2ul4"]
 [ext_resource type="Resource" uid="uid://b0ffta8l0ctae" path="res://Card/Instances/Grub Pack/GreenGrub.tres" id="17_npeu5"]
-[ext_resource type="Script" path="res://Boon/Boon Pool/deploy_platoon.gd" id="19_dvhg7"]
+[ext_resource type="Script" uid="uid://2q1fta1uaqod" path="res://Boon/Boon Pool/deploy_platoon.gd" id="19_dvhg7"]
 [ext_resource type="Texture2D" uid="uid://bi4pq4jsll8ih" path="res://Assets/Boons/Boon_GrubPack_Card.png" id="19_rdp88"]
 [ext_resource type="Resource" uid="uid://d4re05y24ny4" path="res://Card/Keywords/Tithe.tres" id="20_e5mks"]
 [ext_resource type="Script" uid="uid://ci21oee3egfbd" path="res://Boon/Boon Pool/soul_fragment.gd" id="21_e502x"]
 [ext_resource type="Texture2D" uid="uid://d10mjni4mtnv5" path="res://Assets/Boons/Boon_WarriorPack_Card.png" id="21_tnfgd"]
-[ext_resource type="Script" path="res://Boon/Boon Pool/LaneBlessing.gd" id="22_d4lxj"]
+[ext_resource type="Script" uid="uid://fdenwufvq5qu" path="res://Boon/Boon Pool/LaneBlessing.gd" id="22_d4lxj"]
 [ext_resource type="Texture2D" uid="uid://vseuokeulvt8" path="res://Assets/Boons/BoonSowSeedsCard.png" id="23_ok7ym"]
 [ext_resource type="Texture2D" uid="uid://bs66s22cidajk" path="res://Assets/Boons/BoonGlimpseBeyondCard.png" id="24_03ag0"]
 [ext_resource type="Texture2D" uid="uid://b0irekpit0jyy" path="res://Assets/Boons/Boon_SeekComrades_Card.png" id="25_xyn15"]
@@ -175,7 +175,7 @@ mask = Dictionary[int, bool]({
 [node name="Aura of Greed" type="Node" parent="."]
 script = ExtResource("6_5y4ju")
 strategy = SubResource("Resource_5p5qj")
-description = "Under [god]'s watch, cards with a red pip score +10 favor and permanently gain [[1/0/0g0/0/0 when played"
+description = "Under [god]'s watch, cards with at least [[1/0/0g0/0/0 score +10 favor and permanently gain +1 Gold when played"
 icon = ExtResource("11_cjb04")
 mask = Dictionary[int, bool]({
 0: false,
@@ -187,7 +187,7 @@ mask = Dictionary[int, bool]({
 [node name="Worm Pack" type="Node" parent="."]
 script = ExtResource("7_scm78")
 cards = Array[ExtResource("2_b1cel")]([ExtResource("8_rgqg3"), ExtResource("11_y2ul4")])
-description = "Add Worm cards to pool Worm: Limbless, sightless acolytes with astonishing qualities"
+description = "Add Worm cards to pool. Worms are limbless, sightless acolytes with astonishing qualities"
 icon = ExtResource("15_orkh0")
 mask = Dictionary[int, bool]({
 0: false,
@@ -199,7 +199,7 @@ mask = Dictionary[int, bool]({
 [node name="Grub Pack" type="Node" parent="."]
 script = ExtResource("7_scm78")
 cards = Array[ExtResource("2_b1cel")]([ExtResource("15_3w6en"), ExtResource("16_y2ul4"), ExtResource("17_npeu5")])
-description = "Add Grub cards to pool Grub: Card to the left of a Grub will consume it and gain a permanent bonus to a specified pip"
+description = "Add Grub cards to pool. The card to the left of a Grub will consume it and gain a permanent bonus to a specified stat"
 icon = ExtResource("19_rdp88")
 mask = Dictionary[int, bool]({
 0: false,
@@ -211,7 +211,7 @@ mask = Dictionary[int, bool]({
 [node name="Warrior Pack" type="Node" parent="."]
 script = ExtResource("7_scm78")
 cards = Array[ExtResource("2_b1cel")]([ExtResource("15_npeu5"), ExtResource("15_npeu5")])
-description = "Add Warrior cards to pool Warrior: Gain 1/1/0, 10 favor during scoring for each Warrior scored in the same action"
+description = "Add Warrior cards to pool. Warriors gain [[1/1/0g0/0/0 and +10 favor during scoring for each Warrior scored in the same action"
 icon = ExtResource("21_tnfgd")
 mask = Dictionary[int, bool]({
 0: false,
@@ -276,7 +276,7 @@ mask = Dictionary[int, bool]({
 [node name="Grow Skills" type="Node" parent="."]
 script = ExtResource("13_5p5qj")
 keyword = ExtResource("14_oo0dp")
-description = "Select a card to brand the Growth sigilGrowth: Permanently add +1 to active pips every time this card is played"
+description = "Select a card to brand the Growth sigil "
 icon = ExtResource("31_xyn15")
 tier = 2
 mask = Dictionary[int, bool]({
@@ -288,7 +288,7 @@ mask = Dictionary[int, bool]({
 
 [node name="Soul Fragment" type="Node" parent="."]
 script = ExtResource("21_e502x")
-description = "Select at least one soul fragment before the last cycle to win the game (this boon is available at tier two for all gods)"
+description = "A valuable key to Ascension when the cycles are complete"
 icon = ExtResource("32_cjb04")
 tier = 2
 debug_force = true
@@ -315,7 +315,7 @@ mask = Dictionary[int, bool]({
 [node name="Understand Insignifigance" type="Node" parent="."]
 script = ExtResource("13_5p5qj")
 keyword = ExtResource("20_e5mks")
-description = "Select a card to brand the Tithe sigilTithe: Gain +5 favor for each resource earned. Gain no resources"
+description = "Select a card to brand the Tithe sigil"
 icon = ExtResource("35_6ytuf")
 tier = 2
 mask = Dictionary[int, bool]({

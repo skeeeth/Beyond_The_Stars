@@ -42,10 +42,10 @@ deck = Array[ExtResource("2_brsyp")]([ExtResource("3_36dom"), ExtResource("4_iae
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 0
-offset_left = 713.0
-offset_top = 468.0
-offset_right = 1026.0
-offset_bottom = 619.5528
+offset_left = 799.0
+offset_top = 500.515
+offset_right = 1128.0
+offset_bottom = 599.3656
 scale = Vector2(1, 0.805)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Play Button"]
@@ -109,7 +109,7 @@ lane = NodePath("..")
 resource_map_base = NodePath("../Faded Display Map")
 
 [node name="GodPosition" type="Node2D" parent="."]
-position = Vector2(1471, 598)
+position = Vector2(1471, 500)
 
 [node name="Sample God" parent="GodPosition" instance=ExtResource("9_4kl2l")]
 visible = false

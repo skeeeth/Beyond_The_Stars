@@ -10,6 +10,6 @@ metadata/_custom_type_script = "uid://qxhdpgnaqedj"
 [resource]
 script = ExtResource("1_t2awb")
 word = "Grow"
-description = "After play, increase every one of my non-zero stats"
+description = "Permanently add +1 to active stats every time this card is played"
 strategy = SubResource("Resource_5qflx")
 metadata/_custom_type_script = "uid://hymadn3vxqo"

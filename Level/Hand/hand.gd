@@ -60,6 +60,9 @@ func draw_one():
 		#draw_one()
 
 func draw_fail():
+	var deny_sound = FmodServer.create_event_instance("event:/UI Deny")
+	deny_sound.start()
+	deny_sound.release()
 	pass
 
 func _on_button_pressed() -> void:
