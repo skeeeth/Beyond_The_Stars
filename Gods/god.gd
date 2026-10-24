@@ -9,7 +9,7 @@ const god_names:Dictionary[GODS,String] = {
 	GODS.A: "Gan'th",
 	GODS.B: "Kolma",
 	GODS.C: "Myggos",
-	GODS.D: "Mahuax"
+	#GODS.D: "Mahuax"
 }
 
 @export var identity:GODS
@@ -47,7 +47,7 @@ static var god_tiers:Dictionary[God.GODS, int] ={
 	GODS.A: 0,
 	GODS.B: 0,
 	GODS.C: 0,
-	GODS.D: 0
+	#GODS.D: 0
 }
 
 var boon_history:Array[Boon]

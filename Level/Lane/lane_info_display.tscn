@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bu8cmomwet08m"]
+[gd_scene load_steps=14 format=3 uid="uid://bu8cmomwet08m"]
 
 [ext_resource type="Texture2D" uid="uid://dq67lowvnjnsr" path="res://Assets/Icon/OfferingICON.png" id="1_am4ty"]
 [ext_resource type="Script" uid="uid://bqbsfkobk3u8w" path="res://Level/Lane/lane_info_display.gd" id="1_px7uy"]
@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://yyptl14usa0p" path="res://Assets/Icon/FoodICON.png" id="6_x0mn8"]
 [ext_resource type="Texture2D" uid="uid://bv1h23jgbjcxg" path="res://Assets/Icon/KnowledgeICON.png" id="7_pom6r"]
 [ext_resource type="Texture2D" uid="uid://d1ny0fndedeia" path="res://Assets/DownTriangle.png" id="9_2h3y1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qb4x7"]
+
+[sub_resource type="Theme" id="Theme_h2kbe"]
+CheckBox/styles/focus = SubResource("StyleBoxTexture_qb4x7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2kbe"]
 
@@ -53,6 +58,7 @@ offset_left = -16.0
 offset_top = -345.0
 offset_right = 368.5393
 offset_bottom = 143.82019
+theme = SubResource("Theme_h2kbe")
 theme_override_styles/panel = SubResource("StyleBoxTexture_h2kbe")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Node2D/PanelContainer"]

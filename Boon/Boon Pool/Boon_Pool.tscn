@@ -23,12 +23,12 @@
 [ext_resource type="Texture2D" uid="uid://025gei6lvh0a" path="res://Assets/Boons/Boon_WormPack_Card.png" id="15_orkh0"]
 [ext_resource type="Resource" uid="uid://whwhcojf4a3k" path="res://Card/Instances/Grub Pack/BlueGrub.tres" id="16_y2ul4"]
 [ext_resource type="Resource" uid="uid://b0ffta8l0ctae" path="res://Card/Instances/Grub Pack/GreenGrub.tres" id="17_npeu5"]
-[ext_resource type="Script" uid="uid://2q1fta1uaqod" path="res://Boon/Boon Pool/deploy_platoon.gd" id="19_dvhg7"]
+[ext_resource type="Script" path="res://Boon/Boon Pool/deploy_platoon.gd" id="19_dvhg7"]
 [ext_resource type="Texture2D" uid="uid://bi4pq4jsll8ih" path="res://Assets/Boons/Boon_GrubPack_Card.png" id="19_rdp88"]
 [ext_resource type="Resource" uid="uid://d4re05y24ny4" path="res://Card/Keywords/Tithe.tres" id="20_e5mks"]
 [ext_resource type="Script" uid="uid://ci21oee3egfbd" path="res://Boon/Boon Pool/soul_fragment.gd" id="21_e502x"]
 [ext_resource type="Texture2D" uid="uid://d10mjni4mtnv5" path="res://Assets/Boons/Boon_WarriorPack_Card.png" id="21_tnfgd"]
-[ext_resource type="Script" uid="uid://fdenwufvq5qu" path="res://Boon/Boon Pool/LaneBlessing.gd" id="22_d4lxj"]
+[ext_resource type="Script" path="res://Boon/Boon Pool/LaneBlessing.gd" id="22_d4lxj"]
 [ext_resource type="Texture2D" uid="uid://vseuokeulvt8" path="res://Assets/Boons/BoonSowSeedsCard.png" id="23_ok7ym"]
 [ext_resource type="Texture2D" uid="uid://bs66s22cidajk" path="res://Assets/Boons/BoonGlimpseBeyondCard.png" id="24_03ag0"]
 [ext_resource type="Texture2D" uid="uid://b0irekpit0jyy" path="res://Assets/Boons/Boon_SeekComrades_Card.png" id="25_xyn15"]
@@ -167,7 +167,7 @@ description = "Permanently gain one action per cycle"
 icon = ExtResource("8_rgg3k")
 mask = Dictionary[int, bool]({
 0: true,
-1: false,
+1: true,
 2: false,
 3: false
 })
@@ -179,7 +179,7 @@ description = "Under [god]'s watch, cards with at least [[1/0/0g0/0/0 score +10 
 icon = ExtResource("11_cjb04")
 mask = Dictionary[int, bool]({
 0: false,
-1: false,
+1: true,
 2: true,
 3: true
 })
@@ -214,7 +214,7 @@ cards = Array[ExtResource("2_b1cel")]([ExtResource("15_npeu5"), ExtResource("15_
 description = "Add Warrior cards to pool. Warriors gain [[1/1/0g0/0/0 and +10 favor during scoring for each Warrior scored in the same action"
 icon = ExtResource("21_tnfgd")
 mask = Dictionary[int, bool]({
-0: false,
+0: true,
 1: false,
 2: false,
 3: true
@@ -252,7 +252,7 @@ target_count = 3
 description = "Select three cards to apply [[0/0/1g0/0/0"
 icon = ExtResource("25_xyn15")
 mask = Dictionary[int, bool]({
-0: false,
+0: true,
 1: false,
 2: true,
 3: true

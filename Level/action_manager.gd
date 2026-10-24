@@ -60,3 +60,6 @@ func _set_text():
 	
 func _set_cycle_text():
 	cycle_text.text = "%s" % cycle
+
+func last_action():
+	var blink = create_tween()

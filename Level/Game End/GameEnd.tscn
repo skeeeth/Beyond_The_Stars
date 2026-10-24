@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cl6agm10qk5o2" path="res://Level/Game End/Game End.gd" id="1_5r52f"]
 [ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="2_gdeqk"]
-[ext_resource type="Script" path="res://Assets/Icon/TextScroll.gd" id="3_gdeqk"]
+[ext_resource type="Script" uid="uid://cmad8hbvh0qyf" path="res://Assets/Icon/TextScroll.gd" id="3_gdeqk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5r52f"]
 font = ExtResource("2_gdeqk")

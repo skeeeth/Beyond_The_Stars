@@ -13,7 +13,6 @@ signal boon_selection_finished
 @onready var background: CycleFinishAnimator = $Background
 
 
-
 var unused_god:God
 var cravings_per_cycle:Array[int] = [1,1,2,2,2,3,3,0]
 
@@ -59,9 +58,9 @@ func _get_valid_boons(god:God.GODS, tier:int) -> Array[Node]:
 
 func _shuffle_lanes():
 	gods.shuffle()
-	if unused_god:
-		RM.favor_scored_in_lane.connect(unused_god.on_favor_scored) #reconnect favor scoring
-	
+	#if unused_god:
+		#RM.favor_scored_in_lane.connect(unused_god.on_favor_scored) #reconnect favor scoring
+	#
 	for l in lanes:
 		l.god_strategies.clear()
 	
@@ -69,9 +68,9 @@ func _shuffle_lanes():
 		gods[i].set_to_lane(lanes[i])
 	  
 	
-	unused_god = gods.back()
-	unused_god.set_to_lane(dummy_lane)
-	RM.favor_scored_in_lane.disconnect(unused_god.on_favor_scored) #Disable favor scoring in dummy lane
+	#unused_god = gods.back()
+	#unused_god.set_to_lane(dummy_lane)
+	#RM.favor_scored_in_lane.disconnect(unused_god.on_favor_scored) #Disable favor scoring in dummy lane
 
 func _assign_cravings():
 	var indexes:Array = [0,1,2]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://djvyr8av4rgyw"]
+[gd_scene load_steps=20 format=3 uid="uid://djvyr8av4rgyw"]
 
 [ext_resource type="Script" uid="uid://bjmii7tqwywfq" path="res://Level/god_manager.gd" id="1_pqgjq"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="2_dqsry"]
@@ -16,10 +16,7 @@
 [ext_resource type="Script" uid="uid://do6niykimbv47" path="res://Card/Strategy/Scripts/BaseCardStrategy.gd" id="10_hit43"]
 [ext_resource type="Script" uid="uid://hymadn3vxqo" path="res://Card/Keywords/Keyword.gd" id="10_msp0b"]
 [ext_resource type="Texture2D" uid="uid://b2buvvqk2fr6k" path="res://Assets/Gods/MahuaxForm2.png" id="10_nxgok"]
-[ext_resource type="Texture2D" uid="uid://c3vcpa3euwhp5" path="res://Assets/Gods/MyggosForm1.png" id="12_faw51"]
 [ext_resource type="PackedScene" uid="uid://dekf8nbom4dk6" path="res://Level/cycle_animation.tscn" id="13_msp0b"]
-[ext_resource type="Texture2D" uid="uid://d168hyi24n5o2" path="res://Assets/Gods/MyggosForm2.png" id="13_oxw7b"]
-[ext_resource type="Texture2D" uid="uid://5o1m7ecqsoqu" path="res://Assets/Gods/MyggosForm3.png" id="14_nd15h"]
 
 [sub_resource type="Resource" id="Resource_faw51"]
 resource_local_to_scene = true
@@ -51,7 +48,7 @@ metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [node name="God Manager" type="Node2D" node_paths=PackedStringArray("gods")]
 script = ExtResource("1_pqgjq")
-gods = [NodePath("Ganth"), NodePath("Kolma"), NodePath("Myggos"), NodePath("Mahuax")]
+gods = [NodePath("Ganth"), NodePath("Kolma"), NodePath("Myggos")]
 
 [node name="Ganth" parent="." instance=ExtResource("2_dqsry")]
 lane_sprite = ExtResource("3_rx3h6")
@@ -69,12 +66,6 @@ identity = 2
 lane_sprite = ExtResource("9_6qq0n")
 middle_sprite = ExtResource("10_nxgok")
 true_sprite = ExtResource("7_k2roj")
-
-[node name="Mahuax" parent="." instance=ExtResource("2_dqsry")]
-identity = 3
-lane_sprite = ExtResource("12_faw51")
-middle_sprite = ExtResource("13_oxw7b")
-true_sprite = ExtResource("14_nd15h")
 
 [node name="BoonPool" parent="." instance=ExtResource("3_dqsry")]
 
