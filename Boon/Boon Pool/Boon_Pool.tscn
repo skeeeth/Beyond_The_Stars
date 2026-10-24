@@ -175,7 +175,7 @@ mask = Dictionary[int, bool]({
 [node name="Aura of Greed" type="Node" parent="."]
 script = ExtResource("6_5y4ju")
 strategy = SubResource("Resource_5p5qj")
-description = "Under [god]'s watch, cards with at least [[1/0/0g0/0/0 score +10 favor and permanently gain [[1/0/0g0/0/0 when played"
+description = "Under [god]'s watch, cards with at least [[1/0/0g0/0/0 score +10 favor and permanently gain +1 Gold when played"
 icon = ExtResource("11_cjb04")
 mask = Dictionary[int, bool]({
 0: false,
@@ -187,7 +187,7 @@ mask = Dictionary[int, bool]({
 [node name="Worm Pack" type="Node" parent="."]
 script = ExtResource("7_scm78")
 cards = Array[ExtResource("2_b1cel")]([ExtResource("8_rgqg3"), ExtResource("11_y2ul4")])
-description = "Add Worm cards to pool"
+description = "Add Worm cards to pool. Worms are imbless, sightless acolytes with astonishing qualities"
 icon = ExtResource("15_orkh0")
 mask = Dictionary[int, bool]({
 0: false,
@@ -199,7 +199,7 @@ mask = Dictionary[int, bool]({
 [node name="Grub Pack" type="Node" parent="."]
 script = ExtResource("7_scm78")
 cards = Array[ExtResource("2_b1cel")]([ExtResource("15_3w6en"), ExtResource("16_y2ul4"), ExtResource("17_npeu5")])
-description = "Add Grub cards to pool"
+description = "Add Grub cards to pool. The card to the left of a Grub will consume it and gain a permanent bonus to a specified stat"
 icon = ExtResource("19_rdp88")
 mask = Dictionary[int, bool]({
 0: false,
@@ -211,7 +211,7 @@ mask = Dictionary[int, bool]({
 [node name="Warrior Pack" type="Node" parent="."]
 script = ExtResource("7_scm78")
 cards = Array[ExtResource("2_b1cel")]([ExtResource("15_npeu5"), ExtResource("15_npeu5")])
-description = "Add Warrior cards to pool "
+description = "Add Warrior cards to pool. Warriors gain [[1/1/0g0/0/0 and +10 favor during scoring for each Warrior scored in the same action"
 icon = ExtResource("21_tnfgd")
 mask = Dictionary[int, bool]({
 0: false,
