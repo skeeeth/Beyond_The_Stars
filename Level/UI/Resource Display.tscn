@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://coobmrgaiqaa0"]
+[gd_scene load_steps=6 format=3 uid="uid://coobmrgaiqaa0"]
 
 [ext_resource type="Theme" uid="uid://bql5e0cm2pyh8" path="res://Level/Lane/UI Theme.tres" id="1_3f1wj"]
 [ext_resource type="Script" uid="uid://c65cqpaq2t3tx" path="res://Level/UI/Resource Display.gd" id="1_mwphg"]
 [ext_resource type="Texture2D" uid="uid://dq67lowvnjnsr" path="res://Assets/Icon/OfferingICON.png" id="2_kq41r"]
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="4_ng50t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mwphg"]
+font = ExtResource("4_ng50t")
 font_size = 24
 font_color = Color(0, 0, 0, 1)
 

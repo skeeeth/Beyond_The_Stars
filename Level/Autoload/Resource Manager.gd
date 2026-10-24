@@ -42,6 +42,9 @@ const resource_icons:Dictionary[types,Texture2D] = {
 ##add an amount of resource to current and fire a coprresponding signal
 ##NOTE: do not add negative values to spend, instead use try_spend()
 func add_resource(type:types,amount:int):
+	if amount == 0:
+		return
+	
 	current[type] += amount
 	cumulative[type] += amount
 	resource_added.emit(type, amount)
