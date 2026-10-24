@@ -6,6 +6,7 @@ signal removal_requested(who:CardDisplay)
 signal hovered(who:CardDisplay)
 signal grabbed
 signal released
+signal favor_bubble_created(bubble:Control)
 
 @export var data:CardData
 
@@ -148,12 +149,21 @@ func score(in_lane:RM.types):
 		#if value > 0: #I THINK ITS ACTUALLY BETTER TO CHECK THIS IN RM.add_resource()
 		RM.add_resource(t,value)
 	
+	
 	for t in data.relative_scoring:
 		var value = data.get_adjusted_rel_values()[t]
 		value += data.temp_grey_mod[t]
 		var adjusted_type = posmod((in_lane + t), (RM.types.size()))
 		RM.add_resource(adjusted_type,value)
-		
+	
+	var favor_bubble:Control = %"Favor Icon".duplicate()
+	favor_bubble.global_position = %"Favor Icon".global_position
+	favor_bubble.size = %"Favor Icon".size
+	favor_bubble.z_index += 1
+	favor_bubble_created.emit(favor_bubble)
+	add_sibling(favor_bubble)
+	
+	#RM.request_bubble(favor_bubble)
 	RM.score_favor(in_lane, data.get_adjusted_favor())
 
 func request_removal():

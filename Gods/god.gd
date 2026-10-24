@@ -70,6 +70,13 @@ func set_to_lane(lane:Lane):
 	current_lane = lane
 	for s in aura_strategies:
 		lane.god_strategies.append(s)
+		
+	for con_dict in lane.favor_bubble_created.get_connections():
+		var sig:Signal = con_dict["signal"]
+		var callable:Callable = con_dict["callable"]
+		sig.disconnect(callable)
+	lane.favor_bubble_created.connect(fly_bubble)
+	#print(lane.favor_bubble_created.get_connections())
 	
 	var fly_tween = create_tween()
 	fly_tween.tween_property(self,"global_position",lane.god_position.global_position,0.4)
@@ -124,6 +131,11 @@ func recieve_boon(boon:Boon):
 	boon_history.append(boon)
 	boon_display.display_boons(boon_history)
 
+func fly_bubble(bubble:Control):
+	var fly = create_tween()
+	fly.tween_property(bubble,"global_position",%"Favor Bar".global_position,0.3).set_ease(Tween.EASE_IN_OUT)
+	fly.tween_callback(bubble.queue_free)
+	
 
 func _on_v_box_container_mouse_entered() -> void:
 	pass

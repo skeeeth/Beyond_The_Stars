@@ -6,7 +6,7 @@ signal clicked(who:Lane)
 signal card_added(card:CardData)
 signal lane_scored(who:Lane)
 signal scoring_started
-
+signal favor_bubble_created(bubble:Control)
 
 @export var type:RM.types
 
@@ -82,6 +82,7 @@ func draw_card():
 	new_card.position = draw_pile.position
 	active_cards.append(new_card)
 	new_card.removal_requested.connect(cards_queued_for_removal.append)
+	new_card.favor_bubble_created.connect(favor_bubble_created.emit)
 	
 	var draw_slide = create_tween()
 	var destination = card_start_position.position
