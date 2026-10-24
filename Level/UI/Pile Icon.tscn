@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bj2bhoovxyyvx"]
+[gd_scene load_steps=8 format=3 uid="uid://bj2bhoovxyyvx"]
 
 [ext_resource type="Script" uid="uid://58p0rsgl7ftv" path="res://Level/UI/pile_icon.gd" id="1_gtld2"]
 [ext_resource type="Material" uid="uid://cnpftegsf3pw0" path="res://Assets/Shaders/Highlightable.tres" id="2_upfhc"]
@@ -13,6 +13,14 @@ outline_size = 4
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upfhc"]
 size = Vector2(236, 330)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxyn5"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
 [node name="Pile" type="Node2D" node_paths=PackedStringArray("count", "highlighter")]
 script = ExtResource("1_gtld2")
 count = NodePath("Count")
@@ -20,10 +28,10 @@ highlighter = NodePath("Highlighter")
 
 [node name="Count" type="Label" parent="."]
 z_index = 5
-offset_left = 36.0
-offset_top = 24.0
-offset_right = 76.0
-offset_bottom = 79.0
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 55.0
+offset_bottom = 56.0
 text = "0"
 label_settings = SubResource("LabelSettings_q3xtq")
 
@@ -43,7 +51,7 @@ position = Vector2(11, 13)
 color = Color(0.13682577, 0.13682574, 0.13682571, 1)
 polygon = PackedVector2Array(0, 0, 0, 180, 140, 180, 140, 0)
 
-[node name="Card2" type="PanelContainer" parent="CanvasGroup"]
+[node name="Card1" type="PanelContainer" parent="CanvasGroup"]
 custom_minimum_size = Vector2(300, 420)
 offset_left = 15.0
 offset_right = 315.0
@@ -52,7 +60,7 @@ scale = Vector2(0.65, 0.65)
 mouse_filter = 2
 theme = ExtResource("4_vxyn5")
 
-[node name="Card3" type="PanelContainer" parent="CanvasGroup"]
+[node name="Card2" type="PanelContainer" parent="CanvasGroup"]
 custom_minimum_size = Vector2(300, 420)
 offset_left = 32.0
 offset_top = 25.0
@@ -68,6 +76,7 @@ canvas_group = NodePath("../CanvasGroup")
 highlight_color = Color(1, 1, 1, 1)
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 z_index = 9
 collision_layer = 3
 collision_mask = 3
@@ -76,6 +85,13 @@ collision_mask = 3
 position = Vector2(108, 155)
 rotation = -0.0030008433
 shape = SubResource("RectangleShape2D_upfhc")
+
+[node name="Border" type="Panel" parent="."]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 225.0
+offset_bottom = 310.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vxyn5")
 
 [connection signal="input_event" from="Hitbox" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]

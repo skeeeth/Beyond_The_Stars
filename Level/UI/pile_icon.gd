@@ -8,9 +8,20 @@ signal deck_clicked(cards: Array)
 @export var highlighter:Highlighter
 enum highlight_modes{PULSING, HOVERED, OFF, SELECTED}
 var highlight_mode:highlight_modes
+@onready var card_1: PanelContainer = $CanvasGroup/Card1
+@onready var card_2: PanelContainer = $CanvasGroup/Card2
 
 func update():
 	count.text = str(array.size())
+	if array.size() == 1:
+		card_1.show()
+		card_2.hide()
+	elif array.size() == 0:
+		card_1.hide()
+		card_2.hide()
+	else:
+		card_1.show()
+		card_2.show()
 
 func set_highlight_mode(mode:highlight_modes):
 	highlight_mode = mode
@@ -62,10 +73,10 @@ func fly_in_card(card:CardDisplay):
 	fly.parallel().tween_property(card,"scale",Vector2.ZERO,0.5)
 	fly.parallel().tween_callback(shuffle_tween_anim)
 
-func shuffle_tween_anim():
+func shuffle_tween_anim() -> Signal:
 	var shuffle = self.create_tween()
-	var card_one = $CanvasGroup/Card2
-	var card_two = $CanvasGroup/Card3
+	var card_one = $CanvasGroup/Card1
+	var card_two = $CanvasGroup/Card2
 	var p1 = Vector2(5,-5)
 	var p2 = -p1
 	var target_z = 1
@@ -78,3 +89,10 @@ func shuffle_tween_anim():
 		target_z *= -1
 	shuffle.tween_property(card_one,"position", Vector2.ZERO, 0.05)
 	shuffle.tween_property(card_two,"position", Vector2.ZERO, 0.05)
+	return shuffle.finished
+
+func pop_card_data(data:CardData) -> CardDisplay:
+	var new_card = CardDisplay.create_from_data(data)
+	new_card.position = position
+	add_sibling(new_card)
+	return new_card

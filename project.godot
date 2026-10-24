@@ -15,7 +15,7 @@ General/banks_path="res://Beyond the Stars FMOD/Build/Desktop"
 [application]
 
 config/name="Beyond The Stars"
-run/main_scene="uid://bwcxvxsttp0vy"
+run/main_scene="uid://bidnk55kuy1i4"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

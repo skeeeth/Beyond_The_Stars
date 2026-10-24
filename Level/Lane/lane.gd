@@ -64,9 +64,9 @@ func draw_card():
 		if discard.size() == 0:
 			draw_fail()
 			return
-		#reshuffle
-		for c in discard: 
-			deck.append(c)
+		
+		await reshuffle()
+		
 		deck.shuffle()
 		discard.clear()
 	#discard.push_back(res)
@@ -105,6 +105,19 @@ func draw_fail():
 	var draw_fail_sound = FmodServer.create_event_instance("event:/Card Waterfall")
 	draw_fail_sound.start()
 	draw_fail_sound.release()
+
+func reshuffle() -> Signal:
+	var shuffle = create_tween()
+	#reshuffle
+	for c in discard:
+		deck.append(c)
+		#discard.erase(c)
+		var fly_card = discard_pile.pop_card_data(c)
+		shuffle.tween_callback(draw_pile.fly_in_card.bind(fly_card))
+		shuffle.tween_callback(discard.erase.bind(c))
+		shuffle.tween_interval(0.1)
+		
+	return shuffle.finished
 
 func _on_button_pressed() -> void:
 	play()
