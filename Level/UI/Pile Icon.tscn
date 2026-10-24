@@ -22,6 +22,7 @@ border_width_bottom = 4
 border_color = Color(0, 0, 0, 1)
 
 [node name="Pile" type="Node2D" node_paths=PackedStringArray("count", "highlighter")]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_gtld2")
 count = NodePath("Count")
 highlighter = NodePath("Highlighter")
@@ -76,7 +77,6 @@ canvas_group = NodePath("../CanvasGroup")
 highlight_color = Color(1, 1, 1, 1)
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
 z_index = 9
 collision_layer = 3
 collision_mask = 3
@@ -91,6 +91,7 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 225.0
 offset_bottom = 310.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vxyn5")
 
 [connection signal="input_event" from="Hitbox" to="." method="_on_area_2d_input_event"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://djelkq3gxvrft"]
+[gd_scene load_steps=16 format=3 uid="uid://djelkq3gxvrft"]
 
 [ext_resource type="Theme" uid="uid://bql5e0cm2pyh8" path="res://Level/Lane/UI Theme.tres" id="1_1uh1k"]
 [ext_resource type="Script" uid="uid://dpj87j1ut8bw3" path="res://Level/Lane/lane.gd" id="1_rr5i5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bj2bhoovxyyvx" path="res://Level/UI/Pile Icon.tscn" id="5_3y20t"]
 [ext_resource type="PackedScene" uid="uid://dyy8u8y55lkkl" path="res://Level/Lane/upgrade_button.tscn" id="7_5wohj"]
 [ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="7_tbp5f"]
+[ext_resource type="LabelSettings" uid="uid://dx2h7pjur7qld" path="res://Level/UI/Top Bar/Top Bar Number Text.tres" id="8_tbp5f"]
 [ext_resource type="PackedScene" uid="uid://c8lihsm427v3f" path="res://Level/Lane/resource_map.tscn" id="8_xrdmo"]
 [ext_resource type="PackedScene" uid="uid://dvsbqpcyvpbjs" path="res://Gods/God.tscn" id="9_4kl2l"]
 [ext_resource type="Texture2D" uid="uid://13ox0tece8j7" path="res://LaneBorderBlack.png" id="9_5wohj"]
@@ -83,11 +84,35 @@ polygon = PackedVector2Array(0, -20, 1500, -20, 1500, 500, 0, 500, 0, 500)
 
 [node name="Draw Pile" parent="." instance=ExtResource("5_3y20t")]
 unique_name_in_owner = true
-position = Vector2(-373, -98)
+position = Vector2(-369, -63.000004)
+
+[node name="Label" type="Label" parent="Draw Pile"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.749999
+offset_top = -41.25
+offset_right = 146.75
+offset_bottom = 19.75
+grow_vertical = 0
+text = "Draw Pile"
+label_settings = ExtResource("8_tbp5f")
 
 [node name="Discard Pile" parent="." instance=ExtResource("5_3y20t")]
 unique_name_in_owner = true
-position = Vector2(1274, -104)
+position = Vector2(1286, -68)
+
+[node name="Label" type="Label" parent="Discard Pile"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.749999
+offset_top = -41.25
+offset_right = 146.75
+offset_bottom = 19.75
+grow_vertical = 0
+text = "Discard  Pile"
+label_settings = ExtResource("8_tbp5f")
 
 [node name="Click Hitbox" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
