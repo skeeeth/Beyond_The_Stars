@@ -107,6 +107,9 @@ func draw_fail():
 	draw_fail_sound.release()
 
 func reshuffle() -> Signal:
+	var shuffle_sound = FmodServer.create_event_instance("event:/Card Shuffle")
+	shuffle_sound.start()
+	shuffle_sound.release()
 	var shuffle = create_tween()
 	#reshuffle
 	for c in discard:
