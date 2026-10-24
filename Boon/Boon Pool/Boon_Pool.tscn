@@ -187,7 +187,7 @@ mask = Dictionary[int, bool]({
 [node name="Worm Pack" type="Node" parent="."]
 script = ExtResource("7_scm78")
 cards = Array[ExtResource("2_b1cel")]([ExtResource("8_rgqg3"), ExtResource("11_y2ul4")])
-description = "Add Worm cards to pool. Worms are imbless, sightless acolytes with astonishing qualities"
+description = "Add Worm cards to pool. Worms are limbless, sightless acolytes with astonishing qualities"
 icon = ExtResource("15_orkh0")
 mask = Dictionary[int, bool]({
 0: false,

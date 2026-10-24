@@ -8,7 +8,7 @@ signal cycle_ending
 @export var gm:GodManager
 @export var win_checklist:WinChecklist
 @export var cycle_text:Label
-static var actions_per_cycle:int = 5
+static var actions_per_cycle:int = 3
 static var instance:ActionManager
 var actions_left:int = actions_per_cycle
 var cycle:int = 0
