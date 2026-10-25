@@ -21,7 +21,7 @@ var time_limit:int = 2:
 	set(v):
 		time_limit = v
 		time_limit_label.remove_paragraph(0)
-		time_limit_label.append_text("Cycles left %s" % time_limit)
+		time_limit_label.append_text("Cycles left: %s" % time_limit)
 	get:
 		return time_limit
 

@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if state != pulse_states.STATIC:
-		pulse_progress += delta * 1.4
+		pulse_progress += delta * 3
 		var a = lerp(0.2,1.0,abs(sin(pulse_progress)))
 		set_border_color(Color(highlight_color,a))
 

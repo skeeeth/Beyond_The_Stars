@@ -46,6 +46,8 @@ func on_cultist_generated(resource_type:RM.types, _amount:int):
 	cult_size.label.text = "Total members: %s/%s" % [RM.cumulative[RM.types.BLUE], target_cult_size]
 	if RM.cumulative[RM.types.BLUE] > target_cult_size:
 		cult_size.check()
+	else:
+		cult_size.reset()
 
 func _on_great_feast_button_pressed() -> void:
 	if RM.try_spend(RM.types.GREEN,feast_cost):
