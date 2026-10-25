@@ -28,7 +28,7 @@ func _ready() -> void:
 		item.cleared.connect(on_win_condition_cleared)
 		item.reset()
 	
-	great_feast.button.text = "Begin Feast (%s food, %s sacrifices)" % [feast_cost, sacrifices]
+	great_feast.button.text = "Begin Feast\n (%s food, %s sacrifices)" % [feast_cost, sacrifices]
 	#clears_left = list_items.size()
 	on_cultist_generated(RM.types.BLUE,0)
 	clears_left = 0

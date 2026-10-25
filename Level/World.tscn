@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bidnk55kuy1i4"]
+[gd_scene load_steps=42 format=3 uid="uid://bidnk55kuy1i4"]
 
 [ext_resource type="PackedScene" uid="uid://djelkq3gxvrft" path="res://Level/Lane/lane.tscn" id="1_hleuw"]
 [ext_resource type="Script" uid="uid://bwap3b66q8u8y" path="res://Level/WorldCardDisplay.gd" id="1_kwlfk"]
@@ -20,17 +20,18 @@
 [ext_resource type="Texture2D" uid="uid://by4y127uk17xx" path="res://Assets/Cards/Card_SocialiteBlue.png" id="16_87nhp"]
 [ext_resource type="PackedScene" uid="uid://bu8cmomwet08m" path="res://Level/Lane/lane_info_display.tscn" id="18_lcjul"]
 [ext_resource type="Material" uid="uid://cye8u3qvxc24j" path="res://Assets/CardMaterial.tres" id="19_abuqb"]
+[ext_resource type="FontFile" uid="uid://cp5t5o40e0o0t" path="res://Assets/SpecialElite-Regular.ttf" id="20_utnpk"]
 [ext_resource type="PackedScene" uid="uid://buf0hretkfi1s" path="res://Level/Win Condition assessment/intro_text_scroll.tscn" id="21_g2nqd"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2nqd"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_utnpk"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_GruntWorker_Grey.png-6a56ed2cd7bb410d97d6bbd55f0edcb2.ctex"
 
-[sub_resource type="Resource" id="Resource_utnpk"]
+[sub_resource type="Resource" id="Resource_gs1rt"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Worker"
-texture = SubResource("CompressedTexture2D_g2nqd")
+texture = SubResource("CompressedTexture2D_utnpk")
 relative_scoring = Dictionary[int, int]({
 -1: 0,
 0: 1,
@@ -43,15 +44,15 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gs1rt"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_87nhp"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_gruntdevotee.png-cbadf53dd811339fe1a98683df7a8670.ctex"
 
-[sub_resource type="Resource" id="Resource_87nhp"]
+[sub_resource type="Resource" id="Resource_up2ya"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Devotee"
-texture = SubResource("CompressedTexture2D_gs1rt")
+texture = SubResource("CompressedTexture2D_87nhp")
 resource_costs = Dictionary[int, int]({
 0: 0,
 1: 0,
@@ -60,15 +61,15 @@ resource_costs = Dictionary[int, int]({
 favor = 15
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_up2ya"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qv5hx"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_GruntWorker_Grey.png-6a56ed2cd7bb410d97d6bbd55f0edcb2.ctex"
 
-[sub_resource type="Resource" id="Resource_qv5hx"]
+[sub_resource type="Resource" id="Resource_xujkg"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Worker"
-texture = SubResource("CompressedTexture2D_up2ya")
+texture = SubResource("CompressedTexture2D_qv5hx")
 relative_scoring = Dictionary[int, int]({
 -1: 0,
 0: 1,
@@ -81,15 +82,15 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xujkg"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_313p5"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_gruntdevotee.png-cbadf53dd811339fe1a98683df7a8670.ctex"
 
-[sub_resource type="Resource" id="Resource_313p5"]
+[sub_resource type="Resource" id="Resource_65geu"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Devotee"
-texture = SubResource("CompressedTexture2D_xujkg")
+texture = SubResource("CompressedTexture2D_313p5")
 resource_costs = Dictionary[int, int]({
 0: 0,
 1: 0,
@@ -98,15 +99,15 @@ resource_costs = Dictionary[int, int]({
 favor = 15
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_65geu"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pqrr3"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_GruntWorker_Grey.png-6a56ed2cd7bb410d97d6bbd55f0edcb2.ctex"
 
-[sub_resource type="Resource" id="Resource_pqrr3"]
+[sub_resource type="Resource" id="Resource_dlbl1"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Grunt Worker"
-texture = SubResource("CompressedTexture2D_65geu")
+texture = SubResource("CompressedTexture2D_pqrr3")
 relative_scoring = Dictionary[int, int]({
 -1: 0,
 0: 1,
@@ -119,24 +120,24 @@ resource_costs = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dlbl1"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pstpm"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_gruntdevotee.png-cbadf53dd811339fe1a98683df7a8670.ctex"
-
-[sub_resource type="Resource" id="Resource_pstpm"]
-resource_local_to_scene = true
-script = ExtResource("5_qj8ib")
-card_name = "Grunt Devotee"
-texture = SubResource("CompressedTexture2D_dlbl1")
-resource_costs = Dictionary[int, int]({
-0: 0,
-1: 0,
-2: 0
-})
-favor = 15
-metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
 [sub_resource type="Resource" id="Resource_woec4"]
+resource_local_to_scene = true
+script = ExtResource("5_qj8ib")
+card_name = "Grunt Devotee"
+texture = SubResource("CompressedTexture2D_pstpm")
+resource_costs = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0
+})
+favor = 15
+metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="Resource" id="Resource_33gh6"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Skeptic Tradesman"
@@ -149,15 +150,15 @@ relative_scoring = Dictionary[int, int]({
 favor = -25
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_33gh6"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dkxd2"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/Card_EvangelistBlue.png-0eda90e4bd4b27c5e7e230b7cc2315b0.ctex"
 
-[sub_resource type="Resource" id="Resource_dkxd2"]
+[sub_resource type="Resource" id="Resource_qcenn"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Evangelist"
-texture = SubResource("CompressedTexture2D_33gh6")
+texture = SubResource("CompressedTexture2D_dkxd2")
 absolute_scoring = Dictionary[int, int]({
 0: 0,
 1: 0,
@@ -166,7 +167,7 @@ absolute_scoring = Dictionary[int, int]({
 favor = 20
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_qcenn"]
+[sub_resource type="Resource" id="Resource_wgige"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Fasting Fanatic"
@@ -184,7 +185,7 @@ resource_costs = Dictionary[int, int]({
 favor = 40
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_wgige"]
+[sub_resource type="Resource" id="Resource_gpwjo"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Fat Cat"
@@ -202,7 +203,7 @@ resource_costs = Dictionary[int, int]({
 favor = -10
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
 
-[sub_resource type="Resource" id="Resource_gpwjo"]
+[sub_resource type="Resource" id="Resource_n3fmw"]
 resource_local_to_scene = true
 script = ExtResource("5_qj8ib")
 card_name = "Socialite"
@@ -213,6 +214,12 @@ absolute_scoring = Dictionary[int, int]({
 2: 1
 })
 metadata/_custom_type_script = "uid://c4xgjyl5skdwk"
+
+[sub_resource type="LabelSettings" id="LabelSettings_gs1rt"]
+font = ExtResource("20_utnpk")
+font_size = 55
+outline_size = 18
+outline_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("card_display", "viewport_effects")]
 texture_filter = 4
@@ -232,7 +239,7 @@ offset_left = 153.0
 offset_top = 69.74
 offset_right = 153.0
 offset_bottom = 69.74
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_utnpk"), SubResource("Resource_87nhp")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_gs1rt"), SubResource("Resource_up2ya")])
 
 [node name="Play Button" parent="Lanes/Lane" index="0"]
 script = ExtResource("8_qj8ib")
@@ -247,7 +254,7 @@ offset_top = 289.0
 offset_right = 154.0
 offset_bottom = 289.0
 type = 1
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_qv5hx"), SubResource("Resource_313p5")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_xujkg"), SubResource("Resource_65geu")])
 
 [node name="Polygon2D" parent="Lanes/Lane2" index="1"]
 color = Color(0.264, 0.66, 0.28379998, 1)
@@ -259,7 +266,7 @@ offset_top = 548.0
 offset_right = 160.0
 offset_bottom = 548.0
 type = 2
-deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_pqrr3"), SubResource("Resource_pstpm")])
+deck = Array[ExtResource("5_qj8ib")]([SubResource("Resource_dlbl1"), SubResource("Resource_woec4")])
 
 [node name="Polygon2D" parent="Lanes/Lane3" index="1"]
 color = Color(0.264, 0.31679994, 0.66, 1)
@@ -295,7 +302,7 @@ texture_filter = 4
 
 [node name="Hand" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("5_0obbo")]
 position = Vector2(0, 740.895)
-starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_woec4"), SubResource("Resource_dkxd2"), SubResource("Resource_qcenn"), SubResource("Resource_wgige"), SubResource("Resource_woec4"), SubResource("Resource_gpwjo")])
+starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_33gh6"), SubResource("Resource_qcenn"), SubResource("Resource_wgige"), SubResource("Resource_gpwjo"), SubResource("Resource_33gh6"), SubResource("Resource_n3fmw")])
 
 [node name="TopBar" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("2_e0a3j")]
 offset_left = 354.585
@@ -354,6 +361,21 @@ energy = 0.0
 blend_mode = 1
 texture = ExtResource("11_s4lld")
 
+[node name="Center Screen Text" type="Label" parent="Camera2D/CanvasLayer2/ViewFollow World/Viewport effects"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -323.05
+offset_right = 1920.0
+offset_bottom = 756.95
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_gs1rt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="End Screen" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("12_xju0t")]
 visible = false
 z_index = 999
@@ -361,6 +383,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="Intro Text Scroll" parent="Camera2D/CanvasLayer2" instance=ExtResource("21_g2nqd")]
+visible = false
 
 [connection signal="mouse_entered" from="Lanes/Lane/Play Button" to="Lanes/Lane/Play Button" method="_hover_sound"]
 [connection signal="mouse_entered" from="Lanes/Lane/Upgrade" to="Lanes/Lane/Play Button" method="_hover_sound"]

@@ -222,6 +222,7 @@ func disable_buttons():
 		for b in buttons:
 			if b:
 				b.disabled = true
+				b.visible = false
 
 func enable_buttons():
 	button_supressions -= 1
@@ -230,6 +231,7 @@ func enable_buttons():
 		for b in buttons:
 			if b:
 				b.disabled = false
+				b.visible = true
 			
 func get_combined_card_list() -> Array[CardData]:
 	var combined_array:Array[CardData]
