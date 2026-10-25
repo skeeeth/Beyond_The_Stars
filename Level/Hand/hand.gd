@@ -15,7 +15,7 @@ var cards_in_hand:int = 0:
 		cards_in_hand = v
 		%"Hand Label".text = "Hand (%s/%s)" % [cards_in_hand,max_hand_size]
 
-var draw_cost:int = 0:
+var draw_cost:int = 1:
 	set(v):
 		draw_cost = v
 		%"Cost Text".text = ":%s " % draw_cost
