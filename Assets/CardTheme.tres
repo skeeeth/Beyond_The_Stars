@@ -17,6 +17,7 @@ Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_e73gm")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_e73gm")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = -2
 RichTextLabel/font_sizes/normal_font_size = 18
 RichTextLabel/fonts/bold_font = SubResource("SystemFont_wpxes")
 RichTextLabel/fonts/normal_font = SubResource("SystemFont_wpxes")
