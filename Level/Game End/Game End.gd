@@ -27,6 +27,7 @@ func setup(checklist:WinChecklist):
 	checklist.h_box_container.visible = true
 	checklist.h_box_container.reparent(checklist_position,false)
 	checklist.h_box_container.position = Vector2.ZERO
+	checklist.h_box_container.size.y = 0
 	checklist.set_favor_tier_text()
 	display_text(checklist)
 	
