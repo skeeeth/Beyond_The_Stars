@@ -65,6 +65,9 @@ func _set_cycle_text():
 	cycle_text.text = "%s" % cycle
 
 func last_action():
+	var final_action_sound = FmodServer.create_event_instance("event:/Last Action")
+	final_action_sound.start()
+	final_action_sound.release()
 	var blink = create_tween()
 	var action_panel = %"Action Panel"
 	var _hide = func h(): action_panel.modulate.a = 0
