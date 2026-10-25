@@ -38,7 +38,6 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -86,7 +85,8 @@ layout_mode = 2
 text = "Great Feast"
 
 [node name="Button" parent="HBoxContainer/Checklist Panel/VBoxContainer/Great Feast" index="2"]
-text = "Begin Feast (30 food, 2 sacrifices)"
+text = "Begin Feast
+ (30 food, 2 sacrifices)"
 
 [node name="Soul Fragment" parent="HBoxContainer/Checklist Panel/VBoxContainer" instance=ExtResource("2_328j4")]
 unique_name_in_owner = true

@@ -18,6 +18,9 @@ func check():
 	#check_box.button_pressed = true
 	cleared.emit()
 
+func reset():
+	is_cleared = false
+	texture_progress_bar.value = 0
 
 func _on_button_pressed() -> void:
 	button_pressed.emit()

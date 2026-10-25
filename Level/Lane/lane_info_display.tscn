@@ -43,7 +43,7 @@ scale = Vector2(0.445, 0.445)
 z_index = -1
 offset_left = -43.0
 offset_top = -384.0
-offset_right = 951.0919
+offset_right = 980.0879
 offset_bottom = 1456.3767
 scale = Vector2(0.31, 0.31)
 texture = ExtResource("3_qb4x7")
@@ -99,7 +99,7 @@ icon_alignment = 2
 expand_icon = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Node2D/PanelContainer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
+custom_minimum_size = Vector2(52, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 

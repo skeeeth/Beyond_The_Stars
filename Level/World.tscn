@@ -293,12 +293,6 @@ offset_bottom = 3041.0
 [node name="ViewFollow World" type="Node2D" parent="Camera2D/CanvasLayer2"]
 texture_filter = 4
 
-[node name="End Screen" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("12_xju0t")]
-visible = false
-z_index = 999
-offset_right = 1920.0
-offset_bottom = 1080.0
-
 [node name="Hand" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("5_0obbo")]
 position = Vector2(0, 740.895)
 starting_pool = Array[ExtResource("5_qj8ib")]([SubResource("Resource_woec4"), SubResource("Resource_dkxd2"), SubResource("Resource_qcenn"), SubResource("Resource_wgige"), SubResource("Resource_woec4"), SubResource("Resource_gpwjo")])
@@ -360,6 +354,12 @@ energy = 0.0
 blend_mode = 1
 texture = ExtResource("11_s4lld")
 
+[node name="End Screen" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("12_xju0t")]
+visible = false
+z_index = 999
+offset_right = 1920.0
+offset_bottom = 1080.0
+
 [node name="Intro Text Scroll" parent="Camera2D/CanvasLayer2" instance=ExtResource("21_g2nqd")]
 
 [connection signal="mouse_entered" from="Lanes/Lane/Play Button" to="Lanes/Lane/Play Button" method="_hover_sound"]
@@ -372,5 +372,5 @@ texture = ExtResource("11_s4lld")
 [editable path="Lanes/Lane"]
 [editable path="Lanes/Lane2"]
 [editable path="Lanes/Lane3"]
-[editable path="Camera2D/CanvasLayer2/ViewFollow World/End Screen"]
 [editable path="Camera2D/CanvasLayer2/ViewFollow World/TopBar"]
+[editable path="Camera2D/CanvasLayer2/ViewFollow World/End Screen"]

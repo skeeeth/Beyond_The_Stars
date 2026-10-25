@@ -26,14 +26,17 @@ func _ready() -> void:
 	WinChecklist.instance = self
 	for item in list_items:
 		item.cleared.connect(on_win_condition_cleared)
+		item.reset()
 	
 	great_feast.button.text = "Begin Feast (%s food, %s sacrifices)" % [feast_cost, sacrifices]
 	#clears_left = list_items.size()
 	on_cultist_generated(RM.types.BLUE,0)
+	clears_left = 0
 	set_favor_tier_text()
 
 func on_win_condition_cleared():
 	clears_left -= 1
+	print("Clears left: %s" % clears_left)
 
 
 func on_cultist_generated(resource_type:RM.types, _amount:int):
