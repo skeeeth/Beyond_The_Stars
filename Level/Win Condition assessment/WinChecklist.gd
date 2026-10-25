@@ -18,7 +18,7 @@ static var instance:WinChecklist #give reference
 @onready var favor_tiers: RichTextLabel = $"HBoxContainer/Checklist Panel/VBoxContainer/Favor Tiers"
 
 
-var clears_left:int
+var clears_left:int = 3
 
 func _ready() -> void:
 	spacer.custom_minimum_size = size
@@ -28,12 +28,13 @@ func _ready() -> void:
 		item.cleared.connect(on_win_condition_cleared)
 	
 	great_feast.button.text = "Begin Feast (%s food, %s sacrifices)" % [feast_cost, sacrifices]
-	clears_left = list_items.size()
+	#clears_left = list_items.size()
 	on_cultist_generated(RM.types.BLUE,0)
 	set_favor_tier_text()
 
 func on_win_condition_cleared():
 	clears_left -= 1
+
 
 func on_cultist_generated(resource_type:RM.types, _amount:int):
 	if resource_type!= RM.types.BLUE:
@@ -97,7 +98,7 @@ func set_favor_tier_text():
 		favor_tiers.append_text(": ")
 		#var breakpoint_readable_god_tiers = God.god_tiers
 		favor_tiers.add_image(FAVOR_ICON,32,32)
-		favor_tiers.append_text(" %s/%s\n" % [God.god_tiers[key],3])
+		favor_tiers.append_text(" %s/%s\n" % [God.god_tiers[key]-1,3])
 		
 func mouse_hover() -> void:
 	var UI_hover = FmodServer.create_event_instance("event:/UI Hover")

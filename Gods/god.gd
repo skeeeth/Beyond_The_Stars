@@ -107,13 +107,13 @@ func tier_up():
 	if current_tier > 1:
 		boon_display.displays[current_tier-2].modulate = Color.WHITE #reshow hidden icon
 	
+	god_tiers[identity] = current_tier
+	
 	if current_tier == 4:
 		%"Favor Bar".hide()
 		return
 
 	max_favor = favor_tiers[current_tier]
-	
-	god_tiers[identity] = current_tier
 	
 
 	var tier_icon = boon_display.displays[current_tier-1]

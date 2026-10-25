@@ -75,11 +75,11 @@ func display_text(checklist:WinChecklist):
 			path = "res://Assets/Text Scrolls/Mahaux Win.txt"
 			title_line = "Mahaux Ascends"
 	
-	if max_tier < 3:
+	if max_tier < 4:
 		path = "res://Assets/Text Scrolls/Neutral Loss.txt"
 		title_line = "Failed Ascension"
 	
-	if checklist.clears_left <= 0 and min_tier >= 3:
+	if checklist.clears_left <= 0 and min_tier >= 4:
 		path = "res://Assets/Text Scrolls/Player Win.txt"
 		title_line = "True Ascension"
 		
@@ -96,3 +96,9 @@ func _on_button_hover() -> void:
 	var UI_hover_sound = FmodServer.create_event_instance("event:/UI Hover")
 	UI_hover_sound.start()
 	UI_hover_sound.release()
+
+
+##debug hotkey
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		print(get_god_info())
