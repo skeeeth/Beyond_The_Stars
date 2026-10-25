@@ -32,7 +32,7 @@ func _ready() -> void:
 	for i in range(0,starting_cards):
 		draw_one()
 	
-	draw_cost = 0
+	draw_cost = 1
 
 func draw_one():
 	cards_in_hand += 1

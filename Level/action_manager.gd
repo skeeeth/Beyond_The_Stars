@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	#we dont care what card or lane is actually being played here, just that it happened
 	# hence the unbinding to match signature of triggered callable
-	
+	actions_per_cycle = 3
 	for l in lanes:
 		#l.card_added.connect(on_action_taken.unbind(1))
 		l.lane_scored.connect(on_action_taken.unbind(1))
