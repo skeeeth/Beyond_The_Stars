@@ -83,6 +83,7 @@ offset_right = 1918.0
 offset_bottom = 358.0
 
 [node name="Craving" parent="." instance=ExtResource("3_m5r1x")]
+visible = false
 offset_left = -277.0
 offset_top = -334.0
 offset_right = -13.0
