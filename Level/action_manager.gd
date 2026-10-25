@@ -29,6 +29,9 @@ func _ready() -> void:
 func on_action_taken():
 	actions_left -= 1
 	_set_text()
+	if actions_left == 1:
+		last_action()
+
 	if actions_left == 0:
 		round_end()
 		
@@ -63,3 +66,12 @@ func _set_cycle_text():
 
 func last_action():
 	var blink = create_tween()
+	var action_panel = %"Action Panel"
+	var _hide = func h(): action_panel.modulate.a = 0
+	var _show = func s(): action_panel.modulate.a = 1
+	
+	for i in range(0,3):
+		blink.tween_callback(_hide)
+		blink.tween_interval(0.1)
+		blink.tween_callback(_show)
+		blink.tween_interval(0.1)

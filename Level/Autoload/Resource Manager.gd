@@ -9,7 +9,7 @@ signal resource_spend(type:RM.types, amount:int)
 
 signal favor_scored_in_lane(type:RM.types, amount:int)
 
-signal bubble_requested(bubble:Control)
+#signal bubble_requested(bubble:Control)
 #hard set names, so that actual interpretation of each slot can be changed later
 enum types{RED,GREEN,BLUE}
 
@@ -86,10 +86,10 @@ func reset():
 		cumulative[k] = 0
 		resource_added.emit(k,0)
 	
-func score_favor(lane:types, amount:int, position:Vector2 = Vector2.ZERO):
+func score_favor(lane:types, amount:int, _position:Vector2 = Vector2.ZERO):
 	favor_scored_in_lane.emit(lane, amount)
 	
 
-func request_bubble(control:Control):
-	bubble_requested.emit(control)
+#func request_bubble(control:Control):
+	#bubble_requested.emit(control)
 	

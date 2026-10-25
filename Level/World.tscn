@@ -309,17 +309,16 @@ offset_top = 15.425
 offset_right = 1519.585
 offset_bottom = 115.425
 
-[node name="Action Manager" parent="Camera2D/CanvasLayer2/ViewFollow World/TopBar/SuperBar/PanelContainer2/VBoxContainer" index="1" node_paths=PackedStringArray("lanes", "hand", "gm", "win_checklist", "cycle_text", "bgm_node")]
+[node name="Action Manager" parent="Camera2D/CanvasLayer2/ViewFollow World/TopBar/SuperBar/Action Panel/VBoxContainer" index="1" node_paths=PackedStringArray("lanes", "hand", "gm", "win_checklist", "bgm_node")]
 lanes = [NodePath("../../../../../../../../Lanes/Lane"), NodePath("../../../../../../../../Lanes/Lane2"), NodePath("../../../../../../../../Lanes/Lane3")]
 hand = NodePath("../../../../../Hand")
 gm = NodePath("../../../../../God Manager")
 win_checklist = NodePath("../../../Win Checklist")
-cycle_text = NodePath("../../../PanelContainer/VBoxContainer/Cycle Number")
 bgm_node = NodePath("../../../../../../../../BGM Node")
 
 [node name="God Manager" parent="Camera2D/CanvasLayer2/ViewFollow World" node_paths=PackedStringArray("lanes", "action_manager") instance=ExtResource("7_u7eci")]
 lanes = [NodePath("../../../../Lanes/Lane"), NodePath("../../../../Lanes/Lane2"), NodePath("../../../../Lanes/Lane3")]
-action_manager = NodePath("../TopBar/SuperBar/PanelContainer2/VBoxContainer/Action Manager")
+action_manager = NodePath("../TopBar/SuperBar/Action Panel/VBoxContainer/Action Manager")
 
 [node name="Lane Info Display" parent="Camera2D/CanvasLayer2/ViewFollow World" instance=ExtResource("18_lcjul")]
 position = Vector2(0, -142.44)
