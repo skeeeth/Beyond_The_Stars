@@ -383,7 +383,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="Intro Text Scroll" parent="Camera2D/CanvasLayer2" instance=ExtResource("21_g2nqd")]
-visible = false
 
 [connection signal="mouse_entered" from="Lanes/Lane/Play Button" to="Lanes/Lane/Play Button" method="_hover_sound"]
 [connection signal="mouse_entered" from="Lanes/Lane/Upgrade" to="Lanes/Lane/Play Button" method="_hover_sound"]
